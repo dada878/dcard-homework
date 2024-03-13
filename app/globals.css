@@ -27,20 +27,62 @@ body {
   }
 }
 
+.fade-out {
+  animation: 1.5s fade-out forwards;
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100;
+  }
+}
+
 .glow-purple {
   width: 0px;
   height: 0px;
-  box-shadow: 0px 0px 30rem 15rem #7e2bd056;
+  border-radius: 50%;
+  box-shadow: 0px 0px 50rem 12rem #7e2bd03d;
+  filter: blur(5rem);
 }
 
 .glow-blue {
   width: 0px;
   height: 0px;
-  box-shadow: 0px 0px 30rem 15rem #0569ff57;
+  border-radius: 50%;
+  box-shadow: 0px 0px 50rem 12rem #0569ff34;
+  filter: blur(5rem);
 }
 
 .glow-blue-light {
   width: 0px;
   height: 0px;
-  box-shadow: 0px 0px 30rem 15rem #3f7bbf59;
+  border-radius: 50%;
+  box-shadow: 0px 0px 50rem 12rem #3f7bbf3b;
+  filter: blur(5rem);
+}
+
+.blur-out {
+  animation: blur-out 1.5s forwards;
+}
+
+.rotate {
+  animation: rotate 25s linear infinite;
+}
+
+@keyframes blur-out {
+  0% {
+    filter: blur(2rem);
+  }
+  100% {
+    filter: blur(0rem);
+  }
+}
+
+@keyframes rotate {
+  100% { 
+    transform: rotate(360deg); 
+} 
 }
