@@ -8,7 +8,7 @@ export default function NavbarItem({
   url: string;
 }) {
   return (
-    <Link className="hover:text-secondary transition" href={url}>
+    <Link className="hover:text-secondary transition p-3" href={url}>
       {name}
     </Link>
   );
