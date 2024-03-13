@@ -1,32 +1,89 @@
-'use client';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
-import CategoryItem from '@/components/blogs/categoryItem';
-import Button from '@/components/global/button';
+"use client";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import CategoryItem from "@/components/blogs/categoryItem";
+import Button from "@/components/global/button";
+import TagItem from "@/components/blogs/tagItem";
+import BlogPost from "@/components/blogs/blogPost";
 
 export default function Blogs() {
   return (
-    <div className="container text-center flex gap-10 p-10">
-      <div className="flex flex-col gap-5 w-52">
+    <div>
+      <div className="flex flex-col gap-5 max-w-60 fixed m-10">
         <Button onClick={() => {}}>
-            <div className='flex gap-4 justify-center items-center'>
-                <FontAwesomeIcon className="w-4" icon={faPlus} />
-                <span>新增文章</span>
-            </div>
+          <div className="flex gap-4 justify-center items-center">
+            <FontAwesomeIcon className="w-4" icon={faPlus} />
+            <span>新增文章</span>
+          </div>
         </Button>
         <div className="bg-secondary rounded-2xl p-4 flex flex-col gap-4">
-            <p className="text-center font-bold text-2xl">分類</p>
-            <div className="flex flex-col">
-                <CategoryItem name="React.js" count={5} />
-                <CategoryItem name="Vue.js" count={4} />
-                <CategoryItem name="Typescript" count={3} />
-                <CategoryItem name="CSS" count={12} />
-                <CategoryItem name="神奇的深活日常" count={1} />
-            </div>
+          <p className="text-center font-bold text-2xl">分類</p>
+          <div className="flex flex-col">
+            <CategoryItem count={12}>React.js</CategoryItem>
+            <CategoryItem count={3}>Vue.js</CategoryItem>
+            <CategoryItem count={1}>Typescript</CategoryItem>
+            <CategoryItem count={7}>其他神奇的文章</CategoryItem>
+          </div>
+        </div>
+        <div className="bg-secondary rounded-2xl p-4 flex flex-col gap-4">
+          <p className="text-center font-bold text-2xl">標籤</p>
+          <div className="flex flex-row flex-wrap gap-2">
+            <TagItem>Tag 1</TagItem>
+            <TagItem>Tag 2</TagItem>
+            <TagItem>The Tag 3</TagItem>
+            <TagItem>Best Tag</TagItem>
+            <TagItem>awa</TagItem>
+            <TagItem>Last Tag</TagItem>
+            <TagItem>Tag</TagItem>
+            <TagItem>More Tag</TagItem>
+            <TagItem>ouo</TagItem>
+            <TagItem>Cool Tag</TagItem>
+          </div>
         </div>
       </div>
-      <div className="bg-secondary">
-        <p>Blog 2</p>
+      <div className="flex flex-col gap-5 ml-80 p-10 max-w-4xl">
+          <BlogPost
+            title="超酷的文章標題"
+            description="這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這理"
+            category="Vue.js"
+            tags={["Tag1", "tag2", "ouo"]}
+            date={new Date()}
+          />
+          <BlogPost
+            title="超酷的文章標題"
+            description="這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這理"
+            category="Vue.js"
+            tags={["Tag1", "tag2", "ouo"]}
+            date={new Date()}
+          />
+          <BlogPost
+            title="超酷的文章標題"
+            description="這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這理"
+            category="Vue.js"
+            tags={["Tag1", "tag2", "ouo"]}
+            date={new Date()}
+          />
+          <BlogPost
+            title="超酷的文章標題"
+            description="這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這理"
+            category="Vue.js"
+            tags={["Tag1", "tag2", "ouo"]}
+            date={new Date()}
+          />
+          <BlogPost
+            title="超酷的文章標題"
+            description="這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這理"
+            category="Vue.js"
+            tags={["Tag1", "tag2", "ouo"]}
+            date={new Date()}
+          />
+          <BlogPost
+            title="超酷的文章標題"
+            description="這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這理"
+            category="Vue.js"
+            tags={["Tag1", "tag2", "ouo"]}
+            date={new Date()}
+          />
       </div>
     </div>
   );

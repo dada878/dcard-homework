@@ -17,12 +17,18 @@ const config: Config = {
     backgroundColor: {
       "primary": "#3f3cbb",
       "secondary": "#152140",
+      "light": "#31416A",
+      "white": "#ffffff",
     },
     textColor: {
       "primary": "#ffffff",
       "secondary": "#BBBBBB",
       "hover": "#3f3cbb",
     },
+    borderColor: {
+      "primary": "#ffffff",
+      "secondary": "#BBBBBB",
+    }
   },
   plugins: [],
 };
