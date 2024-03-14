@@ -1,0 +1,8 @@
+.markdown h1 {
+  @apply text-3xl font-bold;
+  @apply border-l-8 pl-3 border-l-secondary;
+}
+
+.markdown h2 {
+  @apply text-2xl font-bold;
+}
