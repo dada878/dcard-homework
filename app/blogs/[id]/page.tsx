@@ -4,9 +4,10 @@ import TagItem from "@/components/blogs/tagItem";
 import Button from "@/components/global/button";
 import Container from "@/components/global/container";
 import FixedSidebar from "@/components/global/fixedSidebar";
+import Markdown from "react-markdown";
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Markdown from "react-markdown";
+import Comment from "@/components/blogView/comment";
 
 export default function BlogPostPage({ params }: { params: { id: string } }) {
   return (
@@ -35,7 +36,7 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
         </div>
       </FixedSidebar>
       <Container>
-        <div className="bg-secondary p-10 rounded-xl">
+        <div className="bg-secondary p-8 rounded-xl">
           <h1 className="text-5xl font-bold">超酷的文章標題</h1>
           <div className="flex flex-row items-end justify-between py-4">
             <div className="flex gap-2">
@@ -60,9 +61,62 @@ the content ouo
 the content ouo
 the content ouo
 the content ouo
+
+# Hello World
+the cool post 
+
+is here
+
+## This is subtitle
+
+the content ouo
+the content ouo
+the content ouo
+the content ouo
+the content ouo
+
+# Hello World
+the cool post 
+
+is here
+
+## This is subtitle
+
+the content ouo
+the content ouo
+the content ouo
+the content ouo
+the content ouo
             `}
           </Markdown>
         </div>
+        <Comment
+          userName="超酷的使用者"
+          avatarUrl="/images/placeholders/avatar.png"
+          date={new Date()}
+        >
+          <Markdown>
+            這真的是超酷的留言 ouob
+          </Markdown>
+        </Comment>
+        <Comment
+          userName="超酷的使用者"
+          avatarUrl="/images/placeholders/avatar.png"
+          date={new Date()}
+        >
+          <Markdown>
+            這真的是超酷的留言 ouob
+          </Markdown>
+        </Comment>
+        <Comment
+          userName="超酷的使用者"
+          avatarUrl="/images/placeholders/avatar.png"
+          date={new Date()}
+        >
+          <Markdown>
+            這真的是超酷的留言 ouob
+          </Markdown>
+        </Comment>
       </Container>
     </div>
   );
