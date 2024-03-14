@@ -21,9 +21,11 @@ const config: Config = {
       "light": "#31416A",
       "white": "#ffffff",
       "green": "#316A4F",
+      "green-hover": "#467c64",
       "blue": "#31416A",
       "blue-hover": "#3c4f7e",
-      "red": "#5C2F2F"
+      "red": "#5C2F2F",
+      "red-hover": "#703d3d"
     },
     textColor: {
       "primary": "#ffffff",
