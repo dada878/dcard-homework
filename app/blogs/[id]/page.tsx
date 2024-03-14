@@ -5,15 +5,19 @@ import Button from "@/components/global/button";
 import Container from "@/components/global/container";
 import FixedSidebar from "@/components/global/fixedSidebar";
 import Markdown from "react-markdown";
+import Comment from "@/components/blogView/comment";
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Comment from "@/components/blogView/comment";
+import { useRouter } from 'next/navigation';
 
 export default function BlogPostPage({ params }: { params: { id: string } }) {
+  const router = useRouter();
   return (
     <div className="flex">
       <FixedSidebar>
-        <Button onClick={() => {}} color="green">
+        <Button onClick={() => {
+          router.push(`/blogs/${params.id}/edit`);
+        }} color="green">
           <div className="flex gap-4 justify-center items-center">
             <FontAwesomeIcon className="w-4" icon={faEdit} />
             <span>編輯文章</span>

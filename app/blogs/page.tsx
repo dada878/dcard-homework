@@ -7,12 +7,16 @@ import TagItem from "@/components/blogs/tagItem";
 import BlogPost from "@/components/blogs/blogPost";
 import Container from "@/components/global/container";
 import FixedSidebar from "@/components/global/fixedSidebar";
+import { useRouter } from "next/navigation";
 
 export default function BlogsPage() {
+  const router = useRouter();
   return (
     <div>
       <FixedSidebar>
-      <Button onClick={() => {}}>
+      <Button onClick={() => {
+        router.push(`/create`);
+      }}>
           <div className="flex gap-4 justify-center items-center">
             <FontAwesomeIcon className="w-4" icon={faPlus} />
             <span>新增文章</span>
