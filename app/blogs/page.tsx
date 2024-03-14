@@ -5,12 +5,14 @@ import CategoryItem from "@/components/blogs/categoryItem";
 import Button from "@/components/global/button";
 import TagItem from "@/components/blogs/tagItem";
 import BlogPost from "@/components/blogs/blogPost";
+import Container from "@/components/global/container";
+import FixedSidebar from "@/components/global/fixedSidebar";
 
-export default function Blogs() {
+export default function BlogsPage() {
   return (
     <div>
-      <div className="flex flex-col gap-5 max-w-60 fixed m-10">
-        <Button onClick={() => {}}>
+      <FixedSidebar>
+      <Button onClick={() => {}}>
           <div className="flex gap-4 justify-center items-center">
             <FontAwesomeIcon className="w-4" icon={faPlus} />
             <span>新增文章</span>
@@ -40,51 +42,51 @@ export default function Blogs() {
             <TagItem>Cool Tag</TagItem>
           </div>
         </div>
-      </div>
-      <div className="flex flex-col gap-5 ml-80 p-10 max-w-4xl">
-          <BlogPost
-            title="超酷的文章標題"
-            description="這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這理"
-            category="Vue.js"
-            tags={["Tag1", "tag2", "ouo"]}
-            date={new Date()}
-          />
-          <BlogPost
-            title="超酷的文章標題"
-            description="這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這理"
-            category="Vue.js"
-            tags={["Tag1", "tag2", "ouo"]}
-            date={new Date()}
-          />
-          <BlogPost
-            title="超酷的文章標題"
-            description="這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這理"
-            category="Vue.js"
-            tags={["Tag1", "tag2", "ouo"]}
-            date={new Date()}
-          />
-          <BlogPost
-            title="超酷的文章標題"
-            description="這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這理"
-            category="Vue.js"
-            tags={["Tag1", "tag2", "ouo"]}
-            date={new Date()}
-          />
-          <BlogPost
-            title="超酷的文章標題"
-            description="這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這理"
-            category="Vue.js"
-            tags={["Tag1", "tag2", "ouo"]}
-            date={new Date()}
-          />
-          <BlogPost
-            title="超酷的文章標題"
-            description="這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這理"
-            category="Vue.js"
-            tags={["Tag1", "tag2", "ouo"]}
-            date={new Date()}
-          />
-      </div>
+      </FixedSidebar>
+      <Container>
+        <BlogPost
+          title="超酷的文章標題"
+          description="這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這理"
+          category="Vue.js"
+          tags={["Tag1", "tag2", "ouo"]}
+          date={new Date()}
+        />
+        <BlogPost
+          title="超酷的文章標題"
+          description="這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這理"
+          category="Vue.js"
+          tags={["Tag1", "tag2", "ouo"]}
+          date={new Date()}
+        />
+        <BlogPost
+          title="超酷的文章標題"
+          description="這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這理"
+          category="Vue.js"
+          tags={["Tag1", "tag2", "ouo"]}
+          date={new Date()}
+        />
+        <BlogPost
+          title="超酷的文章標題"
+          description="這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這理"
+          category="Vue.js"
+          tags={["Tag1", "tag2", "ouo"]}
+          date={new Date()}
+        />
+        <BlogPost
+          title="超酷的文章標題"
+          description="這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這理"
+          category="Vue.js"
+          tags={["Tag1", "tag2", "ouo"]}
+          date={new Date()}
+        />
+        <BlogPost
+          title="超酷的文章標題"
+          description="這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這理"
+          category="Vue.js"
+          tags={["Tag1", "tag2", "ouo"]}
+          date={new Date()}
+        />
+      </Container>
     </div>
   );
 }
