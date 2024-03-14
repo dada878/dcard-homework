@@ -1,0 +1,35 @@
+@keyframes fade-out {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100;
+  }
+}
+
+.blur-out {
+  animation: blur-out 1.5s forwards;
+}
+
+.rotate {
+  animation: rotate 25s linear infinite;
+}
+
+@keyframes blur-out {
+  0% {
+    filter: blur(2rem);
+  }
+  100% {
+    filter: blur(0rem);
+  }
+}
+
+.fade-out {
+  animation: 1.5s fade-out forwards;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
