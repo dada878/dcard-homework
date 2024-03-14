@@ -1,16 +1,21 @@
 export default function Button({
   children,
   onClick,
-  className,
+  color = "blue",
 }: Readonly<{
   children: React.ReactNode;
   onClick: () => void;
-  className?: string;
+  color? : "blue" | "red" | "green";
 }>) {
+  const buttonThemes = {
+    red: "bg-red hover:bg-red-hover",
+    blue: "bg-blue hover:bg-blue-hover",
+    green: "bg-green hover:bg-green-hover"
+  };
   return (
     <button
         onClick={onClick}
-        className="bg-[#31416A] p-3 rounded-2xl hover:bg-[#3c4f7e] cursor-pointer flex justify-center transition"
+        className={`${buttonThemes[color]} p-3 rounded-2xl hover:bg-blue-hover cursor-pointer flex justify-center transition`}
     >
         {children}
     </button>
