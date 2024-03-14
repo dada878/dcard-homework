@@ -1,5 +1,6 @@
 import Link from "next/link";
 import TagItem from "./tagItem";
+import { formatDate } from "@/utils/dateFormatter";
 
 export default function BlogPost({
   title,
@@ -14,10 +15,6 @@ export default function BlogPost({
   date: Date;
   tags: Array<string>;
 }) {
-  function formatDate(date: Date) {
-    return `${date.getFullYear()}/${date.getMonth()}/${date.getDate()}`;
-  }
-
   return (
     <Link href="blogs/ouo">
       <div className="bg-secondary flex flex-col p-4 rounded-xl gap-2 hover:bg-secondary-hover transition">
