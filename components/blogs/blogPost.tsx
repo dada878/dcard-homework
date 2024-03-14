@@ -1,3 +1,4 @@
+import Link from "next/link";
 import TagItem from "./tagItem";
 
 export default function BlogPost({
@@ -18,22 +19,22 @@ export default function BlogPost({
   }
 
   return (
-    <div className="bg-secondary flex flex-col p-4 rounded-xl gap-2">
-      <div className="flex justify-between items-end">
-        <p className="font-bold text-2xl">{title}</p>
-        <p>{formatDate(date)}</p>
-      </div>
-      <p className="text-secondary text-start">{description}</p>
-      <div className="flex justify-between">
-        <div className="flex gap-2">
-          {tags.map((tag, index) => (
-            <TagItem key={index}>{tag}</TagItem>
-          ))}
+    <Link href="blogs/ouo">
+      <div className="bg-secondary flex flex-col p-4 rounded-xl gap-2 hover:bg-secondary-hover transition">
+        <div className="flex justify-between items-end">
+          <p className="font-bold text-2xl">{title}</p>
+          <p>{formatDate(date)}</p>
         </div>
-        <p>
-         
-        </p>
+        <p className="text-secondary text-start">{description}</p>
+        <div className="flex justify-between items-end">
+          <div className="flex gap-2">
+            {tags.map((tag, index) => (
+              <TagItem key={index}>{tag}</TagItem>
+            ))}
+          </div>
+          <p className="text-secondary">分類：{category}</p>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 }
