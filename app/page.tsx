@@ -1,5 +1,7 @@
+"use client";
 import AboutSection from "@/components/home/aboutSection"
 import GlowEffect from "@/components/home/glowEffect";
+import ProjectItem from "@/components/home/projectItem";
 
 export default function Home() {
   return (
@@ -13,20 +15,27 @@ export default function Home() {
       </div>
       <br />
       <br />
-      <div className="text-center">
+      <div className="text-start flex flex-col items-stretch gap-10 px-48 mb-10">
         <AboutSection title="關於">
-          <p>你好！我是一個熱衷於網頁前端開發的台灣自學高中生！</p>
-          <p>我喜歡不斷學習和成長，並追求在技術領域中不斷超越自我！</p>
+          <p>嗨，我是一個熱衷於網頁前端開發的高中生，我喜歡不斷學習和成長，並追求在技術領域中不斷超越自我！</p>
         </AboutSection>
         <AboutSection title="經歷">
-          <p>SITCON 2024 學生計算機年會開發組</p>
-          <p>SCINT 北台灣學生資訊社群開發組</p>
+          <li>SITCON 2024 學生計算機年會開發組</li>
+          <li>SCINT 北台灣學生資訊社群開發組</li>
         </AboutSection>
         <AboutSection title="作品集">
-          <p>SITCON 2024 學生計算機年會開發組</p>
-          <p>SCINT 北台灣學生資訊社群開發組</p>
+          <div className="grid grid-cols-3 gap-7">
+            <ProjectItem name="番茄鐘" image="/images/projects/pomodoro-timer.png" />
+            <ProjectItem name="鞋子の網站" image="/images/projects/shoes.png" />
+            <ProjectItem name="SCINT 官網" image="/images/projects/scint.png" />
+            {
+              [...Array(3)].map((_,i)=>{
+                return  <ProjectItem key={i} name="SCINT 官網" image="/images/projects/scint4.png" />
+              })
+            }
+          </div>
         </AboutSection>
-      br</div>
+      </div>
     </div>
   );
 }

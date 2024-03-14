@@ -8,9 +8,11 @@ export default function AboutSection({
   children: ReactNode;
 }) {
     return (
-        <div>
-            <h3>{title}</h3>
-            {children}
+        <div className="flex-1 bg-opacity-10 p-10 rounded-xl flex flex-col gap-5">
+            <h3 className="text-3xl font-bold">{title}</h3>
+            <div>
+              {children}
+            </div>
         </div>
     )
 }
