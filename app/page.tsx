@@ -30,7 +30,7 @@ export default function Home() {
             <ProjectItem name="SCINT 官網" image="/images/projects/scint.png" />
             {
               [...Array(3)].map((_,i)=>{
-                return  <ProjectItem key={i} name="SCINT 官網" image="/images/projects/scint4.png" />
+                return  <ProjectItem key={i} name="SCINT 官網" image="/images/projects/scint.png" />
               })
             }
           </div>
