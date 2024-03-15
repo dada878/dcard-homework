@@ -15,7 +15,7 @@ export default function Home() {
       </div>
       <br />
       <br />
-      <div className="text-start flex flex-col items-stretch gap-10 px-48 mb-10">
+      <div className="text-start flex flex-col items-stretch gap-12 px-48 mb-10">
         <AboutSection title="關於">
           <p>嗨，我是一個熱衷於網頁前端開發的高中生，我喜歡不斷學習和成長，並追求在技術領域中不斷超越自我！</p>
         </AboutSection>
