@@ -12,20 +12,22 @@ import FixedSidebar from "@/components/global/fixedSidebar";
 import CategoryItem from "@/components/blogs/categoryItem";
 
 export default function BlogsPage() {
-const router = useRouter();
+  const router = useRouter();
   return (
     <div>
       <FixedSidebar>
-      <Button onClick={() => {
-        router.push(`/create`);
-      }}>
+        <Button
+          onClick={() => {
+            router.push(`/create`);
+          }}
+        >
           <div className="flex gap-4 justify-center items-center">
             <FontAwesomeIcon className="w-4" icon={faPlus} />
             <span>新增文章</span>
           </div>
         </Button>
         <div className="bg-secondary rounded-2xl p-4 flex flex-col gap-4">
-          <p className="text-center font-bold text-2xl">分類</p>
+          <h2 className="text-center font-bold text-2xl">分類</h2>
           <div className="flex flex-col">
             <CategoryItem count={12}>React.js</CategoryItem>
             <CategoryItem count={3}>Vue.js</CategoryItem>
@@ -34,7 +36,7 @@ const router = useRouter();
           </div>
         </div>
         <div className="bg-secondary rounded-2xl p-4 flex flex-col gap-4">
-          <p className="text-center font-bold text-2xl">標籤</p>
+          <h2 className="text-center font-bold text-2xl">標籤</h2>
           <div className="flex flex-row flex-wrap gap-2">
             <TagItem>Tag 1</TagItem>
             <TagItem>Tag 2</TagItem>
