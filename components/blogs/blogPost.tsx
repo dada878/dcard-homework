@@ -23,7 +23,7 @@ export default function BlogPost({
           <h3 className="text-2xl font-bold">{title}</h3>
           <p>{formatDate(date)}</p>
         </div>
-        <p className="text-secondary text-start">{description}</p>
+        <p className="text-secondary text-start line-clamp-3">{description}</p>
         <div className="flex justify-between items-end">
           <div className="flex gap-2">
             {tags.map((tag, index) => (
