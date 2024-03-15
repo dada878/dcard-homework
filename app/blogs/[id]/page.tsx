@@ -56,7 +56,7 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
             <p className="text-secondary text-sm">2024 / 01 / 22</p>
           </div>
           <hr className="text-secondary-dark py-3" />
-          <article className="markdown">
+          <main className="markdown">
             <Markdown>
               {`
 # Hello World
@@ -99,7 +99,7 @@ the content ouo
 the content ouo
             `}
             </Markdown>
-          </article>
+          </main>
         </div>
         <Comment
           userName="超酷的使用者"
