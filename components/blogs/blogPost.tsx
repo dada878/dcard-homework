@@ -1,4 +1,5 @@
 import Link from "next/link";
+
 import TagItem from "./tagItem";
 import { formatDate } from "@/utils/dateFormatter";
 
@@ -17,9 +18,9 @@ export default function BlogPost({
 }) {
   return (
     <Link href="blogs/ouo">
-      <div className="bg-secondary flex flex-col p-4 rounded-xl gap-2 hover:bg-secondary-hover transition">
+      <div className="bg-secondary flex flex-col p-4 rounded-xl gap-2 transition hover:bg-secondary-hover">
         <div className="flex justify-between items-end">
-          <p className="font-bold text-2xl">{title}</p>
+          <h3 className="text-2xl font-bold">{title}</h3>
           <p>{formatDate(date)}</p>
         </div>
         <p className="text-secondary text-start">{description}</p>

@@ -1,16 +1,18 @@
 "use client";
+import { useRouter } from "next/navigation";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import CategoryItem from "@/components/blogs/categoryItem";
+
 import Button from "@/components/global/button";
 import TagItem from "@/components/blogs/tagItem";
 import BlogPost from "@/components/blogs/blogPost";
 import Container from "@/components/global/container";
 import FixedSidebar from "@/components/global/fixedSidebar";
-import { useRouter } from "next/navigation";
+import CategoryItem from "@/components/blogs/categoryItem";
 
 export default function BlogsPage() {
-  const router = useRouter();
+const router = useRouter();
   return (
     <div>
       <FixedSidebar>

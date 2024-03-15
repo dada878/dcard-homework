@@ -1,23 +1,28 @@
 "use client";
+import { useRouter } from "next/navigation";
+
 import MenuItem from "@/components/blogView/menuItem";
 import TagItem from "@/components/blogs/tagItem";
 import Button from "@/components/global/button";
 import Container from "@/components/global/container";
 import FixedSidebar from "@/components/global/fixedSidebar";
-import Markdown from "react-markdown";
 import Comment from "@/components/blogView/comment";
+
+import Markdown from "react-markdown";
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useRouter } from 'next/navigation';
 
 export default function BlogPostPage({ params }: { params: { id: string } }) {
   const router = useRouter();
   return (
     <div className="flex">
       <FixedSidebar>
-        <Button onClick={() => {
-          router.push(`/blogs/${params.id}/edit`);
-        }} color="green">
+        <Button
+          onClick={() => {
+            router.push(`/blogs/${params.id}/edit`);
+          }}
+          color="green"
+        >
           <div className="flex gap-4 justify-center items-center">
             <FontAwesomeIcon className="w-4" icon={faEdit} />
             <span>編輯文章</span>
@@ -50,9 +55,10 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
             </div>
             <p className="text-secondary text-sm">2024 / 01 / 22</p>
           </div>
-          <hr className="text-secondary-dark py-3"></hr>
-          <Markdown className="markdown">
-            {`
+          <hr className="text-secondary-dark py-3" />
+          <article className="markdown">
+            <Markdown>
+              {`
 # Hello World
 the cool post 
 
@@ -92,34 +98,29 @@ the content ouo
 the content ouo
 the content ouo
             `}
-          </Markdown>
+            </Markdown>
+          </article>
         </div>
         <Comment
           userName="超酷的使用者"
           avatarUrl="/images/placeholders/avatar.png"
           date={new Date()}
         >
-          <Markdown>
-            這真的是超酷的留言 ouob
-          </Markdown>
+          <Markdown>這真的是超酷的留言 ouob</Markdown>
         </Comment>
         <Comment
           userName="超酷的使用者"
           avatarUrl="/images/placeholders/avatar.png"
           date={new Date()}
         >
-          <Markdown>
-            這真的是超酷的留言 ouob
-          </Markdown>
+          <Markdown>這真的是超酷的留言 ouob</Markdown>
         </Comment>
         <Comment
           userName="超酷的使用者"
           avatarUrl="/images/placeholders/avatar.png"
           date={new Date()}
         >
-          <Markdown>
-            這真的是超酷的留言 ouob
-          </Markdown>
+          <Markdown>這真的是超酷的留言 ouob</Markdown>
         </Comment>
       </Container>
     </div>

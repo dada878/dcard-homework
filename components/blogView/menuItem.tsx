@@ -9,9 +9,9 @@ export default function MenuItem({
 }) {
   return (
     <p
-      className={`hover:text-primary border-l-4 ${
+      className={`border-l-4 ${
         active ? "border-primary text-primary" : "border-transparent text-secondary"
-      } hover:border-primary transition-all pl-3 cursor-pointer`}
+      } hover:border-primary transition-all pl-3 cursor-pointer hover:text-primary`}
     >
       {children}
     </p>

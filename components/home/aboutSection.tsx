@@ -19,10 +19,10 @@ export default function AboutSection({
         hidden: { opacity: 0, filter: "blur(5rem)", scale: 0.8, translateY: 20},
       }}
     >
-      <div className="flex-1 bg-opacity-10 p-10 rounded-xl flex flex-col gap-5">
-        <h3 className="text-3xl font-bold">{title}</h3>
+      <section className="flex-1 bg-opacity-10 p-10 rounded-xl flex flex-col gap-5">
+        <h2 className="text-3xl font-bold">{title}</h2>
         <div>{children}</div>
-      </div>
+      </section>
     </motion.div>
   );
 }

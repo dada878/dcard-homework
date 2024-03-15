@@ -15,7 +15,7 @@ export default function Button({
   return (
     <button
         onClick={onClick}
-        className={`${buttonThemes[color]} p-3 px-4 rounded-xl items-center hover:bg-blue-hover cursor-pointer flex justify-center transition`}
+        className={`${buttonThemes[color]} p-3 px-4 rounded-xl items-center cursor-pointer flex justify-center transition hover:bg-blue-hover`}
     >
         {children}
     </button>

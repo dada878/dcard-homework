@@ -1,7 +1,5 @@
-import { ReactNode } from "react"
+import { ReactNode } from "react";
 
-export default function FixedSidebar({children} : {children : ReactNode} ) {
-  return <div className="flex flex-col gap-5 w-60 fixed m-10">
-    {children}
-  </div>
+export default function FixedSidebar({ children }: { children: ReactNode }) {
+  return <aside className="flex flex-col gap-5 w-60 fixed m-10">{children}</aside>;
 }

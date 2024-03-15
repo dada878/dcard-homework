@@ -1,23 +1,18 @@
-.glow-purple {
+.glow {
   width: 0px;
   height: 0px;
   border-radius: 50%;
-  box-shadow: 0px 0px 50rem 12rem #7e2bd03d;
   filter: blur(5rem);
+}
+
+.glow-purple {
+  box-shadow: 0px 0px 50rem 12rem #7e2bd03d;
 }
 
 .glow-blue {
-  width: 0px;
-  height: 0px;
-  border-radius: 50%;
   box-shadow: 0px 0px 50rem 12rem #0569ff34;
-  filter: blur(5rem);
 }
 
 .glow-blue-light {
-  width: 0px;
-  height: 0px;
-  border-radius: 50%;
   box-shadow: 0px 0px 50rem 12rem #3f7bbf3b;
-  filter: blur(5rem);
 }
