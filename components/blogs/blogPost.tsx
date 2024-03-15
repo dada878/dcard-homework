@@ -18,7 +18,7 @@ export default function BlogPost({
 }) {
   return (
     <Link href="blogs/ouo">
-      <div className="bg-secondary flex flex-col p-4 rounded-xl gap-2 transition hover:bg-secondary-hover">
+      <article className="bg-secondary flex flex-col p-4 rounded-xl gap-2 transition hover:bg-secondary-hover">
         <div className="flex justify-between items-end">
           <h3 className="text-2xl font-bold">{title}</h3>
           <p>{formatDate(date)}</p>
@@ -32,7 +32,7 @@ export default function BlogPost({
           </div>
           <p className="text-secondary">分類：{category}</p>
         </div>
-      </div>
+      </article>
     </Link>
   );
 }
