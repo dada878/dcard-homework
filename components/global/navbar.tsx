@@ -17,7 +17,7 @@ export default function Navbar() {
           <NavbarItem name="Log in" url="/blogs" />
         </div>
         <div className="flex gap-0 justify-around items-center flex-1 md:flex-grow-0 md:gap-4 flex-row-reverse md:flex-row">
-          <FontAwesomeIcon icon={faBars} className="text-2xl opacity-70 cursor-pointer md:hidden" onClick={() => {
+          <FontAwesomeIcon icon={faBars} className={`text-2xl opacity-70 cursor-pointer transition md:hidden ${isMenuOpen ? "rotate-90" : ""}`} onClick={() => {
             setIsMenuOpen(!isMenuOpen);
           }} />
           <SearchBar className="md:w-auto w-3/5 overflow-hidden" />
