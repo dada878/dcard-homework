@@ -15,7 +15,7 @@ export default function Comment({
   children: ReactNode;
 }) {
   return (
-    <div className="bg-secondary rounded-xl p-6 flex flex-col gap-4">
+    <div className="bg-mirage-900 rounded-xl p-6 flex flex-col gap-4">
       <div className="flex items-center gap-3">
         <Image
           src={avatarUrl}

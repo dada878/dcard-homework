@@ -36,7 +36,7 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
             <span>刪除文章</span>
           </div>
         </Button>
-        <div className="bg-secondary rounded-xl p-4">
+        <div className="bg-mirage-900 rounded-xl p-4">
           <h3 className="font-bold text-2xl text-center mb-4">文章目錄</h3>
           <div className="flex flex-col gap-2">
             <MenuItem active>這是子標題ouo</MenuItem>
@@ -47,7 +47,7 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
         </div>
       </FixedSidebar>
       <Container>
-        <div className="bg-secondary p-6 md:p-8 rounded-xl">
+        <div className="bg-mirage-900 p-6 md:p-8 rounded-xl">
           <h1 className="text-5xl font-bold">超酷的文章標題</h1>
           <div className="flex flex-row items-end justify-between py-4">
             <div className="flex gap-2">

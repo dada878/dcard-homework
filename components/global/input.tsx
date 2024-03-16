@@ -10,7 +10,7 @@ export default function Input({
     return (
         <input
           type={type}
-          className={`${className} bg-light p-3 w-full rounded-lg outline-none`}
+          className={`${className} bg-mirage-700 p-3 w-full rounded-lg outline-none`}
           placeholder={placeholder}
         />
     );

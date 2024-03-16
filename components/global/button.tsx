@@ -13,7 +13,7 @@ export default function Button({
 }>) {
   const buttonThemes = {
     red: "bg-red hover:bg-red-hover",
-    blue: "bg-blue hover:bg-blue-hover",
+    blue: "bg-mirage-700 hover:bg-mirage-600",
     green: "bg-green hover:bg-green-hover"
   };
   return (

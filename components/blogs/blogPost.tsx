@@ -18,7 +18,7 @@ export default function BlogPost({
 }) {
   return (
     <Link href="blogs/ouo">
-      <article className="bg-secondary flex flex-col p-4 rounded-xl gap-2 transition hover:bg-secondary-hover">
+      <article className="bg-mirage-900 flex flex-col p-4 rounded-xl gap-2 transition hover:bg-mirage-800">
         <div className="flex justify-between items-end">
           <h3 className="text-2xl font-bold">{title}</h3>
           <p>{formatDate(date)}</p>

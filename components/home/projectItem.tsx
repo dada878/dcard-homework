@@ -9,7 +9,7 @@ export default function ProjectItem({
 }) {
   return (
     <div className="flex justify-center">
-      <div className="bg-secondary rounded-lg flex flex-col gpa-2 cursor-pointer transition hover:scale-105 max-w-md">
+      <div className="bg-mirage-900 rounded-lg flex flex-col gpa-2 cursor-pointer transition hover:scale-105 max-w-md">
         <div className="w-full h-full relative flex justify-center">
           <Image
             alt="Mountains"
@@ -19,7 +19,7 @@ export default function ProjectItem({
             height={100}
           />
         </div>
-        <div className="bg-secondary rounded-b-lg text-center p-2">
+        <div className="rounded-b-lg bg-mirage-900 text-center p-2">
           <p>{name}</p>
         </div>
       </div>
