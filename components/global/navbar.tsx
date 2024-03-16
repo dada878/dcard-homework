@@ -4,29 +4,8 @@ import NavbarItem from "./navbarItem";
 import DarkModeToggle from "./darkModeToggle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { RefObject, useEffect, useRef, useState } from "react";
-
-/**
- * Hook that alerts clicks outside of the passed ref
- */
-function useOutside(ref : RefObject<HTMLElement>, callback: () => void){
-  useEffect(() => {
-    /**
-     * Alert if clicked on outside of element
-     */
-    function handleClickOutside(event: MouseEvent) {
-      if (ref.current && !ref.current.contains(event.target as Node)) {
-        callback();
-      }
-    }
-    // Bind the event listener
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      // Unbind the event listener on clean up
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [ref, callback]);
-}
+import { useRef, useState } from "react";
+import useOutside from "@/utils/hooks/clickOutside";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
