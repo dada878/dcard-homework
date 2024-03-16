@@ -30,7 +30,7 @@ export default function BlogPost({
               <TagItem key={index}>{tag}</TagItem>
             ))}
           </div>
-          <p className="text-secondary-light dark:text-secondary-light">分類：{category}</p>
+          <p className="dark:text-secondary text-secondary-light">分類：{category}</p>
         </div>
       </article>
     </Link>
