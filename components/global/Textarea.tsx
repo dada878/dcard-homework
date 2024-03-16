@@ -4,7 +4,6 @@ export default function Textarea({
 }: {
   placeholder?: string;
   className?: string;
-  rows?: number;
 }) {
   return (
     <textarea
