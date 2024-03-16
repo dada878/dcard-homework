@@ -53,6 +53,15 @@ export default function BlogsPage() {
         </div>
       </FixedSidebar>
       <Container>
+        <div className="flex gap-3 md:hidden">
+          <div className="flex gap-4 items-center overflow-x-scroll">
+            <Button>React.js</Button>
+            <Button>Vue.js</Button>
+            <Button>Typescript</Button>
+            <Button>Typescript</Button>
+            <Button>Typescript</Button>
+          </div>
+        </div>
         <BlogPost
           title="超酷的文章標題"
           description="這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這理"
