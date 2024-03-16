@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Button from "../global/button";
-import Textarea from "../global/textarea";
+import Button from "@/components/global/button";
+import Textarea from "@/components/global/textarea";
 import Markdown from "react-markdown";
 
 export default function CommentEditor() {

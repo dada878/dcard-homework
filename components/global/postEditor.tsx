@@ -5,7 +5,7 @@ import Markdown from "react-markdown";
 
 import Button from "./button";
 import Input from "./input";
-import Textarea from "./textarea";
+import Textarea from "@/components/global/textarea";
 import { useRef, useState } from "react";
 import useOutside from "@/utils/hooks/clickOutside";
 
