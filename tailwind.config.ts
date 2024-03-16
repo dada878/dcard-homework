@@ -15,6 +15,7 @@ const config: Config = {
       },
     },
     backgroundColor: {
+      "darkness": "#0C1222",
       "primary": "#3f3cbb",
       "middle": "#1F305B",
       "secondary": "#152140",
