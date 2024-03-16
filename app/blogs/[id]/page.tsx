@@ -125,7 +125,9 @@ the content ouo
         </Comment>
       </Container>
       <FloatingActionSection>
-        <Button rounded="rounded-full" onClick={() => {}} color="green">
+        <Button rounded="rounded-full" color="green" onClick={() => {
+            router.push(`/blogs/${params.id}/edit`);
+          }}>
           <div className="p-2">
             <FontAwesomeIcon className="w-5 h-5 shadow-lg" icon={faEdit} />
           </div>

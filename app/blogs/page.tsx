@@ -106,7 +106,9 @@ export default function BlogsPage() {
         />
       </Container>
       <FloatingActionSection>
-        <Button rounded="rounded-full" onClick={() => {}}>
+        <Button rounded="rounded-full" onClick={() => {
+            router.push(`/create`);
+          }}>
           <div className="p-2 flex justify-center items-center">
             <FontAwesomeIcon className="w-5 h-7 shadow-lg" icon={faPlus} />
           </div>
