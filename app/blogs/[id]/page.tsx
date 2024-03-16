@@ -12,6 +12,7 @@ import Markdown from "react-markdown";
 import { faEdit, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FloatingActionSection from "@/components/global/floatingActionSection";
+import CommentEditor from "@/components/blogView/commentEditor";
 
 export default function BlogPostPage({ params }: { params: { id: string } }) {
   const router = useRouter();
@@ -123,6 +124,7 @@ the content ouo
         >
           <Markdown>這真的是超酷的留言 ouob</Markdown>
         </Comment>
+        <CommentEditor />
       </Container>
       <FloatingActionSection>
         <Button rounded="rounded-full" color="green" onClick={() => {
