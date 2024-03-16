@@ -18,19 +18,19 @@ export default function BlogPost({
 }) {
   return (
     <Link href="blogs/ouo">
-      <article className="bg-mirage-900 flex flex-col p-4 rounded-xl gap-2 transition hover:bg-mirage-800">
+      <article className="dark:bg-mirage-900 bg-mirage-200 flex flex-col p-4 rounded-xl gap-2 transition hover:bg-mirage-300 dark:hover:bg-mirage-800">
         <div className="flex justify-between items-end">
           <h3 className="text-2xl font-bold">{title}</h3>
           <p>{formatDate(date)}</p>
         </div>
-        <p className="text-secondary text-start line-clamp-3">{description}</p>
+        <p className="dark:text-secondary text-secondary-light text-start line-clamp-3">{description}</p>
         <div className="flex justify-between items-end">
           <div className="flex gap-2">
             {tags.map((tag, index) => (
               <TagItem key={index}>{tag}</TagItem>
             ))}
           </div>
-          <p className="text-secondary">分類：{category}</p>
+          <p className="text-secondary-light dark:text-secondary-light">分類：{category}</p>
         </div>
       </article>
     </Link>

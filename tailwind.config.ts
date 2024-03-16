@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: "selector",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -20,11 +21,11 @@ const config: Config = {
         "red-hover": "#703d3d",
         "gray": "#6C7693",
         "mirage": {
-          "100": "#E5F4FF",
-          "200": "#C9E8FF",
-          "300": "#A8DAFF",
-          "400": "#7EB9E4",
-          "500": "#5189B2",
+          "100": "#b6dcf9",
+          "200": "#87C6FF",
+          "300": "#72bbff",
+          "400": "#5eb0fd",
+          "500": "#4eaaff",
           "600": "#405079",
           "700": "#31416A",
           "800": "#1F305B",
@@ -32,17 +33,20 @@ const config: Config = {
           "1000": "#0C1222",
         },
       },
-    },
-    textColor: {
-      "primary": "#ffffff",
-      "secondary": "#BBBBBB",
-      "secondary-dark": "#6C7693",
-      "hover": "#3f3cbb",
+      textColor: {
+        "primary": "#ffffff",
+        "secondary": "#BBBBBB",
+        "secondary-light": "#585858",
+        "secondary-dark": "#6C7693",
+        "hover": "#3f3cbb",
+      },
     },
     borderColor: {
       "primary": "#ffffff",
       "secondary": "#BBBBBB",
       "transparent": "transparent",
+      "secondary-light": "#585858",
+      "black": "#000000",
     },
   },
   plugins: [],

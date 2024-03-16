@@ -27,7 +27,7 @@ export default function BlogsPage() {
             <span>新增文章</span>
           </div>
         </Button>
-        <div className="bg-mirage-900 rounded-2xl p-4 flex flex-col gap-4">
+        <div className="dark:bg-mirage-900 rounded-2xl p-4 flex bg-mirage-200 flex-col gap-4">
           <h2 className="text-center font-bold text-2xl">分類</h2>
           <div className="flex flex-col">
             <CategoryItem count={12}>React.js</CategoryItem>
@@ -36,7 +36,7 @@ export default function BlogsPage() {
             <CategoryItem count={7}>其他神奇的文章</CategoryItem>
           </div>
         </div>
-        <div className="bg-mirage-900 rounded-2xl p-4 flex flex-col gap-4">
+        <div className="dark:bg-mirage-900 rounded-2xl p-4 bg-mirage-200 flex flex-col gap-4">
           <h2 className="text-center font-bold text-2xl">標籤</h2>
           <div className="flex flex-row flex-wrap gap-2">
             <TagItem>Tag 1</TagItem>

@@ -22,7 +22,6 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  @apply bg-mirage-1000
 }
 
 @layer utilities {

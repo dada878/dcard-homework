@@ -5,7 +5,6 @@ import { Inter } from "next/font/google";
 import Navbar from "@/components/global/navbar";
 import "@/assets/globals.css";
 
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -19,12 +18,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.className}`}>
+    <html lang="en" className="dark">
+      <body className={`${inter.className} bg-mirage-100 text-black dark:text-white dark:bg-mirage-1000 transition`}>
         <Navbar />
-        <div className="mt-14">
-          {children}
-        </div>
+        <div className="mt-14">{children}</div>
       </body>
     </html>
   );

@@ -15,7 +15,7 @@ export default function Comment({
   children: ReactNode;
 }) {
   return (
-    <div className="bg-mirage-900 rounded-xl p-6 flex flex-col gap-4">
+    <div className="dark:bg-mirage-900 bg-mirage-200 rounded-xl p-6 flex flex-col gap-4">
       <div className="flex items-center gap-3">
         <Image
           src={avatarUrl}
@@ -25,7 +25,7 @@ export default function Comment({
           alt="avatar"
         />
         <p className="text-xl">{userName}</p>
-        <p className="text-secondary text-sm">{formatDate(date)}</p>
+        <p className="dark:text-secondary text-secondary-light text-sm">{formatDate(date)}</p>
       </div>
       <div>{children}</div>
     </div>

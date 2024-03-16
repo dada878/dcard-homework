@@ -10,7 +10,7 @@ export default function SearchBar({ className }: { className?: string }) {
       <input
         type="text"
         placeholder="Search something..."
-        className="bg-opacity-0 bg-white outline-none"
+        className="bg-opacity-0 bg-white outline-none placeholder:text-secondary-light/50 dark:placeholder:text-white/40"
       />
     </div>
   );

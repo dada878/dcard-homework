@@ -15,7 +15,7 @@ export default function NavbarItem({
 }) {
   return (
     <Link
-      className={`transition hover:text-secondary ${className} ${
+      className={`transition dark:hover:text-secondary hover:text-secondary-light ${className} ${
         isMobile
           ? "bg-gray text-center w-1/2 bg-opacity-30 rounded-md p-2"
           : "p-3"

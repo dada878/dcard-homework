@@ -22,13 +22,13 @@ export default function PostEditor() {
     <div className="md:p-10 p-4 flex gap-6 h-[calc(100vh_-_3.6rem)]">
       {/* 編輯區塊 */}
       <div
-        className={`flex flex-col bg-mirage-900 rounded-xl p-5 transition md:p-6 gap-5 w-full ${
+        className={`flex flex-col dark:bg-mirage-900 bg-mirage-200 rounded-xl p-5 transition md:p-6 gap-5 w-full ${
           isPublishPanelOpen ? "opacity-20" : ""
         }`}
       >
         <Input type="text" className="text-2xl" placeholder="輸入標題..." />
-        <textarea
-          className="bg-mirage-700 p-3 resize-none h-full w-full rounded-lg outline-none"
+        <Textarea
+          className="h-full w-full"
           placeholder="在這裡用 Markdown 來寫一些什麼吧！"
         />
         <Button className="md:hidden"
@@ -43,12 +43,12 @@ export default function PostEditor() {
         </Button>
       </div>
       {/* 預覽區塊 */}
-      <div className="bg-mirage-900 rounded-xl p-6 w-full hidden md:block">
+      <div className="dark:bg-mirage-900 bg-mirage-200 rounded-xl p-6 w-full hidden md:block">
         <Markdown className="markdown"></Markdown>
       </div>
       {/* 發布、標籤、類別區塊 */}
       <div
-        className={`bg-mirage-900 rounded-xl fixed bottom-0 md:flex-col left-0 right-0 md:relative md:opacity-100 opacity-0 p-6 flex-col-reverse gap-5 md:translate-y-0 min-w-64 transition-all md:flex ${
+        className={`dark:bg-mirage-900 bg-mirage-200 rounded-xl fixed bottom-0 md:flex-col left-0 right-0 md:relative md:opacity-100 opacity-0 p-6 flex-col-reverse gap-5 md:translate-y-0 min-w-64 transition-all md:flex ${
           isPublishPanelOpen
             ? "flex translate-y-0 opacity-100"
             : "translate-y-full"

@@ -17,7 +17,7 @@ export default function Navbar() {
     setIsMenuOpen(false);
   };
   return (
-    <nav ref={navbarRef} className="z-20 p-1 bg-white bg-opacity-10 py-2 md:py-2 fixed backdrop-blur-md left-0 right-0 top-0 border-b border-b-[#ffffff3b]">
+    <nav ref={navbarRef} className="z-20 p-1 dark:bg-white/10 bg-slate-600/10 py-2 md:py-2 fixed backdrop-blur-md left-0 right-0 top-0 border-b border-b-secondary-light/20 dark:border-b-[#ffffff3b]">
       <div className="mx-auto flex md:justify-between items-center md:pl-5 md:pr-4 pr-2">
         <div className="gap-3 hidden md:flex">
           <NavbarItem name="Home" url="/" />

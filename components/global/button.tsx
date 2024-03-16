@@ -12,9 +12,9 @@ export default function Button({
   rounded?: string;
 }>) {
   const buttonThemes = {
-    red: "bg-red hover:bg-red-hover",
-    blue: "bg-mirage-700 hover:bg-mirage-600",
-    green: "bg-green hover:bg-green-hover"
+    red: "dark:bg-red bg-[#d78585] hover:bg-[#da7373] dark:hover:bg-red-hover",
+    blue: "dark:bg-mirage-700 bg-mirage-300 hover:bg-mirage-400 dark:hover:bg-mirage-600",
+    green: "dark:bg-green bg-[#6fcd92] hover:bg-[#4dbc75] dark:hover:bg-green-hover"
   };
   return (
     <button
