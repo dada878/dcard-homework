@@ -10,6 +10,7 @@ import BlogPost from "@/components/blogs/blogPost";
 import Container from "@/components/global/container";
 import FixedSidebar from "@/components/global/fixedSidebar";
 import CategoryItem from "@/components/blogs/categoryItem";
+import FloatingActionSection from "@/components/global/floatingActionSection";
 
 export default function BlogsPage() {
   const router = useRouter();
@@ -95,6 +96,13 @@ export default function BlogsPage() {
           date={new Date()}
         />
       </Container>
+      <FloatingActionSection>
+        <Button rounded="rounded-full" onClick={() => {}}>
+          <div className="p-2 flex justify-center items-center">
+            <FontAwesomeIcon className="w-5 h-7 shadow-lg" icon={faPlus} />
+          </div>
+        </Button>
+      </FloatingActionSection>
     </div>
   );
 }

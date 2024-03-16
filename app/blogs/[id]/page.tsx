@@ -9,8 +9,9 @@ import FixedSidebar from "@/components/global/fixedSidebar";
 import Comment from "@/components/blogView/comment";
 
 import Markdown from "react-markdown";
-import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faEdit, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import FloatingActionSection from "@/components/global/floatingActionSection";
 
 export default function BlogPostPage({ params }: { params: { id: string } }) {
   const router = useRouter();
@@ -30,7 +31,7 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
         </Button>
         <Button onClick={() => {}} color="red">
           <div className="flex gap-4 justify-center items-center">
-            <FontAwesomeIcon className="w-4" icon={faTrash} />
+            <FontAwesomeIcon className="w-4" icon={faTrashCan} />
             <span>刪除文章</span>
           </div>
         </Button>
@@ -45,7 +46,7 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
         </div>
       </FixedSidebar>
       <Container>
-        <div className="bg-secondary p-8 rounded-xl">
+        <div className="bg-secondary p-6 md:p-8 rounded-xl">
           <h1 className="text-5xl font-bold">超酷的文章標題</h1>
           <div className="flex flex-row items-end justify-between py-4">
             <div className="flex gap-2">
@@ -123,6 +124,18 @@ the content ouo
           <Markdown>這真的是超酷的留言 ouob</Markdown>
         </Comment>
       </Container>
+      <FloatingActionSection>
+        <Button rounded="rounded-full" onClick={() => {}} color="green">
+          <div className="p-2">
+            <FontAwesomeIcon className="w-5 h-5 shadow-lg" icon={faEdit} />
+          </div>
+        </Button>
+        <Button rounded="rounded-full" onClick={() => {}} color="red">
+          <div className="p-2">
+            <FontAwesomeIcon className="w-5 h-5 shadow-lg" icon={faTrashCan} />
+          </div>
+        </Button>
+      </FloatingActionSection>
     </div>
   );
 }
