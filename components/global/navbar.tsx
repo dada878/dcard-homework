@@ -4,12 +4,41 @@ import NavbarItem from "./navbarItem";
 import DarkModeToggle from "./darkModeToggle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { RefObject, useEffect, useRef, useState } from "react";
+
+/**
+ * Hook that alerts clicks outside of the passed ref
+ */
+function useOutside(ref : RefObject<HTMLElement>, callback: () => void){
+  useEffect(() => {
+    /**
+     * Alert if clicked on outside of element
+     */
+    function handleClickOutside(event: MouseEvent) {
+      if (ref.current && !ref.current.contains(event.target as Node)) {
+        callback();
+      }
+    }
+    // Bind the event listener
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      // Unbind the event listener on clean up
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [ref, callback]);
+}
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navbarRef = useRef(null);
+  useOutside(navbarRef, () => {
+    setIsMenuOpen(false);
+  });
+  const handleNavbarItemClick = () => {
+    setIsMenuOpen(false);
+  };
   return (
-    <nav className="z-20 p-1 bg-white bg-opacity-10 py-2 md:py-2 fixed backdrop-blur-md left-0 right-0 top-0 border-b border-b-[#ffffff3b]">
+    <nav ref={navbarRef} className="z-20 p-1 bg-white bg-opacity-10 py-2 md:py-2 fixed backdrop-blur-md left-0 right-0 top-0 border-b border-b-[#ffffff3b]">
       <div className="mx-auto flex md:justify-between items-center md:pl-5 md:pr-4 pr-2">
         <div className="gap-3 hidden md:flex">
           <NavbarItem name="Home" url="/" />
@@ -25,9 +54,9 @@ export default function Navbar() {
         </div>
       </div>
       <div className={`flex flex-col gap-3 transition-all duration-200 items-center md:hidden overflow-hidden ${isMenuOpen ? "max-h-40" : "max-h-0"}`}>
-        <NavbarItem isMobile className="mt-3" name="Home" url="/" />
-        <NavbarItem isMobile name="Blogs" url="/blogs" />
-        <NavbarItem isMobile name="Log in" url="/blogs" />
+        <NavbarItem isMobile onClick={handleNavbarItemClick} className="mt-3" name="Home" url="/" />
+        <NavbarItem isMobile onClick={handleNavbarItemClick} name="Blogs" url="/blogs" />
+        <NavbarItem isMobile onClick={handleNavbarItemClick} name="Log in" url="/blogs" />
       </div>
     </nav>
   );

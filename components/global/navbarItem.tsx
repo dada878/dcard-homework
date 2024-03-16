@@ -5,11 +5,13 @@ export default function NavbarItem({
   url,
   className,
   isMobile,
+  onClick = () => {},
 }: {
   name: string;
   url: string;
   className?: string;
   isMobile?: boolean;
+  onClick?: () => void;
 }) {
   return (
     <Link
@@ -18,6 +20,7 @@ export default function NavbarItem({
           ? "bg-gray text-center w-1/2 bg-opacity-30 rounded-md p-2"
           : "p-3"
       }`}
+      onClick={onClick}
       href={url}
     >
       {name}
