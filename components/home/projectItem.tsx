@@ -1,14 +1,17 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function ProjectItem({
   name,
   image,
+  link,
 }: {
   name: string;
   image: string;
+  link: string;
 }) {
   return (
-    <div className="flex justify-center">
+    <Link className="flex justify-center" href={link} target="_blank">
       <div className="dark:bg-mirage-900 bg-mirage-200 rounded-lg flex flex-col gpa-2 cursor-pointer transition hover:scale-105 max-w-md">
         <div className="w-full h-full relative flex justify-center">
           <Image
@@ -23,6 +26,6 @@ export default function ProjectItem({
           <p>{name}</p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
