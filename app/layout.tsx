@@ -5,6 +5,10 @@ import { Inter } from "next/font/google";
 import Navbar from "@/components/global/navbar";
 import "@/assets/globals.css";
 
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import { config } from '@fortawesome/fontawesome-svg-core';
+config.autoAddCss = false;
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
