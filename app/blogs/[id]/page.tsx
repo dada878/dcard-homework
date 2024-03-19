@@ -71,7 +71,7 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
           </div>
         </div>
       </FixedSidebar>
-      <Container>
+      <Container width="w-full">
         <div className="dark:bg-mirage-900 bg-mirage-200 p-6 md:p-8 rounded-xl">
           <h1 className="text-5xl font-bold">{post?.title}</h1>
           <div className="flex flex-row items-end justify-between py-4">
