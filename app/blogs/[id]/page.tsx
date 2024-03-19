@@ -17,11 +17,13 @@ import { useEffect, useState } from "react";
 import { Post } from "@/types/post";
 import { formatDate } from "@/utils/dateFormatter";
 import { Comment } from "@/types/comment";
+import Dialog from "@/components/global/dialog";
 
 export default function BlogPostPage({ params }: { params: { id: string } }) {
   const router = useRouter();
   const [post, setPost] = useState<Post>();
   const [comments, setComments] = useState<Array<Comment>>([]);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   useEffect(() => {
     fetch(`/api/posts/${params.id}`)
       .then((result) => result.json())
@@ -48,7 +50,12 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
             <span>編輯文章</span>
           </div>
         </Button>
-        <Button onClick={() => {}} color="red">
+        <Button
+          color="red"
+          onClick={() => {
+            setIsDialogOpen(true);
+          }}
+        >
           <div className="flex gap-4 justify-center items-center">
             <FontAwesomeIcon className="w-4" icon={faTrashCan} />
             <span>刪除文章</span>
@@ -84,18 +91,16 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
             <Markdown>{post?.content}</Markdown>
           </main>
         </div>
-        {
-          comments.map((comment : Comment, i) => (
-            <BlogComment
-              key={i}
-              userName={comment.author}
-              avatarUrl={comment.avatar}
-              date={new Date(comment.date)}
-            >
-              <Markdown>{comment.content}</Markdown>
-            </BlogComment>
-          ))
-        }
+        {comments.map((comment: Comment, i) => (
+          <BlogComment
+            key={i}
+            userName={comment.author}
+            avatarUrl={comment.avatar}
+            date={new Date(comment.date)}
+          >
+            <Markdown>{comment.content}</Markdown>
+          </BlogComment>
+        ))}
         <CommentEditor />
       </Container>
       <FloatingActionSection>
@@ -110,12 +115,46 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
             <FontAwesomeIcon className="w-5 h-5 shadow-lg" icon={faEdit} />
           </div>
         </Button>
-        <Button rounded="rounded-full" onClick={() => {}} color="red">
+        <Button
+          rounded="rounded-full"
+          onClick={() => {
+            setIsDialogOpen(true);
+          }}
+          color="red"
+        >
           <div className="p-2">
             <FontAwesomeIcon className="w-5 h-5 shadow-lg" icon={faTrashCan} />
           </div>
         </Button>
       </FloatingActionSection>
+      <Dialog open={isDialogOpen} setOpen={setIsDialogOpen}>
+        <div className="flex flex-col gap-4">
+          <h2 className="text-2xl font-bold">確定要刪除文章嗎？</h2>
+          <div className="flex gap-4">
+            <Button
+              onClick={() => {
+                setIsDialogOpen(false);
+              }}
+              color="red"
+            >
+              取消
+            </Button>
+            <Button
+              onClick={() => {
+                fetch(`/api/posts/${params.id}/delete`, {
+                  method: "POST",
+                  body: JSON.stringify(post),
+                }).then(() => {
+                  router.push("/blogs");
+                });
+              }}
+              color="green"
+            >
+              確定
+            </Button>
+          </div>
+        </div>
+      </Dialog>
     </div>
   );
 }
