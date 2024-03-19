@@ -22,7 +22,7 @@ export default function Navbar() {
         <div className="gap-3 hidden md:flex">
           <NavbarItem name="Home" url="/" />
           <NavbarItem name="Blogs" url="/blogs" />
-          <NavbarItem name="Log in" url="/blogs" />
+          <NavbarItem name="Log in" url="/api/auth/signin" />
         </div>
         <div className="flex gap-0 justify-around items-center flex-1 md:flex-grow-0 md:gap-4 flex-row-reverse md:flex-row">
           <FontAwesomeIcon icon={faBars} className={`text-2xl opacity-70 cursor-pointer transition md:!hidden ${isMenuOpen ? "rotate-90" : ""}`} onClick={() => {
@@ -35,7 +35,7 @@ export default function Navbar() {
       <div className={`flex flex-col gap-3 transition-all duration-200 items-center md:hidden overflow-hidden ${isMenuOpen ? "max-h-40" : "max-h-0"}`}>
         <NavbarItem isMobile onClick={handleNavbarItemClick} className="mt-3" name="Home" url="/" />
         <NavbarItem isMobile onClick={handleNavbarItemClick} name="Blogs" url="/blogs" />
-        <NavbarItem isMobile onClick={handleNavbarItemClick} name="Log in" url="/blogs" />
+        <NavbarItem isMobile onClick={handleNavbarItemClick} name="Log in" url="/api/auth/signin" />
       </div>
     </nav>
   );
