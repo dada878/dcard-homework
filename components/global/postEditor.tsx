@@ -8,16 +8,37 @@ import Input from "./input";
 import Textarea from "@/components/global/textarea";
 import { useRef, useState } from "react";
 import useOutside from "@/utils/hooks/clickOutside";
+import { Post } from "@/types/post";
 
-export default function PostEditor() {
+export default function PostEditor({
+  callback,
+  confirmButtonText
+}: {
+  callback: (post: Post) => void;
+  confirmButtonText: string;
+}) {
   const [isPublishPanelOpen, setIsPublishPanelOpen] = useState(false);
+  const [postTitle, setPostTitle] = useState("");
+  const [postContent, setPostContent] = useState("");
+  const [postTags, setPostTags] = useState<Array<string>>([]);
+  const [postTagsInput, setPostTagsInput] = useState("");
+  const [postCategory, setPostCategory] = useState("");
+  const [postDescription, setPostDescription] = useState("");
   const publishPanelRef = useRef(null);
-  useOutside(
-    publishPanelRef,
-    () => {
-      setIsPublishPanelOpen(false);
-    },
-  );
+  const handelCreateButtonClick = () => {
+    callback({
+      title: postTitle,
+      content: postContent,
+      tags: postTags,
+      category: postCategory,
+      description: postDescription,
+      date: new Date(),
+      id: 0,
+    });
+  };
+  useOutside(publishPanelRef, () => {
+    setIsPublishPanelOpen(false);
+  });
   return (
     <div className="md:p-10 p-4 flex gap-6 h-[calc(100vh_-_3.6rem)]">
       {/* 編輯區塊 */}
@@ -26,12 +47,21 @@ export default function PostEditor() {
           isPublishPanelOpen ? "opacity-20" : ""
         }`}
       >
-        <Input type="text" className="text-2xl" placeholder="輸入標題..." />
+        <Input
+          value={postTitle}
+          onChange={(e) => setPostTitle(e.target.value)}
+          type="text"
+          className="text-2xl"
+          placeholder="輸入標題..."
+        />
         <Textarea
+          value={postContent}
+          onChange={(e) => setPostContent(e.target.value)}
           className="h-full w-full"
           placeholder="在這裡用 Markdown 來寫一些什麼吧！"
         />
-        <Button className="md:hidden"
+        <Button
+          className="md:hidden"
           onClick={() => {
             setIsPublishPanelOpen(true);
           }}
@@ -44,7 +74,7 @@ export default function PostEditor() {
       </div>
       {/* 預覽區塊 */}
       <div className="dark:bg-mirage-900 bg-mirage-200 rounded-xl p-6 w-full hidden md:block">
-        <Markdown className="markdown"></Markdown>
+        <Markdown className="markdown">{postContent}</Markdown>
       </div>
       {/* 發布、標籤、類別區塊 */}
       <div
@@ -55,26 +85,54 @@ export default function PostEditor() {
         }`}
         ref={publishPanelRef}
       >
-        <Button onClick={() => {}}>
+        <Button onClick={handelCreateButtonClick}>
           <div className="flex gap-4 justify-center items-center">
             <FontAwesomeIcon icon={faPlus} />
-            <span>確認發布文章</span>
+            <span>{confirmButtonText}</span>
           </div>
         </Button>
         <div className="flex flex-col gap-5 flex-1">
           <p className="text-xl font-bold">標籤</p>
+          <div className="flex flex-wrap gap-3 empty:hidden">
+            {postTags.map((tag) => (
+              <span
+                key={tag}
+                className="dark:bg-mirage-700 bg-mirage-300 p-2 rounded-lg"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
           <div className="flex gap-2">
-            <Input type="text" placeholder="添加標籤..." />
-            <Button onClick={() => {}}>
+            <Input
+              value={postTagsInput}
+              onChange={(e) => setPostTagsInput(e.target.value)}
+              type="text"
+              placeholder="添加標籤..."
+            />
+            <Button
+              onClick={() => {
+                // TODO: avoid empty and duplicate tags
+                setPostTags([...postTags, postTagsInput]);
+                setPostTagsInput("");
+              }}
+            >
               <div className="flex gap-4 justify-center items-center">
                 <FontAwesomeIcon icon={faPlus} />
               </div>
             </Button>
           </div>
           <p className="text-xl font-bold">分類</p>
-          <Input type="text" placeholder="輸入類別..." />
+          <Input
+            value={postCategory}
+            onChange={(e) => setPostCategory(e.target.value)}
+            type="text"
+            placeholder="輸入類別..."
+          />
           <p className="text-xl font-bold">文章簡介</p>
           <Textarea
+            value={postDescription}
+            onChange={(e) => setPostDescription(e.target.value)}
             className="h-full"
             placeholder="在這裡寫一些關於這篇文章的敘述..."
           />
