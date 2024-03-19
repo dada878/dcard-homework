@@ -22,7 +22,6 @@ export default function BlogsPage() {
     fetch("/api/posts")
       .then((result) => result.json())
       .then((data) => {
-        console.log(data);
         setPosts(data);
       });
   }, []);

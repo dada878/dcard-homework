@@ -24,7 +24,6 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
     fetch(`/api/posts/${params.id}`)
       .then((result) => result.json())
       .then((data) => {
-        console.log(data);
         setPost(data);
       });
   }, [params.id]);
