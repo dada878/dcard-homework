@@ -6,16 +6,18 @@ import Markdown from "react-markdown";
 import Button from "./button";
 import Input from "./input";
 import Textarea from "@/components/global/textarea";
-import { useRef, useState } from "react";
+import { use, useEffect, useRef, useState } from "react";
 import useOutside from "@/utils/hooks/clickOutside";
 import { Post } from "@/types/post";
 
 export default function PostEditor({
   callback,
-  confirmButtonText
+  confirmButtonText,
+  defaultPost,
 }: {
   callback: (post: Post) => void;
   confirmButtonText: string;
+  defaultPost?: Post;
 }) {
   const [isPublishPanelOpen, setIsPublishPanelOpen] = useState(false);
   const [postTitle, setPostTitle] = useState("");
@@ -25,6 +27,15 @@ export default function PostEditor({
   const [postCategory, setPostCategory] = useState("");
   const [postDescription, setPostDescription] = useState("");
   const publishPanelRef = useRef(null);
+  useEffect(() => {
+    if (defaultPost) {
+      setPostTitle(defaultPost.title);
+      setPostContent(defaultPost.content);
+      setPostTags(defaultPost.tags);
+      setPostCategory(defaultPost.category);
+      setPostDescription(defaultPost.description);
+    }
+  }, [defaultPost]);
   const handelCreateButtonClick = () => {
     callback({
       title: postTitle,
