@@ -9,15 +9,17 @@ export default function BlogPost({
   category,
   date,
   tags,
+  id,
 }: {
   title: string;
   description: string;
   category: string;
   date: Date;
   tags: Array<string>;
+  id: number;
 }) {
   return (
-    <Link href="blogs/ouo">
+    <Link href={`/blogs/${id}`}>
       <article className="dark:bg-mirage-900 bg-mirage-200 flex flex-col p-4 rounded-xl gap-2 transition hover:bg-mirage-300 dark:hover:bg-mirage-800">
         <div className="flex justify-between items-end">
           <h3 className="text-2xl font-bold">{title}</h3>
