@@ -2,9 +2,16 @@ import { NextAuthOptions } from 'next-auth';
 import GithubProvider from 'next-auth/providers/github';
 import type { Adapter } from 'next-auth/adapters';
 import { FirestoreAdapter } from "@auth/firebase-adapter";
+import { cert } from "firebase-admin/app";
 
 export const authOptions : NextAuthOptions = {
-  adapter: FirestoreAdapter() as Adapter,
+  adapter: FirestoreAdapter({
+    credential: cert({
+      projectId: process.env.FIREBASE_PROJECT_ID,
+      clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+      privateKey: process.env.FIREBASE_PRIVATE_KEY,
+    })
+  }) as Adapter,
   secret: process.env.NEXTAUTH_SECRET,
   session: {
     strategy: "jwt",
