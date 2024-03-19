@@ -18,6 +18,7 @@ export async function GET(
     category: "React.js",
     tags: ["React", "JavaScript"],
     date: new Date(data.created_at),
+    description: "",
     id: data.number,
   };
   return NextResponse.json(post);

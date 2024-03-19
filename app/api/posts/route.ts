@@ -12,7 +12,6 @@ export async function GET(request: NextRequest) {
   );
   const data = await result.json();
   const posts: Array<Post> = [];
-  console.log(data);
   for (const post of data) {
     posts.push({
       title: post.title,
@@ -20,6 +19,7 @@ export async function GET(request: NextRequest) {
       category: "React.js",
       tags: ["React", "JavaScript"],
       date: new Date(post.created_at),
+      description: "",
       id: post.number,
     });
   }
