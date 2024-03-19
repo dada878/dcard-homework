@@ -3,7 +3,6 @@ import { Post } from "@/types/post";
 
 export async function POST(request: NextRequest, { params }: { params: { id: string } }) {
   const data : Post = await request.json();
-  console.log(params);
   const result = await fetch(
     `https://api.github.com/repos/dada878/dcard-homework/issues/${params.id}`,
     {
@@ -17,7 +16,6 @@ export async function POST(request: NextRequest, { params }: { params: { id: str
       }),
     }
   );
-  console.log(result);
   return new Response('Hello, Next.js!', {
     status: 200,
   });
