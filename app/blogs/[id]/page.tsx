@@ -13,9 +13,21 @@ import { faEdit, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import FloatingActionSection from "@/components/global/floatingActionSection";
 import CommentEditor from "@/components/blogView/commentEditor";
+import { useEffect, useState } from "react";
+import { Post } from "@/types/post";
+import { formatDate } from "@/utils/dateFormatter";
 
 export default function BlogPostPage({ params }: { params: { id: string } }) {
   const router = useRouter();
+  const [post, setPost] = useState<Post>();
+  useEffect(() => {
+    fetch(`/api/posts/${params.id}`)
+      .then((result) => result.json())
+      .then((data) => {
+        console.log(data);
+        setPost(data);
+      });
+  }, [params.id]);
   return (
     <div className="flex">
       <FixedSidebar>
@@ -48,59 +60,22 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
       </FixedSidebar>
       <Container>
         <div className="dark:bg-mirage-900 bg-mirage-200 p-6 md:p-8 rounded-xl">
-          <h1 className="text-5xl font-bold">超酷的文章標題</h1>
+          <h1 className="text-5xl font-bold">{post?.title}</h1>
           <div className="flex flex-row items-end justify-between py-4">
             <div className="flex gap-2">
-              <TagItem>ouo</TagItem>
-              <TagItem>ouo</TagItem>
-              <TagItem>ouo</TagItem>
+              {post?.tags.map((tag, i) => (
+                <TagItem key={i}>{tag}</TagItem>
+              ))}
             </div>
-            <p className="dark:text-secondary text-secondary-light text-sm">2024 / 01 / 22</p>
+            {post && (
+              <p className="dark:text-secondary text-secondary-light text-sm">
+                {formatDate(new Date(post.date))}
+              </p>
+            )}
           </div>
           <hr className="text-secondary-dark py-3" />
           <main className="markdown">
-            <Markdown>
-              {`
-# Hello World
-the cool post 
-
-is here
-
-## This is subtitle
-
-the content ouo
-the content ouo
-the content ouo
-the content ouo
-the content ouo
-
-# Hello World
-the cool post 
-
-is here
-
-## This is subtitle
-
-the content ouo
-the content ouo
-the content ouo
-the content ouo
-the content ouo
-
-# Hello World
-the cool post 
-
-is here
-
-## This is subtitle
-
-the content ouo
-the content ouo
-the content ouo
-the content ouo
-the content ouo
-            `}
-            </Markdown>
+            <Markdown>{post?.content}</Markdown>
           </main>
         </div>
         <Comment
@@ -127,9 +102,13 @@ the content ouo
         <CommentEditor />
       </Container>
       <FloatingActionSection>
-        <Button rounded="rounded-full" color="green" onClick={() => {
+        <Button
+          rounded="rounded-full"
+          color="green"
+          onClick={() => {
             router.push(`/blogs/${params.id}/edit`);
-          }}>
+          }}
+        >
           <div className="p-2">
             <FontAwesomeIcon className="w-5 h-5 shadow-lg" icon={faEdit} />
           </div>

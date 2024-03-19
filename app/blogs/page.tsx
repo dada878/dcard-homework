@@ -1,8 +1,11 @@
 "use client";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+
+import { Post } from "@/types/post";
 
 import Button from "@/components/global/button";
 import TagItem from "@/components/blogs/tagItem";
@@ -14,6 +17,15 @@ import FloatingActionSection from "@/components/global/floatingActionSection";
 
 export default function BlogsPage() {
   const router = useRouter();
+  const [posts, setPosts] = useState<Array<Post>>([]);
+  useEffect(() => {
+    fetch("/api/posts")
+      .then((result) => result.json())
+      .then((data) => {
+        console.log(data);
+        setPosts(data);
+      });
+  }, []);
   return (
     <div>
       <FixedSidebar>
@@ -62,53 +74,27 @@ export default function BlogsPage() {
             <Button>Typescript</Button>
           </div>
         </div>
-        <BlogPost
-          title="超酷的文章標題"
-          description="這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這理"
-          category="Vue.js"
-          tags={["Tag1", "tag2", "ouo"]}
-          date={new Date()}
-        />
-        <BlogPost
-          title="超酷的文章標題"
-          description="這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這理"
-          category="Vue.js"
-          tags={["Tag1", "tag2", "ouo"]}
-          date={new Date()}
-        />
-        <BlogPost
-          title="超酷的文章標題"
-          description="這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這理"
-          category="Vue.js"
-          tags={["Tag1", "tag2", "ouo"]}
-          date={new Date()}
-        />
-        <BlogPost
-          title="超酷的文章標題"
-          description="這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這理"
-          category="Vue.js"
-          tags={["Tag1", "tag2", "ouo"]}
-          date={new Date()}
-        />
-        <BlogPost
-          title="超酷的文章標題"
-          description="這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這理"
-          category="Vue.js"
-          tags={["Tag1", "tag2", "ouo"]}
-          date={new Date()}
-        />
-        <BlogPost
-          title="超酷的文章標題"
-          description="這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這裡，是這裡喔。篇文章的敘述將會寫在這裡，是這裡喔。這篇文章的敘述將會寫在這理"
-          category="Vue.js"
-          tags={["Tag1", "tag2", "ouo"]}
-          date={new Date()}
-        />
+        {posts.map((post, i) => {
+          return (
+            <BlogPost
+              id={post.id}
+              key={i}
+              title={post.title}
+              description={post.content}
+              category={post.category}
+              tags={post.tags}
+              date={new Date(post.date)}
+            />
+          );
+        })}
       </Container>
       <FloatingActionSection>
-        <Button rounded="rounded-full" onClick={() => {
+        <Button
+          rounded="rounded-full"
+          onClick={() => {
             router.push(`/create`);
-          }}>
+          }}
+        >
           <div className="p-2 flex justify-center items-center">
             <FontAwesomeIcon className="w-5 h-7 shadow-lg" icon={faPlus} />
           </div>
