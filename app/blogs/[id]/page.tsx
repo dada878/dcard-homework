@@ -6,7 +6,7 @@ import TagItem from "@/components/blogs/tagItem";
 import Button from "@/components/global/button";
 import Container from "@/components/global/container";
 import FixedSidebar from "@/components/global/fixedSidebar";
-import Comment from "@/components/blogView/comment";
+import BlogComment from "@/components/blogView/comment";
 
 import Markdown from "react-markdown";
 import { faEdit, faTrashCan } from "@fortawesome/free-solid-svg-icons";
@@ -16,15 +16,22 @@ import CommentEditor from "@/components/blogView/commentEditor";
 import { useEffect, useState } from "react";
 import { Post } from "@/types/post";
 import { formatDate } from "@/utils/dateFormatter";
+import { Comment } from "@/types/comment";
 
 export default function BlogPostPage({ params }: { params: { id: string } }) {
   const router = useRouter();
   const [post, setPost] = useState<Post>();
+  const [comments, setComments] = useState<Array<Comment>>([]);
   useEffect(() => {
     fetch(`/api/posts/${params.id}`)
       .then((result) => result.json())
       .then((data) => {
         setPost(data);
+      });
+    fetch(`/api/posts/${params.id}/comments`)
+      .then((result) => result.json())
+      .then((data) => {
+        setComments(data);
       });
   }, [params.id]);
   return (
@@ -77,27 +84,18 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
             <Markdown>{post?.content}</Markdown>
           </main>
         </div>
-        <Comment
-          userName="超酷的使用者"
-          avatarUrl="/images/placeholders/avatar.png"
-          date={new Date()}
-        >
-          <Markdown>這真的是超酷的留言 ouob</Markdown>
-        </Comment>
-        <Comment
-          userName="超酷的使用者"
-          avatarUrl="/images/placeholders/avatar.png"
-          date={new Date()}
-        >
-          <Markdown>這真的是超酷的留言 ouob</Markdown>
-        </Comment>
-        <Comment
-          userName="超酷的使用者"
-          avatarUrl="/images/placeholders/avatar.png"
-          date={new Date()}
-        >
-          <Markdown>這真的是超酷的留言 ouob</Markdown>
-        </Comment>
+        {
+          comments.map((comment : Comment, i) => (
+            <BlogComment
+              key={i}
+              userName={comment.author}
+              avatarUrl={comment.avatar}
+              date={new Date(comment.date)}
+            >
+              <Markdown>{comment.content}</Markdown>
+            </BlogComment>
+          ))
+        }
         <CommentEditor />
       </Container>
       <FloatingActionSection>

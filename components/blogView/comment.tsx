@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 
 import { formatDate } from "@/utils/dateFormatter";
 
-export default function Comment({
+export default function BlogComment({
   userName,
   avatarUrl,
   date,
