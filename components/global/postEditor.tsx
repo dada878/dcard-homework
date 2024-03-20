@@ -1,6 +1,10 @@
 "use client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faAnglesRight } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPlus,
+  faAnglesRight,
+  faXmark,
+} from "@fortawesome/free-solid-svg-icons";
 import Markdown from "react-markdown";
 
 import Button from "./button";
@@ -9,6 +13,7 @@ import Textarea from "@/components/global/textarea";
 import { use, useEffect, useRef, useState } from "react";
 import useOutside from "@/utils/hooks/clickOutside";
 import { Post } from "@/types/post";
+import TagItem from "../blogs/tagItem";
 
 export default function PostEditor({
   callback,
@@ -50,6 +55,12 @@ export default function PostEditor({
   useOutside(publishPanelRef, () => {
     setIsPublishPanelOpen(false);
   });
+  const handleAddTag = () => {
+    if (postTagsInput && !postTags.includes(postTagsInput)) {
+      setPostTags([...postTags, postTagsInput]);
+      setPostTagsInput("");
+    }
+  };
   return (
     <div className="md:p-10 p-4 flex gap-6 h-[calc(100vh_-_3.6rem)]">
       {/* 編輯區塊 */}
@@ -106,12 +117,17 @@ export default function PostEditor({
           <p className="text-xl font-bold">標籤</p>
           <div className="flex flex-wrap gap-3 empty:hidden">
             {postTags.map((tag) => (
-              <span
+              <TagItem
                 key={tag}
-                className="dark:bg-mirage-700 bg-mirage-300 p-2 rounded-lg"
+                onClick={() => {
+                  setPostTags(postTags.filter((t) => t !== tag));
+                }}
               >
-                {tag}
-              </span>
+                <div className="flex justify-center items-center gap-2">
+                  <p>{tag}</p>
+                  <FontAwesomeIcon icon={faXmark} />
+                </div>
+              </TagItem>
             ))}
           </div>
           <div className="flex gap-2">
@@ -120,13 +136,10 @@ export default function PostEditor({
               onChange={(e) => setPostTagsInput(e.target.value)}
               type="text"
               placeholder="添加標籤..."
+              onEnterPress={() => handleAddTag()}
             />
             <Button
-              onClick={() => {
-                // TODO: avoid empty and duplicate tags
-                setPostTags([...postTags, postTagsInput]);
-                setPostTagsInput("");
-              }}
+              onClick={() => handleAddTag()}
             >
               <div className="flex gap-4 justify-center items-center">
                 <FontAwesomeIcon icon={faPlus} />
