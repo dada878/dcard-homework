@@ -3,7 +3,7 @@ import { Post } from "@/types/post";
 
 export async function GET(request: NextRequest) {
   const result = await fetch(
-    "https://api.github.com/repos/dada878/dcard-homework/issues?q=state:open",
+    "https://api.github.com/repos/dada878/dcard-homework/issues?q=state:open&sort=updated",
     {
       headers: {
         Authorization: `Bearer ${process.env.GITHUB_PERSONAL_ACCESS_TOKEN}`,
