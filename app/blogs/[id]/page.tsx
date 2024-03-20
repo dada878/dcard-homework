@@ -43,7 +43,6 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
           onClick={() => {
             router.push(`/blogs/${params.id}/edit`);
           }}
-          color="green"
         >
           <div className="flex gap-4 justify-center items-center">
             <FontAwesomeIcon className="w-4" icon={faEdit} />
@@ -51,7 +50,6 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
           </div>
         </Button>
         <Button
-          color="red"
           onClick={() => {
             setIsDialogOpen(true);
           }}
@@ -106,7 +104,6 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
       <FloatingActionSection>
         <Button
           rounded="rounded-full"
-          color="green"
           onClick={() => {
             router.push(`/blogs/${params.id}/edit`);
           }}
@@ -120,41 +117,25 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
           onClick={() => {
             setIsDialogOpen(true);
           }}
-          color="red"
         >
           <div className="p-2">
             <FontAwesomeIcon className="w-5 h-5 shadow-lg" icon={faTrashCan} />
           </div>
         </Button>
       </FloatingActionSection>
-      <Dialog open={isDialogOpen} setOpen={setIsDialogOpen}>
-        <div className="flex flex-col gap-4">
-          <h2 className="text-2xl font-bold">確定要刪除文章嗎？</h2>
-          <div className="flex gap-4">
-            <Button
-              onClick={() => {
-                setIsDialogOpen(false);
-              }}
-              color="red"
-            >
-              取消
-            </Button>
-            <Button
-              onClick={() => {
-                fetch(`/api/posts/${params.id}/delete`, {
-                  method: "POST",
-                  body: JSON.stringify(post),
-                }).then(() => {
-                  router.push("/blogs");
-                });
-              }}
-              color="green"
-            >
-              確定
-            </Button>
-          </div>
-        </div>
-      </Dialog>
+      <Dialog
+        open={isDialogOpen}
+        setOpen={setIsDialogOpen}
+        onConfirm={() => {
+          fetch(`/api/posts/${params.id}/delete`, {
+            method: "POST",
+            body: JSON.stringify(post),
+          }).then(() => {
+            router.push("/blogs");
+          });
+        }}
+        title="確定要刪除文章嗎？"
+      />
     </div>
   );
 }
