@@ -1,4 +1,3 @@
-"use client";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -14,30 +13,21 @@ import Container from "@/components/global/container";
 import FixedSidebar from "@/components/global/fixedSidebar";
 import CategoryItem from "@/components/blogs/categoryItem";
 import FloatingActionSection from "@/components/global/floatingActionSection";
+import LinkButton from "@/components/global/linkButton";
 
-export default function BlogsPage() {
-  const router = useRouter();
-  const [posts, setPosts] = useState<Array<Post>>([]);
-  useEffect(() => {
-    fetch("/api/posts")
-      .then((result) => result.json())
-      .then((data) => {
-        setPosts(data);
-      });
-  }, []);
+export default async function BlogsPage() {
+  const posts : Array<Post> = await fetch("http://localhost:3000/api/posts").then((result) =>
+    result.json()
+  );
   return (
     <div>
       <FixedSidebar>
-        <Button
-          onClick={() => {
-            router.push(`/create`);
-          }}
-        >
+        <LinkButton href="/create">
           <div className="flex gap-4 justify-center items-center">
             <FontAwesomeIcon className="w-4" icon={faPlus} />
             <span>新增文章</span>
           </div>
-        </Button>
+        </LinkButton>
         <div className="dark:bg-mirage-900 rounded-2xl p-4 flex bg-mirage-200 flex-col gap-4">
           <h2 className="text-center font-bold text-2xl">分類</h2>
           <div className="flex flex-col">
@@ -73,7 +63,7 @@ export default function BlogsPage() {
             <Button>Typescript</Button>
           </div>
         </div>
-        {posts.map((post, i) => {
+        {posts.map((post: Post, i: number) => {
           return (
             <BlogPost
               id={post.id}
@@ -88,16 +78,11 @@ export default function BlogsPage() {
         })}
       </Container>
       <FloatingActionSection>
-        <Button
-          rounded="rounded-full"
-          onClick={() => {
-            router.push(`/create`);
-          }}
-        >
+        <LinkButton href="/create" rounded="rounded-full">
           <div className="p-2 flex justify-center items-center">
             <FontAwesomeIcon className="w-5 h-7 shadow-lg" icon={faPlus} />
           </div>
-        </Button>
+        </LinkButton>
       </FloatingActionSection>
     </div>
   );
