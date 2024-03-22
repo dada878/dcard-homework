@@ -1,6 +1,6 @@
 export default function Button({
   children,
-  onClick = () => {},
+  onClick,
   color = "blue",
   className = "",
   rounded = "rounded-xl"
