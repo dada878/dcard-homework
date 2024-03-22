@@ -1,8 +1,12 @@
 import { NextRequest } from "next/server";
 import { Post } from "@/types/post";
+import { revalidateTag } from "next/cache";
 
-export async function POST(request: NextRequest, { params }: { params: { id: string } }) {
-  const data : Post = await request.json();
+export async function POST(
+  request: NextRequest,
+  { params }: { params: { id: string } }
+) {
+  const data: Post = await request.json();
   const result = await fetch(
     `https://api.github.com/repos/dada878/dcard-homework/issues/${params.id}`,
     {
@@ -17,7 +21,8 @@ export async function POST(request: NextRequest, { params }: { params: { id: str
       }),
     }
   );
-  return new Response('Hello, Next.js!', {
-    status: 200,
+  revalidateTag("posts");
+  return new Response(null, {
+    status: result.status,
   });
 }
