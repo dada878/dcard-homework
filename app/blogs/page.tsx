@@ -30,11 +30,11 @@ async function Posts() {
   });
   return (
     <>
-      {posts.map((post: Post, i: number) => {
+      {posts.map((post: Post) => {
         return (
           <BlogPost
             id={post.id}
-            key={i}
+            key={post.id}
             title={post.title}
             description={post.content}
             category={post.category}
