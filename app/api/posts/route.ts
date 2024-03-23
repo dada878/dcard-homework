@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server";
 import { Post } from "@/types/post";
+import { unstable_noStore as noStore } from "next/cache";
 
 export async function GET() {
+  noStore();
   const result = await fetch(
     `https://api.github.com/repos/${process.env.GITHUB_REPO_OWNER}/${process.env.GITHUB_REPO_NAME}/issues?q=state:open&sort=updated`,
     {
