@@ -5,12 +5,12 @@ import {
   faAnglesRight,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
-import Markdown from "react-markdown";
+import Markdown from "markdown-to-jsx";
 
 import Button from "./button";
 import Input from "./input";
 import Textarea from "@/components/global/textarea";
-import { use, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import useOutside from "@/utils/hooks/clickOutside";
 import { Post } from "@/types/post";
 import TagItem from "../blogs/tagItem";
@@ -95,7 +95,7 @@ export default function PostEditor({
         </Button>
       </div>
       {/* 預覽區塊 */}
-      <div className="dark:bg-mirage-900 bg-mirage-200 rounded-xl p-6 w-full hidden md:block">
+      <div className="dark:bg-mirage-900 overflow-y-scroll bg-mirage-200 rounded-xl p-6 w-full hidden md:block">
         <Markdown className="markdown">{postContent}</Markdown>
       </div>
       {/* 發布、標籤、類別區塊 */}
