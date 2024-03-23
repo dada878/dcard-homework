@@ -24,7 +24,8 @@
     "nextjs-toploader": "^1.6.11",
     "react": "^18",
     "react-dom": "^18",
-    "react-switch": "^7.0.0"
+    "react-switch": "^7.0.0",
+    "sharp": "^0.33.2"
   },
   "devDependencies": {
     "@types/node": "^20",
