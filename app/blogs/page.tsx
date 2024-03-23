@@ -11,6 +11,7 @@ import FixedSidebar from "@/components/global/fixedSidebar";
 import CategoryItem from "@/components/blogs/categoryItem";
 import FloatingActionSection from "@/components/global/floatingActionSection";
 import LinkButton from "@/components/global/linkButton";
+import { unstable_noStore as noStore } from "next/cache";
 
 async function Posts() {
   const posts: Array<Post> = await fetch(
@@ -46,7 +47,8 @@ async function Posts() {
   );
 }
 
-export default async function BlogsPage() {
+export default function BlogsPage() {
+  noStore();
   return (
     <div>
       <FixedSidebar>
