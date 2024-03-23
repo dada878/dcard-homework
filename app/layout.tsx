@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 
 import { Inter } from "next/font/google";
+import NextTopLoader from "nextjs-toploader";
 
 import Navbar from "@/components/global/navbar";
 import "@/assets/globals.css";
 
-import '@fortawesome/fontawesome-svg-core/styles.css';
-import { config } from '@fortawesome/fontawesome-svg-core';
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
 
 const inter = Inter({ subsets: ["latin"] });
@@ -23,8 +24,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${inter.className} bg-mirage-100 text-black dark:text-white dark:bg-mirage-1000 transition`}>
+      <body
+        className={`${inter.className} bg-mirage-100 text-black dark:text-white dark:bg-mirage-1000 transition`}
+      >
         <Navbar />
+        <div className="z-30">
+          <NextTopLoader
+            shadow={false}
+            showSpinner={false}
+            crawl={true}
+            color="#0078be"
+          />
+        </div>
         <div className="mt-14">{children}</div>
       </body>
     </html>
