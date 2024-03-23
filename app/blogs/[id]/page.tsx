@@ -18,11 +18,19 @@ export default async function BlogPostPage({
 }: {
   params: { id: string };
 }) {
-  const post = await fetch(`http://localhost:3000/api/posts/${params.id}`).then(
-    (result) => result.json()
-  );
+  const post = await fetch(
+    `${
+      process.env.NODE_ENV === "development"
+        ? process.env.BASE_URL
+        : process.env.VERCEL_URL
+    }/api/posts/${params.id}`
+  ).then((result) => result.json());
   const comments = await fetch(
-    `http://localhost:3000/api/posts/${params.id}/comments`
+    `${
+      process.env.NODE_ENV === "development"
+        ? process.env.BASE_URL
+        : process.env.VERCEL_URL
+    }/api/posts/${params.id}/comments`
   ).then((result) => result.json());
   return (
     <div className="flex">

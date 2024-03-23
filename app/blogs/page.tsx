@@ -13,11 +13,18 @@ import FloatingActionSection from "@/components/global/floatingActionSection";
 import LinkButton from "@/components/global/linkButton";
 
 async function Posts() {
-  const posts: Array<Post> = await fetch("http://localhost:3000/api/posts", {
-    next: {
-      tags: ["posts"],
-    },
-  }).then((result) => {
+  const posts: Array<Post> = await fetch(
+    `${
+      process.env.NODE_ENV === "development"
+        ? process.env.BASE_URL
+        : process.env.VERCEL_URL
+    }/api/posts`,
+    {
+      next: {
+        tags: ["posts"],
+      },
+    }
+  ).then((result) => {
     return result.json();
   });
   return (
