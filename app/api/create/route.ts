@@ -1,11 +1,11 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest } from "next/server";
 import { Post } from "@/types/post";
 import { revalidateTag } from "next/cache";
 
 export async function POST(request: NextRequest) {
   const data: Post = await request.json();
   const result = await fetch(
-    "https://api.github.com/repos/dada878/dcard-homework/issues",
+    `https://api.github.com/repos/${process.env.GITHUB_REPO_OWNER}/${process.env.GITHUB_REPO_NAME}/issues`,
     {
       method: "POST",
       headers: {

@@ -6,11 +6,14 @@ export async function GET(
   { params }: { params: { id: string } }
 ) {
   const id = params.id;
-  const result = await fetch(`https://api.github.com/repos/dada878/dcard-homework/issues/${id}`, {
-    headers: {
-      Authorization: `Bearer ${process.env.GITHUB_PERSONAL_ACCESS_TOKEN}`,
-    },
-  });
+  const result = await fetch(
+    `https://api.github.com/repos/${process.env.GITHUB_REPO_OWNER}/${process.env.GITHUB_REPO_NAME}/issues/${id}`,
+    {
+      headers: {
+        Authorization: `Bearer ${process.env.GITHUB_PERSONAL_ACCESS_TOKEN}`,
+      },
+    }
+  );
   const data = await result.json();
   const post: Post = {
     title: data.title,

@@ -8,7 +8,7 @@ export async function POST(
 ) {
   const data: Post = await request.json();
   const result = await fetch(
-    `https://api.github.com/repos/dada878/dcard-homework/issues/${params.id}`,
+    `https://api.github.com/repos/${process.env.GITHUB_REPO_OWNER}/${process.env.GITHUB_REPO_NAME}/issues/${params.id}`,
     {
       method: "PATCH",
       headers: {
