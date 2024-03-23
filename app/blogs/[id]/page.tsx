@@ -22,14 +22,14 @@ export default async function BlogPostPage({
     `${
       process.env.NODE_ENV === "development"
         ? process.env.BASE_URL
-        : process.env.VERCEL_URL
+        : process.env.PRODUCTION_URL
     }/api/posts/${params.id}`
   ).then((result) => result.json());
   const comments = await fetch(
     `${
       process.env.NODE_ENV === "development"
         ? process.env.BASE_URL
-        : process.env.VERCEL_URL
+        : process.env.PRODUCTION_URL
     }/api/posts/${params.id}/comments`
   ).then((result) => result.json());
   return (

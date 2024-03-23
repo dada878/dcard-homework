@@ -17,7 +17,7 @@ async function Posts() {
     `${
       process.env.NODE_ENV === "development"
         ? process.env.BASE_URL
-        : process.env.VERCEL_URL
+        : process.env.PRODUCTION_URL
     }/api/posts`,
     {
       next: {
