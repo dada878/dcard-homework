@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server";
 import { Post } from "@/types/post";
-import { revalidateTag } from "next/cache";
+import { revalidatePath } from "next/cache";
 
 export async function POST(
   request: NextRequest,
@@ -21,7 +21,7 @@ export async function POST(
       }),
     }
   );
-  revalidateTag("posts");
+  revalidatePath("/blogs");
   return new Response(null, {
     status: result.status,
   });

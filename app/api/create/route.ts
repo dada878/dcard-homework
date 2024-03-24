@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server";
 import { Post } from "@/types/post";
-import { revalidateTag } from "next/cache";
+import { revalidatePath } from "next/cache";
 
 export async function POST(request: NextRequest) {
   const data: Post = await request.json();
@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
       }),
     }
   );
-  revalidateTag("posts");
+  revalidatePath("/blogs");
   const post = await result.json();
   return Response.json({ id: post.number });
 }
