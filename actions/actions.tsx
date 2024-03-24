@@ -1,8 +1,5 @@
 "use server";
 
-import { Comment } from "@/types/comment";
-import { Post } from "@/types/post";
-
 const GITHUB_API_URL = `https://api.github.com/repos/${process.env.GITHUB_REPO_OWNER}/${process.env.GITHUB_REPO_NAME}/issues`;
 const GITHUB_HEADERS = {
   Authorization: `Bearer ${process.env.GITHUB_PERSONAL_ACCESS_TOKEN}`,

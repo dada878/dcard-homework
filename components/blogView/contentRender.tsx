@@ -1,4 +1,3 @@
-import { Post } from "@/types/post";
 import TagItem from "../blogs/tagItem";
 import { formatDate } from "@/utils/dateFormatter";
 import Markdown from 'markdown-to-jsx';

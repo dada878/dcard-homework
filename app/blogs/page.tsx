@@ -1,18 +1,16 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
-import { Post } from "@/types/post";
-
 import Button from "@/components/global/button";
 import TagItem from "@/components/blogs/tagItem";
 import BlogPost from "@/components/blogs/blogPost";
-import Container from "@/components/global/container";
-import FixedSidebar from "@/components/global/fixedSidebar";
+import Container from "@/components/layout/container";
+import FixedSidebar from "@/components/layout/fixedSidebar";
 import CategoryItem from "@/components/blogs/categoryItem";
-import FloatingActionSection from "@/components/global/floatingActionSection";
+import FloatingActionSection from "@/components/layout/floatingActionSection";
 import LinkButton from "@/components/global/linkButton";
 import { unstable_noStore as noStore } from "next/cache";
-import { getPostList } from "../actions";
+import { getPostList } from "../../actions/actions";
 
 async function Posts() {
   const posts: Array<Post> = await getPostList();

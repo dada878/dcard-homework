@@ -1,7 +1,6 @@
 "use client";
-import { updatePost } from "@/app/actions";
+import { getPost, updatePost } from "@/actions/actions";
 import PostEditor from "@/components/global/postEditor";
-import { Post } from "@/types/post";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -9,11 +8,9 @@ export default function EditPage({ params }: { params: { id: string } }) {
   const router = useRouter();
   const [post, setPost] = useState<Post>();
   useEffect(() => {
-    fetch(`/api/posts/${params.id}`)
-      .then((result) => result.json())
-      .then((data) => {
-        setPost(data);
-      });
+    getPost(params.id).then((data) => {
+      setPost(data);
+    });
   }, [post?.id, params.id]);
   const createPostCallback = (post: Post) => {
     updatePost(params.id, post).then(() => {
@@ -22,7 +19,11 @@ export default function EditPage({ params }: { params: { id: string } }) {
   };
   return (
     <div>
-      <PostEditor callback={createPostCallback} defaultPost={post} confirmButtonText="儲存文章變更" />
+      <PostEditor
+        callback={createPostCallback}
+        defaultPost={post}
+        confirmButtonText="儲存文章變更"
+      />
     </div>
   );
 }

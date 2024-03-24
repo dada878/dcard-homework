@@ -1,4 +1,4 @@
-export interface Post {
+interface Post {
   title: string;
   content: string;
   category: string;

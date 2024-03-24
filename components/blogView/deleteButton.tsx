@@ -1,6 +1,6 @@
 "use client";
 
-import { deletePost } from "@/app/actions";
+import { deletePost } from "@/actions/actions";
 import Button from "@/components/global/button";
 import ConfirmDialog from "@/components/global/confirmDialog";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";

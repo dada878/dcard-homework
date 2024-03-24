@@ -1,18 +1,17 @@
 import MenuItem from "@/components/blogView/menuItem";
-import Container from "@/components/global/container";
-import FixedSidebar from "@/components/global/fixedSidebar";
+import Container from "@/components/layout/container";
+import FixedSidebar from "@/components/layout/fixedSidebar";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Suspense } from "react";
-import { Comment } from "@/types/comment";
 import LinkButton from "@/components/global/linkButton";
 import ContentRender from "@/components/blogView/contentRender";
-import FloatingActionSection from "@/components/global/floatingActionSection";
+import FloatingActionSection from "@/components/layout/floatingActionSection";
 import Markdown from "markdown-to-jsx";
 import BlogComment from "@/components/blogView/comment";
-import DeleteButtonClient from "./deleteButtonClient";
-import CommentEditorClient from "./commentEditorClient";
-import { getComments, getPost } from "@/app/actions";
+import DeleteButtonClient from "../../../components/blogView/deleteButtonClient";
+import CommentEditorClient from "../../../components/blogView/commentEditorClient";
+import { getComments, getPost } from "@/actions/actions";
 
 export default async function BlogPostPage({
   params,

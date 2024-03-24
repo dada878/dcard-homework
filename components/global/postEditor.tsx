@@ -11,8 +11,7 @@ import Button from "./button";
 import Input from "./input";
 import Textarea from "@/components/global/textarea";
 import { useEffect, useRef, useState } from "react";
-import useOutside from "@/utils/hooks/clickOutside";
-import { Post } from "@/types/post";
+import useOutside from "@/hooks/useOutside";
 import TagItem from "../blogs/tagItem";
 
 export default function PostEditor({
