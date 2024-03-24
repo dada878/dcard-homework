@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import TagItem from "./tagItem";
+import TagItem from "../global/tagItem";
 import { formatDate } from "@/utils/dateFormatter";
 
 export default function BlogPost({
@@ -29,7 +29,9 @@ export default function BlogPost({
         <div className="flex justify-between items-end">
           <div className="flex gap-2">
             {tags.map((tag, index) => (
-              <TagItem key={index} name={tag} />
+              <TagItem key={index} > 
+                {tag}
+              </TagItem>
             ))}
           </div>
           <p className="dark:text-secondary text-secondary-light">分類：{category}</p>

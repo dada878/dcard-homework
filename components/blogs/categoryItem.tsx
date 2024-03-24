@@ -1,18 +1,22 @@
-import { ReactNode } from "react";
+"use client";
+
+import { useRouter, useSearchParams } from "next/navigation";
+import TagItem from "../global/tagItem";
 
 export default function CategoryItem({
-  children,
-  count,
+  name,
+  selected,
 }: {
-  children: ReactNode;
-  count: number;
+  name: string;
+  selected?: boolean;
 }) {
-  return (
-    <div className="flex justify-between text-secondary-light dark:text-secondary cursor-pointer py-2 transition hover:text-black dark:hover:text-primary">
-      {children}
-      {/* TODO: make border color white when hove */}
-      <div className="flex-1 border-b dark:border-b-secondary border-b-secondary-light mx-2 -translate-y-1/2"></div>
-      <p>{count} 篇</p>
-    </div>
-  );
+  const router = useRouter();
+  const params = useSearchParams();
+  const tags = params.get("tags")?.split(",") || [];
+  return <TagItem selected={selected} onClick={() => {
+    const searchParams = new URLSearchParams();
+    searchParams.set("category", name);
+    searchParams.set("tags", tags.join(","));
+    router.push(`blogs?${searchParams.toString()}`);
+  }}>{name}</TagItem>;
 }

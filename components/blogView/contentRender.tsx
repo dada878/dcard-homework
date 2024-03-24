@@ -1,6 +1,6 @@
-import TagItem from "../blogs/tagItem";
+import TagItem from "../global/tagItem";
 import { formatDate } from "@/utils/dateFormatter";
-import Markdown from 'markdown-to-jsx';
+import Markdown from "markdown-to-jsx";
 
 export default function ContentRender({ post }: { post: Post }) {
   return (
@@ -9,7 +9,7 @@ export default function ContentRender({ post }: { post: Post }) {
       <div className="flex flex-row items-end justify-between py-4">
         <div className="flex gap-2">
           {post.tags.map((tag: string, i: number) => (
-            <TagItem key={i} name={tag} />
+            <TagItem key={i}>{tag}</TagItem>
           ))}
         </div>
         {post && (

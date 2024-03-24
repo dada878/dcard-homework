@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlus,
   faAnglesRight,
-  faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import Markdown from "markdown-to-jsx";
 
@@ -12,7 +11,7 @@ import Input from "./input";
 import Textarea from "@/components/global/textarea";
 import { useEffect, useRef, useState } from "react";
 import useOutside from "@/hooks/useOutside";
-import TagItem from "../blogs/tagItem";
+import CloseableTagItem from "../edit/closeableTagItem";
 
 export default function PostEditor({
   callback,
@@ -45,7 +44,7 @@ export default function PostEditor({
       title: postTitle,
       content: postContent,
       tags: postTags,
-      category: postCategory,
+      category: postCategory == "未歸類" ? "" : postCategory,
       description: postDescription,
       date: new Date(),
       id: 0,
@@ -116,13 +115,12 @@ export default function PostEditor({
           <p className="text-xl font-bold">標籤</p>
           <div className="flex flex-wrap gap-3 empty:hidden">
             {postTags.map((tag) => (
-              <TagItem
+              <CloseableTagItem
                 key={tag}
+                name={tag}
                 onClick={() => {
                   setPostTags(postTags.filter((t) => t !== tag));
                 }}
-                name={tag}
-                hasCloseButton
               />
             ))}
           </div>
@@ -134,9 +132,7 @@ export default function PostEditor({
               placeholder="添加標籤..."
               onEnterPress={() => handleAddTag()}
             />
-            <Button
-              onClick={() => handleAddTag()}
-            >
+            <Button onClick={() => handleAddTag()}>
               <div className="flex gap-4 justify-center items-center">
                 <FontAwesomeIcon icon={faPlus} />
               </div>

@@ -1,6 +1,6 @@
 "use server";
 
-import { parseLinkHeader } from "@/utils/linkHeaderPraser";
+import { parseLinkHeader } from "@/utils/linkHeaderParser";
 
 const GITHUB_API_URL = `https://api.github.com/repos/${process.env.GITHUB_REPO_OWNER}/${process.env.GITHUB_REPO_NAME}/issues`;
 const GITHUB_HEADERS = {
@@ -19,7 +19,9 @@ export async function getPostList(page: string = "1") {
   const posts = data.map((issue: Issue) => ({
     title: issue.title,
     content: issue.body,
-    category: "React.js",
+    category: issue.labels
+      .filter((label) => label.name.startsWith("category:"))?.at(0)
+      ?.name?.slice(9) || "未歸類",
     tags: issue.labels
       .filter((label) => label.name.startsWith("tag:"))
       .map((label) => label.name.slice(4)),
@@ -55,7 +57,9 @@ export async function getPost(id: string) {
   return {
     title: issue.title,
     content: issue.body,
-    category: "React.js",
+    category: issue.labels
+      .filter((label) => label.name.startsWith("category:"))?.at(0)
+      ?.name?.slice(9) || "未歸類",
     tags: issue.labels
       .filter((label) => label.name.startsWith("tag:"))
       .map((label) => label.name.slice(4)),

@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 import Button from "@/components/global/button";
-import TagItem from "@/components/blogs/tagItem";
+import TagItem from "@/components/global/tagItem";
 import BlogPost from "@/components/blogs/blogPost";
 import Container from "@/components/layout/container";
 import FixedSidebar from "@/components/layout/fixedSidebar";
@@ -13,6 +13,8 @@ import { unstable_noStore as noStore } from "next/cache";
 import { getPostList } from "../../actions/posts";
 import { getTagList } from "@/actions/tags";
 import Pagination from "@/components/blogs/pagination";
+import { getCategoryList } from "@/actions/categories";
+import TogglableTagItem from "@/components/blogs/toggleableTagItem";
 
 async function Posts({ page }: { page?: string }) {
   const posts: Array<Post> = await getPostList(page);
@@ -35,16 +37,28 @@ async function Posts({ page }: { page?: string }) {
   );
 }
 
+async function Categories() {
+  const categories = await getCategoryList();
+  return (
+    <div className="flex flex-col gap-3">
+      {categories
+        .filter((category: string) => category.length)
+        .map((category: string) => (
+          <CategoryItem key={category} name={category} />
+        ))}
+    </div>
+  );
+}
+
 async function Tags({ currentTags }: { currentTags?: string[] }) {
   const tags = await getTagList();
   return (
     <>
       {tags.map((tag: string) => (
-        <TagItem
+        <TogglableTagItem
           key={tag}
           selected={currentTags?.includes(tag)}
           name={tag}
-          clickToRedirect
         />
       ))}
     </>
@@ -60,6 +74,7 @@ export default function BlogsPage({
 }) {
   noStore();
   const tagList = searchParams.tags?.split(",") || [];
+  const category = searchParams.category || "";
   return (
     <div>
       <FixedSidebar>
@@ -72,10 +87,7 @@ export default function BlogsPage({
         <div className="dark:bg-mirage-900 rounded-2xl p-4 flex bg-mirage-200 flex-col gap-4">
           <h2 className="text-center font-bold text-2xl">分類</h2>
           <div className="flex flex-col">
-            <CategoryItem count={12}>React.js</CategoryItem>
-            <CategoryItem count={3}>Vue.js</CategoryItem>
-            <CategoryItem count={1}>Typescript</CategoryItem>
-            <CategoryItem count={7}>其他神奇的文章</CategoryItem>
+            <Categories />
           </div>
         </div>
         <div className="dark:bg-mirage-900 rounded-2xl p-4 bg-mirage-200 flex flex-col gap-4">
