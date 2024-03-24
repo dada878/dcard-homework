@@ -4,7 +4,7 @@ import Dialog from "@/components/global/dialog";
 import PostEditor from "@/components/global/postEditor";
 import { Post } from "@/types/post";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { startTransition, useState } from "react";
 
 export default function CreatePage() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -40,7 +40,12 @@ export default function CreatePage() {
               <p className="text-xl">文章發布成功！</p>
               <div className="flex gap-3 text-md justify-center">
                 <Button onClick={() => router.push(postUrl)}>查看文章</Button>
-                <Button onClick={() => router.push("../blogs")}>
+                <Button onClick={
+                  () => {
+                    startTransition(() => router.push("../blogs"));
+                    startTransition(() => router.refresh());
+                  }
+                }>
                   返回部落格頁面
                 </Button>
               </div>

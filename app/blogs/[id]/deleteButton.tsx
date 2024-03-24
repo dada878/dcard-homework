@@ -5,7 +5,7 @@ import ConfirmDialog from "@/components/global/confirmDialog";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { startTransition, useState } from "react";
 
 export default function DeleteButton({
   id,
@@ -50,7 +50,8 @@ export default function DeleteButton({
             method: "POST",
             body: JSON.stringify(post),
           }).then(() => {
-            router.push("/blogs");
+            startTransition(() => router.push("/blogs"));
+            startTransition(() => router.refresh());
           });
         }}
         title="確定要刪除文章嗎？"
