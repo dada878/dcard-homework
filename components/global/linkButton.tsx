@@ -9,7 +9,7 @@ export default function LinkButton({
   rounded = "rounded-xl"
 }: Readonly<{
   children: React.ReactNode;
-  color? : "blue" | "red" | "green";
+  color? : "blue" | "red" | "green" | "dark-blue";
   href: string;
   className?: string;
   rounded?: string;
