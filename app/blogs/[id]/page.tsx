@@ -12,26 +12,15 @@ import Markdown from "markdown-to-jsx";
 import BlogComment from "@/components/blogView/comment";
 import DeleteButtonClient from "./deleteButtonClient";
 import CommentEditorClient from "./commentEditorClient";
+import { getComments, getPost } from "@/app/actions";
 
 export default async function BlogPostPage({
   params,
 }: {
   params: { id: string };
 }) {
-  const post = await fetch(
-    `${
-      process.env.NODE_ENV === "development"
-        ? process.env.BASE_URL
-        : process.env.PRODUCTION_URL
-    }/api/posts/${params.id}`
-  ).then((result) => result.json());
-  const comments = await fetch(
-    `${
-      process.env.NODE_ENV === "development"
-        ? process.env.BASE_URL
-        : process.env.PRODUCTION_URL
-    }/api/posts/${params.id}/comments`
-  ).then((result) => result.json());
+  const post = await getPost(params.id);
+  const comments = await getComments(params.id);
   return (
     <div className="flex">
       <FixedSidebar>
@@ -41,7 +30,7 @@ export default async function BlogPostPage({
             <span>編輯文章</span>
           </div>
         </LinkButton>
-        <DeleteButtonClient id={params.id} post={post} />
+        <DeleteButtonClient id={params.id} />
         <div className="dark:bg-mirage-900 bg-mirage-200 rounded-xl p-4">
           <h3 className="font-bold text-2xl text-center mb-4">文章目錄</h3>
           <div className="flex flex-col gap-2">
@@ -61,7 +50,6 @@ export default async function BlogPostPage({
             avatarUrl={comment.avatar}
             date={new Date(comment.date)}
           >
-            <p>qwq</p>
             <Markdown>{comment.content}</Markdown>
           </BlogComment>
         ))}
@@ -75,7 +63,7 @@ export default async function BlogPostPage({
             <FontAwesomeIcon className="w-5 h-5 shadow-lg" icon={faEdit} />
           </div>
         </LinkButton>
-        <DeleteButtonClient id={params.id} post={post} isMobile />
+        <DeleteButtonClient id={params.id} isMobile />
       </FloatingActionSection>
     </div>
   );

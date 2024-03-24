@@ -5,6 +5,7 @@ import PostEditor from "@/components/global/postEditor";
 import { Post } from "@/types/post";
 import { useRouter } from "next/navigation";
 import { startTransition, useState } from "react";
+import { createPost } from "../actions";
 
 export default function CreatePage() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -13,14 +14,9 @@ export default function CreatePage() {
   const router = useRouter();
   const createPostCallback = (post: Post) => {
     setIsDialogOpen(true);
-    fetch("/api/create", {
-      method: "POST",
-      body: JSON.stringify(post),
-    }).then((result) => {
-      result.json().then((data) => {
-        setPostUrl(`/blogs/${data.id}`);
-        setIsFinished(true);
-      });
+    createPost(post).then((id) => {
+      setPostUrl(`/blogs/${id}`);
+      setIsFinished(true);
     });
   };
   return (

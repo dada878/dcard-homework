@@ -1,4 +1,5 @@
 "use client";
+import { updatePost } from "@/app/actions";
 import PostEditor from "@/components/global/postEditor";
 import { Post } from "@/types/post";
 import { useRouter } from "next/navigation";
@@ -15,10 +16,7 @@ export default function EditPage({ params }: { params: { id: string } }) {
       });
   }, [post?.id, params.id]);
   const createPostCallback = (post: Post) => {
-    fetch(`/api/posts/${params.id}/edit`, {
-      method: "POST",
-      body: JSON.stringify(post),
-    }).then(() => {
+    updatePost(params.id, post).then(() => {
       router.push("/blogs");
     });
   };

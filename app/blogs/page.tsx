@@ -12,22 +12,10 @@ import CategoryItem from "@/components/blogs/categoryItem";
 import FloatingActionSection from "@/components/global/floatingActionSection";
 import LinkButton from "@/components/global/linkButton";
 import { unstable_noStore as noStore } from "next/cache";
+import { getPostList } from "../actions";
 
 async function Posts() {
-  const posts: Array<Post> = await fetch(
-    `${
-      process.env.NODE_ENV === "development"
-        ? process.env.BASE_URL
-        : process.env.PRODUCTION_URL
-    }/api/posts`,
-    {
-      next: {
-        tags: ["posts"],
-      },
-    }
-  ).then((result) => {
-    return result.json();
-  });
+  const posts: Array<Post> = await getPostList();
   return (
     <>
       {posts.map((post: Post) => {
@@ -97,8 +85,8 @@ export default function BlogsPage() {
       </Container>
       <FloatingActionSection>
         <LinkButton href="/create" rounded="rounded-full">
-          <div className="p-2 flex justify-center items-center">
-            <FontAwesomeIcon className="w-5 h-7 shadow-lg" icon={faPlus} />
+          <div className="p-2">
+            <FontAwesomeIcon className="w-5 h-5 shadow-lg" icon={faPlus} />
           </div>
         </LinkButton>
       </FloatingActionSection>

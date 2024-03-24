@@ -1,5 +1,6 @@
 "use client";
 
+import { deletePost } from "@/app/actions";
 import Button from "@/components/global/button";
 import ConfirmDialog from "@/components/global/confirmDialog";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
@@ -9,11 +10,9 @@ import { startTransition, useState } from "react";
 
 export default function DeleteButton({
   id,
-  post,
   isMobile = false,
 }: {
   id: string;
-  post: any;
   isMobile?: boolean;
 }) {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -46,10 +45,7 @@ export default function DeleteButton({
         open={isDialogOpen}
         setOpen={setIsDialogOpen}
         onConfirm={() => {
-          fetch(`/api/posts/${id}/delete`, {
-            method: "POST",
-            body: JSON.stringify(post),
-          }).then(() => {
+          deletePost(id).then(() => {
             startTransition(() => router.push("/blogs"));
             startTransition(() => router.refresh());
           });
