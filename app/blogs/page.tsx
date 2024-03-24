@@ -12,10 +12,10 @@ import LinkButton from "@/components/global/linkButton";
 import { unstable_noStore as noStore } from "next/cache";
 import { getPostList } from "../../actions/posts";
 import { getTagList } from "@/actions/tags";
-import { redirect, useSearchParams } from "next/navigation";
+import Pagination from "@/components/blogs/pagination";
 
-async function Posts() {
-  const posts: Array<Post> = await getPostList();
+async function Posts({ page }: { page?: string }) {
+  const posts: Array<Post> = await getPostList(page);
   return (
     <>
       {posts.map((post: Post) => {
@@ -40,7 +40,12 @@ async function Tags({ currentTags }: { currentTags?: string[] }) {
   return (
     <>
       {tags.map((tag: string) => (
-        <TagItem key={tag} selected={currentTags?.includes(tag)} name={tag} clickToRedirect />
+        <TagItem
+          key={tag}
+          selected={currentTags?.includes(tag)}
+          name={tag}
+          clickToRedirect
+        />
       ))}
     </>
   );
@@ -51,7 +56,7 @@ export default function BlogsPage({
   searchParams,
 }: {
   params: {};
-  searchParams: { tags?: string };
+  searchParams: { tags?: string; category?: string; page?: string };
 }) {
   noStore();
   const tagList = searchParams.tags?.split(",") || [];
@@ -90,7 +95,8 @@ export default function BlogsPage({
             <Button>Typescript</Button>
           </div>
         </div>
-        <Posts />
+        <Posts page={searchParams.page} />
+        <Pagination page={searchParams.page || "1"} />
       </Container>
       <FloatingActionSection>
         <LinkButton href="/blogs/create" rounded="rounded-full">

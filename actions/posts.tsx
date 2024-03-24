@@ -1,14 +1,20 @@
 "use server";
 
+import { parseLinkHeader } from "@/utils/linkHeaderPraser";
+
 const GITHUB_API_URL = `https://api.github.com/repos/${process.env.GITHUB_REPO_OWNER}/${process.env.GITHUB_REPO_NAME}/issues`;
 const GITHUB_HEADERS = {
   Authorization: `Bearer ${process.env.GITHUB_PERSONAL_ACCESS_TOKEN}`,
+  Accept: "application/vnd.github+json",
 };
 
-export async function getPostList() {
-  const result = await fetch(`${GITHUB_API_URL}?q=state:open&sort=updated`, {
-    headers: GITHUB_HEADERS,
-  });
+export async function getPostList(page: string = "1") {
+  const result = await fetch(
+    `${GITHUB_API_URL}?q=state:open&sort=updated&per_page=10&page=${page}`,
+    {
+      headers: GITHUB_HEADERS,
+    }
+  );
   const data = await result.json();
   const posts = data.map((issue: Issue) => ({
     title: issue.title,
@@ -22,6 +28,22 @@ export async function getPostList() {
     id: issue.number,
   }));
   return posts;
+}
+
+export async function getPagination(page: string) {
+  const result = await fetch(
+    `${GITHUB_API_URL}?q=state:open&sort=updated&per_page=10&page=${page}`,
+    {
+      headers: GITHUB_HEADERS,
+    }
+  );
+  const pagination = parseLinkHeader(result.headers.get("link")!);
+  return {
+    first: parseInt(pagination.first) || 1,
+    last: parseInt(pagination.last) || parseInt(page),
+    prev: parseInt(pagination.prev) || null,
+    next: parseInt(pagination.next) || null,
+  } as Pagination;
 }
 
 // TODO: here may can add a cache to reduce the request times
