@@ -14,7 +14,7 @@ import { getPostList } from "../../actions/posts";
 import { getTagList } from "@/actions/tags";
 import Pagination from "@/components/blogs/pagination";
 import { getCategoryList } from "@/actions/categories";
-import TogglableTagItem from "@/components/blogs/toggleableTagItem";
+import TogglableTagItem from "@/components/blogs/togglableTagItem";
 
 async function Posts({ page }: { page?: string }) {
   const posts: Array<Post> = await getPostList(page);
