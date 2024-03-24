@@ -4,7 +4,7 @@ import Dialog from "@/components/global/dialog";
 import PostEditor from "@/components/global/postEditor";
 import { useRouter } from "next/navigation";
 import { startTransition, useState } from "react";
-import { createPost } from "../../../actions/actions";
+import { createPost } from "../../../actions/posts";
 
 export default function CreatePage() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);

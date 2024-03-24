@@ -11,7 +11,7 @@ import Markdown from "markdown-to-jsx";
 import BlogComment from "@/components/blogView/comment";
 import DeleteButtonClient from "../../../components/blogView/deleteButtonClient";
 import CommentEditorClient from "../../../components/blogView/commentEditorClient";
-import { getComments, getPost } from "@/actions/actions";
+import { getPostComments, getPost } from "@/actions/posts";
 
 export default async function BlogPostPage({
   params,
@@ -19,7 +19,7 @@ export default async function BlogPostPage({
   params: { id: string };
 }) {
   const post = await getPost(params.id);
-  const comments = await getComments(params.id);
+  const comments = await getPostComments(params.id);
   return (
     <div className="flex">
       <FixedSidebar>

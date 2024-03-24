@@ -10,7 +10,8 @@ import CategoryItem from "@/components/blogs/categoryItem";
 import FloatingActionSection from "@/components/layout/floatingActionSection";
 import LinkButton from "@/components/global/linkButton";
 import { unstable_noStore as noStore } from "next/cache";
-import { getPostList } from "../../actions/actions";
+import { getPostList } from "../../actions/posts";
+import { getTagList } from "@/actions/tags";
 
 async function Posts() {
   const posts: Array<Post> = await getPostList();
@@ -29,6 +30,17 @@ async function Posts() {
           />
         );
       })}
+    </>
+  );
+}
+
+async function Tags() {
+  const tags = await getTagList();
+  return (
+    <>
+      {tags.map((tag : string) => (
+        <TagItem key={tag}>{tag}</TagItem>
+      ))}
     </>
   );
 }
@@ -56,16 +68,7 @@ export default function BlogsPage() {
         <div className="dark:bg-mirage-900 rounded-2xl p-4 bg-mirage-200 flex flex-col gap-4">
           <h2 className="text-center font-bold text-2xl">標籤</h2>
           <div className="flex flex-row flex-wrap gap-2">
-            <TagItem>Tag 1</TagItem>
-            <TagItem>Tag 2</TagItem>
-            <TagItem>The Tag 3</TagItem>
-            <TagItem>Best Tag</TagItem>
-            <TagItem>awa</TagItem>
-            <TagItem>Last Tag</TagItem>
-            <TagItem>Tag</TagItem>
-            <TagItem>More Tag</TagItem>
-            <TagItem>ouo</TagItem>
-            <TagItem>Cool Tag</TagItem>
+            <Tags />
           </div>
         </div>
       </FixedSidebar>

@@ -1,5 +1,5 @@
 "use client";
-import { getPost, updatePost } from "@/actions/actions";
+import { getPost, updatePost } from "@/actions/posts";
 import PostEditor from "@/components/global/postEditor";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";

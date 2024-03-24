@@ -3,4 +3,5 @@ interface Issue {
   body: string;
   number: number;
   created_at: string;
+  labels: Array<Label>;
 }

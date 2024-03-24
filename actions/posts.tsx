@@ -14,7 +14,9 @@ export async function getPostList() {
     title: issue.title,
     content: issue.body,
     category: "React.js",
-    tags: ["React", "JavaScript"],
+    tags: issue.labels
+      .filter((label) => label.name.startsWith("tag:"))
+      .map((label) => label.name.slice(4)),
     date: new Date(issue.created_at),
     description: "",
     id: issue.number,
@@ -22,19 +24,22 @@ export async function getPostList() {
   return posts;
 }
 
+// TODO: here may can add a cache to reduce the request times
 export async function getPost(id: string) {
   const result = await fetch(`${GITHUB_API_URL}/${id}`, {
     headers: GITHUB_HEADERS,
   });
-  const post = await result.json();
+  const issue: Issue = await result.json();
   return {
-    title: post.title,
-    content: post.body,
+    title: issue.title,
+    content: issue.body,
     category: "React.js",
-    tags: ["React", "JavaScript"],
-    date: new Date(post.created_at),
+    tags: issue.labels
+      .filter((label) => label.name.startsWith("tag:"))
+      .map((label) => label.name.slice(4)),
+    date: new Date(issue.created_at),
     description: "",
-    id: post.number,
+    id: issue.number,
   };
 }
 
@@ -45,6 +50,10 @@ export async function createPost(post: Post) {
     body: JSON.stringify({
       title: post.title,
       body: post.content,
+      labels: [
+        ...post.tags.map((tag) => `tag:${tag}`),
+        `category:${post.category}`,
+      ],
     }),
   });
   const createdPost = await result.json();
@@ -58,6 +67,10 @@ export async function updatePost(id: string, post: Post) {
     body: JSON.stringify({
       title: post.title,
       body: post.content,
+      labels: [
+        ...post.tags.map((tag) => `tag:${tag}`),
+        `category:${post.category}`,
+      ],
     }),
   });
   return result.status;
@@ -74,7 +87,7 @@ export async function deletePost(id: string) {
   return result.status;
 }
 
-export async function getComments(id: string) {
+export async function getPostComments(id: string) {
   const result = await fetch(`${GITHUB_API_URL}/${id}/comments`, {
     headers: GITHUB_HEADERS,
   });
