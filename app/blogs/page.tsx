@@ -2,7 +2,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 import Button from "@/components/global/button";
-import TagItem from "@/components/global/tagItem";
 import BlogPost from "@/components/blogs/blogPost";
 import Container from "@/components/layout/container";
 import FixedSidebar from "@/components/layout/fixedSidebar";
@@ -74,7 +73,6 @@ export default function BlogsPage({
 }) {
   noStore();
   const tagList = searchParams.tags?.split(",") || [];
-  const category = searchParams.category || "";
   return (
     <div>
       <FixedSidebar>
