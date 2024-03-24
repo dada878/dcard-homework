@@ -12,6 +12,7 @@ import LinkButton from "@/components/global/linkButton";
 import { unstable_noStore as noStore } from "next/cache";
 import { getPostList } from "../../actions/posts";
 import { getTagList } from "@/actions/tags";
+import { redirect, useSearchParams } from "next/navigation";
 
 async function Posts() {
   const posts: Array<Post> = await getPostList();
@@ -34,19 +35,26 @@ async function Posts() {
   );
 }
 
-async function Tags() {
+async function Tags({ currentTags }: { currentTags?: string[] }) {
   const tags = await getTagList();
   return (
     <>
-      {tags.map((tag : string) => (
-        <TagItem key={tag}>{tag}</TagItem>
+      {tags.map((tag: string) => (
+        <TagItem key={tag} selected={currentTags?.includes(tag)} name={tag} clickToRedirect />
       ))}
     </>
   );
 }
 
-export default function BlogsPage() {
+export default function BlogsPage({
+  params,
+  searchParams,
+}: {
+  params: {};
+  searchParams: { tags?: string };
+}) {
   noStore();
+  const tagList = searchParams.tags?.split(",") || [];
   return (
     <div>
       <FixedSidebar>
@@ -68,7 +76,7 @@ export default function BlogsPage() {
         <div className="dark:bg-mirage-900 rounded-2xl p-4 bg-mirage-200 flex flex-col gap-4">
           <h2 className="text-center font-bold text-2xl">標籤</h2>
           <div className="flex flex-row flex-wrap gap-2">
-            <Tags />
+            <Tags currentTags={tagList} />
           </div>
         </div>
       </FixedSidebar>

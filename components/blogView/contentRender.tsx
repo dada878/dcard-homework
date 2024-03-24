@@ -9,7 +9,7 @@ export default function ContentRender({ post }: { post: Post }) {
       <div className="flex flex-row items-end justify-between py-4">
         <div className="flex gap-2">
           {post.tags.map((tag: string, i: number) => (
-            <TagItem key={i}>{tag}</TagItem>
+            <TagItem key={i} name={tag} />
           ))}
         </div>
         {post && (

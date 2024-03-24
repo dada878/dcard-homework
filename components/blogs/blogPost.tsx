@@ -29,7 +29,7 @@ export default function BlogPost({
         <div className="flex justify-between items-end">
           <div className="flex gap-2">
             {tags.map((tag, index) => (
-              <TagItem key={index}>{tag}</TagItem>
+              <TagItem key={index} name={tag} />
             ))}
           </div>
           <p className="dark:text-secondary text-secondary-light">分類：{category}</p>

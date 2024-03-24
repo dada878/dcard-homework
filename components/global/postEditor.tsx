@@ -121,12 +121,9 @@ export default function PostEditor({
                 onClick={() => {
                   setPostTags(postTags.filter((t) => t !== tag));
                 }}
-              >
-                <div className="flex justify-center items-center gap-2">
-                  <p>{tag}</p>
-                  <FontAwesomeIcon icon={faXmark} />
-                </div>
-              </TagItem>
+                name={tag}
+                hasCloseButton
+              />
             ))}
           </div>
           <div className="flex gap-2">
