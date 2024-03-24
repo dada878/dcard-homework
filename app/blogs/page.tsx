@@ -40,7 +40,7 @@ export default function BlogsPage() {
   return (
     <div>
       <FixedSidebar>
-        <LinkButton href="/create">
+        <LinkButton href="/blogs/create">
           <div className="flex gap-4 justify-center items-center">
             <FontAwesomeIcon className="w-4" icon={faPlus} />
             <span>新增文章</span>
@@ -84,7 +84,7 @@ export default function BlogsPage() {
         <Posts />
       </Container>
       <FloatingActionSection>
-        <LinkButton href="/create" rounded="rounded-full">
+        <LinkButton href="/blogs/create" rounded="rounded-full">
           <div className="p-2">
             <FontAwesomeIcon className="w-5 h-5 shadow-lg" icon={faPlus} />
           </div>

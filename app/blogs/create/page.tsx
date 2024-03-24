@@ -5,7 +5,7 @@ import PostEditor from "@/components/global/postEditor";
 import { Post } from "@/types/post";
 import { useRouter } from "next/navigation";
 import { startTransition, useState } from "react";
-import { createPost } from "../actions";
+import { createPost } from "../../actions";
 
 export default function CreatePage() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -38,7 +38,7 @@ export default function CreatePage() {
                 <Button onClick={() => router.push(postUrl)}>查看文章</Button>
                 <Button onClick={
                   () => {
-                    startTransition(() => router.push("../blogs"));
+                    startTransition(() => router.push("/blogs"));
                     startTransition(() => router.refresh());
                   }
                 }>
