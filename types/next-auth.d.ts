@@ -6,6 +6,10 @@ declare module "next-auth" {
     expires: string;
     user: {
       address: string
+      id: string;
     } & DefaultSession["user"];
+  }
+  interface Profile {
+    login: string;
   }
 }
