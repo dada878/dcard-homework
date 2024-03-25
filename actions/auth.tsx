@@ -10,5 +10,5 @@ export async function getLoginUser() {
 
 export async function isOwner() {
   const session = await getServerSession(authOptions);
-  return session?.user.id === process.env.GITHUB_REPO_OWNER;
+  return session?.user.role === "admin";
 }

@@ -34,11 +34,14 @@ export const authOptions: NextAuthOptions = {
     async session({ session, token, user }) {
       session.accessToken = token.accessToken as string;
       session.user.id = token.userId as string;
+      session.user.role = token.role as string;
       return session;
     },
     async jwt({ token, user, account, profile }) {
       if (account) {
         token.userId = profile?.login;
+        token.role =
+          process.env.GITHUB_REPO_OWNER === profile?.login ? "admin" : "user";
         token.accessToken = account.access_token;
       }
       return token;

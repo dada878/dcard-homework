@@ -6,6 +6,7 @@ declare module "next-auth" {
     expires: string;
     user: {
       address: string
+      role: string;
       id: string;
     } & DefaultSession["user"];
   }
