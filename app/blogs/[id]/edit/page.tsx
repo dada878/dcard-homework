@@ -2,7 +2,7 @@
 import { getPost, updatePost } from "@/actions/posts";
 import PostEditor from "@/components/global/postEditor";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { startTransition, useEffect, useState } from "react";
 
 export default function EditPage({ params }: { params: { id: string } }) {
   const router = useRouter();
@@ -14,7 +14,8 @@ export default function EditPage({ params }: { params: { id: string } }) {
   }, [post?.id, params.id]);
   const createPostCallback = (post: Post) => {
     updatePost(params.id, post).then(() => {
-      router.push("/blogs");
+      startTransition(() => router.push("/blogs"));
+      startTransition(() => router.refresh());
     });
   };
   return (

@@ -15,8 +15,8 @@ import Pagination from "@/components/blogs/pagination";
 import { getCategoryList } from "@/actions/categories";
 import TogglableTagItem from "@/components/blogs/togglableTagItem";
 
-async function Posts({ page }: { page?: string }) {
-  const posts: Array<Post> = await getPostList(page);
+async function Posts({ page, query }: { page?: string; query?: PostQuery}) {
+  const posts: Array<Post> = await getPostList(page, query);
   return (
     <>
       {posts.map((post: Post) => {
@@ -72,7 +72,14 @@ export default function BlogsPage({
   searchParams: { tags?: string; category?: string; page?: string };
 }) {
   noStore();
-  const tagList = searchParams.tags?.split(",") || [];
+  const tags = (searchParams.tags?.split(",") || []).filter(
+    (tag) => tag.length
+  );
+  const category = searchParams.category || undefined;
+  const currentQuery = {
+    tags: tags,
+    category: category,
+  };
   return (
     <div>
       <FixedSidebar>
@@ -91,7 +98,7 @@ export default function BlogsPage({
         <div className="dark:bg-mirage-900 rounded-2xl p-4 bg-mirage-200 flex flex-col gap-4">
           <h2 className="text-center font-bold text-2xl">標籤</h2>
           <div className="flex flex-row flex-wrap gap-2">
-            <Tags currentTags={tagList} />
+            <Tags currentTags={tags} />
           </div>
         </div>
       </FixedSidebar>
@@ -105,8 +112,11 @@ export default function BlogsPage({
             <Button>Typescript</Button>
           </div>
         </div>
-        <Posts page={searchParams.page} />
-        <Pagination page={searchParams.page || "1"} />
+        <Posts
+          page={searchParams.page}
+          query={currentQuery}
+        />
+        <Pagination page={searchParams.page || "1"} query={currentQuery} />
       </Container>
       <FloatingActionSection>
         <LinkButton href="/blogs/create" rounded="rounded-full">

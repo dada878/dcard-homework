@@ -1,6 +1,8 @@
 "use server";
 
+import { issueToPost } from "@/utils/issueToPost";
 import { parseLinkHeader } from "@/utils/linkHeaderParser";
+import { queryToURL } from "@/utils/queryToString";
 
 const GITHUB_API_URL = `https://api.github.com/repos/${process.env.GITHUB_REPO_OWNER}/${process.env.GITHUB_REPO_NAME}/issues`;
 const GITHUB_HEADERS = {
@@ -8,33 +10,20 @@ const GITHUB_HEADERS = {
   Accept: "application/vnd.github+json",
 };
 
-export async function getPostList(page: string = "1") {
-  const result = await fetch(
-    `${GITHUB_API_URL}?q=state:open&sort=updated&per_page=10&page=${page}`,
-    {
-      headers: GITHUB_HEADERS,
-    }
-  );
+export async function getPostList(page: string = "1", query?: PostQuery) {
+  let queryString = query ? queryToURL(query, page) : "";
+  const result = await fetch(`${GITHUB_API_URL}?${queryString}`, {
+    headers: GITHUB_HEADERS,
+  });
   const data = await result.json();
-  const posts = data.map((issue: Issue) => ({
-    title: issue.title,
-    content: issue.body,
-    category: issue.labels
-      .filter((label) => label.name.startsWith("category:"))?.at(0)
-      ?.name?.slice(9) || "未歸類",
-    tags: issue.labels
-      .filter((label) => label.name.startsWith("tag:"))
-      .map((label) => label.name.slice(4)),
-    date: new Date(issue.created_at),
-    description: "",
-    id: issue.number,
-  }));
+  const posts = data.map((issue: Issue) => issueToPost(issue));
   return posts;
 }
 
-export async function getPagination(page: string) {
+export async function getPagination(page: string, query?: PostQuery) {
+  const queryString = query ? queryToURL(query, page) : "";
   const result = await fetch(
-    `${GITHUB_API_URL}?q=state:open&sort=updated&per_page=10&page=${page}`,
+    `${GITHUB_API_URL}?${queryString}`,
     {
       headers: GITHUB_HEADERS,
     }
@@ -54,19 +43,7 @@ export async function getPost(id: string) {
     headers: GITHUB_HEADERS,
   });
   const issue: Issue = await result.json();
-  return {
-    title: issue.title,
-    content: issue.body,
-    category: issue.labels
-      .filter((label) => label.name.startsWith("category:"))?.at(0)
-      ?.name?.slice(9) || "未歸類",
-    tags: issue.labels
-      .filter((label) => label.name.startsWith("tag:"))
-      .map((label) => label.name.slice(4)),
-    date: new Date(issue.created_at),
-    description: "",
-    id: issue.number,
-  };
+  return issueToPost(issue);
 }
 
 export async function createPost(post: Post) {
