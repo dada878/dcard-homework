@@ -19,8 +19,8 @@ export default function Navbar() {
     setIsMenuOpen(false);
   };
   useEffect(() => {
-    getLoginUser().then((name: string) => {
-      setUser(name);
+    getLoginUser().then((name?: string) => {
+      setUser(name || "Log in");
     });
   });
   return (
