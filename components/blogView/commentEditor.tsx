@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { startTransition, use, useEffect, useState } from "react";
 import Button from "@/components/global/button";
 import Textarea from "@/components/global/textarea";
 import Markdown from "markdown-to-jsx";
+import { getLoginUser } from "@/actions/auth";
+import { useRouter } from "next/navigation";
 
 function TabButton({
   isPreview,
@@ -28,9 +30,26 @@ function TabButton({
   );
 }
 
-export default function CommentEditor() {
+export default function CommentEditor({
+  postId,
+  callback,
+}: {
+  postId: string;
+  callback: (formData: FormData) => Promise<void>;
+}) {
   const [isPreview, setIsPreview] = useState(false);
   const [content, setContent] = useState("");
+  const [disabled, setDisabled] = useState(false);
+  const router = useRouter();
+  useEffect(() => {
+    async function checkLogin() {
+      const user = await getLoginUser();
+      if (!user) {
+        setDisabled(true);
+      }
+    }
+    checkLogin();
+  }, []);
   return (
     <div className="flex flex-col rounded-xl">
       <div className="dark:bg-mirage-800 bg-mirage-300 flex justify-start w-full rounded-t-xl">
@@ -45,11 +64,25 @@ export default function CommentEditor() {
           isToggleToPreview={true}
         />
       </div>
-      <div className="dark:bg-mirage-900 bg-mirage-200 w-full p-4 rounded-b-xl flex gap-4 flex-col">
+      <form
+        className="dark:bg-mirage-900 bg-mirage-200 w-full p-4 rounded-b-xl flex gap-4 flex-col"
+        action={async (formData: FormData) => {
+          startTransition(() => {
+            setContent("");
+          });
+          startTransition(() => {
+            callback(formData);
+          });
+        }}
+      >
         <Textarea
           placeholder="在這裡輸入你想對這篇文章說的話..."
-          className={`min-h-32 ${isPreview && "hidden"}`}
+          className={`min-h-32 ${isPreview && "hidden"} ${
+            disabled && "cursor-not-allowed"
+          }`}
           value={content}
+          name="content"
+          disabled={disabled}
           onChange={(e) => {
             setContent(e.target.value);
           }}
@@ -57,8 +90,16 @@ export default function CommentEditor() {
         <Markdown className={`markdown min-h-32 ${!isPreview && "hidden"}`}>
           {content}
         </Markdown>
-        <Button className="w-full">送出留言</Button>
-      </div>
+        <Button
+          className="w-full"
+          type={disabled ? "button" : "submit"}
+          onClick={() => {
+            router.push("/api/auth/signin");
+          }}
+        >
+          {disabled ? "留言前請先登入" : "送出留言"}
+        </Button>
+      </form>
     </div>
   );
 }

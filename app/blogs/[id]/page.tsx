@@ -3,16 +3,13 @@ import Container from "@/components/layout/container";
 import FixedSidebar from "@/components/layout/fixedSidebar";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Suspense } from "react";
 import LinkButton from "@/components/global/linkButton";
 import ContentRender from "@/components/blogView/contentRender";
 import FloatingActionSection from "@/components/layout/floatingActionSection";
-import Markdown from "markdown-to-jsx";
-import BlogComment from "@/components/blogView/comment";
 import DeleteButtonClient from "../../../components/blogView/deleteButtonClient";
-import CommentEditorClient from "../../../components/blogView/commentEditorClient";
 import { getPostComments, getPost } from "@/actions/posts";
 import { isOwner } from "@/actions/auth";
+import CommentSection from "@/components/blogView/commentSection";
 
 export default async function BlogPostPage({
   params,
@@ -48,19 +45,7 @@ export default async function BlogPostPage({
       </FixedSidebar>
       <Container width="w-full">
         {post && <ContentRender post={post} />}
-        {comments.map((comment: Comment, i: number) => (
-          <BlogComment
-            key={i}
-            userName={comment.author}
-            avatarUrl={comment.avatar}
-            date={new Date(comment.date)}
-          >
-            <Markdown>{comment.content}</Markdown>
-          </BlogComment>
-        ))}
-        <Suspense fallback={<div>Loading...</div>}>
-          <CommentEditorClient />
-        </Suspense>
+        <CommentSection comments={comments} postId={params.id} />
       </Container>
       {showActionButtons && (
         <FloatingActionSection>

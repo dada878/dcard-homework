@@ -97,7 +97,7 @@ export async function deletePost(id: string) {
 export async function getPostComments(id: string) {
   const result = await sendRequest(`/${id}/comments`);
   const data = await result.json();
-  const comments: Array<Comment> = data.map((comment: any) => {
+  const comments: Array<CommentData> = data.map((comment: any) => {
     return {
       author: comment.user.login,
       content: comment.body,
@@ -106,4 +106,11 @@ export async function getPostComments(id: string) {
     };
   });
   return comments;
+}
+
+export async function createComment(id: string, comment: string) {
+  const result = await sendRequest(`/${id}/comments`, {
+    body: comment,
+  }, "POST");
+  return result.status;
 }
