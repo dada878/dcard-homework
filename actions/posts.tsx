@@ -5,6 +5,7 @@ import { issueToPost } from "@/utils/issueToPost";
 import { parseLinkHeader } from "@/utils/linkHeaderParser";
 import { queryToURL } from "@/utils/queryToString";
 import { getServerSession } from "next-auth";
+import { isOwner } from "./auth";
 
 const GITHUB_API_URL = `https://api.github.com/repos/${process.env.GITHUB_REPO_OWNER}/${process.env.GITHUB_REPO_NAME}/issues`;
 
@@ -50,6 +51,10 @@ export async function getPost(id: string) {
 }
 
 export async function createPost(post: Post) {
+  const isAdmin = await isOwner();
+  if (!isAdmin) {
+    throw new Error("Unauthorized");
+  }
   const result = await sendRequest("", {
     title: post.title,
     body: post.content,
@@ -63,6 +68,10 @@ export async function createPost(post: Post) {
 }
 
 export async function updatePost(id: string, post: Post) {
+  const isAdmin = await isOwner();
+  if (!isAdmin) {
+    throw new Error("Unauthorized");
+  }
   const result = await sendRequest(`/${id}`, {
     title: post.title,
     body: post.content,
@@ -75,6 +84,10 @@ export async function updatePost(id: string, post: Post) {
 }
 
 export async function deletePost(id: string) {
+  const isAdmin = await isOwner();
+  if (!isAdmin) {
+    throw new Error("Unauthorized");
+  }
   const result = await sendRequest(`/${id}`, {
     state: "closed",
   }, "PATCH");
