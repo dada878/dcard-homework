@@ -16,6 +16,9 @@ export default function CategoryItem({
   return <TagItem selected={selected} onClick={() => {
     const searchParams = new URLSearchParams();
     searchParams.set("category", name);
+    if (name === "全部") {
+      searchParams.delete("category");
+    }
     searchParams.set("tags", tags.join(","));
     router.push(`blogs?${searchParams.toString()}`);
   }}>{name}</TagItem>;

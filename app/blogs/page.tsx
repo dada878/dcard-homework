@@ -40,6 +40,7 @@ async function Categories() {
   const categories = await getCategoryList();
   return (
     <div className="flex flex-col gap-3">
+      <CategoryItem name="全部" />
       {categories
         .filter((category: string) => category.length)
         .map((category: string) => (
