@@ -14,8 +14,9 @@ import { getTagList } from "@/actions/tags";
 import Pagination from "@/components/blogs/pagination";
 import { getCategoryList } from "@/actions/categories";
 import TogglableTagItem from "@/components/blogs/togglableTagItem";
+import { isOwner } from "@/actions/auth";
 
-async function Posts({ page, query }: { page?: string; query?: PostQuery}) {
+async function Posts({ page, query }: { page?: string; query?: PostQuery }) {
   const posts: Array<Post> = await getPostList(page, query);
   return (
     <>
@@ -65,7 +66,7 @@ async function Tags({ currentTags }: { currentTags?: string[] }) {
   );
 }
 
-export default function BlogsPage({
+export default async function BlogsPage({
   params,
   searchParams,
 }: {
@@ -76,6 +77,7 @@ export default function BlogsPage({
   const tags = (searchParams.tags?.split(",") || []).filter(
     (tag) => tag.length
   );
+  const showNewPostButton = await isOwner();
   const category = searchParams.category || undefined;
   const currentQuery = {
     tags: tags,
@@ -84,12 +86,14 @@ export default function BlogsPage({
   return (
     <div>
       <FixedSidebar>
-        <LinkButton href="/blogs/create">
-          <div className="flex gap-4 justify-center items-center">
-            <FontAwesomeIcon className="w-4" icon={faPlus} />
-            <span>新增文章</span>
-          </div>
-        </LinkButton>
+        {showNewPostButton && (
+          <LinkButton href="/blogs/create">
+            <div className="flex gap-4 justify-center items-center">
+              <FontAwesomeIcon className="w-4" icon={faPlus} />
+              <span>新增文章</span>
+            </div>
+          </LinkButton>
+        )}
         <div className="dark:bg-mirage-900 rounded-2xl p-4 flex bg-mirage-200 flex-col gap-4">
           <h2 className="text-center font-bold text-2xl">分類</h2>
           <div className="flex flex-col">
@@ -113,10 +117,7 @@ export default function BlogsPage({
             <Button>Typescript</Button>
           </div>
         </div>
-        <Posts
-          page={searchParams.page}
-          query={currentQuery}
-        />
+        <Posts page={searchParams.page} query={currentQuery} />
         <Pagination page={searchParams.page || "1"} query={currentQuery} />
       </Container>
       <FloatingActionSection>

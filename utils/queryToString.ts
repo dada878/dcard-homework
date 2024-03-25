@@ -1,6 +1,7 @@
 export function queryToURL(query: PostQuery, page: string) {
   let queryString = new URLSearchParams();
   queryString.append("state", "open");
+  queryString.append("creator", process.env.GITHUB_REPO_OWNER!);
   const queryLabels = [];
   if (query?.category) {
     queryLabels.push(`category:${query.category}`);

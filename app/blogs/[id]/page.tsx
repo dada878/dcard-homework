@@ -12,6 +12,7 @@ import BlogComment from "@/components/blogView/comment";
 import DeleteButtonClient from "../../../components/blogView/deleteButtonClient";
 import CommentEditorClient from "../../../components/blogView/commentEditorClient";
 import { getPostComments, getPost } from "@/actions/posts";
+import { isOwner } from "@/actions/auth";
 
 export default async function BlogPostPage({
   params,
@@ -20,16 +21,21 @@ export default async function BlogPostPage({
 }) {
   const post = await getPost(params.id);
   const comments = await getPostComments(params.id);
+  const showActionButtons = await isOwner();
   return (
     <div className="flex">
       <FixedSidebar>
-        <LinkButton href={`/blogs/${params.id}/edit`}>
-          <div className="flex gap-4 justify-center items-center">
-            <FontAwesomeIcon className="w-4" icon={faEdit} />
-            <span>編輯文章</span>
-          </div>
-        </LinkButton>
-        <DeleteButtonClient id={params.id} />
+        {showActionButtons && (
+          <>
+            <LinkButton href={`/blogs/${params.id}/edit`}>
+              <div className="flex gap-4 justify-center items-center">
+                <FontAwesomeIcon className="w-4" icon={faEdit} />
+                <span>編輯文章</span>
+              </div>
+            </LinkButton>
+            <DeleteButtonClient id={params.id} />
+          </>
+        )}
         <div className="dark:bg-mirage-900 bg-mirage-200 rounded-xl p-4">
           <h3 className="font-bold text-2xl text-center mb-4">文章目錄</h3>
           <div className="flex flex-col gap-2">
@@ -56,14 +62,16 @@ export default async function BlogPostPage({
           <CommentEditorClient />
         </Suspense>
       </Container>
-      <FloatingActionSection>
-        <LinkButton href={`/blogs/${params.id}/edit`} rounded="rounded-full">
-          <div className="p-2">
-            <FontAwesomeIcon className="w-5 h-5 shadow-lg" icon={faEdit} />
-          </div>
-        </LinkButton>
-        <DeleteButtonClient id={params.id} isMobile />
-      </FloatingActionSection>
+      {showActionButtons && (
+        <FloatingActionSection>
+          <LinkButton href={`/blogs/${params.id}/edit`} rounded="rounded-full">
+            <div className="p-2">
+              <FontAwesomeIcon className="w-5 h-5 shadow-lg" icon={faEdit} />
+            </div>
+          </LinkButton>
+          <DeleteButtonClient id={params.id} isMobile />
+        </FloatingActionSection>
+      )}
     </div>
   );
 }
