@@ -94,7 +94,7 @@ export default function CommentEditor({
           className="w-full"
           type={disabled ? "button" : "submit"}
           onClick={() => {
-            router.push("/api/auth/signin");
+            disabled && router.push("/api/auth/signin");
           }}
         >
           {disabled ? "留言前請先登入" : "送出留言"}
