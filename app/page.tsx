@@ -15,8 +15,10 @@ export default function Home() {
           </p>
         </AboutSection>
         <AboutSection title="經歷">
-          <li>SITCON 2024 學生計算機年會開發組</li>
-          <li>SCINT 北台灣學生資訊社群開發組</li>
+          <ul className="list-disc pl-5">
+            <li>SITCON 2024 學生計算機年會開發組</li>
+            <li>SCINT 北台灣學生資訊社群開發組</li>
+          </ul>
         </AboutSection>
         <AboutSection title="作品集">
           <div className="grid grid-col-1 md:grid-cols-3 gap-7">
