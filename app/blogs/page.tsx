@@ -14,6 +14,21 @@ import TogglableTagItem from "@/components/blogs/togglableTagItem";
 import { isOwner } from "@/actions/auth";
 import PostRenderClient from "@/components/blogs/postRenderClient";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "文章列表",
+  description: "我會在這裡分享各種技術文章及日常生活中有趣的事物",
+  openGraph: {
+    title: "文章列表",
+    description: "我會在這裡分享各種技術文章及日常生活中有趣的事物",
+    url: process.env.PRODUCTION_URL,
+    siteName: "Dada's Blog",
+    type: "website",
+    locale: "zh_TW",
+  },
+};
+
 async function Categories() {
   const categories = await getCategoryList();
   return (

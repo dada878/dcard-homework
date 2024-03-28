@@ -15,6 +15,14 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Dada's Blog",
   description: "我會在這裡分享各種技術文章及日常生活中有趣的事物",
+  openGraph: {
+    title: "Dada's Blog",
+    description: "我會在這裡分享各種技術文章及日常生活中有趣的事物",
+    url: process.env.PRODUCTION_URL,
+    siteName: "Dada's Blog",
+    type: "website",
+    locale: "zh_TW",
+  },
 };
 
 export default function RootLayout({

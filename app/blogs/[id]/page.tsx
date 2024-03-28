@@ -11,6 +11,23 @@ import { isOwner } from "@/actions/auth";
 import CommentSection from "@/components/blogView/commentSection";
 import TableOfContentClient from "@/components/global/tableOfContentClient";
 
+export async function generateMetadata({ params }: { params: { id: string } }) {
+  const post = await getPost(params.id);
+  return {
+    title: post.title,
+    description: post.description,
+    openGraph: {
+      title: post.title,
+      description: post.description,
+      url: `${process.env.PRODUCTION_URL}/blogs/${params.id}`,
+      siteName: "Data's Blog",
+      type: "article",
+      publishedTime: post.date,
+      authors: "Dada",
+    },
+  };
+}
+
 export default async function BlogPostPage({
   params,
 }: {
