@@ -33,9 +33,11 @@ export default async function BlogPostPage({
 }: {
   params: { id: string };
 }) {
-  const post = await getPost(params.id);
-  const comments = await getPostComments(params.id);
-  const showActionButtons = await isOwner();
+  const [post, comments, showActionButtons] = await Promise.all([
+    getPost(params.id),
+    getPostComments(params.id),
+    isOwner()
+  ]);
   return (
     <div className="flex">
       <FixedSidebar>
