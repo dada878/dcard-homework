@@ -2,40 +2,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 import Button from "@/components/global/button";
-import BlogPost from "@/components/blogs/blogPost";
 import Container from "@/components/layout/container";
 import FixedSidebar from "@/components/layout/fixedSidebar";
 import CategoryItem from "@/components/blogs/categoryItem";
 import FloatingActionSection from "@/components/layout/floatingActionSection";
 import LinkButton from "@/components/global/linkButton";
 import { unstable_noStore as noStore } from "next/cache";
-import { getPostList } from "../../actions/posts";
 import { getTagList } from "@/actions/tags";
-import Pagination from "@/components/blogs/pagination";
 import { getCategoryList } from "@/actions/categories";
 import TogglableTagItem from "@/components/blogs/togglableTagItem";
 import { isOwner } from "@/actions/auth";
-
-async function Posts({ page, query }: { page?: string; query?: PostQuery }) {
-  const posts: Array<Post> = await getPostList(page, query);
-  return (
-    <>
-      {posts.map((post: Post) => {
-        return (
-          <BlogPost
-            id={post.id}
-            key={post.id}
-            title={post.title}
-            description={post.content}
-            category={post.category}
-            tags={post.tags}
-            date={new Date(post.date)}
-          />
-        );
-      })}
-    </>
-  );
-}
+import PostRenderClient from "@/components/blogs/postRenderClient";
 
 async function Categories() {
   const categories = await getCategoryList();
@@ -71,7 +48,7 @@ export default async function BlogsPage({
   searchParams,
 }: {
   params: {};
-  searchParams: { tags?: string; category?: string; page?: string };
+  searchParams: { tags?: string; category?: string; };
 }) {
   noStore();
   const tags = (searchParams.tags?.split(",") || []).filter(
@@ -117,8 +94,7 @@ export default async function BlogsPage({
             <Button>Typescript</Button>
           </div>
         </div>
-        <Posts page={searchParams.page} query={currentQuery} />
-        <Pagination page={searchParams.page || "1"} query={currentQuery} />
+        <PostRenderClient query={currentQuery} />
       </Container>
       <FloatingActionSection>
         <LinkButton href="/blogs/create" rounded="rounded-full">
