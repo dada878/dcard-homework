@@ -1,7 +1,8 @@
 import Image from "next/image";
 import { ReactNode } from "react";
 import { formatDate } from "@/utils/dateFormatter";
-import { SpinnerCircular } from 'spinners-react';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 export default function BlogComment({
   userName,
@@ -39,7 +40,10 @@ export default function BlogComment({
           </div>
           <div>{children}</div>
         </div>
-        {sending && <SpinnerCircular color={"white"} size="40px" />}
+        {sending && <FontAwesomeIcon
+            className="animate-spin size-6"
+            icon={faSpinner}
+          />}
       </div>
     </div>
   );
