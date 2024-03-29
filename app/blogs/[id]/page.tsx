@@ -11,22 +11,26 @@ import CommentSection from "@/components/blogView/commentSection";
 import DeleteButtonClient from "@/components/blogView/deleteButtonClient";
 import TableOfContentClient from "@/components/global/tableOfContentClient";
 import FloatingActionSection from "@/components/layout/floatingActionSection";
+import { openGraphImages, siteName } from "@/utils/sharedMetadata";
+import { Metadata } from "next";
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
   const post = await getPost(params.id);
-  return {
-    title: post.title,
+  const metadata : Metadata = {
+    title: `${post.title} | ${siteName}`,
     description: post.description,
+    keywords: post.tags.join(", "),
     openGraph: {
-      title: post.title,
+      title: `${post.title} | ${siteName}`,
+      images: openGraphImages,
       description: post.description,
       url: `${process.env.PRODUCTION_URL}/blogs/${params.id}`,
-      siteName: "Data's Blog",
+      siteName: siteName,
       type: "article",
-      publishedTime: post.date,
-      authors: "Dada",
+      publishedTime: post.date.toString(),
     },
   };
+  return metadata;
 }
 
 export default async function BlogPostPage({

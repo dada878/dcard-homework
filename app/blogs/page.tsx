@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { unstable_noStore as noStore } from "next/cache";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -14,19 +15,19 @@ import LinkButton from "@/components/global/linkButton";
 import { getCategoryList } from "@/actions/categories";
 import TogglableTagItem from "@/components/blogs/togglableTagItem";
 import PostRenderClient from "@/components/blogs/postRenderClient";
+import { openGraphImages, siteName } from "@/utils/sharedMetadata";
 
-import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "文章列表",
+  title: `文章列表 | ${siteName}`,
   description: "我會在這裡分享各種技術文章及日常生活中有趣的事物",
   openGraph: {
-    title: "文章列表",
+    title: `文章列表 | ${siteName}`,
+    images: openGraphImages,
     description: "我會在這裡分享各種技術文章及日常生活中有趣的事物",
-    url: process.env.PRODUCTION_URL,
+    url: process.env.PRODUCTION_URL + "/blogs",
     siteName: "Dada's Blog",
     type: "website",
-    locale: "zh_TW",
   },
 };
 

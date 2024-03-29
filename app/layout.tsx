@@ -8,21 +8,22 @@ import { config } from "@fortawesome/fontawesome-svg-core";
 
 import Navbar from "@/components/layout/navbar";
 import "@/styles/globals.css";
+import { openGraphImages, siteName } from "@/utils/sharedMetadata";
 
 config.autoAddCss = false;
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Dada's Blog",
-  description: "我會在這裡分享各種技術文章及日常生活中有趣的事物",
+  title: siteName,
+  description: "我會在這裡分享各種技術文章及日常生活中有趣的事物～",
   openGraph: {
-    title: "Dada's Blog",
-    description: "我會在這裡分享各種技術文章及日常生活中有趣的事物",
+    title: siteName,
+    description: "我會在這裡分享各種技術文章及日常生活中有趣的事物～",
+    images: openGraphImages,
     url: process.env.PRODUCTION_URL,
-    siteName: "Dada's Blog",
+    siteName: siteName,
     type: "website",
-    locale: "zh_TW",
   },
 };
 
