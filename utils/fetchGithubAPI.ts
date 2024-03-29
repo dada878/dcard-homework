@@ -5,7 +5,6 @@ const GITHUB_API_URL = `https://api.github.com/repos/${process.env.GITHUB_REPO_O
 
 export async function fetchGithubAPI(url: string, body?: any, method: string = "GET") {
   const session = await getServerSession(authOptions);
-  console.log(`${GITHUB_API_URL}${url}`);
   const result = await fetch(`${GITHUB_API_URL}${url}`, {
     method,
     headers: {

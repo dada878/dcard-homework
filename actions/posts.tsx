@@ -6,7 +6,6 @@ import { isOwner } from "./auth";
 import { fetchGithubAPI } from "@/utils/fetchGithubAPI";
 
 export async function getPostList(page: string = "1", query?: PostQuery) {
-  console.log("getPostList");
   const queryString = query ? queryToURL(query, page) : "";
   const data = await fetchGithubAPI(`/issues?${queryString}`);
   const posts = data.map((issue: Issue) => issueToPost(issue));
