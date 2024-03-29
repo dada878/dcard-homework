@@ -1,7 +1,6 @@
-import Markdown from "markdown-to-jsx";
-
 import TagItem from "../global/tagItem";
 import { formatDate } from "@/utils/dateFormatter";
+import MarkdownRender from "../global/markdownRender";
 
 export default function ContentRender({ post }: { post: Post }) {
   return (
@@ -21,7 +20,7 @@ export default function ContentRender({ post }: { post: Post }) {
       </div>
       <hr className="text-secondary-dark py-3" />
       <main className="prose dark:prose-invert">
-        <Markdown>{post.content.replaceAll("\\", "  ")}</Markdown>
+        <MarkdownRender content={post.content} />
       </main>
     </div>
   );

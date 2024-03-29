@@ -3,13 +3,13 @@ import { useEffect, useRef, useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faAnglesRight } from "@fortawesome/free-solid-svg-icons";
-import Markdown from "markdown-to-jsx";
 
 import Button from "./button";
 import Input from "./input";
 import Textarea from "@/components/global/textarea";
 import useOutside from "@/hooks/useOutside";
 import CloseableTagItem from "../edit/closeableTagItem";
+import MarkdownRender from "./markdownRender";
 
 export default function PostEditor({
   callback,
@@ -93,7 +93,7 @@ export default function PostEditor({
       </div>
       {/* 預覽區塊 */}
       <div className="dark:bg-mirage-900 overflow-y-scroll bg-mirage-200 rounded-xl p-6 w-full hidden md:block">
-        <Markdown className="prose dark:prose-invert">{post.content.replaceAll("\\", "  ")}</Markdown>
+        <MarkdownRender content={post.content} />
       </div>
       {/* 發布、標籤、類別區塊 */}
       <div

@@ -3,12 +3,11 @@
 import { useRouter } from "next/navigation";
 import { useOptimistic } from "react";
 
-import Markdown from "markdown-to-jsx";
-
 import { getLoginUser, getLoginUserAvatar } from "@/actions/auth";
 import BlogComment from "./comment";
 import CommentEditor from "./commentEditor";
 import { createComment } from "@/actions/posts";
+import MarkdownRender from "../global/markdownRender";
 
 export default function CommentSection({
   comments,
@@ -30,8 +29,8 @@ export default function CommentSection({
     addOptimisticComments({
       date: new Date(),
       content: commentContent,
-      author: await getLoginUser() as string,
-      avatar: await getLoginUserAvatar() as string,
+      author: (await getLoginUser()) as string,
+      avatar: (await getLoginUserAvatar()) as string,
       sending: true,
     });
     await createComment(postId, commentContent);
@@ -48,7 +47,7 @@ export default function CommentSection({
           date={new Date(comment.date)}
           sending={comment.sending}
         >
-          <Markdown className="prose dark:prose-invert">{comment.content.replaceAll("\\", "  ")}</Markdown>
+          <MarkdownRender content={comment.content} />
         </BlogComment>
       ))}
       <CommentEditor postId={postId} callback={submitHandler} />

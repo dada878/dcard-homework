@@ -1,11 +1,10 @@
 import { startTransition, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
-import Markdown from "markdown-to-jsx";
-
 import { getLoginUser } from "@/actions/auth";
 import Button from "@/components/global/button";
 import Textarea from "@/components/global/textarea";
+import MarkdownRender from "../global/markdownRender";
 
 function TabButton({
   isPreview,
@@ -89,9 +88,10 @@ export default function CommentEditor({
             setContent(e.target.value);
           }}
         />
-        <Markdown className={`prose dark:prose-invert min-h-32 ${!isPreview && "hidden"}`}>
-          {content.replaceAll("\\", "  ")}
-        </Markdown>
+        <MarkdownRender
+          content={content}
+          className={`min-h-32 ${!isPreview && "hidden"}`}
+        />
         <Button
           className="w-full"
           type={disabled ? "button" : "submit"}
