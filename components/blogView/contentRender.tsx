@@ -20,8 +20,8 @@ export default function ContentRender({ post }: { post: Post }) {
         )}
       </div>
       <hr className="text-secondary-dark py-3" />
-      <main className="markdown">
-        <Markdown>{post.content}</Markdown>
+      <main className="prose dark:prose-invert">
+        <Markdown>{post.content.replaceAll("\\", "  ")}</Markdown>
       </main>
     </div>
   );

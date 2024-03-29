@@ -89,8 +89,8 @@ export default function CommentEditor({
             setContent(e.target.value);
           }}
         />
-        <Markdown className={`markdown min-h-32 ${!isPreview && "hidden"}`}>
-          {content}
+        <Markdown className={`prose dark:prose-invert min-h-32 ${!isPreview && "hidden"}`}>
+          {content.replaceAll("\\", "  ")}
         </Markdown>
         <Button
           className="w-full"

@@ -4,7 +4,6 @@
 
 @import url("animations.css");
 @import url("glowEffect.css");
-@import url("markdown.css");
 
 :root {
   --foreground-rgb: 0, 0, 0;

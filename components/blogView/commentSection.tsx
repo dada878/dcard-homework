@@ -48,7 +48,7 @@ export default function CommentSection({
           date={new Date(comment.date)}
           sending={comment.sending}
         >
-          <Markdown>{comment.content}</Markdown>
+          <Markdown className="prose dark:prose-invert">{comment.content.replaceAll("\\", "  ")}</Markdown>
         </BlogComment>
       ))}
       <CommentEditor postId={postId} callback={submitHandler} />
