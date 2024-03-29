@@ -20,6 +20,7 @@ export default function Input({
       type={type}
       value={value}
       onChange={onChange}
+      name={name}
       onKeyDown={(e) => {
         if (e.key === "Enter") {
           onEnterPress && onEnterPress(e);

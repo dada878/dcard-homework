@@ -40,7 +40,11 @@ export default function PostEditor({
   const handelCreateButtonClick = () => {
     callback(post);
   };
-  const handelInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handelInputChange = (
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
     setPost({ ...post, [e.target.name]: e.target.value });
   };
   useOutside(publishPanelRef, () => {
@@ -62,7 +66,7 @@ export default function PostEditor({
       >
         <Input
           value={post.title}
-          onChange={(e) => handelInputChange}
+          onChange={handelInputChange}
           name="title"
           type="text"
           className="text-2xl"
@@ -70,7 +74,7 @@ export default function PostEditor({
         />
         <Textarea
           value={post.content}
-          onChange={(e) => handelInputChange}
+          onChange={handelInputChange}
           name="content"
           className="h-full w-full"
           placeholder="在這裡用 Markdown 來寫一些什麼吧！"
@@ -89,7 +93,7 @@ export default function PostEditor({
       </div>
       {/* 預覽區塊 */}
       <div className="dark:bg-mirage-900 overflow-y-scroll bg-mirage-200 rounded-xl p-6 w-full hidden md:block">
-        <Markdown className="markdown">{post.content}</Markdown>
+        <Markdown className="prose dark:prose-invert">{post.content.replaceAll("\\", "  ")}</Markdown>
       </div>
       {/* 發布、標籤、類別區塊 */}
       <div
@@ -139,7 +143,7 @@ export default function PostEditor({
           <p className="text-xl font-bold">分類</p>
           <Input
             value={post.category}
-            onChange={(e) => handelInputChange}
+            onChange={handelInputChange}
             name="category"
             type="text"
             placeholder="輸入類別..."
@@ -147,7 +151,7 @@ export default function PostEditor({
           <p className="text-xl font-bold">文章簡介</p>
           <Textarea
             value={post.description}
-            onChange={(e) => handelInputChange}
+            onChange={handelInputChange}
             name="description"
             className="h-full"
             placeholder="在這裡寫一些關於這篇文章的敘述..."
