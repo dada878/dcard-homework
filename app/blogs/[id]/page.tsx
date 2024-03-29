@@ -57,7 +57,7 @@ export default async function BlogPostPage({
             <DeleteButtonClient id={params.id} />
           </>
         )}
-        <TableOfContentClient selector="h2" />
+        <TableOfContentClient selector="h1" />
       </FixedSidebar>
       <Container width="w-full">
         {post && <ContentRender post={post} />}
