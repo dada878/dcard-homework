@@ -4,12 +4,14 @@ export default function Input({
   onChange = () => {},
   placeholder = "",
   className = "",
+  name = "",
   onEnterPress,
 }: {
   type: string;
   placeholder?: string;
   className?: string;
   value?: string;
+  name?: string;
   onEnterPress?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }) {
