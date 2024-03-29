@@ -1,52 +1,21 @@
 "use server";
 
-import { authOptions } from "@/lib/auth";
 import { issueToPost } from "@/utils/issueToPost";
-import { parseLinkHeader } from "@/utils/linkHeaderParser";
 import { queryToURL } from "@/utils/queryToString";
-import { getServerSession } from "next-auth";
 import { isOwner } from "./auth";
-
-const GITHUB_API_URL = `https://api.github.com/repos/${process.env.GITHUB_REPO_OWNER}/${process.env.GITHUB_REPO_NAME}/issues`;
-
-async function sendRequest(url: string, body?: any, method: string = "GET") {
-  const session = await getServerSession(authOptions);
-  return fetch(`${GITHUB_API_URL}${url}`, {
-    method,
-    headers: {
-      Authorization: `Bearer ${
-        session?.accessToken || process.env.GITHUB_PERSONAL_ACCESS_TOKEN
-      }`,
-      Accept: "application/vnd.github+json",
-    },
-    body: JSON.stringify(body),
-  });
-}
+import { fetchGithubAPI } from "@/utils/fetchGithubAPI";
 
 export async function getPostList(page: string = "1", query?: PostQuery) {
+  console.log("getPostList");
   const queryString = query ? queryToURL(query, page) : "";
-  const result = await sendRequest(`?${queryString}`);
-  const data = await result.json();
+  const data = await fetchGithubAPI(`/issues?${queryString}`);
   const posts = data.map((issue: Issue) => issueToPost(issue));
   return posts;
 }
 
-export async function getPagination(page: string, query?: PostQuery) {
-  const queryString = query ? queryToURL(query, page) : "";
-  const result = await sendRequest(`?${queryString}`);
-  const pagination = parseLinkHeader(result.headers.get("link")!);
-  return {
-    first: parseInt(pagination.first) || 1,
-    last: parseInt(pagination.last) || parseInt(page),
-    prev: parseInt(pagination.prev) || null,
-    next: parseInt(pagination.next) || null,
-  } as Pagination;
-}
-
 // TODO: here may can add a cache to reduce the request times
 export async function getPost(id: string) {
-  const result = await sendRequest(`/${id}`);
-  const issue: Issue = await result.json();
+  const issue: Issue = await fetchGithubAPI(`/issues/${id}`);
   return issueToPost(issue);
 }
 
@@ -55,7 +24,7 @@ export async function createPost(post: Post) {
   if (!isAdmin) {
     throw new Error("Unauthorized");
   }
-  const result = await sendRequest("", {
+  const createdPost = await fetchGithubAPI("/issues", {
     title: post.title,
     body: post.content,
     labels: [
@@ -63,7 +32,6 @@ export async function createPost(post: Post) {
       `category:${post.category}`,
     ],
   }, "POST");
-  const createdPost = await result.json();
   return createdPost.number;
 }
 
@@ -72,7 +40,7 @@ export async function updatePost(id: string, post: Post) {
   if (!isAdmin) {
     throw new Error("Unauthorized");
   }
-  const result = await sendRequest(`/${id}`, {
+  const result = await fetchGithubAPI(`/issues/${id}`, {
     title: post.title,
     body: post.content,
     labels: [
@@ -80,7 +48,7 @@ export async function updatePost(id: string, post: Post) {
       `category:${post.category}`,
     ],
   }, "PATCH");
-  return result.status;
+  return result.number;
 }
 
 export async function deletePost(id: string) {
@@ -88,15 +56,14 @@ export async function deletePost(id: string) {
   if (!isAdmin) {
     throw new Error("Unauthorized");
   }
-  const result = await sendRequest(`/${id}`, {
+  const result = await fetchGithubAPI(`/issues/${id}`, {
     state: "closed",
   }, "PATCH");
-  return result.status;
+  return result.number;
 }
 
 export async function getPostComments(id: string) {
-  const result = await sendRequest(`/${id}/comments`);
-  const data = await result.json();
+  const data = await fetchGithubAPI(`/issues/${id}/comments`);
   const comments: Array<CommentData> = data.map((comment: any) => {
     return {
       author: comment.user.login,
@@ -109,8 +76,8 @@ export async function getPostComments(id: string) {
 }
 
 export async function createComment(id: string, comment: string) {
-  const result = await sendRequest(`/${id}/comments`, {
+  const result = await fetchGithubAPI(`/issues/${id}/comments`, {
     body: comment,
   }, "POST");
-  return result.status;
+  return result;
 }
