@@ -13,7 +13,7 @@ export default function EditPage({ params }: { params: { id: string } }) {
     getPost(params.id).then((data) => {
       setPost(data);
     });
-  }, [post?.id, params.id]);
+  }, [params.id]);
   const createPostCallback = (post: Post) => {
     updatePost(params.id, post).then(() => {
       startTransition(() => router.push("/blogs"));
