@@ -1,10 +1,12 @@
 "use client";
-import { getPostList } from "@/actions/posts";
-import BlogPost from "./blogPost";
 import { useEffect, useState } from "react";
+
 import { useInView } from "react-intersection-observer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+
+import BlogPost from "./blogPost";
+import { getPostList } from "@/actions/posts";
 
 export function PostsRender({ query }: { query?: PostQuery }) {
   const [currentPage, setCurrentPage] = useState(1);

@@ -1,15 +1,16 @@
-import Container from "@/components/layout/container";
-import FixedSidebar from "@/components/layout/fixedSidebar";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import LinkButton from "@/components/global/linkButton";
-import ContentRender from "@/components/blogView/contentRender";
-import FloatingActionSection from "@/components/layout/floatingActionSection";
-import DeleteButtonClient from "../../../components/blogView/deleteButtonClient";
+
 import { getPostComments, getPost } from "@/actions/posts";
 import { isOwner } from "@/actions/auth";
+import Container from "@/components/layout/container";
+import LinkButton from "@/components/global/linkButton";
+import FixedSidebar from "@/components/layout/fixedSidebar";
+import ContentRender from "@/components/blogView/contentRender";
 import CommentSection from "@/components/blogView/commentSection";
+import DeleteButtonClient from "@/components/blogView/deleteButtonClient";
 import TableOfContentClient from "@/components/global/tableOfContentClient";
+import FloatingActionSection from "@/components/layout/floatingActionSection";
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
   const post = await getPost(params.id);

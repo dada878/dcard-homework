@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import TagItem from "../global/tagItem";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
+
+import TagItem from "../global/tagItem";
 
 export default function CloseableTagItem({
   name,

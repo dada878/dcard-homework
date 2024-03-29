@@ -1,8 +1,10 @@
 import Image from "next/image";
 import { ReactNode } from "react";
-import { formatDate } from "@/utils/dateFormatter";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+
+import { formatDate } from "@/utils/dateFormatter";
 
 export default function BlogComment({
   userName,

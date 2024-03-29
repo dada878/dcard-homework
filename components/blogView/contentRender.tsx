@@ -1,6 +1,7 @@
+import Markdown from "markdown-to-jsx";
+
 import TagItem from "../global/tagItem";
 import { formatDate } from "@/utils/dateFormatter";
-import Markdown from "markdown-to-jsx";
 
 export default function ContentRender({ post }: { post: Post }) {
   return (

@@ -1,11 +1,14 @@
 "use client";
+
+import { useRouter } from "next/navigation";
+import { useOptimistic } from "react";
+
 import Markdown from "markdown-to-jsx";
-import BlogComment from "./comment";
-import { useRouter, useSearchParams } from "next/navigation";
-import CommentEditor from "./commentEditor";
-import { startTransition, useOptimistic } from "react";
-import { createComment } from "@/actions/posts";
+
 import { getLoginUser, getLoginUserAvatar } from "@/actions/auth";
+import BlogComment from "./comment";
+import CommentEditor from "./commentEditor";
+import { createComment } from "@/actions/posts";
 
 export default function CommentSection({
   comments,

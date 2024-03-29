@@ -1,5 +1,7 @@
-import { useMotionValueEvent, useScroll } from "framer-motion";
 import { useEffect, useState } from "react";
+
+import { useMotionValueEvent, useScroll } from "framer-motion";
+
 import MenuItem from "../blogView/menuItem";
 
 type Headings = {

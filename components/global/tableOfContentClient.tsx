@@ -1,4 +1,5 @@
 "use client";
+
 import TableOfContent from "./tableOfContent";
 
 export default function TableOfContentClient({

@@ -1,12 +1,14 @@
 "use client";
-import SearchBar from "../global/searchBar";
-import NavbarItem from "../global/navbarItem";
-import DarkModeToggle from "../global/darkModeToggle";
+import { useEffect, useRef, useState } from "react";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { useEffect, useRef, useState } from "react";
-import useOutside from "@/hooks/useOutside";
+
 import { getLoginUser } from "@/actions/auth";
+import SearchBar from "../global/searchBar";
+import NavbarItem from "../global/navbarItem";
+import useOutside from "@/hooks/useOutside";
+import DarkModeToggle from "../global/darkModeToggle";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

@@ -1,4 +1,6 @@
 "use client";
+import { useEffect, useRef, useState } from "react";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlus,
@@ -9,7 +11,6 @@ import Markdown from "markdown-to-jsx";
 import Button from "./button";
 import Input from "./input";
 import Textarea from "@/components/global/textarea";
-import { useEffect, useRef, useState } from "react";
 import useOutside from "@/hooks/useOutside";
 import CloseableTagItem from "../edit/closeableTagItem";
 
