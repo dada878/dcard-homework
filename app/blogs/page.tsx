@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import { unstable_noStore as noStore } from "next/cache";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
@@ -75,7 +74,6 @@ export default async function BlogsPage({
 }: {
   searchParams: { tags?: string; category?: string; };
 }) {
-  noStore();
   const tags = (searchParams.tags?.split(",") || []).filter(
     (tag) => tag.length
   );
