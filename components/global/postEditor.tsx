@@ -2,10 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faPlus,
-  faAnglesRight,
-} from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faAnglesRight } from "@fortawesome/free-solid-svg-icons";
 import Markdown from "markdown-to-jsx";
 
 import Button from "./button";
@@ -24,39 +21,34 @@ export default function PostEditor({
   defaultPost?: Post;
 }) {
   const [isPublishPanelOpen, setIsPublishPanelOpen] = useState(false);
-  const [postTitle, setPostTitle] = useState("");
-  const [postContent, setPostContent] = useState("");
-  const [postTags, setPostTags] = useState<Array<string>>([]);
   const [postTagsInput, setPostTagsInput] = useState("");
-  const [postCategory, setPostCategory] = useState("");
-  const [postDescription, setPostDescription] = useState("");
+  const [post, setPost] = useState<Post>({
+    title: "",
+    content: "",
+    tags: [],
+    category: "",
+    description: "",
+    date: new Date(),
+    id: 0,
+  });
   const publishPanelRef = useRef(null);
   useEffect(() => {
     if (defaultPost) {
-      setPostTitle(defaultPost.title);
-      setPostContent(defaultPost.content);
-      setPostTags(defaultPost.tags);
-      setPostCategory(defaultPost.category);
-      setPostDescription(defaultPost.description);
+      setPost(defaultPost);
     }
   }, [defaultPost]);
   const handelCreateButtonClick = () => {
-    callback({
-      title: postTitle,
-      content: postContent,
-      tags: postTags,
-      category: postCategory == "未歸類" ? "" : postCategory,
-      description: postDescription,
-      date: new Date(),
-      id: 0,
-    });
+    callback(post);
+  };
+  const handelInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPost({ ...post, [e.target.name]: e.target.value });
   };
   useOutside(publishPanelRef, () => {
     setIsPublishPanelOpen(false);
   });
   const handleAddTag = () => {
-    if (postTagsInput && !postTags.includes(postTagsInput)) {
-      setPostTags([...postTags, postTagsInput]);
+    if (postTagsInput && !post.tags.includes(postTagsInput)) {
+      setPost({ ...post, tags: [...post.tags, postTagsInput] });
       setPostTagsInput("");
     }
   };
@@ -69,15 +61,17 @@ export default function PostEditor({
         }`}
       >
         <Input
-          value={postTitle}
-          onChange={(e) => setPostTitle(e.target.value)}
+          value={post.title}
+          onChange={(e) => handelInputChange}
+          name="title"
           type="text"
           className="text-2xl"
           placeholder="輸入標題..."
         />
         <Textarea
-          value={postContent}
-          onChange={(e) => setPostContent(e.target.value)}
+          value={post.content}
+          onChange={(e) => handelInputChange}
+          name="content"
           className="h-full w-full"
           placeholder="在這裡用 Markdown 來寫一些什麼吧！"
         />
@@ -95,7 +89,7 @@ export default function PostEditor({
       </div>
       {/* 預覽區塊 */}
       <div className="dark:bg-mirage-900 overflow-y-scroll bg-mirage-200 rounded-xl p-6 w-full hidden md:block">
-        <Markdown className="markdown">{postContent}</Markdown>
+        <Markdown className="markdown">{post.content}</Markdown>
       </div>
       {/* 發布、標籤、類別區塊 */}
       <div
@@ -115,12 +109,15 @@ export default function PostEditor({
         <div className="flex flex-col gap-5 flex-1">
           <p className="text-xl font-bold">標籤</p>
           <div className="flex flex-wrap gap-3 empty:hidden">
-            {postTags.map((tag) => (
+            {post.tags.map((tag) => (
               <CloseableTagItem
                 key={tag}
                 name={tag}
                 onClick={() => {
-                  setPostTags(postTags.filter((t) => t !== tag));
+                  setPost({
+                    ...post,
+                    tags: post.tags.filter((t) => t !== tag),
+                  });
                 }}
               />
             ))}
@@ -141,15 +138,17 @@ export default function PostEditor({
           </div>
           <p className="text-xl font-bold">分類</p>
           <Input
-            value={postCategory}
-            onChange={(e) => setPostCategory(e.target.value)}
+            value={post.category}
+            onChange={(e) => handelInputChange}
+            name="category"
             type="text"
             placeholder="輸入類別..."
           />
           <p className="text-xl font-bold">文章簡介</p>
           <Textarea
-            value={postDescription}
-            onChange={(e) => setPostDescription(e.target.value)}
+            value={post.description}
+            onChange={(e) => handelInputChange}
+            name="description"
             className="h-full"
             placeholder="在這裡寫一些關於這篇文章的敘述..."
           />
