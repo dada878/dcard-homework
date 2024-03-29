@@ -37,7 +37,6 @@ async function Categories() {
     <div className="flex flex-col gap-3">
       <CategoryItem name="全部" />
       {categories
-        .filter((category: string) => category.length)
         .map((category: string) => (
           <CategoryItem key={category} name={category} />
         ))}
@@ -60,11 +59,20 @@ async function Tags({ currentTags }: { currentTags?: string[] }) {
   );
 }
 
+async function CategoriesMobile() {
+  const categories = await getCategoryList();
+  return (
+    <div className="flex gap-4 items-center overflow-x-scroll">
+      {categories.map((category: string) => (
+        <Button key={category}>{category}</Button>
+      ))}
+    </div>
+  );
+}
+
 export default async function BlogsPage({
-  params,
   searchParams,
 }: {
-  params: {};
   searchParams: { tags?: string; category?: string; };
 }) {
   noStore();
@@ -104,11 +112,7 @@ export default async function BlogsPage({
       <Container>
         <div className="flex gap-3 md:hidden">
           <div className="flex gap-4 items-center overflow-x-scroll">
-            <Button>React.js</Button>
-            <Button>Vue.js</Button>
-            <Button>Typescript</Button>
-            <Button>Typescript</Button>
-            <Button>Typescript</Button>
+            <CategoriesMobile />
           </div>
         </div>
         <PostRenderClient query={currentQuery} />
