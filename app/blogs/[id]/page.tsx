@@ -1,18 +1,13 @@
-import { faEdit } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Metadata } from "next";
 
 import { getPostComments, getPost } from "@/actions/posts";
 import { isOwner } from "@/actions/auth";
 import Container from "@/components/layout/container";
-import LinkButton from "@/components/global/linkButton";
-import FixedSidebar from "@/components/layout/fixedSidebar";
 import ContentRender from "@/components/blogView/contentRender";
 import CommentSection from "@/components/blogView/commentSection";
-import DeleteButtonClient from "@/components/blogView/deleteButtonClient";
-import TableOfContentClient from "@/components/global/tableOfContentClient";
-import FloatingActionSection from "@/components/layout/floatingActionSection";
 import { openGraphImages, siteName } from "@/utils/sharedMetadata";
-import { Metadata } from "next";
+import BlogPageSidebar from "@/components/blogView/blogPageSidebar";
+import BlogPageFloatingActions from "@/components/blogView/blogPageFloatingActions";
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
   const post = await getPost(params.id);
@@ -45,34 +40,12 @@ export default async function BlogPostPage({
   ]);
   return (
     <div className="flex">
-      <FixedSidebar>
-        {showActionButtons && (
-          <>
-            <LinkButton href={`/blogs/${params.id}/edit`}>
-              <div className="flex gap-4 justify-center items-center">
-                <FontAwesomeIcon className="w-4" icon={faEdit} />
-                <span>編輯文章</span>
-              </div>
-            </LinkButton>
-            <DeleteButtonClient id={params.id} />
-          </>
-        )}
-        <TableOfContentClient selector="h1" />
-      </FixedSidebar>
+      <BlogPageSidebar showActionButtons={showActionButtons} postID={params.id} />
       <Container width="w-full">
         {post && <ContentRender post={post} />}
         <CommentSection comments={comments} postId={params.id} />
       </Container>
-      {showActionButtons && (
-        <FloatingActionSection>
-          <LinkButton href={`/blogs/${params.id}/edit`} rounded="rounded-full">
-            <div className="p-2">
-              <FontAwesomeIcon className="w-5 h-5 shadow-lg" icon={faEdit} />
-            </div>
-          </LinkButton>
-          <DeleteButtonClient id={params.id} isMobile />
-        </FloatingActionSection>
-      )}
+      <BlogPageFloatingActions showActionButtons={showActionButtons} postID={params.id} />
     </div>
   );
 }

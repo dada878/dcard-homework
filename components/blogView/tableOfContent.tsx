@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import { useMotionValueEvent, useScroll } from "framer-motion";
 
-import MenuItem from "../blogView/menuItem";
+import MenuItem from "./menuItem";
 
 type Headings = {
   id: string;
