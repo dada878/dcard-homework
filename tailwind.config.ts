@@ -49,6 +49,8 @@ const config: Config = {
       "black": "#000000",
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 };
 export default config;
