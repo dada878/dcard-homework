@@ -42,6 +42,8 @@ export default function CommentEditor({
   const [content, setContent] = useState("");
   const [disabled, setDisabled] = useState(false);
   const router = useRouter();
+
+  // check if user is logged in
   useEffect(() => {
     async function checkLogin() {
       const user = await getLoginUser();
@@ -50,7 +52,8 @@ export default function CommentEditor({
       }
     }
     checkLogin();
-  }, []);
+  });
+
   return (
     <div className="flex flex-col rounded-xl">
       <div className="dark:bg-mirage-800 bg-mirage-300 flex justify-start w-full rounded-t-xl">

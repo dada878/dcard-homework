@@ -7,8 +7,11 @@ import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 export default function DarkModeToggle() {
   const [checked, setChecked] = useState(true);
 
+  // NOTE: maybe there is a better way to handle this to reduce localStorage access times
+
+  // when switch is toggled (or component mounted), change the theme
   useEffect(() => {
-    let isDark = localStorage.getItem("dark") ?? "true";
+    const isDark = localStorage.getItem("dark") ?? "true";
     if (isDark === "true") {
       setChecked(true);
       document.documentElement.classList.add("dark");

@@ -30,6 +30,7 @@ export const authOptions: NextAuthOptions = {
       },
     }),
   ],
+  // callbacks is used to get the user token / role / id
   callbacks: {
     async session({ session, token, user }) {
       session.accessToken = token.accessToken as string;

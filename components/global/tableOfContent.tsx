@@ -13,6 +13,8 @@ export default function TableOfContent({ selector }: { selector: string }) {
   const [headings, setHeadings] = useState<Headings>([]);
   const [activeHeading, setActiveHeading] = useState<string>("heading-0");
   const { scrollY } = useScroll();
+
+  // get all headings and set their unique id
   useEffect(() => {
     const elements: Array<HTMLElement> = Array.from(
       document.querySelectorAll(selector)
@@ -20,7 +22,6 @@ export default function TableOfContent({ selector }: { selector: string }) {
     elements.forEach((elem, idx) => {
       elem.id = `heading-${idx}`;
     });
-
     setHeadings(
       Array.from(
         elements.map((elem) => ({
@@ -30,6 +31,8 @@ export default function TableOfContent({ selector }: { selector: string }) {
       )
     );
   }, [selector]);
+
+  // NOTE: maybe there is a better way to handle this
   useMotionValueEvent(scrollY, "change", () => {
     const scrollY = document.documentElement.scrollTop;
     for (const heading of headings) {
@@ -40,12 +43,14 @@ export default function TableOfContent({ selector }: { selector: string }) {
       }
     }
   });
+
   function scrollToElement(id: string) {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
   }
+
   return (
     <div className="dark:bg-mirage-900 bg-mirage-200 rounded-xl p-4">
       <h3 className="font-bold text-2xl text-center mb-4">文章目錄</h3>

@@ -1,4 +1,5 @@
 "use client";
+
 import { useEffect, useRef, useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -22,6 +23,7 @@ export default function PostEditor({
 }) {
   const [isPublishPanelOpen, setIsPublishPanelOpen] = useState(false);
   const [postTagsInput, setPostTagsInput] = useState("");
+  const publishPanelRef = useRef(null);
   const [post, setPost] = useState<Post>({
     title: "",
     content: "",
@@ -31,15 +33,18 @@ export default function PostEditor({
     date: new Date(),
     id: 0,
   });
-  const publishPanelRef = useRef(null);
+  
+  // set default post data if it exists
   useEffect(() => {
     if (defaultPost) {
       setPost(defaultPost);
     }
   }, [defaultPost]);
+
   const handelCreateButtonClick = () => {
     callback(post);
   };
+
   const handelInputChange = (
     e:
       | React.ChangeEvent<HTMLInputElement>
@@ -47,15 +52,18 @@ export default function PostEditor({
   ) => {
     setPost({ ...post, [e.target.name]: e.target.value });
   };
+
   useOutside(publishPanelRef, () => {
     setIsPublishPanelOpen(false);
   });
+
   const handleAddTag = () => {
     if (postTagsInput && !post.tags.includes(postTagsInput)) {
       setPost({ ...post, tags: [...post.tags, postTagsInput] });
       setPostTagsInput("");
     }
   };
+
   return (
     <div className="md:p-10 p-4 flex gap-6 h-[calc(100vh_-_3.6rem)]">
       {/* 編輯區塊 */}
@@ -95,7 +103,7 @@ export default function PostEditor({
       <div className="dark:bg-mirage-900 overflow-y-scroll bg-mirage-200 rounded-xl p-6 w-full hidden md:block">
         <MarkdownRender content={post.content} />
       </div>
-      {/* 發布、標籤、類別區塊 */}
+      {/* 發布、標籤、類別設定區塊 */}
       <div
         className={`dark:bg-mirage-900 bg-mirage-200 rounded-xl fixed bottom-0 md:flex-col left-0 right-0 md:relative md:opacity-100 opacity-0 p-6 flex-col-reverse gap-5 md:translate-y-0 min-w-64 transition-all md:flex ${
           isPublishPanelOpen
