@@ -1,4 +1,5 @@
 "use client";
+
 import { useEffect, useState } from "react";
 
 import { useInView } from "react-intersection-observer";
@@ -8,7 +9,7 @@ import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import BlogPost from "./blogPost";
 import { getPostList } from "@/actions/posts";
 
-export function PostsRender({ query }: { query?: PostQuery }) {
+export function PostListRender({ query }: { query?: PostQuery }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [posts, setPosts] = useState<Post[]>([]);
   const [noMorePosts, setNoMorePosts] = useState(false);

@@ -13,7 +13,7 @@ import FloatingActionSection from "@/components/layout/floatingActionSection";
 import LinkButton from "@/components/global/linkButton";
 import { getCategoryList } from "@/actions/categories";
 import TogglableTagItem from "@/components/blogs/togglableTagItem";
-import PostRenderClient from "@/components/blogs/postRenderClient";
+import PostListRenderClient from "@/components/blogs/postListRenderClient";
 import { openGraphImages, siteName } from "@/utils/sharedMetadata";
 
 
@@ -113,7 +113,7 @@ export default async function BlogsPage({
             <CategoriesMobile />
           </div>
         </div>
-        <PostRenderClient query={currentQuery} />
+        <PostListRenderClient query={currentQuery} />
       </Container>
       <FloatingActionSection>
         <LinkButton href="/blogs/create" rounded="rounded-full">

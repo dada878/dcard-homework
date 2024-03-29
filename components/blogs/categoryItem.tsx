@@ -16,6 +16,7 @@ export default function CategoryItem({
   return <TagItem selected={selected} onClick={() => {
     const searchParams = new URLSearchParams();
     searchParams.set("category", name);
+    // NOTE: maybe there is a better way check if the category is "all"
     if (name === "全部") {
       searchParams.delete("category");
     }
