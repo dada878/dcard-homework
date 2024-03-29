@@ -7,6 +7,7 @@ export async function getCategoryList() {
   const categories = data
     .map((label: Label) => label.name)
     .filter((name: string) => name.startsWith("category:"))
-    .map((name: string) => name.slice(9));
+    .map((name: string) => name.slice(9))
+    .filter((name: string) => name.length);
   return categories;
 }
