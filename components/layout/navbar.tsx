@@ -27,7 +27,7 @@ export default function Navbar() {
   // get login user name, if not login, show "登入"
   useEffect(() => {
     getLoginUser().then((name?: string) => {
-      setUser(name || "登入");
+      setUser(name ?? "登入");
     });
   });
 

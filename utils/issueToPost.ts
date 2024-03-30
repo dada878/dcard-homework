@@ -18,12 +18,12 @@ export function issueToPost(issue: Issue): Post {
       issue.labels
         ?.filter((label) => label.name.startsWith("category:"))
         ?.at(0)
-        ?.name?.slice(9) || "",
+        ?.name?.slice(9) ?? "",
     tags: issue.labels
       .filter((label) => label.name.startsWith("tag:"))
       .map((label) => label.name.slice(4)),
     date: new Date(issue.created_at),
-    description: postContent.attributes?.description || "",
+    description: postContent.attributes?.description ?? "",
     id: issue.number!,
   };
 }

@@ -56,12 +56,12 @@ function defaultSEO({
     ...SEO,
     title: titleMeta,
     canonical: urlMeta,
-    description: description || SEO.description,
+    description: description ?? SEO.description,
     openGraph: {
       ...SEO.openGraph,
       title: titleMeta,
       url: urlMeta,
-      description: description || SEO.description,
+      description: description ?? SEO.description,
     },
   };
 

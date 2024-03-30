@@ -64,11 +64,11 @@ export default async function BlogsPage({
 }: {
   searchParams: { tags?: string; category?: string };
 }) {
-  const tags = (searchParams.tags?.split(",") || []).filter(
+  const tags = (searchParams.tags?.split(",") ?? []).filter(
     (tag) => tag.length
   );
   const showNewPostButton = await isOwner();
-  const category = searchParams.category || undefined;
+  const category = searchParams.category ?? undefined;
   const currentQuery = {
     tags: tags,
     category: category,

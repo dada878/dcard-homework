@@ -15,8 +15,8 @@ export default function TogglableTagItem({
 }) {
   const router = useRouter();
   const params = useSearchParams();
-  const tags = params.get("tags")?.split(",") || [];
-  const category = params.get("category") || "";
+  const tags = params.get("tags")?.split(",") ?? [];
+  const category = params.get("category") ?? "";
   return (
     <TagItem
       selected={selected}

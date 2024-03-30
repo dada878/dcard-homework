@@ -21,7 +21,7 @@ export default function BlogPost({post}: {post: Post}) {
               </TagItem>
             ))}
           </div>
-          <p className="dark:text-secondary text-secondary-light">分類：{post.category || "未歸類"}</p>
+          <p className="dark:text-secondary text-secondary-light">分類：{post.category ?? "未歸類"}</p>
         </div>
       </article>
     </Link>

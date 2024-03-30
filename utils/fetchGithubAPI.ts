@@ -10,7 +10,7 @@ export async function fetchGithubAPI(url: string, body?: any, method: string = "
     method,
     headers: {
       Authorization: `Bearer ${
-        session?.accessToken || process.env.GITHUB_PERSONAL_ACCESS_TOKEN
+        session?.accessToken ?? process.env.GITHUB_PERSONAL_ACCESS_TOKEN
       }`,
       Accept: "application/vnd.github+json",
     },

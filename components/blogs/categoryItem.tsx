@@ -13,7 +13,7 @@ export default function CategoryItem({
 }) {
   const router = useRouter();
   const params = useSearchParams();
-  const tags = params.get("tags")?.split(",") || [];
+  const tags = params.get("tags")?.split(",") ?? [];
   return <TagItem selected={selected} onClick={() => {
     const searchParams = new URLSearchParams();
     searchParams.set("category", name);
