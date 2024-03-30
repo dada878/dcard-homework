@@ -21,7 +21,7 @@ export default function BlogPost({ post }: Readonly<{ post: Post }>) {
             ))}
           </div>
           <p className="dark:text-secondary text-secondary-light">
-            分類：{post.category ?? "未歸類"}
+            分類：{post.category.length === 0 ? "未歸類" : post.category}
           </p>
         </div>
       </article>
