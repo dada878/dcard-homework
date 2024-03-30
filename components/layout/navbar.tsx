@@ -13,7 +13,7 @@ import SearchBar from "../global/searchBar";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [user, setUser] = useState("Log in");
+  const [user, setUser] = useState("登入");
   const navbarRef = useRef(null);
 
   useOutside(navbarRef, () => {
@@ -24,10 +24,10 @@ export default function Navbar() {
     setIsMenuOpen(false);
   };
 
-  // get login user name, if not login, show "Log in"
+  // get login user name, if not login, show "登入"
   useEffect(() => {
     getLoginUser().then((name?: string) => {
-      setUser(name || "Log in");
+      setUser(name || "登入");
     });
   });
 
@@ -38,9 +38,9 @@ export default function Navbar() {
     >
       {/* Desktop navbar */}
       <div className="mx-auto flex md:justify-between items-center md:pl-5 md:pr-4 pr-2">
-        <div className="gap-3 hidden md:flex">
-          <NavbarItem name="Home" url="/" />
-          <NavbarItem name="Blogs" url="/blogs" />
+        <div className="gap-8 hidden md:flex">
+          <NavbarItem name="首頁" url="/" />
+          <NavbarItem name="文章" url="/blogs" />
           <NavbarItem name={user} url="/api/auth/signin" />
         </div>
         <div className="flex gap-0 justify-around items-center flex-1 md:flex-grow-0 md:gap-4 flex-row-reverse md:flex-row">

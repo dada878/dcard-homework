@@ -9,7 +9,7 @@ export default function SearchBar({ className }: { className?: string }) {
       <FontAwesomeIcon className="cursor-pointer" icon={faSearch} />
       <input
         type="text"
-        placeholder="Search something..."
+        placeholder="輸入關鍵字搜尋文章..."
         className="bg-opacity-0 bg-white outline-none placeholder:text-secondary-light/50 dark:placeholder:text-white/40"
       />
     </div>
