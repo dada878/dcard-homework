@@ -1,6 +1,5 @@
 # Dcard Frontend Intern Homework
 ![GitHub](https://img.shields.io/github/license/dada878/dcard-homework)
-![GitHub Repo stars](https://img.shields.io/github/stars/dada878/dcard-homework)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/dada878/dcard-homework)
 ![GitHub repo size](https://img.shields.io/github/repo-size/dada878/dcard-homework)
 ## Introduction
