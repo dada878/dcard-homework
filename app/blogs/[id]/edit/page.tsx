@@ -5,6 +5,13 @@ import { useRouter } from "next/navigation";
 
 import PostEditor from "@/components/global/postEditor";
 import { getPost, updatePost } from "@/actions/posts";
+import { defaultSEO } from "@/utils/seo";
+
+export const metadata = defaultSEO({
+  noindex: true,
+  title: "編輯文章",
+  description: "在這裡編輯超酷的文章！",
+});
 
 export default function EditPage({ params }: { params: { id: string } }) {
   const router = useRouter();

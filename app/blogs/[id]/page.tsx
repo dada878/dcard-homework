@@ -5,24 +5,24 @@ import { isOwner } from "@/actions/auth";
 import Container from "@/components/layout/container";
 import ContentRender from "@/components/blogView/contentRender";
 import CommentSection from "@/components/blogView/commentSection";
-import { openGraphImages, siteName } from "@/utils/sharedMetadata";
 import BlogPageSidebar from "@/components/blogView/blogPageSidebar";
 import BlogPageFloatingActions from "@/components/blogView/blogPageFloatingActions";
+import { defaultSEO } from "@/utils/seo";
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
   const post = await getPost(params.id);
-  const metadata : Metadata = {
-    title: `${post.title} | ${siteName}`,
+  const defaultConfig = defaultSEO({
+    title: post.title,
     description: post.description,
+    url: `/blogs/${params.id}`,
+  });
+  const metadata = {
+    ...defaultConfig,
     keywords: post.tags.join(", "),
     openGraph: {
-      title: `${post.title} | ${siteName}`,
-      images: openGraphImages,
-      description: post.description,
-      url: `${process.env.PRODUCTION_URL}/blogs/${params.id}`,
-      siteName: siteName,
+      ...defaultConfig.openGraph,
       type: "article",
-      publishedTime: post.date.toString(),
+      publishedTime: post.date.toISOString(),
     },
   };
   return metadata;

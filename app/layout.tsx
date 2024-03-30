@@ -2,30 +2,18 @@ import type { Metadata } from "next";
 
 import { Inter } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
-
-import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
 
 import Navbar from "@/components/layout/navbar";
 import "@/styles/globals.css";
-import { openGraphImages, siteName } from "@/utils/sharedMetadata";
+import { defaultSEO } from "@/utils/seo";
 
 config.autoAddCss = false;
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: siteName,
-  description: "我會在這裡分享各種技術文章及日常生活中有趣的事物～",
-  openGraph: {
-    title: siteName,
-    description: "我會在這裡分享各種技術文章及日常生活中有趣的事物～",
-    images: openGraphImages,
-    url: process.env.PRODUCTION_URL,
-    siteName: siteName,
-    type: "website",
-  },
-};
+export const metadata: Metadata = defaultSEO();
 
 export default function RootLayout({
   children,

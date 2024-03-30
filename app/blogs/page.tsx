@@ -14,31 +14,22 @@ import LinkButton from "@/components/global/linkButton";
 import { getCategoryList } from "@/actions/categories";
 import TogglableTagItem from "@/components/blogs/togglableTagItem";
 import PostListRenderClient from "@/components/blogs/postListRenderClient";
-import { openGraphImages, siteName } from "@/utils/sharedMetadata";
+import { defaultSEO } from "@/utils/seo";
 
-
-export const metadata: Metadata = {
-  title: `文章列表 | ${siteName}`,
-  description: "我會在這裡分享各種技術文章及日常生活中有趣的事物",
-  openGraph: {
-    title: `文章列表 | ${siteName}`,
-    images: openGraphImages,
-    description: "我會在這裡分享各種技術文章及日常生活中有趣的事物",
-    url: process.env.PRODUCTION_URL + "/blogs",
-    siteName: "Dada's Blog",
-    type: "website",
-  },
-};
+export const metadata: Metadata = defaultSEO({
+  title: "文章列表",
+  url: "/blogs",
+  description: "在這裡查看我超酷的文章們！",
+});
 
 async function Categories() {
   const categories = await getCategoryList();
   return (
     <div className="flex flex-col gap-3">
       <CategoryItem name="全部" />
-      {categories
-        .map((category: string) => (
-          <CategoryItem key={category} name={category} />
-        ))}
+      {categories.map((category: string) => (
+        <CategoryItem key={category} name={category} />
+      ))}
     </div>
   );
 }
@@ -72,7 +63,7 @@ async function CategoriesMobile() {
 export default async function BlogsPage({
   searchParams,
 }: {
-  searchParams: { tags?: string; category?: string; };
+  searchParams: { tags?: string; category?: string };
 }) {
   const tags = (searchParams.tags?.split(",") || []).filter(
     (tag) => tag.length
