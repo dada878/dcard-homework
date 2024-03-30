@@ -36,10 +36,10 @@ function TabButton({
 export default function CommentEditor({
   postId,
   callback,
-}: {
+}: Readonly<{
   postId: string;
   callback: (formData: FormData) => Promise<void>;
-}) {
+}>) {
   const [isPreview, setIsPreview] = useState(false);
   const [content, setContent] = useState("");
   const [disabled, setDisabled] = useState(false);

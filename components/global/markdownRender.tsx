@@ -15,10 +15,10 @@ SyntaxHighlighter.registerLanguage("ts", ts);
 export default function MarkdownRender({
   content,
   className,
-}: {
+}: Readonly<{
   content: string;
   className?: string;
-}) {
+}>) {
   return (
     <Markdown
       className={`prose dark:prose-invert overflow-y-hidden ${className}`}

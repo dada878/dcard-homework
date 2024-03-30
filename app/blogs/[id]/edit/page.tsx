@@ -7,10 +7,12 @@ import { useRouter } from "next/navigation";
 import { getPost, updatePost } from "@/actions/posts";
 import PostEditor from "@/components/global/postEditor";
 
-export default function EditPage({ params }: { params: { id: string } }) {
+export default function EditPage({
+  params,
+}: Readonly<{ params: { id: string } }>) {
   const router = useRouter();
   const [post, setPost] = useState<Post>();
-  
+
   // load post data you want to edit
   useEffect(() => {
     getPost(params.id).then((data) => {
@@ -19,12 +21,14 @@ export default function EditPage({ params }: { params: { id: string } }) {
   }, [params.id]);
 
   const createPostCallback = (post: Post) => {
-    updatePost(params.id, post).then(() => {
-      startTransition(() => router.push("/blogs"));
-      startTransition(() => router.refresh());
-    }).catch((e) => {
-      alert(e.message);
-    });
+    updatePost(params.id, post)
+      .then(() => {
+        startTransition(() => router.push("/blogs"));
+        startTransition(() => router.refresh());
+      })
+      .catch((e) => {
+        alert(e.message);
+      });
   };
   return (
     <div>

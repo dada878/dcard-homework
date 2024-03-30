@@ -1,7 +1,7 @@
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export default function SearchBar({ className }: { className?: string }) {
+export default function SearchBar({ className }: Readonly<{ className?: string }>) {
   return (
     <div
       className={`bg-gray bg-opacity-30 p-2 rounded-lg items-center flex gap-3 pl-3 ${className}`}

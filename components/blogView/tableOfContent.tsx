@@ -9,7 +9,7 @@ type Headings = {
   text: string;
 }[];
 
-export default function TableOfContent({ selector }: { selector: string }) {
+export default function TableOfContent({ selector }: Readonly<{ selector: string }>) {
   const [headings, setHeadings] = useState<Headings>([]);
   const [activeHeading, setActiveHeading] = useState<string>("heading-0");
   const { scrollY } = useScroll();

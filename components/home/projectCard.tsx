@@ -5,11 +5,11 @@ export default function ProjectCard({
   name,
   image,
   link,
-}: {
+}: Readonly<{
   name: string;
   image: string;
   link: string;
-}) {
+}>) {
   return (
     <Link className="flex justify-center" href={link} target="_blank">
       <div className="dark:bg-mirage-900 bg-mirage-200 rounded-lg flex flex-col gpa-2 cursor-pointer transition hover:scale-105 max-w-md">

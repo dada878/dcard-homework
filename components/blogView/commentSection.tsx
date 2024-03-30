@@ -14,10 +14,10 @@ import MarkdownRender from "../global/markdownRender";
 export default function CommentSection({
   comments,
   postId,
-}: {
+}: Readonly<{
   comments: Array<CommentData>;
   postId: string;
-}) {
+}>) {
   const router = useRouter();
   const [optimisticComments, addOptimisticComments] = useOptimistic(
     comments,

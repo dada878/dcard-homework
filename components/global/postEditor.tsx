@@ -19,11 +19,11 @@ export default function PostEditor({
   callback,
   confirmButtonText,
   defaultPost,
-}: {
+}: Readonly<{
   callback: (post: Post) => void;
   confirmButtonText: string;
   defaultPost?: Post;
-}) {
+}>) {
   const [isPublishPanelOpen, setIsPublishPanelOpen] = useState(false);
   const [postTagsInput, setPostTagsInput] = useState("");
   const publishPanelRef = useRef(null);

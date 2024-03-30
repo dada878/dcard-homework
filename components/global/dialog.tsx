@@ -6,12 +6,12 @@ export default function Dialog({
   setOpen,
   children,
   closeByClickOutside = true,
-}: {
+}: Readonly<{
   open: boolean;
   setOpen: (open: boolean) => void;
   children: React.ReactNode;
   closeByClickOutside?: boolean;
-}) {
+}>) {
   return (
     <AnimatePresence>
       {open && (

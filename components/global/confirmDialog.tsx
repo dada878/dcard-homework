@@ -8,14 +8,14 @@ export default function ConfirmDialog({
   onClose,
   onConfirm,
   closeByClickOutside = true,
-}: {
+}: Readonly<{
   open: boolean;
   setOpen: (open: boolean) => void;
   title: string;
   onClose?: () => void;
   onConfirm?: () => void;
   closeByClickOutside?: boolean;
-}) {
+}>) {
   return (
     <Dialog
       open={open}

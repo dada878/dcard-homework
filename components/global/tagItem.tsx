@@ -4,11 +4,11 @@ export default function TagItem({
   onClick,
   selected,
   children,
-}: {
+}: Readonly<{
   onClick?: () => void;
   selected?: boolean;
   children: ReactNode;
-}) {
+}>) {
   return (
     <span
       onClick={onClick}

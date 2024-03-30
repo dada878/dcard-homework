@@ -11,10 +11,10 @@ import FixedSidebar from "../layout/fixedSidebar";
 export default function BlogPageSidebar({
   showActionButtons,
   postID,
-}: {
+}: Readonly<{
   showActionButtons: boolean;
   postID: string;
-}) {
+}>) {
   return (
     <FixedSidebar>
       {showActionButtons && (

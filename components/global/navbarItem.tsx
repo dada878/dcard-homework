@@ -6,13 +6,13 @@ export default function NavbarItem({
   className,
   isMobile,
   onClick = () => {},
-}: {
+}: Readonly<{
   name: string;
   url: string;
   className?: string;
   isMobile?: boolean;
   onClick?: () => void;
-}) {
+}>) {
   return (
     <Link
       className={`dark:hover:text-secondary hover:text-secondary-light transition ${className} ${

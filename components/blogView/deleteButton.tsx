@@ -13,10 +13,10 @@ import ConfirmDialog from "@/components/global/confirmDialog";
 export default function DeleteButton({
   id,
   isMobile = false,
-}: {
+}: Readonly<{
   id: string;
   isMobile?: boolean;
-}) {
+}>) {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const router = useRouter();
   return (

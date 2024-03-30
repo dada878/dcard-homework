@@ -5,14 +5,14 @@ export default function Textarea({
   className = "",
   disabled = false,
   name = "",
-}: {
+}: Readonly<{
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
   placeholder?: string;
   className?: string;
   name?: string;
   disabled?: boolean;
-}) {
+}>) {
   return (
     <textarea
       value={value}

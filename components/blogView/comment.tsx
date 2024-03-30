@@ -12,13 +12,13 @@ export default function BlogComment({
   date,
   children,
   sending,
-}: {
+}: Readonly<{
   userName: string;
   avatarUrl: string;
   date: Date;
   children: ReactNode;
   sending?: boolean;
-}) {
+}>) {
   return (
     <div
       className={`dark:bg-mirage-900 bg-mirage-200 rounded-xl p-6 flex flex-col gap-4 ${

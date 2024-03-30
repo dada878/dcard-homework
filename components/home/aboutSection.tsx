@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 export default function AboutSection({
   title,
   children,
-}: {
+}: Readonly<{
   title: string;
   children: ReactNode;
-}) {
+}>) {
   return (
     <motion.div
       initial="hidden"

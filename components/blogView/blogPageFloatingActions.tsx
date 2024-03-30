@@ -10,10 +10,10 @@ import FloatingActionSection from "../layout/floatingActionSection";
 export default function BlogPageFloatingActions({
   showActionButtons,
   postID,
-}: {
+}: Readonly<{
   showActionButtons: boolean;
   postID: string;
-}) {
+}>) {
   return showActionButtons ? (
     <FloatingActionSection>
       <LinkButton href={`/blogs/${postID}/edit`} rounded="rounded-full">

@@ -7,10 +7,10 @@ import TagItem from "../global/tagItem";
 export default function CategoryItem({
   name,
   selected,
-}: {
+}: Readonly<{
   name: string;
   selected?: boolean;
-}) {
+}>) {
   const router = useRouter();
   const params = useSearchParams();
   const tags = params.get("tags")?.split(",") ?? [];

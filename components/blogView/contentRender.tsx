@@ -3,7 +3,7 @@ import { formatDate } from "@/utils/dateFormatter";
 import MarkdownRender from "../global/markdownRender";
 import TagItem from "../global/tagItem";
 
-export default function ContentRender({ post }: { post: Post }) {
+export default function ContentRender({ post }: Readonly<{ post: Post }>) {
   return (
     <div className="dark:bg-mirage-900 bg-mirage-200 p-6 md:p-8 rounded-xl">
       <h1 className="text-5xl font-bold line-clamp-1">{post.title}</h1>

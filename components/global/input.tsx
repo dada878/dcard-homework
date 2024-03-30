@@ -6,7 +6,7 @@ export default function Input({
   className = "",
   name = "",
   onEnterPress,
-}: {
+}: Readonly<{
   type: string;
   placeholder?: string;
   className?: string;
@@ -14,7 +14,7 @@ export default function Input({
   name?: string;
   onEnterPress?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}) {
+}>) {
   return (
     <input
       type={type}

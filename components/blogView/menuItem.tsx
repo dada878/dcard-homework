@@ -4,11 +4,11 @@ export default function MenuItem({
   children,
   active,
   onClick,
-}: {
+}: Readonly<{
   children: ReactNode;
   active?: Boolean;
   onClick?: () => void;
-}) {
+}>) {
   // NOTE: classes here maybe too complex
   return (
     <p

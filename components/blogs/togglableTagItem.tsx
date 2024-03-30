@@ -7,12 +7,12 @@ import TagItem from "../global/tagItem";
 export default function TogglableTagItem({
   name,
   selected,
-}: {
+}: Readonly<{
   onClick?: () => void;
   name: string;
   selected?: boolean;
   hasCloseButton?: boolean;
-}) {
+}>) {
   const router = useRouter();
   const params = useSearchParams();
   const tags = params.get("tags")?.split(",") ?? [];

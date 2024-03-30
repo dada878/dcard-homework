@@ -6,10 +6,10 @@ import TagItem from "../global/tagItem";
 export default function CloseableTagItem({
   name,
   onClick,
-}: {
+}: Readonly<{
   name: string;
   onClick?: () => void;
-}) {
+}>) {
   return (
     <TagItem onClick={onClick}>
       <div className="flex justify-center items-center gap-2">
