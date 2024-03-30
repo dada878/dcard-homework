@@ -47,17 +47,7 @@ export function PostListRender({ query }: { query?: PostQuery }) {
   return (
     <>
       {posts.map((post: Post) => {
-        return (
-          <BlogPost
-            id={post.id}
-            key={post.id}
-            title={post.title}
-            description={post.content}
-            category={post.category}
-            tags={post.tags}
-            date={new Date(post.date)}
-          />
-        );
+        return <BlogPost key={post.id} post={post} />;
       })}
       <div className="flex justify-center">
         {!noMorePosts ? (
@@ -66,7 +56,9 @@ export function PostListRender({ query }: { query?: PostQuery }) {
             className="animate-spin size-6"
             icon={faSpinner}
           />
-        ) : <p className="text-secondary">沒有更多文章了 qwq</p>}
+        ) : (
+          <p className="text-secondary">沒有更多文章了 qwq</p>
+        )}
       </div>
     </>
   );

@@ -1,15 +1,32 @@
+import fm from "front-matter";
+
+type Attributes = {
+  description?: string;
+};
+
+type FrontMatter = {
+  attributes?: Attributes;
+  body: string;
+};
+
 export function issueToPost(issue: Issue): Post {
+  console.log(issue);
+  const postContent: FrontMatter = fm.test(issue.body)
+    ? fm(issue.body)
+    : { body: issue.body };
   return {
     title: issue.title,
-    content: issue.body,
-    category: issue.labels
-      ?.filter((label) => label.name.startsWith("category:"))?.at(0)
-      ?.name?.slice(9) || "未歸類",
+    content: postContent.body,
+    category:
+      issue.labels
+        ?.filter((label) => label.name.startsWith("category:"))
+        ?.at(0)
+        ?.name?.slice(9) || "未歸類",
     tags: issue.labels
       .filter((label) => label.name.startsWith("tag:"))
       .map((label) => label.name.slice(4)),
     date: new Date(issue.created_at),
-    description: "",
+    description: postContent.attributes?.description || "",
     id: issue.number,
   };
 }
