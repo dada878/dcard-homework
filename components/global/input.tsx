@@ -22,8 +22,8 @@ export default function Input({
       onChange={onChange}
       name={name}
       onKeyDown={(e) => {
-        if (e.key === "Enter") {
-          onEnterPress && onEnterPress(e);
+        if (e.key === "Enter" && onEnterPress !== undefined) {
+          onEnterPress(e);
         }
       }}
       className={`${className} dark:bg-mirage-700 bg-mirage-300 p-3 w-full rounded-lg outline-none placeholder:text-secondary-light dark:placeholder:text-white/40`}

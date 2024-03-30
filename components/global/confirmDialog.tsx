@@ -27,7 +27,9 @@ export default function ConfirmDialog({
         <Button
           onClick={() => {
             setOpen(false);
-            onClose && onClose();
+            if (onClose !== undefined) {
+              onClose();
+            }
           }}
           color="green"
         >
@@ -36,7 +38,9 @@ export default function ConfirmDialog({
         <Button
           onClick={() => {
             setOpen(false);
-            onConfirm && onConfirm();
+            if (onConfirm !== undefined) {
+              onConfirm();
+            }
           }}
           color="red"
         >
