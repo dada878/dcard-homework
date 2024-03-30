@@ -20,6 +20,8 @@ export default function TogglableTagItem({
   return (
     <TagItem
       selected={selected}
+      // NOTE: maybe there is a better way without using js event to handle this
+      // (like recalculate the query string and transform it to a new <Link> component)
       onClick={() => {
         if (selected) {
           tags.splice(tags.indexOf(name), 1);

@@ -18,7 +18,7 @@ function TabButton({
   isToggleToPreview: boolean;
 }) {
   return (
-    <p
+    <button
       onClick={() => {
         setIsPreview(isToggleToPreview);
       }}
@@ -29,7 +29,7 @@ function TabButton({
       } px-6 pt-3 pb-2 rounded-t-xl`}
     >
       {isToggleToPreview ? "預覽" : "撰寫"}
-    </p>
+    </button>
   );
 }
 

@@ -1,18 +1,27 @@
 import { ReactNode } from "react";
 
+import Link from "next/link";
+
 export default function MenuItem({
   children,
   active,
-  onClick,
+  id,
 }: Readonly<{
   children: ReactNode;
-  active?: Boolean;
-  onClick?: () => void;
+  active?: boolean;
+  id: string;
 }>) {
   // NOTE: classes here maybe too complex
+  function scrollToElement(id: string) {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+
   return (
-    <p
-      onClick={onClick}
+    <button
+      onClick={() => scrollToElement(id)}
       className={`border-l-4 ${
         active
           ? "dark:border-primary border-black font-bold text-black dark:text-primary"
@@ -20,6 +29,6 @@ export default function MenuItem({
       } dark:hover:border-primary hover:border-black transition-all pl-3 cursor-pointer hover:text-black dark:hover:text-primary hover:font-bold line-clamp-1`}
     >
       {children}
-    </p>
+    </button>
   );
 }

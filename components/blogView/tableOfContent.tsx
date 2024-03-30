@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import { useMotionValueEvent, useScroll } from "framer-motion";
 
-import MenuItem from "./menuItem";
+import MenuItem from "@/components/blogView/menuItem";
 
 type Headings = {
   id: string;
@@ -43,14 +43,7 @@ export default function TableOfContent({ selector }: Readonly<{ selector: string
       }
     }
   });
-
-  function scrollToElement(id: string) {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  }
-
+  
   return (
     <div className="dark:bg-mirage-900 bg-mirage-200 rounded-xl p-4">
       <h3 className="font-bold text-2xl text-center mb-4">文章目錄</h3>
@@ -58,8 +51,8 @@ export default function TableOfContent({ selector }: Readonly<{ selector: string
         {headings.map((heading) => (
           <MenuItem
             key={heading.id}
+            id={heading.id}
             active={activeHeading === heading.id}
-            onClick={() => scrollToElement(heading.id)}
           >
             {heading.text}
           </MenuItem>
