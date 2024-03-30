@@ -1,4 +1,5 @@
 # Dcard Frontend Intern Homework
+## Introduction
 
 ## Tech Stack
 - Tailwind CSS
@@ -6,7 +7,28 @@
 - Next.js
 - Typescript
 
-## Build
+## Design
+The design draft for this project :)
+[Figma Link](https://www.figma.com/file/LjOuX1wvS3NSzdnz3Gz0xH/Dcard-Homework?type=design&node-id=0%3A1&mode=design&t=0cq2g0vX29vO9zL7-1)
+
+<img width="920" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/f4a08c93-ce4e-429f-9fa9-e4184edf1ce4">
+
+## Lighthouse
+
+<img width="416" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/bdcf767a-34ab-413e-94fa-c3957426d373">
+
+## Stucture
+### Home Page
+
+<img width="1271" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/ca06f19a-4017-4e18-a565-6fdb1c2ce8e4">
+
+<img width="1225" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/4113a2b0-4247-4315-a00d-be19596a79ec">
+
+### Blog List Page
+
+
+
+## How To Use
 
 ### Step 1. Create Firebase
 
