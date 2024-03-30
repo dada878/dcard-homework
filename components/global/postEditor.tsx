@@ -2,16 +2,17 @@
 
 import { useEffect, useRef, useState } from "react";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faAnglesRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import Button from "./button";
-import Input from "./input";
 import Textarea from "@/components/global/textarea";
 import useOutside from "@/hooks/useOutside";
-import CloseableTagItem from "../edit/closeableTagItem";
-import MarkdownRender from "./markdownRender";
+
+import Button from "./button";
 import Dialog from "./dialog";
+import Input from "./input";
+import MarkdownRender from "./markdownRender";
+import CloseableTagItem from "../edit/closeableTagItem";
 
 export default function PostEditor({
   callback,

@@ -1,12 +1,12 @@
 "use client";
 
 import { startTransition, useState } from "react";
-import { useRouter } from "next/navigation";
 
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { deletePost } from "@/actions/posts";
+import { useRouter } from "next/navigation";
 
+import { deletePost } from "@/actions/posts";
 import Button from "@/components/global/button";
 import ConfirmDialog from "@/components/global/confirmDialog";
 

@@ -2,12 +2,13 @@
 
 import { useEffect, useState } from "react";
 
-import { useInView } from "react-intersection-observer";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useInView } from "react-intersection-observer";
+
+import { getPostList } from "@/actions/posts";
 
 import BlogPost from "./blogPost";
-import { getPostList } from "@/actions/posts";
 
 export function PostListRender({ query }: { query?: PostQuery }) {
   const [currentPage, setCurrentPage] = useState(1);

@@ -1,8 +1,7 @@
+import { config } from "@fortawesome/fontawesome-svg-core";
 import type { Metadata } from "next";
-
 import { Inter } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
-import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 
 import Navbar from "@/components/layout/navbar";

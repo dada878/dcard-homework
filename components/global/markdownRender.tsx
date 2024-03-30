@@ -1,9 +1,9 @@
+import Markdown from "react-markdown";
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
-import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import cpp from "react-syntax-highlighter/dist/cjs/languages/prism/cpp";
 import js from "react-syntax-highlighter/dist/cjs/languages/prism/javascript";
 import ts from "react-syntax-highlighter/dist/cjs/languages/prism/typescript";
-import Markdown from "react-markdown";
+import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
 import "katex/dist/katex.min.css";

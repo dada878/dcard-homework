@@ -1,13 +1,11 @@
-import { Metadata } from "next";
-
-import { getPostComments, getPost } from "@/actions/posts";
-import { isOwner } from "@/actions/auth";
-import Container from "@/components/layout/container";
-import ContentRender from "@/components/blogView/contentRender";
-import CommentSection from "@/components/blogView/commentSection";
-import BlogPageSidebar from "@/components/blogView/blogPageSidebar";
-import BlogPageFloatingActions from "@/components/blogView/blogPageFloatingActions";
-import { defaultSEO } from "@/utils/seo";
+import { isOwner } from '@/actions/auth';
+import { getPost, getPostComments } from '@/actions/posts';
+import BlogPageFloatingActions from '@/components/blogView/blogPageFloatingActions';
+import BlogPageSidebar from '@/components/blogView/blogPageSidebar';
+import CommentSection from '@/components/blogView/commentSection';
+import ContentRender from '@/components/blogView/contentRender';
+import Container from '@/components/layout/container';
+import { defaultSEO } from '@/utils/seo';
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
   const post = await getPost(params.id);

@@ -1,8 +1,8 @@
-import Image from "next/image";
 import { ReactNode } from "react";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Image from "next/image";
 
 import { formatDate } from "@/utils/dateFormatter";
 

@@ -1,20 +1,19 @@
-import { Metadata } from "next";
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Metadata } from 'next';
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
-
-import { isOwner } from "@/actions/auth";
-import { getTagList } from "@/actions/tags";
-import Button from "@/components/global/button";
-import Container from "@/components/layout/container";
-import FixedSidebar from "@/components/layout/fixedSidebar";
-import CategoryItem from "@/components/blogs/categoryItem";
-import FloatingActionSection from "@/components/layout/floatingActionSection";
-import LinkButton from "@/components/global/linkButton";
-import { getCategoryList } from "@/actions/categories";
-import TogglableTagItem from "@/components/blogs/togglableTagItem";
-import PostListRenderClient from "@/components/blogs/postListRenderClient";
-import { defaultSEO } from "@/utils/seo";
+import { isOwner } from '@/actions/auth';
+import { getCategoryList } from '@/actions/categories';
+import { getTagList } from '@/actions/tags';
+import CategoryItem from '@/components/blogs/categoryItem';
+import PostListRenderClient from '@/components/blogs/postListRenderClient';
+import TogglableTagItem from '@/components/blogs/togglableTagItem';
+import Button from '@/components/global/button';
+import LinkButton from '@/components/global/linkButton';
+import Container from '@/components/layout/container';
+import FixedSidebar from '@/components/layout/fixedSidebar';
+import FloatingActionSection from '@/components/layout/floatingActionSection';
+import { defaultSEO } from '@/utils/seo';
 
 export const metadata: Metadata = defaultSEO({
   title: "文章列表",

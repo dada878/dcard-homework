@@ -1,6 +1,7 @@
-import TagItem from "../global/tagItem";
 import { formatDate } from "@/utils/dateFormatter";
+
 import MarkdownRender from "../global/markdownRender";
+import TagItem from "../global/tagItem";
 
 export default function ContentRender({ post }: { post: Post }) {
   return (

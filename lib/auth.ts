@@ -1,8 +1,8 @@
-import { NextAuthOptions } from "next-auth";
-import GithubProvider from "next-auth/providers/github";
-import type { Adapter } from "next-auth/adapters";
 import { FirestoreAdapter } from "@auth/firebase-adapter";
 import { cert } from "firebase-admin/app";
+import { NextAuthOptions } from "next-auth";
+import type { Adapter } from "next-auth/adapters";
+import GithubProvider from "next-auth/providers/github";
 
 export const authOptions: NextAuthOptions = {
   adapter: FirestoreAdapter({

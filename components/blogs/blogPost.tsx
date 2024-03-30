@@ -1,7 +1,8 @@
 import Link from "next/link";
 
-import TagItem from "../global/tagItem";
+import TagItem from "@/components/global/tagItem";
 import { formatDate } from "@/utils/dateFormatter";
+
 
 export default function BlogPost({
   title,

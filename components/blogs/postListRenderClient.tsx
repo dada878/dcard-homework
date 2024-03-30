@@ -1,4 +1,5 @@
 "use client";
+
 import { PostListRender } from "./postListRender";
 
 export default function PostListRenderClient({

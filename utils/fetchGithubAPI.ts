@@ -1,5 +1,6 @@
-import { authOptions } from "@/lib/auth";
 import { getServerSession } from "next-auth";
+
+import { authOptions } from "@/lib/auth";
 
 const GITHUB_API_URL = `https://api.github.com/repos/${process.env.GITHUB_REPO_OWNER}/${process.env.GITHUB_REPO_NAME}`;
 

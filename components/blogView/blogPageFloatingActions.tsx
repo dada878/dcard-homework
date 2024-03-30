@@ -2,9 +2,10 @@
 
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import DeleteButton from "./deleteButton";
 import LinkButton from "../global/linkButton";
 import FloatingActionSection from "../layout/floatingActionSection";
-import DeleteButton from "./deleteButton";
 
 export default function BlogPageFloatingActions({
   showActionButtons,

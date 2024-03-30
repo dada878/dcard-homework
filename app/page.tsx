@@ -1,4 +1,5 @@
 "use client";
+
 import AboutSection from "@/components/home/aboutSection";
 import HeroBanner from "@/components/home/heroBanner";
 import ProjectItem from "@/components/home/projectItem";

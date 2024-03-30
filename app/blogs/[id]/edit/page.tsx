@@ -1,10 +1,11 @@
 "use client";
 
 import { startTransition, useEffect, useState } from "react";
+
 import { useRouter } from "next/navigation";
 
-import PostEditor from "@/components/global/postEditor";
 import { getPost, updatePost } from "@/actions/posts";
+import PostEditor from "@/components/global/postEditor";
 
 export default function EditPage({ params }: { params: { id: string } }) {
   const router = useRouter();
