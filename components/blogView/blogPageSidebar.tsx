@@ -28,7 +28,7 @@ export default function BlogPageSidebar({
           <DeleteButton id={postID} />
         </>
       )}
-      <TableOfContent selector="h1" />
+      <TableOfContent selector=".prose h1" />
     </FixedSidebar>
   );
 }
