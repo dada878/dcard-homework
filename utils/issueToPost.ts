@@ -18,7 +18,7 @@ export function issueToPost(issue: Issue): Post {
       issue.labels
         ?.filter((label) => label.name.startsWith("category:"))
         ?.at(0)
-        ?.name?.slice(9) || "未歸類",
+        ?.name?.slice(9) || "",
     tags: issue.labels
       .filter((label) => label.name.startsWith("tag:"))
       .map((label) => label.name.slice(4)),
