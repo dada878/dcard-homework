@@ -24,6 +24,6 @@ export function issueToPost(issue: Issue): Post {
       .map((label) => label.name.slice(4)),
     date: new Date(issue.created_at),
     description: postContent.attributes?.description || "",
-    id: issue.number,
+    id: issue.number!,
   };
 }

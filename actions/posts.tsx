@@ -3,7 +3,16 @@
 import { isOwner } from "@/actions/auth";
 import { fetchGithubAPI } from "@/utils/fetchGithubAPI";
 import { issueToPost } from "@/utils/issueToPost";
+import { postToIssue } from "@/utils/postToIssue";
 import { queryToURL } from "@/utils/queryToString";
+import validatePost from "@/utils/validatePost";
+
+async function ownerRequire() {
+  const isAdmin = await isOwner();
+  if (!isAdmin) {
+    throw new Error("噢不 你似乎沒有權限qwq");
+  }
+}
 
 export async function getPostList(page: string = "1", query?: PostQuery) {
   const queryString = query ? queryToURL(query, page) : "";
@@ -19,47 +28,22 @@ export async function getPost(id: string) {
 }
 
 export async function createPost(post: Post) {
-  const isAdmin = await isOwner();
-  if (!isAdmin) {
-    throw new Error("Unauthorized");
-  }
+  await ownerRequire();
+  validatePost(post);
   const createdPost = await fetchGithubAPI(
     "/issues",
-    {
-      title: post.title,
-      // description is not supported in Github API, so we put it in the body,
-      // so we need to parse it using front-matter in the client side
-      body: `---\ndescription: ${post.description
-        .replaceAll("\n", " ")
-        .replaceAll(":", "：")}\n---\n${post.content}`,
-      labels: [
-        ...post.tags.map((tag) => `tag:${tag}`),
-        `category:${post.category}`,
-      ],
-    },
+    postToIssue(post),
     "POST"
   );
   return createdPost.number;
 }
 
 export async function updatePost(id: string, post: Post) {
-  const isAdmin = await isOwner();
-  if (!isAdmin) {
-    throw new Error("Unauthorized");
-  }
+  await ownerRequire();
+  validatePost(post);
   const result = await fetchGithubAPI(
     `/issues/${id}`,
-    {
-      title: post.title,
-      // NOTE: maybe there is a better way to update this
-      body: `---\ndescription: ${post.description
-        .replaceAll("\n", " ")
-        .replaceAll(":", "：")}\n---\n${post.content}`,
-      labels: [
-        ...post.tags.map((tag) => `tag:${tag}`),
-        `category:${post.category}`,
-      ],
-    },
+    postToIssue(post),
     "PATCH"
   );
   return result.number;

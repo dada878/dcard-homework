@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Textarea from "@/components/global/textarea";
 import useOutside from "@/hooks/useOutside";
+import validatePost from "@/utils/validatePost";
 
 import Button from "./button";
 import Dialog from "./dialog";
@@ -46,14 +47,16 @@ export default function PostEditor({
   }, [defaultPost]);
 
   const handelCreateButtonClick = () => {
-    if (post.title.trim() === "") {
-      setDialogMessage("標題不能為空！");
-      setIsDialogOpen(true);
-      return;
-    }
-    if (post.content.trim().length < 30) {
-      setDialogMessage("內容不能少於 30 個字！");
-      setIsDialogOpen(true);
+    try {
+      validatePost(post);
+    } catch (e) {
+      if (typeof e === "string") {
+        setDialogMessage(e);
+        setIsDialogOpen(true);
+      } else {
+        setDialogMessage("Something went wrong qwq");
+        setIsDialogOpen(true);
+      }
       return;
     }
     callback(post);

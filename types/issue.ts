@@ -1,7 +1,7 @@
 interface Issue {
   title: string;
   body: string;
-  number: number;
+  number?: number;
   created_at: string;
   labels: Array<Label>;
 }
