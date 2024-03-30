@@ -5,8 +5,8 @@ import TagItem from "../global/tagItem";
 
 export default function ContentRender({ post }: Readonly<{ post: Post }>) {
   return (
-    <div className="dark:bg-mirage-900 bg-mirage-200 p-6 md:p-8 rounded-xl">
-      <h1 className="text-5xl font-bold line-clamp-1">{post.title}</h1>
+    <div className="dark:bg-mirage-900 bg-mirage-200 p-6 md:p-8 rounded-xl overflow-hidden">
+      <h1 className="text-5xl font-bold line-clamp-1 overflow-ellipsis">{post.title}</h1>
       <div className="flex flex-row items-end justify-between py-4">
         <div className="flex gap-2">
           {post.tags.map((tag: string) => (
@@ -14,7 +14,7 @@ export default function ContentRender({ post }: Readonly<{ post: Post }>) {
           ))}
         </div>
         {post && (
-          <p className="dark:text-secondary text-secondary-light text-sm">
+          <p className="dark:text-secondary text-secondary-light text-sm text-nowrap">
             {formatDate(new Date(post.date))}
           </p>
         )}

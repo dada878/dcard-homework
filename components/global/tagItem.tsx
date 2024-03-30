@@ -4,15 +4,17 @@ export default function TagItem({
   onClick,
   selected,
   children,
+  className,
 }: Readonly<{
   onClick?: () => void;
   selected?: boolean;
   children: ReactNode;
+  className?: string;
 }>) {
   return (
     <button
       onClick={onClick}
-      className={`dark:bg-mirage-700 bg-mirage-400 py-1 px-2 text-secondary-light dark:text-secondary rounded-md cursor-pointer transition hover:bg-mirage-500 dark:hover:bg-mirage-600 hover:text-black dark:hover:text-primary text-center ${
+      className={`dark:bg-mirage-700 line-clamp-1 bg-mirage-400 py-1 px-2 text-secondary-light dark:text-secondary rounded-md cursor-pointer transition text-center ${className ?? ""} ${
         selected ? "outline outline-1 outline-mirage-500" : ""
       }`}
     >

@@ -24,7 +24,6 @@ export default function CreatePage() {
         setPostUrl(`/blogs/${id}`);
       })
       .catch((error) => {
-        console.error(error);
         setPostStatus("error");
         setErrorMessages(error.message);
       });

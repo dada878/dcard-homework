@@ -21,6 +21,7 @@ export default function TogglableTagItem({
       selected={selected}
       // NOTE: maybe there is a better way without using js event to handle this
       // (like recalculate the query string and transform it to a new <Link> component)
+      className="cursor-pointer hover:bg-mirage-500 dark:hover:bg-mirage-600 hover:text-black dark:hover:text-primary"
       onClick={() => {
         if (selected) {
           tags.splice(tags.indexOf(name), 1);
