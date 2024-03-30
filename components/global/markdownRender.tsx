@@ -2,15 +2,18 @@ import Markdown from "react-markdown";
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import cpp from "react-syntax-highlighter/dist/cjs/languages/prism/cpp";
 import js from "react-syntax-highlighter/dist/cjs/languages/prism/javascript";
+import py from "react-syntax-highlighter/dist/cjs/languages/prism/python";
 import ts from "react-syntax-highlighter/dist/cjs/languages/prism/typescript";
 import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
-import rehypeKatex from "rehype-katex";
+import rehypeMathjax from 'rehype-mathjax';
+import remarkGfm from 'remark-gfm';
 import remarkMath from "remark-math";
 import "katex/dist/katex.min.css";
 
 SyntaxHighlighter.registerLanguage("cpp", cpp);
 SyntaxHighlighter.registerLanguage("js", js);
 SyntaxHighlighter.registerLanguage("ts", ts);
+SyntaxHighlighter.registerLanguage("py", py);
 
 function Code(props: any) {
   const { children, className, node, ...rest } = props;
@@ -36,8 +39,8 @@ export default function MarkdownRender({
   return (
     <Markdown
       className={`prose dark:prose-invert overflow-y-hidden ${className}`}
-      remarkPlugins={[remarkMath]}
-      rehypePlugins={[rehypeKatex]}
+      remarkPlugins={[remarkMath, remarkGfm]}
+      rehypePlugins={[rehypeMathjax]}
       components={{
         code: Code,
       }}
