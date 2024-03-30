@@ -10,7 +10,6 @@ type FrontMatter = {
 };
 
 export function issueToPost(issue: Issue): Post {
-  console.log(issue);
   const postContent: FrontMatter = fm.test(issue.body)
     ? fm(issue.body)
     : { body: issue.body };
