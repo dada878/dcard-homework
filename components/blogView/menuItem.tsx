@@ -22,7 +22,7 @@ export default function MenuItem({
   return (
     <button
       onClick={() => scrollToElement(id)}
-      className={`border-l-4 ${
+      className={`border-l-4 text-left ${
         active
           ? "dark:border-primary border-black font-bold text-black dark:text-primary"
           : "border-transparent dark:text-secondary text-secondary-light"
