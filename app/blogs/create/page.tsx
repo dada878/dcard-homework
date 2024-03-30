@@ -6,13 +6,6 @@ import { createPost } from "@/actions/posts";
 import Button from "@/components/global/button";
 import Dialog from "@/components/global/dialog";
 import PostEditor from "@/components/global/postEditor";
-import { defaultSEO } from "@/utils/seo";
-
-export const metadata = defaultSEO({
-  noindex: true,
-  title: "發布文章",
-  description: "在這裡撰寫並發布超酷的文章！",
-});
 
 export default function CreatePage() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
