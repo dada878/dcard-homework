@@ -11,6 +11,7 @@ import Textarea from "@/components/global/textarea";
 import useOutside from "@/hooks/useOutside";
 import CloseableTagItem from "../edit/closeableTagItem";
 import MarkdownRender from "./markdownRender";
+import Dialog from "./dialog";
 
 export default function PostEditor({
   callback,
@@ -24,6 +25,8 @@ export default function PostEditor({
   const [isPublishPanelOpen, setIsPublishPanelOpen] = useState(false);
   const [postTagsInput, setPostTagsInput] = useState("");
   const publishPanelRef = useRef(null);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [dialogMessage, setDialogMessage] = useState("");
   const [post, setPost] = useState<Post>({
     title: "",
     content: "",
@@ -33,7 +36,7 @@ export default function PostEditor({
     date: new Date(),
     id: 0,
   });
-  
+
   // set default post data if it exists
   useEffect(() => {
     if (defaultPost) {
@@ -42,6 +45,16 @@ export default function PostEditor({
   }, [defaultPost]);
 
   const handelCreateButtonClick = () => {
+    if (post.title.trim() === "") {
+      setDialogMessage("標題不能為空！");
+      setIsDialogOpen(true);
+      return;
+    }
+    if (post.content.trim().length < 30) {
+      setDialogMessage("內容不能少於 30 個字！");
+      setIsDialogOpen(true);
+      return;
+    }
     callback(post);
   };
 
@@ -166,6 +179,16 @@ export default function PostEditor({
           />
         </div>
       </div>
+      <Dialog
+        open={isDialogOpen}
+        setOpen={setIsDialogOpen}
+        closeByClickOutside={true}
+      >
+        <div className="flex flex-col items-center gap-4 justify-center">
+          <p className="text-xl">{dialogMessage}</p>
+          <Button onClick={() => setIsDialogOpen(false)}>好啦==</Button>
+        </div>
+      </Dialog>
     </div>
   );
 }
