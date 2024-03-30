@@ -11,7 +11,6 @@ export default function TogglableTagItem({
   onClick?: () => void;
   name: string;
   selected?: boolean;
-  hasCloseButton?: boolean;
 }>) {
   const router = useRouter();
   const params = useSearchParams();
