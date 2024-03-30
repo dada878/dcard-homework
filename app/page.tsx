@@ -2,7 +2,7 @@
 
 import AboutSection from "@/components/home/aboutSection";
 import HeroBanner from "@/components/home/heroBanner";
-import ProjectItem from "@/components/home/projectItem";
+import ProjectCard from "@/components/home/projectCard";
 import projects from "@/content/projects.json";
 
 export default function Home() {
@@ -25,7 +25,7 @@ export default function Home() {
           <div className="grid grid-col-1 md:grid-cols-3 gap-7">
             {projects.map((project, i) => {
               return (
-                <ProjectItem
+                <ProjectCard
                   key={i}
                   name={project.title}
                   image={project.image}
