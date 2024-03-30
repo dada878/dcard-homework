@@ -9,8 +9,8 @@ export default function ContentRender({ post }: Readonly<{ post: Post }>) {
       <h1 className="text-5xl font-bold line-clamp-1">{post.title}</h1>
       <div className="flex flex-row items-end justify-between py-4">
         <div className="flex gap-2">
-          {post.tags.map((tag: string, i: number) => (
-            <TagItem key={i}>{tag}</TagItem>
+          {post.tags.map((tag: string) => (
+            <TagItem key={tag}>{tag}</TagItem>
           ))}
         </div>
         {post && (

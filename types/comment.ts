@@ -4,4 +4,5 @@ interface CommentData {
     avatar: string;
     date: Date;
     sending?: boolean;
+    id: number;
 }

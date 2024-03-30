@@ -71,6 +71,7 @@ export async function getPostComments(id: string) {
       content: comment.body,
       avatar: comment.user.avatar_url,
       date: new Date(comment.created_at),
+      id: comment.id,
     };
   });
   return comments;

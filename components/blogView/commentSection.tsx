@@ -34,6 +34,7 @@ export default function CommentSection({
       author: (await getLoginUser()) as string,
       avatar: (await getLoginUserAvatar()) as string,
       sending: true,
+      id: -1,
     });
     await createComment(postId, commentContent);
     router.refresh();
@@ -43,7 +44,7 @@ export default function CommentSection({
     <>
       {optimisticComments.map((comment: CommentData, i: number) => (
         <BlogComment
-          key={i}
+          key={comment.id}
           userName={comment.author}
           avatarUrl={comment.avatar}
           date={new Date(comment.date)}
