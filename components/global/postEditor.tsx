@@ -49,17 +49,13 @@ export default function PostEditor({
   const handelCreateButtonClick = () => {
     try {
       validatePost(post);
-    } catch (e) {
-      if (typeof e === "string") {
-        setDialogMessage(e);
-        setIsDialogOpen(true);
-      } else {
-        setDialogMessage("Something went wrong qwq");
-        setIsDialogOpen(true);
-      }
+      callback(post);
+  } catch (error) {
+      const message = error instanceof Error ? error.message : "發生未知的錯誤";
+      setDialogMessage(message);
+      setIsDialogOpen(true);
       return;
     }
-    callback(post);
   };
 
   // NOTE: when only changing the description, the content will no need to be updated

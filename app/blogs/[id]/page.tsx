@@ -1,3 +1,5 @@
+import { redirect, notFound } from 'next/navigation';
+
 import { isOwner } from '@/actions/auth';
 import { getPost, getPostComments } from '@/actions/posts';
 import BlogPageFloatingActions from '@/components/blogView/blogPageFloatingActions';
@@ -35,7 +37,9 @@ export default async function BlogPostPage({
     getPost(params.id),
     getPostComments(params.id),
     isOwner()
-  ]);
+  ]).catch((error) => {
+    notFound();
+  });
   return (
     <div className="flex">
       <BlogPageSidebar showActionButtons={showActionButtons} postID={params.id} />

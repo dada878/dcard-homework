@@ -17,5 +17,8 @@ export async function fetchGithubAPI(url: string, body?: any, method: string = "
     body: JSON.stringify(body),
   });
   const data = await result.json();
+  if (result.status >= 400) {
+    throw new Error(data.message);
+  }
   return data;
 }

@@ -22,6 +22,8 @@ export default function EditPage({ params }: { params: { id: string } }) {
     updatePost(params.id, post).then(() => {
       startTransition(() => router.push("/blogs"));
       startTransition(() => router.refresh());
+    }).catch((e) => {
+      alert(e.message);
     });
   };
   return (

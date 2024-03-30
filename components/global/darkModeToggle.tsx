@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
-import Switch from "react-switch";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Switch from "react-switch";
 
 export default function DarkModeToggle() {
   const [checked, setChecked] = useState(true);
