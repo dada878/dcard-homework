@@ -20,6 +20,12 @@ The design draft for this project :)
 
 <img width="416" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/bdcf767a-34ab-413e-94fa-c3957426d373">
 
+## Commit message
+
+<img width="1216" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/6ab8a534-e167-4cf8-999e-136340d244f7">
+
+## Features
+
 ## Stucture
 ### Home Page
 
@@ -30,7 +36,6 @@ The design draft for this project :)
 ### Blog List Page
 
 <img width="1058" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/7d5ca002-16b9-47a1-b9ba-24b1541aeadc">
-
 
 ## How To Use
 
