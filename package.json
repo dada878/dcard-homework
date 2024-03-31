@@ -15,7 +15,6 @@
     "@fortawesome/free-regular-svg-icons": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "@uidotdev/usehooks": "^2.4.1",
     "firebase": "^10.9.0",
     "firebase-admin": "^11.11.1",
     "framer-motion": "^11.0.12",
@@ -32,7 +31,8 @@
     "rehype-katex": "^7.0.0",
     "remark-gfm": "^4.0.0",
     "remark-math": "^6.0.0",
-    "sharp": "^0.33.2"
+    "sharp": "^0.33.2",
+    "use-debounce": "^10.0.0"
   },
   "devDependencies": {
     "@builder.io/partytown": "^0.10.1",
