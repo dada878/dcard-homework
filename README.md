@@ -17,11 +17,11 @@
 <img width="1247" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/ad8e235a-c49f-4700-92cf-7d048d01b1ec">
 
 
-<img width="350" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/df04a881-030f-425d-a5a1-4d4868627485">
+<img width="300" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/df04a881-030f-425d-a5a1-4d4868627485">
 
-<img width="348" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/c68baffe-3a19-4297-91e1-526a4d44a327">
+<img width="300" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/c68baffe-3a19-4297-91e1-526a4d44a327">
 
-<img width="346" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/dd71caee-4f1b-44af-9839-6f2432c10c95">
+<img width="300" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/dd71caee-4f1b-44af-9839-6f2432c10c95">
 
 <img width="346" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/d20a7481-c74c-4375-845b-703ff98ba3bd">
 
