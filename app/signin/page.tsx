@@ -4,8 +4,6 @@ import React, { useEffect } from "react";
 
 import { signIn } from "next-auth/react";
 
-import Button from "@/components/global/button";
-
 type Props = {
   searchParams?: Record<"callbackUrl" | "error", string>;
 };
