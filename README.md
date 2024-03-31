@@ -67,7 +67,7 @@ The design draft for this project :)
 ## Project Structure
 ### Home Page
 
-<img width="1271" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/ca06f19a-4017-4e18-a565-6fdb1c2ce8e4">
+<img width="1233" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/b699f783-d2ad-46e8-8d41-f95a839c30f7">
 
 <img width="1225" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/4113a2b0-4247-4315-a00d-be19596a79ec">
 
