@@ -81,6 +81,8 @@ This page shown something about the blog and the author.
 - **\<AboutSection/\>**
     - Show some information about the me
     - There is a cool animation when you scroll to this section
+ 
+    ![Screen Recording Apr](https://github.com/dada878/dcard-homework/assets/37009584/af1998e2-7652-4620-b469-05ec0c9a336e)
 
 - **\<ProjectCard/\>**
     - Show some information about my side projects
@@ -103,6 +105,9 @@ This page shown something about the blog and the author.
 - **\<PostListRender\>**
     - A component to render the post list
     - Here is the **infinite scroll** feature to load more posts when scrolling to the bottom
+
+    ![Screen Recording Apr (1)](https://github.com/dada878/dcard-homework/assets/37009584/57b70e88-7321-4e2e-9812-5b8c6a966457)
+
 ### Blog View page
 
 <img width="1053" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/eb84bf03-caca-44eb-9637-1aa4396902bd">
@@ -125,6 +130,9 @@ This page shown something about the blog and the author.
     - A section to show the comments
     - You can add a comment when you are logged in
     - It's use **optimistic updates** to show the comment immediately
+  
+  ![Screen Recording Apr (2)](https://github.com/dada878/dcard-homework/assets/37009584/c90dd0d1-06f6-476a-a9bb-76f6a1fa6e31)
+
 - **\<TabButton/\>**
     - A button to switch between writing a comment and previewing the comment content
 
