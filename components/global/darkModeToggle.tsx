@@ -22,7 +22,8 @@ export default function DarkModeToggle() {
   }, [checked]);
 
   return (
-    <Switch
+    <div className="hidden md:block">
+      <Switch
       className="scale-125"
       onChange={(checked) => {
         if (checked) {
@@ -54,5 +55,6 @@ export default function DarkModeToggle() {
       checkedIcon={<div></div>}
       uncheckedIcon={<div></div>}
     />
+    </div>
   );
 }
