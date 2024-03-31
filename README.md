@@ -46,7 +46,7 @@ Dada's Blog (Dcard Frontend Intern Homework) is a simple blog website that allow
 - Typescript
 
 ## Design
-The design draft for this project :) \
+The all design draft for this project :) \
 [Figma Draft Link](https://www.figma.com/file/LjOuX1wvS3NSzdnz3Gz0xH/Dcard-Homework?type=design&node-id=0%3A1&mode=design&t=0cq2g0vX29vO9zL7-1)
 
 <img width="920" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/f4a08c93-ce4e-429f-9fa9-e4184edf1ce4">
@@ -68,19 +68,26 @@ This page shown something about the blog and the author.
 
 <img width="1233" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/b699f783-d2ad-46e8-8d41-f95a839c30f7">
 
-<img width="1225" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/4113a2b0-4247-4315-a00d-be19596a79ec">
-
 - **\<Navbar/\>**
     - Show some links to navigate to other pages
+    - It will be shown on every page
+
+- **\<GlowEffect/\>**
+    - A cool glow effect with a little animation
+
 - **\<NavbarItem/\>**
     - A component with just a link and some styles
 - **\<DarkModeToggle/\>**
     - Toggle the dark mode
     - The dark mode will be saved in the local storage
+
+<img width="1225" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/4113a2b0-4247-4315-a00d-be19596a79ec">
+
 - **\<AboutSection/\>**
     - Show some information about me
 - **\<ProjectCard/\>**
     - Show some information about my side projects
+    - Projects data are stored in a JSON file `content/projects.json`
 
 ### Blog List Page
 
@@ -108,8 +115,6 @@ This page shown something about the blog and the author.
 
 <img width="1053" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/eb84bf03-caca-44eb-9637-1aa4396902bd">
 
-<img width="1009" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/4a3ca811-2b29-42c4-a323-a04e39aaeafe">
-
 - **\<DeleteButton/\>**
     - A button to delete the post
     - Only the post owner can see and use this button
@@ -123,6 +128,8 @@ This page shown something about the blog and the author.
     - It will be highlighted when scrolling to the content
 - **\<ContentRender/\>**
     - A component to render the post content, including the title, tags, date, and content
+
+<img width="1009" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/4a3ca811-2b29-42c4-a323-a04e39aaeafe">
 
 - **\<CommentSection/\>**
     - A section to show the comments
