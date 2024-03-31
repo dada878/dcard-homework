@@ -9,7 +9,6 @@ import useOutside from "@/hooks/useOutside";
 
 import DarkModeToggle from "../global/darkModeToggle";
 import NavbarItem from "../global/navbarItem";
-import SearchBar from "../global/searchBar";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,7 +33,7 @@ export default function Navbar() {
   return (
     <nav
       ref={navbarRef}
-      className="z-20 p-1 dark:bg-white/10 bg-slate-600/10 py-2 md:py-2 fixed backdrop-blur-md left-0 right-0 top-0 border-b border-b-secondary-light/20 dark:border-b-[#ffffff3b]"
+      className="z-20 p-1 dark:bg-white/10 bg-slate-600/10 py-4 md:py-2 fixed backdrop-blur-md left-0 right-0 top-0 border-b border-b-secondary-light/20 dark:border-b-[#ffffff3b]"
     >
       {/* Desktop navbar */}
       <div className="mx-auto flex md:justify-between items-center md:pl-5 md:pr-4 pr-2">
@@ -43,7 +42,7 @@ export default function Navbar() {
           <NavbarItem name="文章" url="/blogs" />
           <NavbarItem name={user} url="/api/auth/signin" />
         </div>
-        <div className="flex gap-0 justify-around items-center flex-1 md:flex-grow-0 md:gap-4 flex-row-reverse md:flex-row">
+        <div className="flex gap-0 justify-between px-4 md:px-0 md:justify-around items-center flex-1 md:flex-grow-0 md:gap-4 flex-row-reverse md:flex-row">
           <FontAwesomeIcon
             icon={faBars}
             className={`text-2xl opacity-70 cursor-pointer transition md:!hidden ${
@@ -53,7 +52,6 @@ export default function Navbar() {
               setIsMenuOpen(!isMenuOpen);
             }}
           />
-          <SearchBar className="md:w-auto w-3/5 overflow-hidden" />
           <DarkModeToggle />
         </div>
       </div>
@@ -67,13 +65,13 @@ export default function Navbar() {
           isMobile
           onClick={handleNavbarItemClick}
           className="mt-3"
-          name="Home"
+          name="首頁"
           url="/"
         />
         <NavbarItem
           isMobile
           onClick={handleNavbarItemClick}
-          name="Blogs"
+          name="文章"
           url="/blogs"
         />
         <NavbarItem
