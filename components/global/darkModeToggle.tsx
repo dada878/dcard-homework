@@ -1,41 +1,25 @@
-import { useEffect, useState } from "react";
-
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Switch from "react-switch";
+import useLocalStorageState from 'use-local-storage-state';
 
 export default function DarkModeToggle() {
-  const [checked, setChecked] = useState(true);
+  const [theme, setTheme] = useLocalStorageState("theme");
 
-  // NOTE: maybe there is a better way to handle this to reduce localStorage access times
-
-  // when switch is toggled (or component mounted), change the theme
-  useEffect(() => {
-    const isDark = localStorage.getItem("dark") ?? "true";
-    if (isDark === "true") {
-      setChecked(true);
-      document.documentElement.classList.add("dark");
-    } else {
-      setChecked(false);
-      document.documentElement.classList.remove("dark");
-    }
-  }, [checked]);
+  if (theme === "dark") {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
 
   return (
     <div className="hidden md:block">
       <Switch
       className="scale-125"
       onChange={(checked) => {
-        if (checked) {
-          localStorage.setItem("dark", "true");
-          document.documentElement.classList.add("dark");
-        } else {
-          document.documentElement.classList.remove("dark");
-          localStorage.setItem("dark", "false");
-        }
-        setChecked(checked);
+        setTheme(checked ? "dark" : "light");
       }}
-      checked={checked}
+      checked={theme === "dark"}
       onColor="#51586d"
       offColor="#f4cd8c"
       offHandleColor="#eea950"
