@@ -6,7 +6,9 @@ import Switch from "react-switch";
 import useLocalStorageState from "use-local-storage-state";
 
 export default function DarkModeToggle() {
-  const [theme, setTheme] = useLocalStorageState("theme");
+  const [theme, setTheme] = useLocalStorageState("theme",{
+    defaultValue: "dark",
+  });
 
   useEffect(() => {
     if (theme === "dark") {
@@ -14,7 +16,7 @@ export default function DarkModeToggle() {
     } else {
       document.documentElement.classList.remove("dark");
     }
-  });
+  }, [theme]);
 
   return (
     <div className="hidden md:block">
