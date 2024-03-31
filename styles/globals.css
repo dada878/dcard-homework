@@ -1,5 +1,7 @@
 @import url("animations.css");
 @import url("glowEffect.css");
+@import url("math.css");
+@import url("markdown.css");
 
 @tailwind base;
 @tailwind components;

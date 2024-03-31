@@ -1,0 +1,4 @@
+.prose pre:has(code) {
+  background-color: transparent;
+  padding: 0;
+}

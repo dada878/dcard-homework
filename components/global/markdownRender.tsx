@@ -5,8 +5,8 @@ import js from "react-syntax-highlighter/dist/cjs/languages/prism/javascript";
 import py from "react-syntax-highlighter/dist/cjs/languages/prism/python";
 import ts from "react-syntax-highlighter/dist/cjs/languages/prism/typescript";
 import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
-import rehypeMathjax from 'rehype-mathjax';
-import remarkGfm from 'remark-gfm';
+import rehypeKatex from "rehype-katex";
+import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import "katex/dist/katex.min.css";
 
@@ -40,7 +40,7 @@ export default function MarkdownRender({
     <Markdown
       className={`prose dark:prose-invert overflow-y-hidden ${className}`}
       remarkPlugins={[remarkMath, remarkGfm]}
-      rehypePlugins={[rehypeMathjax]}
+      rehypePlugins={[[rehypeKatex , {strict: false}]]}
       components={{
         code: Code,
       }}
