@@ -6,39 +6,37 @@
 
 ## Screenshots
 
-<img width="1248" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/e548565a-da8d-4f2d-8153-b9477409f2f5">
-
-<img width="1252" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/eebcc762-c910-4564-8167-f884099852b0">
-
-<img width="1250" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/6a6049f2-d6c0-4c5e-be83-2ed2b7035fc3">
-
-<img width="1255" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/fd974454-0cc0-493d-8c65-a91a54a151e9">
-
-<img width="1247" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/ad8e235a-c49f-4700-92cf-7d048d01b1ec">
-
 
 <table>
     <tr>
-        <td><img alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/df04a881-030f-425d-a5a1-4d4868627485"></td>
-        <td><<img alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/c68baffe-3a19-4297-91e1-526a4d44a327"></td>
-        <td><img alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/dd71caee-4f1b-44af-9839-6f2432c10c95"></td>
+        <td>
+    <img width="1248" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/e548565a-da8d-4f2d-8153-b9477409f2f5">        
+        </td>
     </tr>
 </table>
-
-
-
-
-
-
-
-<img width="346" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/d20a7481-c74c-4375-845b-703ff98ba3bd">
-
-<img width="347" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/51b9581e-4354-42cd-b6b9-1f21b6bae2d5">
-
-<img width="346" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/30629948-c337-4ee1-8773-e95ebd87ddb0">
-
-<img width="348" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/367b2200-d02f-4f9d-8301-9194ec98ef12">
-
+<table>
+    <tr>
+        <td><img alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/eebcc762-c910-4564-8167-f884099852b0"></td>
+        <td><img alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/6a6049f2-d6c0-4c5e-be83-2ed2b7035fc3"></td>
+    </tr>
+    <tr>
+        <td><img alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/fd974454-0cc0-493d-8c65-a91a54a151e9"></td>
+        <td><img alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/ad8e235a-c49f-4700-92cf-7d048d01b1ec"></td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <td><img alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/df04a881-030f-425d-a5a1-4d4868627485"></td>
+        <td><img alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/c68baffe-3a19-4297-91e1-526a4d44a327"></td>
+        <td><img alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/dd71caee-4f1b-44af-9839-6f2432c10c95"></td>
+        <td><img alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/d20a7481-c74c-4375-845b-703ff98ba3bd"></td>
+    </tr>
+    <tr>
+        <td><img alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/51b9581e-4354-42cd-b6b9-1f21b6bae2d5"></td>
+        <td><img alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/30629948-c337-4ee1-8773-e95ebd87ddb0"></td>
+        <td><img alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/367b2200-d02f-4f9d-8301-9194ec98ef12"></td>
+    </tr>
+</table>
 
 ## Tech Stack
 - Tailwind CSS
