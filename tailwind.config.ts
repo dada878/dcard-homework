@@ -14,6 +14,9 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      height: {
+        "screen-inner": "calc(100vh - 5rem)",
+      },
       colors: {
         "green": "#316A4F",
         "green-hover": "#467c64",
