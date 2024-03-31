@@ -78,6 +78,10 @@ This page shown something about the blog and the author.
 
 <img width="1225" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/4113a2b0-4247-4315-a00d-be19596a79ec">
 
+- **\<AboutSection/\>**
+    - Show some information about the me
+    - There is a cool animation when you scroll to this section
+
 - **\<ProjectCard/\>**
     - Show some information about my side projects
     - Projects data are stored in a JSON file `content/projects.json`
