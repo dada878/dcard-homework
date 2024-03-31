@@ -1,19 +1,19 @@
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Metadata } from 'next';
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Metadata } from "next";
 
-import { isOwner } from '@/actions/auth';
-import { getCategoryList } from '@/actions/categories';
-import { getTagList } from '@/actions/tags';
-import CategoryItem from '@/components/blogs/categoryItem';
-import PostListRenderClient from '@/components/blogs/postListRenderClient';
-import TogglableTagItem from '@/components/blogs/togglableTagItem';
-import Button from '@/components/global/button';
-import LinkButton from '@/components/global/linkButton';
-import Container from '@/components/layout/container';
-import FixedSidebar from '@/components/layout/fixedSidebar';
-import FloatingActionSection from '@/components/layout/floatingActionSection';
-import { defaultSEO } from '@/utils/seo';
+import { isOwner } from "@/actions/auth";
+import { getCategoryList } from "@/actions/categories";
+import { getTagList } from "@/actions/tags";
+import CategoryItem from "@/components/blogs/categoryItem";
+import PostListRenderClient from "@/components/blogs/postListRenderClient";
+import TogglableTagItem from "@/components/blogs/togglableTagItem";
+import Button from "@/components/global/button";
+import LinkButton from "@/components/global/linkButton";
+import Container from "@/components/layout/container";
+import FixedSidebar from "@/components/layout/fixedSidebar";
+import FloatingActionSection from "@/components/layout/floatingActionSection";
+import { defaultSEO } from "@/utils/seo";
 
 export const metadata: Metadata = defaultSEO({
   title: "文章列表",
@@ -21,10 +21,14 @@ export const metadata: Metadata = defaultSEO({
   description: "在這裡查看我超酷的文章們！",
 });
 
-async function Categories() {
+async function Categories({ mobileMode }: Readonly<{ mobileMode?: boolean }>) {
   const categories = await getCategoryList();
   return (
-    <div className="flex flex-col gap-3">
+    <div
+      className={`flex ${
+        mobileMode ? "gap-4 items-center overflow-x-scroll" : "flex-col gap-3"
+      }`}
+    >
       <CategoryItem name="全部" />
       {categories.map((category: string) => (
         <CategoryItem key={category} name={category} />
@@ -45,17 +49,6 @@ async function Tags({ currentTags }: Readonly<{ currentTags?: string[] }>) {
         />
       ))}
     </>
-  );
-}
-
-async function CategoriesMobile() {
-  const categories = await getCategoryList();
-  return (
-    <div className="flex gap-4 items-center overflow-x-scroll">
-      {categories.map((category: string) => (
-        <Button key={category}>{category}</Button>
-      ))}
-    </div>
   );
 }
 
@@ -100,7 +93,7 @@ export default async function BlogsPage({
       <Container>
         <div className="flex gap-3 md:hidden">
           <div className="flex gap-4 items-center overflow-x-scroll">
-            <CategoriesMobile />
+            <Categories mobileMode={true} />
           </div>
         </div>
         <PostListRenderClient query={currentQuery} />
