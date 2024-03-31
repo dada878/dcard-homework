@@ -24,6 +24,10 @@ The design draft for this project :)
 
 <img width="1216" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/6ab8a534-e167-4cf8-999e-136340d244f7">
 
+## SEO Friendly
+<img width="519" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/92d12fdb-5683-4444-8240-b703722e7017">
+
+
 ## Features
 
 ## Stucture
@@ -42,6 +46,10 @@ The design draft for this project :)
 <img width="1053" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/eb84bf03-caca-44eb-9637-1aa4396902bd">
 
 <img width="1009" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/4a3ca811-2b29-42c4-a323-a04e39aaeafe">
+
+### Post Editor page
+
+<img width="983" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/f5c354d4-933f-43a2-95fb-0d61eaa52aa8">
 
 
 ## How To Use
