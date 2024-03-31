@@ -82,7 +82,7 @@ export default function PostEditor({
   };
 
   return (
-    <div className="md:p-10 p-4 flex gap-6 h-[calc(100vh_-_3.6rem)]">
+    <div className="md:p-10 p-4 flex gap-6 h-screen-inner">
       {/* 編輯區塊 */}
       <div
         className={`flex flex-col dark:bg-mirage-900 bg-mirage-200 rounded-xl p-5 transition md:p-6 gap-5 w-full ${
