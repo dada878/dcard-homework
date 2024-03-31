@@ -12,11 +12,11 @@ function TabButton({
   isPreview,
   setIsPreview,
   isToggleToPreview,
-}: {
+}: Readonly<{
   isPreview: boolean;
   setIsPreview: (isPreview: boolean) => void;
   isToggleToPreview: boolean;
-}) {
+}>) {
   return (
     <button
       onClick={() => {

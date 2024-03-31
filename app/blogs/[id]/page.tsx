@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 
 import { isOwner } from "@/actions/auth";
-import { getPost, getPostComments, getPostList } from "@/actions/posts";
+import { getPost, getPostComments } from "@/actions/posts";
 import BlogPageFloatingActions from "@/components/blogView/blogPageFloatingActions";
 import BlogPageSidebar from "@/components/blogView/blogPageSidebar";
 import CommentSection from "@/components/blogView/commentSection";
@@ -9,7 +9,9 @@ import ContentRender from "@/components/blogView/contentRender";
 import Container from "@/components/layout/container";
 import { defaultSEO } from "@/utils/seo";
 
-export async function generateMetadata({ params }: { params: { id: string } }) {
+export async function generateMetadata({
+  params,
+}: Readonly<{ params: { id: string } }>) {
   const post = await getPost(params.id);
   const defaultConfig = defaultSEO({
     title: post.title,

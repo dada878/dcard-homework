@@ -33,7 +33,7 @@ async function Categories() {
   );
 }
 
-async function Tags({ currentTags }: { currentTags?: string[] }) {
+async function Tags({ currentTags }: Readonly<{ currentTags?: string[] }>) {
   const tags = await getTagList();
   return (
     <>
@@ -62,7 +62,7 @@ async function CategoriesMobile() {
 export default async function BlogsPage({
   searchParams,
 }: {
-  searchParams: { tags?: string; category?: string };
+  searchParams: Readonly<{ tags?: string; category?: string }>;
 }) {
   const tags = (searchParams.tags?.split(",") ?? []).filter(
     (tag) => tag.length
