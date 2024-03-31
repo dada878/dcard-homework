@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
+import useQueryFilter from "@/hooks/useQueryFilter";
 
 import TagItem from "../global/tagItem";
 
@@ -12,26 +12,17 @@ export default function TogglableTagItem({
   name: string;
   selected?: boolean;
 }>) {
-  const router = useRouter();
-  const params = useSearchParams();
-  const tags = params.get("tags")?.split(",") ?? [];
-  const category = params.get("category") ?? "";
+  const {tags, setTags} = useQueryFilter();
   return (
     <TagItem
       selected={selected}
-      // NOTE: maybe there is a better way without using js event to handle this
-      // (like recalculate the query string and transform it to a new <Link> component)
       className="cursor-pointer hover:bg-mirage-500 dark:hover:bg-mirage-600 hover:text-black dark:hover:text-primary"
       onClick={() => {
         if (selected) {
-          tags.splice(tags.indexOf(name), 1);
+          setTags(tags.filter((tag) => tag !== name));
         } else {
-          tags.push(name);
+          setTags([...tags, name]);
         }
-        const searchParams = new URLSearchParams();
-        searchParams.set("tags", tags.join(","));
-        searchParams.set("category", category);
-        router.push(`blogs?${searchParams.toString()}`);
       }}
     >
       {name}
