@@ -21,6 +21,7 @@ export default function TableOfContent({ selector }: Readonly<{ selector: string
     );
     elements.forEach((elem, idx) => {
       elem.id = `heading-${idx}`;
+      elem.style.scrollMarginTop = "5rem";
     });
     setHeadings(
       Array.from(
@@ -35,9 +36,9 @@ export default function TableOfContent({ selector }: Readonly<{ selector: string
   // NOTE: maybe there is a better way to handle this
   useMotionValueEvent(scrollY, "change", () => {
     const scrollY = document.documentElement.scrollTop;
-    for (const heading of headings) {
+    for (const heading of headings.toReversed()) {
       const currentHeading: HTMLElement = document.getElementById(heading.id)!;
-      if (scrollY <= currentHeading?.offsetTop - 40) {
+      if (scrollY + 100 > currentHeading?.offsetTop) {
         setActiveHeading(heading.id);
         return;
       }
