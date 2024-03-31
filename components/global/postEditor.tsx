@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 import { faPlus, faAnglesRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useDebounce, useDebouncedCallback } from 'use-debounce';
 
 import Textarea from "@/components/global/textarea";
 import useOutside from "@/hooks/useOutside";
@@ -25,9 +26,9 @@ export default function PostEditor({
   defaultPost?: Post;
 }>) {
   const [isPublishPanelOpen, setIsPublishPanelOpen] = useState(false);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [postTagsInput, setPostTagsInput] = useState("");
   const publishPanelRef = useRef(null);
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [dialogMessage, setDialogMessage] = useState("");
   const [post, setPost] = useState<Post>({
     title: "",
@@ -38,6 +39,7 @@ export default function PostEditor({
     date: new Date(),
     id: 0,
   });
+  const [debouncedContent] = useDebounce(post.content, 500);
 
   // set default post data if it exists
   useEffect(() => {
@@ -116,7 +118,7 @@ export default function PostEditor({
       </div>
       {/* 預覽區塊 */}
       <div className="dark:bg-mirage-900 overflow-y-scroll bg-mirage-200 rounded-xl p-6 w-full hidden md:block">
-        <MarkdownRender content={post.content} />
+        <MarkdownRender content={debouncedContent} />
       </div>
       {/* 發布、標籤、類別設定區塊 */}
       <div
