@@ -143,6 +143,12 @@ This page shown something about the blog and the author.
 - **\<MarkdownRender/\>**
     - A component to render the markdown content with `react-markdown`
     - It uses **debounce** to render the markdown content when the user is typing to improve performance
+  
+    ![Screen Recording Apr (3)](https://github.com/dada878/dcard-homework/assets/37009584/d851d16f-3800-4b6b-9e18-9db01e0948ad)
+
+I very love the mobile UI UX desing this page ><
+
+![Screen Recording](https://github.com/dada878/dcard-homework/assets/37009584/2691b2d9-6cf5-4d0d-9d00-5aee124bff16)
 
 ## How To Use
 
