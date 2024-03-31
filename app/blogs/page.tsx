@@ -8,7 +8,6 @@ import { getTagList } from "@/actions/tags";
 import CategoryItem from "@/components/blogs/categoryItem";
 import PostListRenderClient from "@/components/blogs/postListRenderClient";
 import TogglableTagItem from "@/components/blogs/togglableTagItem";
-import Button from "@/components/global/button";
 import LinkButton from "@/components/global/linkButton";
 import Container from "@/components/layout/container";
 import FixedSidebar from "@/components/layout/fixedSidebar";
