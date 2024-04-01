@@ -47,36 +47,35 @@ Dada's Blog (Dcard Frontend Intern Homework) is a simple blog website that allow
 - Typescript
 
 ## Design
-The all design draft for this project :) \
-[Figma Draft Link](https://www.figma.com/file/LjOuX1wvS3NSzdnz3Gz0xH/Dcard-Homework?type=design&node-id=0%3A1&mode=design&t=0cq2g0vX29vO9zL7-1)
+The design draft for this project can be found here: [Figma Draft Link](https://www.figma.com/file/LjOuX1wvS3NSzdnz3Gz0xH/Dcard-Homework?type=design&node-id=0%3A1&mode=design&t=0cq2g0vX29vO9zL7-1)
 
 <img width="920" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/f4a08c93-ce4e-429f-9fa9-e4184edf1ce4">
 
 ## Project Structure
 ### Home Page
-This page shown something about the blog and the author.
+This page shown something about the blog me.
 
 <img width="1233" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/b699f783-d2ad-46e8-8d41-f95a839c30f7">
 
 - **\<Navbar/\>**
-    - Show some links to navigate to other pages
+    - Displays links to navigate to other pages
     - It will be shown on every page
 
 - **\<DarkModeToggle/\>**
-    - Toggle the dark mode
-    - The dark mode will be saved in the local storage
+    - Toggle dark mode
+    - Dark mode preference `saved in local storage`
 
 <img width="1225" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/4113a2b0-4247-4315-a00d-be19596a79ec">
 
 - **\<AboutSection/\>**
-    - Show some information about the me
-    - There is a cool animation when you scroll to this section
+    - Show some information about me
+    - Cool animation when scrolling to this section
  
     ![Screen Recording Apr](https://github.com/dada878/dcard-homework/assets/37009584/af1998e2-7652-4620-b469-05ec0c9a336e)
 
 - **\<ProjectCard/\>**
-    - Show some information about my side projects
-    - Projects data are stored in a JSON file `content/projects.json`
+    - Displays information about my side projects
+    - Project data stored in a JSON file `content/projects.json`
 
 ### Blog List Page
 
@@ -85,52 +84,53 @@ Show the list of posts with categories and tags.
 <img width="1058" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/7d5ca002-16b9-47a1-b9ba-24b1541aeadc">
 
 - **\<CategoryItem/\>**
-    - A component with a category name
-    - You can click it to filter posts by category
-    - The filter will be shown in the URL
-    - I use a **custom hook** `useQueryFilter` to handle the query and update the URL easily
+    - Component displaying a category name
+    - Clickable to filter posts by category
+    - Filter displayed in the URL
+    - Uses a **custom hook** `useQueryFilter` to handle query and URL updates easily
 - **\<TogglableTagItem\>**
-    - A component with a tag name
-    - You can click it to toggle selected tags to filter posts
-    - The filter will be shown in the URL
-    - I use a **custom hook** `useQueryFilter` to handle the query and update the URL easily
+    - Component displaying a tag name
+    - Clickable to toggle selected tags to filter posts
+    - Filter displayed in the URL
+    - Uses a **custom hook** `useQueryFilter` to handle query and URL updates easily
 - **\<PostListRender\>**
-    - A component to render the post list
-    - Here is the **infinite scroll** feature to load more posts when scrolling to the bottom
+    - Component to render the post list
+    - Implements **infinite scroll** feature to load more posts when scrolling to the bottom
 
     ![Screen Recording Apr (1)](https://github.com/dada878/dcard-homework/assets/37009584/57b70e88-7321-4e2e-9812-5b8c6a966457)
 
 ### Blog View page
 
-Show the post content and comments.
+Displays the post content and comments.
 
 <img width="1053" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/eb84bf03-caca-44eb-9637-1aa4396902bd">
 
 - **\<DeleteButton/\>**
-    - A button to delete the post
-    - Only the post owner can see and use this button
-    - When clicking it, it will show a confirmation dialog
+    - Button to delete the post
+    - Visible only to the post owner
+    - Shows a confirmation dialog when clicked
 - **\<TableOfContent/\>**
-    - A component to show the table of content
-    - It will automatically generate the table of content based on the post content
+    - Component to show the table of contents
+    - Automatically generates based on the post content
 - **\<MenuItem/\>**
-    - A component to show the menu item
-    - You can click it to smooth scroll to the content
-    - It will be highlighted when scrolling to the content
+    - Component to show the menu item
+    - Clickable to smooth scroll to the content
+    - Highlighted when scrolling to the content
 
 <img width="1009" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/4a3ca811-2b29-42c4-a323-a04e39aaeafe">
 
 - **\<CommentSection/\>**
-    - A section to show the comments
+    - Section to show comments
+    - Users can add comments when logged in
     - You can add a comment when you are logged in
-    - It's use **optimistic updates** to show the comment immediately
+    - Uses **optimistic updates** to show comments immediately
   
   ![Screen Recording Apr (2)](https://github.com/dada878/dcard-homework/assets/37009584/c90dd0d1-06f6-476a-a9bb-76f6a1fa6e31)
 
 - **\<TabButton/\>**
-    - A button to switch between writing a comment and previewing the comment content
+    - Button to switch between writing a comment and previewing the comment content
 
-And this page also has a cool link preview feature when you share the link on social media (other pages also have this feature)
+This page also features a link preview when sharing links on social media (other pages also have this feature).
 
 <img width="519" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/92d12fdb-5683-4444-8240-b703722e7017">
 
@@ -141,25 +141,24 @@ A page to create or edit a post with markdown content.
 <img width="983" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/f5c354d4-933f-43a2-95fb-0d61eaa52aa8">
 
 - **\<MarkdownRender/\>**
-    - A component to render the markdown content with `react-markdown`
-    - It uses **debounce** to render the markdown content when the user is typing to improve performance
+    - Component to render markdown content using `react-markdown`
+    - Uses **debounce** to render markdown content while the user types, improving performance
   
     ![Screen Recording Apr (3)](https://github.com/dada878/dcard-homework/assets/37009584/d851d16f-3800-4b6b-9e18-9db01e0948ad)
 
-I very love the mobile UI UX desing this page ><
+The mobile UI/UX design of this page is particularly noteworthy.
 
 ![Screen Recording](https://github.com/dada878/dcard-homework/assets/37009584/2691b2d9-6cf5-4d0d-9d00-5aee124bff16)
 
 ## How To Use
 
-The step up step is a little bit complex because there is a login feture.
+The setup process is a bit complex due to the login feature.
 
 ### Step 1. Setup Firebase
 
 Firstly, you need to create a Firebase project following this link: [Firebase Console](https://console.firebase.google.com/u/0/)
 
 ![image](https://github.com/dada878/dcard-homework/assets/37009584/2502b5b5-64eb-47eb-b3a3-ff87e8d1e267)
-
 
 Then, you need to go to Firestore page (you can find it in the left sidebar) and create a database by clicking the "Create database" button.
 
