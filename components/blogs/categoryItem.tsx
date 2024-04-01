@@ -15,6 +15,7 @@ export default function CategoryItem({
 }>) {
   const { setCategory } = useQueryFilter();
   const newUrl = setCategory(name);
+  
   return (
     <Link href={newUrl}>
       <TagItem

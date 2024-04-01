@@ -14,7 +14,7 @@ export default function BlogPageFloatingActions({
   showActionButtons: boolean;
   postID: string;
 }>) {
-  return showActionButtons ? (
+  return showActionButtons && (
     <FloatingActionSection>
       <LinkButton href={`/blogs/${postID}/edit`} className="rounded-full">
         <div className="p-2">
@@ -23,5 +23,5 @@ export default function BlogPageFloatingActions({
       </LinkButton>
       <DeleteButton id={postID} isMobile />
     </FloatingActionSection>
-  ) : null;
+  );
 }

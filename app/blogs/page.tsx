@@ -56,15 +56,16 @@ export default async function BlogsPage({
 }: {
   searchParams: Readonly<{ tags?: string; category?: string }>;
 }) {
+  const showNewPostButton = await isOwner();
   const tags = (searchParams.tags?.split(",") ?? []).filter(
     (tag) => tag.length
   );
-  const showNewPostButton = await isOwner();
   const category = searchParams.category ?? undefined;
   const currentQuery = {
     tags: tags,
     category: category,
   };
+
   return (
     <div>
       <FixedSidebar>

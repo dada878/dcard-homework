@@ -13,11 +13,13 @@ export async function generateMetadata({
   params,
 }: Readonly<{ params: { id: string } }>) {
   const post = await getPost(params.id);
+  
   const defaultConfig = defaultSEO({
     title: post.title,
     description: post.description,
     url: `/blogs/${params.id}`,
   });
+
   const metadata = {
     ...defaultConfig,
     keywords: post.tags.join(", "),
@@ -42,6 +44,7 @@ export default async function BlogPostPage({
   ]).catch((error) => {
     notFound();
   });
+
   return (
     <div className="flex">
       <BlogPageSidebar

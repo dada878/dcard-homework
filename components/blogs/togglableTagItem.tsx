@@ -18,6 +18,7 @@ export default function TogglableTagItem({
   const newUrl = setTags(
     selected ? tags.filter((tag) => tag !== name) : [...tags, name]
   );
+  
   return (
     <Link href={newUrl}>
       <TagItem

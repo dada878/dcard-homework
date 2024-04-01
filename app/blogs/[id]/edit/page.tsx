@@ -30,6 +30,7 @@ export default function EditPage({
         alert(e.message);
       });
   };
+  
   return (
     <div>
       <PostEditor
