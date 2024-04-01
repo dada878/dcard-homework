@@ -91,6 +91,8 @@ This page shown something about the blog and the author.
 
 ### Blog List Page
 
+Show the list of posts with categories and tags.
+
 <img width="1058" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/7d5ca002-16b9-47a1-b9ba-24b1541aeadc">
 
 - **\<CategoryItem/\>**
@@ -110,6 +112,8 @@ This page shown something about the blog and the author.
     ![Screen Recording Apr (1)](https://github.com/dada878/dcard-homework/assets/37009584/57b70e88-7321-4e2e-9812-5b8c6a966457)
 
 ### Blog View page
+
+Show the post content and comments.
 
 <img width="1053" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/eb84bf03-caca-44eb-9637-1aa4396902bd">
 
@@ -139,6 +143,8 @@ This page shown something about the blog and the author.
 
 ### Post Editor page
 
+A page to create or edit a post with markdown content.
+
 <img width="983" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/f5c354d4-933f-43a2-95fb-0d61eaa52aa8">
 
 - **\<MarkdownRender/\>**
@@ -157,26 +163,28 @@ The step up step is a little bit complex because there is a login feture.
 
 ### Step 1. Setup Firebase
 
-[Link](https://console.firebase.google.com/u/0/?_gl=1*1s4aqa1*_ga*MTAxNjI2MTI3LjE3MTA3MzI0NjY.*_ga_CW55HF8NVT*MTcxMTk3MTAwMC4xMy4wLjE3MTE5NzEwMDAuNjAuMC4w)
+Firstly, you need to create a Firebase project following this link: [Firebase Console](https://console.firebase.google.com/u/0/)
 
 ![image](https://github.com/dada878/dcard-homework/assets/37009584/2502b5b5-64eb-47eb-b3a3-ff87e8d1e267)
 
-[Link](https://console.firebase.google.com/u/0/project/dcard-homework-test/firestore)
+
+Then, you need to go to Firestore page (you can find it in the left sidebar) and create a database by clicking the "Create database" button.
 
 ![image](https://github.com/dada878/dcard-homework/assets/37009584/94fd33f9-622c-4ed2-82c6-2605bb5f9b74)
 
-`https://console.firebase.google.com/u/0/project/{project-id}/settings/serviceaccounts/adminsdk` (replace {project-id} with your project's id)
+After that, you need to go to the project settings page and "Service accounts" tab to generate a private key by clicking the "Generate new private key" button. (you can find the button to go to the project settings page on the top of the sidebar).
 
 <img width="843" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/f27bb3d2-c080-4ce3-a01f-65c8596bd1ee">
 
-### Step 2 Create a GitHub OAuth App
+### Step 2. Create a GitHub OAuth App
 
-[Link](https://github.com/settings/applications/new)
+Firstly, you need to create a GitHub OAuth App following this link: [GitHub OAuth Apps](https://github.com/settings/applications/new)
 
 <img width="785" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/83153acd-2c4d-4485-9be3-00a82736d3db">
 
-<img width="1003" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/f0f2f730-e37f-48fd-82a9-2a442d373775">
+Then, you need to generate a client secret by clicking the "Generate a new client secret" button. (Copy the client ID and client secret to use in the next step)
 
+<img width="1003" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/f0f2f730-e37f-48fd-82a9-2a442d373775">
 
 ### Step 3. Configuration
 
@@ -208,6 +216,7 @@ GITHUB_APP_CLIENT_ID=XXXXXXXXXXXXXXXXXXXXXXXXX
 GITHUB_APP_CLIENT_SECRET=XXXXXXXXXXXXXXXXXXXXX
 
 # Personal access token for GitHub
+# Because the rate limit of GitHub REST API is very low for unauthenticated requests, so we need to use a personal access token to increase the rate limit
 GITHUB_PERSONAL_ACCESS_TOKEN=ghp_XXXXXXXXXXXXX
 
 # Secret for NextAuth
