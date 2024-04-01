@@ -153,9 +153,25 @@ I very love the mobile UI UX desing this page ><
 
 ## How To Use
 
-### Step 1. Create Firebase
+The step up step is a little bit complex because there is a login feture.
+
+### Step 1. Setup Firebase
+
+[Link](https://console.firebase.google.com/u/0/?_gl=1*1s4aqa1*_ga*MTAxNjI2MTI3LjE3MTA3MzI0NjY.*_ga_CW55HF8NVT*MTcxMTk3MTAwMC4xMy4wLjE3MTE5NzEwMDAuNjAuMC4w)
+
+![image](https://github.com/dada878/dcard-homework/assets/37009584/2502b5b5-64eb-47eb-b3a3-ff87e8d1e267)
+
+[Link](https://console.firebase.google.com/u/0/project/dcard-homework-test/firestore)
+
+![image](https://github.com/dada878/dcard-homework/assets/37009584/94fd33f9-622c-4ed2-82c6-2605bb5f9b74)
 
 ### Step 2 Create a GitHub OAuth App
+
+[Link](https://github.com/settings/applications/new)
+
+<img width="785" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/83153acd-2c4d-4485-9be3-00a82736d3db">
+
+<img width="1003" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/f0f2f730-e37f-48fd-82a9-2a442d373775">
 
 ### Step 3. Configuration
 
