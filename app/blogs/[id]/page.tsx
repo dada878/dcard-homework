@@ -34,9 +34,9 @@ export async function generateMetadata({
 
 export default async function BlogPostPage({
   params,
-}: {
+}: Readonly<{
   params: { id: string };
-}) {
+}>) {
   const [post, comments, showActionButtons] = await Promise.all([
     getPost(params.id),
     getPostComments(params.id),

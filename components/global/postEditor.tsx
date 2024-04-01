@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 import { faPlus, faAnglesRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useDebounce, useDebouncedCallback } from 'use-debounce';
+import { useDebounce } from 'use-debounce';
 
 import Textarea from "@/components/global/textarea";
 import useOutside from "@/hooks/useOutside";

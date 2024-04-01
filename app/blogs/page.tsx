@@ -53,9 +53,9 @@ async function Tags({ currentTags }: Readonly<{ currentTags?: string[] }>) {
 
 export default async function BlogsPage({
   searchParams,
-}: {
-  searchParams: Readonly<{ tags?: string; category?: string }>;
-}) {
+}: Readonly<{
+  searchParams: { tags?: string; category?: string };
+}>) {
   const showNewPostButton = await isOwner();
   const tags = (searchParams.tags?.split(",") ?? []).filter(
     (tag) => tag.length
