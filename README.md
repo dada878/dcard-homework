@@ -165,6 +165,10 @@ The step up step is a little bit complex because there is a login feture.
 
 ![image](https://github.com/dada878/dcard-homework/assets/37009584/94fd33f9-622c-4ed2-82c6-2605bb5f9b74)
 
+`https://console.firebase.google.com/u/0/project/{project-id}/settings/serviceaccounts/adminsdk` (replace {project-id} with your project's id)
+
+<img width="843" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/f27bb3d2-c080-4ce3-a01f-65c8596bd1ee">
+
 ### Step 2 Create a GitHub OAuth App
 
 [Link](https://github.com/settings/applications/new)
@@ -172,6 +176,7 @@ The step up step is a little bit complex because there is a login feture.
 <img width="785" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/83153acd-2c4d-4485-9be3-00a82736d3db">
 
 <img width="1003" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/f0f2f730-e37f-48fd-82a9-2a442d373775">
+
 
 ### Step 3. Configuration
 
@@ -212,7 +217,7 @@ NEXTAUTH_SECRET=XXXXXXXXXXXXXX
 # Development URL
 NEXTAUTH_URL=http://localhost:3000
 
-# Firebase admin config
+# Firebase admin sdk private key (we have generated it in step 1)
 FIREBASE_PROJECT_ID=XXXXXXX
 FIREBASE_CLIENT_EMAIL=XXXXXXXXX
 FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nxxx"
