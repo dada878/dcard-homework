@@ -1,6 +1,6 @@
 # Dcard Frontend Intern Homework
-![GitHub deployments](https://img.shields.io/github/deployments/dada878/dcard-homework/production?logo=vercel&label=vercel)
 [![CodeFactor](https://www.codefactor.io/repository/github/dada878/dcard-homework/badge)](https://www.codefactor.io/repository/github/dada878/dcard-homework)
+![GitHub deployments](https://img.shields.io/github/deployments/dada878/dcard-homework/production?logo=vercel&label=vercel)
 ![GitHub](https://img.shields.io/github/license/dada878/dcard-homework)
 ![GitHub repo size](https://img.shields.io/github/repo-size/dada878/dcard-homework)
 ## Introduction
@@ -51,17 +51,6 @@ The all design draft for this project :) \
 [Figma Draft Link](https://www.figma.com/file/LjOuX1wvS3NSzdnz3Gz0xH/Dcard-Homework?type=design&node-id=0%3A1&mode=design&t=0cq2g0vX29vO9zL7-1)
 
 <img width="920" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/f4a08c93-ce4e-429f-9fa9-e4184edf1ce4">
-
-## Lighthouse
-
-<img width="416" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/bdcf767a-34ab-413e-94fa-c3957426d373">
-
-## Commit message
-
-<img width="1216" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/6ab8a534-e167-4cf8-999e-136340d244f7">
-
-## SEO Friendly
-<img width="519" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/92d12fdb-5683-4444-8240-b703722e7017">
 
 ## Project Structure
 ### Home Page
@@ -140,6 +129,10 @@ Show the post content and comments.
 
 - **\<TabButton/\>**
     - A button to switch between writing a comment and previewing the comment content
+
+And this page also has a cool link preview feature when you share the link on social media (other pages also have this feature)
+
+<img width="519" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/92d12fdb-5683-4444-8240-b703722e7017">
 
 ### Post Editor page
 
