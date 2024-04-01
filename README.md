@@ -1,5 +1,6 @@
 # Dcard Frontend Intern Homework
 ![GitHub deployments](https://img.shields.io/github/deployments/dada878/dcard-homework/production?logo=vercel&label=vercel)
+[![CodeFactor](https://www.codefactor.io/repository/github/dada878/dcard-homework/badge)](https://www.codefactor.io/repository/github/dada878/dcard-homework)
 ![GitHub](https://img.shields.io/github/license/dada878/dcard-homework)
 ![GitHub repo size](https://img.shields.io/github/repo-size/dada878/dcard-homework)
 ## Introduction
