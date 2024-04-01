@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { twMerge } from "tailwind-merge";
 
 import Button from "./button";
 
@@ -7,17 +8,15 @@ export default function LinkButton({
   color = "blue",
   href,
   className = "",
-  rounded = "rounded-xl"
 }: Readonly<{
   children: React.ReactNode;
-  color? : "blue" | "red" | "green" | "dark-blue";
+  color?: "blue" | "red" | "green" | "dark-blue";
   href: string;
   className?: string;
-  rounded?: string;
 }>) {
   return (
     <Link href={href} className="flex">
-      <Button color={color} className={`${className} flex-1`} rounded={rounded} >
+      <Button color={color} className={twMerge(`flex-1`, className)}>
         {children}
       </Button>
     </Link>

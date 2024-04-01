@@ -9,6 +9,7 @@ import rehypeKatex from "rehype-katex";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
 import "katex/dist/katex.min.css";
+import { twMerge } from "tailwind-merge";
 
 SyntaxHighlighter.registerLanguage("cpp", cpp);
 SyntaxHighlighter.registerLanguage("js", js);
@@ -38,9 +39,12 @@ export default function MarkdownRender({
 }>) {
   return (
     <Markdown
-      className={`prose dark:prose-invert overflow-y-hidden ${className}`}
+      className={twMerge(
+        `prose dark:prose-invert overflow-y-hidden`,
+        className
+      )}
       remarkPlugins={[remarkMath, remarkGfm]}
-      rehypePlugins={[[rehypeKatex , {strict: false}]]}
+      rehypePlugins={[[rehypeKatex, { strict: false }]]}
       components={{
         code: Code,
       }}

@@ -1,3 +1,5 @@
+import {twMerge } from "tailwind-merge";
+
 export default function Button({
   children,
   onClick,
@@ -5,7 +7,6 @@ export default function Button({
   color = "blue",
   className = "",
   disabled = false,
-  rounded = "rounded-xl",
 }: Readonly<{
   children: React.ReactNode;
   onClick?: () => void;
@@ -13,7 +14,6 @@ export default function Button({
   color?: "blue" | "red" | "green" | "dark-blue";
   className?: string;
   disabled?: boolean;
-  rounded?: string;
 }>) {
   // NOTE: classes here maybe too complex
   const buttonThemes = {
@@ -29,9 +29,12 @@ export default function Button({
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`${buttonThemes[color]} ${
+      className={twMerge(
+        `p-3 px-4 rounded-xl items-center flex justify-center transition`,
+        buttonThemes[color],
+        className,
         disabled && "pointer-events-none"
-      } p-3 px-4 ${rounded} items-center flex justify-center transition ${className}`}
+      )}
     >
       {children}
     </button>

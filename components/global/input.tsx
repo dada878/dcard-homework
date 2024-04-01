@@ -1,3 +1,5 @@
+import { twMerge } from "tailwind-merge";
+
 export default function Input({
   type,
   value = "",
@@ -26,7 +28,10 @@ export default function Input({
           onEnterPress(e);
         }
       }}
-      className={`${className} dark:bg-mirage-700 bg-mirage-300 p-3 w-full rounded-lg outline-none placeholder:text-secondary-light dark:placeholder:text-white/40`}
+      className={twMerge(
+        `dark:bg-mirage-700 bg-mirage-300 p-3 w-full rounded-lg outline-none placeholder:text-secondary-light dark:placeholder:text-white/40`,
+        className
+      )}
       placeholder={placeholder}
     />
   );

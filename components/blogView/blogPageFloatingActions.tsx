@@ -16,7 +16,7 @@ export default function BlogPageFloatingActions({
 }>) {
   return showActionButtons ? (
     <FloatingActionSection>
-      <LinkButton href={`/blogs/${postID}/edit`} rounded="rounded-full">
+      <LinkButton href={`/blogs/${postID}/edit`} className="rounded-full">
         <div className="p-2">
           <FontAwesomeIcon className="w-5 h-5 shadow-lg" icon={faEdit} />
         </div>

@@ -89,7 +89,7 @@ export default async function BlogsPage({
           </div>
         </div>
       </FixedSidebar>
-      <Container>
+      <Container className="w-auto">
         <div className="flex gap-3 md:hidden">
           <div className="flex gap-4 items-center overflow-x-scroll">
             <Categories mobileMode={true} />
@@ -98,7 +98,7 @@ export default async function BlogsPage({
         <PostListRenderClient query={currentQuery} />
       </Container>
       <FloatingActionSection>
-        <LinkButton href="/blogs/create" rounded="rounded-full">
+        <LinkButton href="/blogs/create" className="rounded-full">
           <div className="p-2">
             <FontAwesomeIcon className="w-5 h-5 shadow-lg" icon={faPlus} />
           </div>

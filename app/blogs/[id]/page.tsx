@@ -48,7 +48,7 @@ export default async function BlogPostPage({
         showActionButtons={showActionButtons}
         postID={params.id}
       />
-      <Container width="w-full">
+      <Container className="w-full">
         {post && <ContentRender post={post} />}
         <CommentSection comments={comments} postId={params.id} />
       </Container>

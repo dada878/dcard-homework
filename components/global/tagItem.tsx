@@ -1,5 +1,7 @@
 import { ReactNode } from "react";
 
+import { twMerge } from "tailwind-merge";
+
 export default function TagItem({
   onClick,
   selected,
@@ -14,9 +16,11 @@ export default function TagItem({
   return (
     <button
       onClick={onClick}
-      className={`dark:bg-mirage-700 line-clamp-1 text-nowrap bg-mirage-400 py-1 px-2 text-secondary-light dark:text-secondary rounded-md cursor-pointer transition text-center ${className ?? ""} ${
-        selected ? "outline outline-1 outline-mirage-500" : ""
-      }`}
+      className={twMerge(
+        `dark:bg-mirage-700 line-clamp-1 text-nowrap bg-mirage-400 py-1 px-2 text-secondary-light dark:text-secondary rounded-md cursor-pointer transition text-center`,
+        className,
+        selected && "outline outline-1 outline-mirage-500"
+      )}
     >
       {children}
     </button>

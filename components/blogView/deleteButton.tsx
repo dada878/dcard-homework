@@ -22,7 +22,7 @@ export default function DeleteButton({
   return (
     <>
       <Button
-        rounded={isMobile ? "rounded-full" : "rounded-xl"}
+        className={isMobile ? "rounded-full" : "rounded-xl"}
         onClick={() => {
           setIsDialogOpen(true);
         }}
