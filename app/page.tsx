@@ -22,7 +22,7 @@ export default function Home() {
           </ul>
         </AboutSection>
         <AboutSection title="作品集">
-          <div className="grid grid-col-1 md:grid-cols-3 gap-7">
+          <div className="grid grid-col-1 md:grid-cols-2 gap-7">
             {projects.map((project, i) => {
               return (
                 <ProjectCard

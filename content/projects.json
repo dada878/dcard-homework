@@ -2,16 +2,21 @@
   {
     "title": "番茄鐘",
     "image": "/images/projects/pomodoro-timer.png",
-    "link": "https://scint.org"
+    "link": "https://github.com/dada878/pomodoro-timer"
   },
   {
     "title": "鞋子の網站",
     "image": "/images/projects/shoes.png",
-    "link": "https://scint.org/1"
+    "link": "https://github.com/dada878/shoes-web"
   },
   {
     "title": "SCINT 官網",
     "image": "/images/projects/scint.png",
-    "link": "https://scint.org/2"
+    "link": "https://github.com/official-scint/official-scint.github.io"
+  },
+  {
+    "title": "個人網站",
+    "image": "/images/projects/personal-website.png",
+    "link": "https://github.com/dada878/personal-website-nuxt"
   }
 ]
