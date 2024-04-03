@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { twMerge } from "tailwind-merge";
+
+import { cn } from "@/utils/cn";
 
 import Button from "./button";
 
@@ -16,7 +17,7 @@ export default function LinkButton({
 }>) {
   return (
     <Link href={href} className="flex">
-      <Button color={color} className={twMerge(`flex-1`, className)}>
+      <Button color={color} className={cn(`flex-1`, className)}>
         {children}
       </Button>
     </Link>

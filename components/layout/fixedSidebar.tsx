@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-import { twMerge } from "tailwind-merge";
+import { cn } from "@/utils/cn";
 
 export default function FixedSidebar({
   children,
@@ -8,7 +8,7 @@ export default function FixedSidebar({
 }: Readonly<{ children: ReactNode; className?: string }>) {
   return (
     <aside
-      className={twMerge(
+      className={cn(
         `fixed m-10 hidden w-60 flex-col gap-5 md:flex`,
         className,
       )}

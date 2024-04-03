@@ -8,8 +8,9 @@ import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import rehypeKatex from "rehype-katex";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
+
 import "katex/dist/katex.min.css";
-import { twMerge } from "tailwind-merge";
+import { cn } from "@/utils/cn";
 
 SyntaxHighlighter.registerLanguage("cpp", cpp);
 SyntaxHighlighter.registerLanguage("js", js);
@@ -39,7 +40,7 @@ export default function MarkdownRender({
 }>) {
   return (
     <Markdown
-      className={twMerge(
+      className={cn(
         `prose overflow-y-hidden dark:prose-invert`,
         className,
       )}

@@ -1,4 +1,4 @@
-import { twMerge } from "tailwind-merge";
+import { cn } from "@/utils/cn";
 
 export default function Input({
   type,
@@ -28,7 +28,7 @@ export default function Input({
           onEnterPress(e);
         }
       }}
-      className={twMerge(
+      className={cn(
         `w-full rounded-lg bg-mirage-300 p-3 outline-none placeholder:text-secondary-light dark:bg-mirage-700 dark:placeholder:text-white/40`,
         className,
       )}

@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { twMerge } from "tailwind-merge";
+
+import { cn } from "@/utils/cn";
 
 export default function NavbarItem({
   name,
@@ -14,7 +15,7 @@ export default function NavbarItem({
   isMobile?: boolean;
   onClick?: () => void;
 }>) {
-  const linkClassName = twMerge(
+  const linkClassName = cn(
     "dark:hover:text-secondary hover:text-secondary-light transition",
     className,
     isMobile ? "bg-gray text-center w-1/2 bg-opacity-30 rounded-md p-2" : "p-3",

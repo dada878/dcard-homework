@@ -1,4 +1,5 @@
-import { twMerge } from "tailwind-merge";
+import { cn } from "@/utils/cn";
+
 
 export default function Textarea({
   value = "",
@@ -21,7 +22,7 @@ export default function Textarea({
       name={name}
       disabled={disabled}
       onChange={onChange}
-      className={twMerge(
+      className={cn(
         `w-full resize-none rounded-lg bg-mirage-300 p-3 outline-none placeholder:text-secondary-light dark:bg-mirage-700 dark:placeholder:text-white/40`,
         className,
         disabled ? "cursor-not-allowed" : "cursor-text",

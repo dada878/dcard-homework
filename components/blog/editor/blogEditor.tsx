@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDebounce } from "use-debounce";
 
 import Textarea from "@/components/form/textarea";
+import Card from "@/components/utilities/card";
 import useOutside from "@/hooks/useOutside";
 import validatePost from "@/utils/validatePost";
 
@@ -39,7 +40,7 @@ export default function PostEditor({
     date: new Date(),
     id: 0,
   });
-  const [debouncedContent] = useDebounce(post.content, 500);
+  const [debouncedContent] = useDebounce(post.content, 300);
 
   // set default post data if it exists
   useEffect(() => {
@@ -84,8 +85,8 @@ export default function PostEditor({
   return (
     <div className="flex h-screen-inner gap-6 p-4 md:p-10">
       {/* 編輯區塊 */}
-      <div
-        className={`flex w-full flex-col gap-5 rounded-xl bg-mirage-200 p-5 transition md:p-6 dark:bg-mirage-900 ${
+      <Card
+        className={`flex w-full flex-col gap-5 transition ${
           isPublishPanelOpen ? "opacity-20" : ""
         }`}
       >
@@ -115,18 +116,19 @@ export default function PostEditor({
             <span>下一步</span>
           </div>
         </Button>
-      </div>
+      </Card>
       {/* 預覽區塊 */}
-      <div className="hidden w-full overflow-y-scroll rounded-xl bg-mirage-200 p-6 md:block dark:bg-mirage-900">
+      <Card className="hidden w-full overflow-y-scroll p-5 md:block">
         <MarkdownRender content={debouncedContent} />
-      </div>
+      </Card>
       {/* 發布、標籤、類別設定區塊 */}
-      <div
+      <Card
         className={`fixed bottom-0 left-0 right-0 min-w-64 flex-col-reverse gap-5 rounded-xl bg-mirage-200 p-6 opacity-0 transition-all md:relative md:flex md:translate-y-0 md:flex-col md:opacity-100 dark:bg-mirage-900 ${
           isPublishPanelOpen
             ? "flex translate-y-0 opacity-100"
             : "translate-y-full"
         }`}
+      
         ref={publishPanelRef}
       >
         <Button onClick={handelCreateButtonClick}>
@@ -182,7 +184,7 @@ export default function PostEditor({
             placeholder="在這裡寫一些關於這篇文章的敘述..."
           />
         </div>
-      </div>
+      </Card>
       <Dialog
         open={isDialogOpen}
         setOpen={setIsDialogOpen}

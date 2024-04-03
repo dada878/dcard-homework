@@ -1,7 +1,7 @@
 import { formatDate } from "@/utils/dateFormatter";
 
-import TagItem from "../utilities/tagItem";
 import MarkdownRender from "../utilities/markdownRender";
+import TagItem from "../utilities/tagItem";
 
 export default function BlogContent({ post }: Readonly<{ post: Post }>) {
   return (

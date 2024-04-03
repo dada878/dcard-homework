@@ -11,6 +11,7 @@ import TagFilter from "@/components/filters/tagFilter";
 import Container from "@/components/layout/container";
 import FixedSidebar from "@/components/layout/fixedSidebar";
 import FloatingActionSection from "@/components/layout/floatingActionSection";
+import Card from "@/components/utilities/card";
 import LinkButton from "@/components/utilities/linkButton";
 import { defaultSEO } from "@/utils/seo";
 
@@ -41,11 +42,7 @@ async function Tags({ currentTags }: Readonly<{ currentTags?: string[] }>) {
   return (
     <>
       {tags.map((tag: string) => (
-        <TagFilter
-          key={tag}
-          selected={currentTags?.includes(tag)}
-          name={tag}
-        />
+        <TagFilter key={tag} selected={currentTags?.includes(tag)} name={tag} />
       ))}
     </>
   );
@@ -77,18 +74,18 @@ export default async function BlogsPage({
             </div>
           </LinkButton>
         )}
-        <div className="flex flex-col gap-4 rounded-2xl bg-mirage-200 p-4 dark:bg-mirage-900">
+        <Card className="flex flex-col gap-4 ">
           <h2 className="text-center text-2xl font-bold">分類</h2>
           <div className="flex flex-col">
             <Categories />
           </div>
-        </div>
-        <div className="flex flex-col gap-4 rounded-2xl bg-mirage-200 p-4 dark:bg-mirage-900">
+        </Card>
+        <Card className="flex flex-col gap-4 ">
           <h2 className="text-center text-2xl font-bold">標籤</h2>
           <div className="flex flex-row flex-wrap gap-2">
             <Tags currentTags={tags} />
           </div>
-        </div>
+        </Card>
       </FixedSidebar>
       <Container className="w-auto">
         <div className="flex gap-3 md:hidden">

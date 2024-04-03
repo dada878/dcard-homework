@@ -1,4 +1,4 @@
-import { twMerge } from "tailwind-merge";
+import { cn } from "@/utils/cn";
 
 export default function Button({
   children,
@@ -29,11 +29,13 @@ export default function Button({
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={twMerge(
+      className={cn(
         `flex items-center justify-center rounded-xl p-3 px-4 transition`,
         buttonThemes[color],
         className,
-        disabled && "pointer-events-none",
+        {
+          "cursor-not-allowed": disabled,
+        }
       )}
     >
       {children}
