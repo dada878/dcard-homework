@@ -5,9 +5,9 @@ import { startTransition, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import { createPost } from "@/actions/posts";
-import Button from "@/components/global/button";
-import Dialog from "@/components/global/dialog";
-import PostEditor from "@/components/global/postEditor";
+import PostEditor from "@/components/blog/editor/blogEditor";
+import Dialog from "@/components/modals/dialog";
+import Button from "@/components/utilities/button";
 
 export default function CreatePage() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);

@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import TagItem from "@/components/global/tagItem";
+import TagItem from "@/components/utilities/tagItem";
 import { formatDate } from "@/utils/dateFormatter";
 
 export default function BlogPost({ post }: Readonly<{ post: Post }>) {

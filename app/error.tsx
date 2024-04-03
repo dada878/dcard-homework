@@ -1,6 +1,6 @@
 "use client";
 
-import LinkButton from "@/components/global/linkButton";
+import LinkButton from "@/components/utilities/linkButton";
 
 export default function ErrorPage() {
   return (

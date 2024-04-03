@@ -3,10 +3,10 @@
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import DeleteButton from "./deleteButton";
-import TableOfContent from "./tableOfContent";
-import LinkButton from "../global/linkButton";
+import DeleteButton from "./deletePostButton";
 import FixedSidebar from "../layout/fixedSidebar";
+import TableOfContent from "../tableOfContent/tableOfContent";
+import LinkButton from "../utilities/linkButton";
 
 export default function BlogPageSidebar({
   showActionButtons,

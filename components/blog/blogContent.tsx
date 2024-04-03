@@ -1,9 +1,9 @@
 import { formatDate } from "@/utils/dateFormatter";
 
-import MarkdownRender from "../global/markdownRender";
-import TagItem from "../global/tagItem";
+import TagItem from "../utilities/tagItem";
+import MarkdownRender from "../utilities/markdownRender";
 
-export default function ContentRender({ post }: Readonly<{ post: Post }>) {
+export default function BlogContent({ post }: Readonly<{ post: Post }>) {
   return (
     <div className="overflow-hidden rounded-xl bg-mirage-200 p-6 md:p-8 dark:bg-mirage-900">
       <h1 className="line-clamp-1 overflow-ellipsis text-5xl font-bold">

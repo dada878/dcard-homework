@@ -118,7 +118,7 @@ Displays the post content and comments.
 
 <img width="1053" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/eb84bf03-caca-44eb-9637-1aa4396902bd">
 
-- **\<DeleteButton/\>**
+- **\<DeletePostButton/\>**
   - Button to delete the post
   - Visible only to the post owner
   - Shows a confirmation dialog when clicked

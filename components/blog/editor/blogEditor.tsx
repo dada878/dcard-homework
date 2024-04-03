@@ -6,15 +6,15 @@ import { faPlus, faAnglesRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDebounce } from "use-debounce";
 
-import Textarea from "@/components/global/textarea";
+import Textarea from "@/components/form/textarea";
 import useOutside from "@/hooks/useOutside";
 import validatePost from "@/utils/validatePost";
 
-import Button from "./button";
-import Dialog from "./dialog";
-import Input from "./input";
-import MarkdownRender from "./markdownRender";
-import CloseableTagItem from "../edit/closeableTagItem";
+import CloseableTagItem from "./closeableTagItem";
+import Input from "../../form/input";
+import Dialog from "../../modals/dialog";
+import Button from "../../utilities/button";
+import MarkdownRender from "../../utilities/markdownRender";
 
 export default function PostEditor({
   callback,

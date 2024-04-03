@@ -3,9 +3,9 @@
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import DeleteButton from "./deleteButton";
-import LinkButton from "../global/linkButton";
+import DeletePostButton from "./deletePostButton";
 import FloatingActionSection from "../layout/floatingActionSection";
+import LinkButton from "../utilities/linkButton";
 
 export default function BlogPageFloatingActions({
   showActionButtons,
@@ -22,7 +22,7 @@ export default function BlogPageFloatingActions({
             <FontAwesomeIcon className="h-5 w-5 shadow-lg" icon={faEdit} />
           </div>
         </LinkButton>
-        <DeleteButton id={postID} isMobile />
+        <DeletePostButton id={postID} isMobile />
       </FloatingActionSection>
     )
   );

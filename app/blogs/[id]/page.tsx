@@ -2,10 +2,10 @@ import { notFound } from "next/navigation";
 
 import { isOwner } from "@/actions/auth";
 import { getPost, getPostComments } from "@/actions/posts";
-import BlogPageFloatingActions from "@/components/blogView/blogPageFloatingActions";
-import BlogPageSidebar from "@/components/blogView/blogPageSidebar";
-import CommentSection from "@/components/blogView/commentSection";
-import ContentRender from "@/components/blogView/contentRender";
+import BlogContent from "@/components/blog/blogContent";
+import BlogPageFloatingActions from "@/components/blog/blogPageFloatingActions";
+import BlogPageSidebar from "@/components/blog/blogPageSidebar";
+import CommentSection from "@/components/comments/commentSection";
 import Container from "@/components/layout/container";
 import { defaultSEO } from "@/utils/seo";
 
@@ -52,7 +52,7 @@ export default async function BlogPostPage({
         postID={params.id}
       />
       <Container className="w-full">
-        {post && <ContentRender post={post} />}
+        {post && <BlogContent post={post} />}
         <CommentSection comments={comments} postId={params.id} />
       </Container>
       <BlogPageFloatingActions

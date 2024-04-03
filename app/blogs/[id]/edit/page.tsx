@@ -5,7 +5,7 @@ import { startTransition, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import { getPost, updatePost } from "@/actions/posts";
-import PostEditor from "@/components/global/postEditor";
+import PostEditor from "@/components/blog/editor/blogEditor";
 
 export default function EditPage({
   params,

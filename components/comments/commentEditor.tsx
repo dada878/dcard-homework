@@ -3,10 +3,10 @@ import { startTransition, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import { getLoginUser } from "@/actions/auth";
-import Button from "@/components/global/button";
-import Textarea from "@/components/global/textarea";
+import Textarea from "@/components/form/textarea";
+import Button from "@/components/utilities/button";
 
-import MarkdownRender from "../global/markdownRender";
+import MarkdownRender from "../utilities/markdownRender";
 
 function TabButton({
   isPreview,

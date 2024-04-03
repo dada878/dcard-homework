@@ -4,9 +4,9 @@ import Link from "next/link";
 
 import useQueryFilter from "@/hooks/useQueryFilter";
 
-import TagItem from "../global/tagItem";
+import TagItem from "../utilities/tagItem";
 
-export default function CategoryItem({
+export default function CategoryFilter({
   name,
   selected,
 }: Readonly<{

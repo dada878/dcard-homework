@@ -4,9 +4,9 @@ import Link from "next/link";
 
 import useQueryFilter from "@/hooks/useQueryFilter";
 
-import TagItem from "../global/tagItem";
+import TagItem from "../utilities/tagItem";
 
-export default function TogglableTagItem({
+export default function TagFilter({
   name,
   selected,
 }: Readonly<{

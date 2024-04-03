@@ -7,8 +7,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getLoginUser } from "@/actions/auth";
 import useOutside from "@/hooks/useOutside";
 
-import DarkModeToggle from "../global/darkModeToggle";
-import NavbarItem from "../global/navbarItem";
+import DarkModeToggle from "./darkModeToggle";
+import NavbarItem from "./navbarItem";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

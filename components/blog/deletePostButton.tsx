@@ -7,8 +7,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRouter } from "next/navigation";
 
 import { deletePost } from "@/actions/posts";
-import Button from "@/components/global/button";
-import ConfirmDialog from "@/components/global/confirmDialog";
+import ConfirmDialog from "@/components/modals/confirmDialog";
+import Button from "@/components/utilities/button";
 
 export default function DeleteButton({
   id,

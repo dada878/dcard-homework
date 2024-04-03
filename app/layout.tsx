@@ -4,7 +4,7 @@ import { Inter } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 
-import Navbar from "@/components/layout/navbar";
+import Navbar from "@/components/navbar/navbar";
 import "@/styles/globals.css";
 import { defaultSEO } from "@/utils/seo";
 

@@ -5,13 +5,13 @@ import { Metadata } from "next";
 import { isOwner } from "@/actions/auth";
 import { getCategoryList } from "@/actions/categories";
 import { getTagList } from "@/actions/tags";
-import CategoryItem from "@/components/blogs/categoryItem";
-import PostListRenderClient from "@/components/blogs/postListRenderClient";
-import TogglableTagItem from "@/components/blogs/togglableTagItem";
-import LinkButton from "@/components/global/linkButton";
+import PostListClient from "@/components/blog/postListClient";
+import CategoryFilter from "@/components/filters/categoryFilter";
+import TagFilter from "@/components/filters/tagFilter";
 import Container from "@/components/layout/container";
 import FixedSidebar from "@/components/layout/fixedSidebar";
 import FloatingActionSection from "@/components/layout/floatingActionSection";
+import LinkButton from "@/components/utilities/linkButton";
 import { defaultSEO } from "@/utils/seo";
 
 export const metadata: Metadata = defaultSEO({
@@ -28,9 +28,9 @@ async function Categories({ mobileMode }: Readonly<{ mobileMode?: boolean }>) {
         mobileMode ? "items-center gap-4 overflow-x-scroll" : "flex-col gap-3"
       }`}
     >
-      <CategoryItem name="全部" />
+      <CategoryFilter name="全部" />
       {categories.map((category: string) => (
-        <CategoryItem key={category} name={category} />
+        <CategoryFilter key={category} name={category} />
       ))}
     </div>
   );
@@ -41,7 +41,7 @@ async function Tags({ currentTags }: Readonly<{ currentTags?: string[] }>) {
   return (
     <>
       {tags.map((tag: string) => (
-        <TogglableTagItem
+        <TagFilter
           key={tag}
           selected={currentTags?.includes(tag)}
           name={tag}
@@ -96,7 +96,7 @@ export default async function BlogsPage({
             <Categories mobileMode={true} />
           </div>
         </div>
-        <PostListRenderClient query={currentQuery} />
+        <PostListClient query={currentQuery} />
       </Container>
       <FloatingActionSection>
         <LinkButton href="/blogs/create" className="rounded-full">

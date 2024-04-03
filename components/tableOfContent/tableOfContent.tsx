@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import { useMotionValueEvent, useScroll } from "framer-motion";
 
-import MenuItem from "@/components/blogView/menuItem";
+import TableOfContentItem from "@/components/tableOfContent/TableOfContentItem";
 
 type Headings = {
   id: string;
@@ -52,13 +52,13 @@ export default function TableOfContent({
       <h3 className="mb-4 text-center text-2xl font-bold">文章目錄</h3>
       <div className="flex flex-col gap-2">
         {headings.map((heading) => (
-          <MenuItem
+          <TableOfContentItem
             key={heading.id}
             id={heading.id}
             active={activeHeading === heading.id}
           >
             {heading.text}
-          </MenuItem>
+          </TableOfContentItem>
         ))}
       </div>
     </div>

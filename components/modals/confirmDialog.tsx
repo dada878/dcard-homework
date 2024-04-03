@@ -1,5 +1,5 @@
-import Button from "./button";
 import Dialog from "./dialog";
+import Button from "../utilities/button";
 
 export default function ConfirmDialog({
   open,

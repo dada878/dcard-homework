@@ -6,10 +6,10 @@ import { useRouter } from "next/navigation";
 
 import { getLoginUser, getLoginUserAvatar } from "@/actions/auth";
 import { createComment } from "@/actions/posts";
-import BlogComment from "@/components/blogView/comment";
-import CommentEditor from "@/components/blogView/commentEditor";
+import BlogComment from "@/components/comments/comment";
+import CommentEditor from "@/components/comments/commentEditor";
 
-import MarkdownRender from "../global/markdownRender";
+import MarkdownRender from "../utilities/markdownRender";
 
 export default function CommentSection({
   comments,
