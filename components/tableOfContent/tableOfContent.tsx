@@ -4,6 +4,8 @@ import { useMotionValueEvent, useScroll } from "framer-motion";
 
 import TableOfContentItem from "@/components/tableOfContent/TableOfContentItem";
 
+import Card from "../utilities/card";
+
 type Headings = {
   id: string;
   text: string;
@@ -48,7 +50,7 @@ export default function TableOfContent({
   });
 
   return (
-    <div className="rounded-xl bg-mirage-200 p-4 dark:bg-mirage-900">
+    <Card>
       <h3 className="mb-4 text-center text-2xl font-bold">文章目錄</h3>
       <div className="flex flex-col gap-2">
         {headings.map((heading) => (
@@ -61,6 +63,6 @@ export default function TableOfContent({
           </TableOfContentItem>
         ))}
       </div>
-    </div>
+    </Card>
   );
 }

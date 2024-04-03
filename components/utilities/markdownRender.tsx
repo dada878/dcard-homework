@@ -40,10 +40,7 @@ export default function MarkdownRender({
 }>) {
   return (
     <Markdown
-      className={cn(
-        `prose overflow-y-hidden dark:prose-invert`,
-        className,
-      )}
+      className={cn(`prose overflow-y-hidden dark:prose-invert`, className)}
       remarkPlugins={[remarkMath, remarkGfm]}
       rehypePlugins={[[rehypeKatex, { strict: false }]]}
       components={{

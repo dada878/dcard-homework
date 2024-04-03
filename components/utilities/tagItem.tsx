@@ -21,7 +21,7 @@ export default function TagItem({
         className,
         {
           "outline outline-1 outline-mirage-500": selected,
-        }
+        },
       )}
     >
       {children}

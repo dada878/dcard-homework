@@ -128,7 +128,6 @@ export default function PostEditor({
             ? "flex translate-y-0 opacity-100"
             : "translate-y-full"
         }`}
-      
         ref={publishPanelRef}
       >
         <Button onClick={handelCreateButtonClick}>

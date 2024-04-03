@@ -6,6 +6,7 @@ import { getLoginUser } from "@/actions/auth";
 import Textarea from "@/components/form/textarea";
 import Button from "@/components/utilities/button";
 
+import Card from "../utilities/card";
 import MarkdownRender from "../utilities/markdownRender";
 
 function TabButton({

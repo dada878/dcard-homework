@@ -35,7 +35,7 @@ export default function Button({
         className,
         {
           "cursor-not-allowed": disabled,
-        }
+        },
       )}
     >
       {children}
