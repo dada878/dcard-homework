@@ -25,7 +25,7 @@ async function Categories({ mobileMode }: Readonly<{ mobileMode?: boolean }>) {
   return (
     <div
       className={`flex ${
-        mobileMode ? "gap-4 items-center overflow-x-scroll" : "flex-col gap-3"
+        mobileMode ? "items-center gap-4 overflow-x-scroll" : "flex-col gap-3"
       }`}
     >
       <CategoryItem name="全部" />
@@ -58,7 +58,7 @@ export default async function BlogsPage({
 }>) {
   const showNewPostButton = await isOwner();
   const tags = (searchParams.tags?.split(",") ?? []).filter(
-    (tag) => tag.length
+    (tag) => tag.length,
   );
   const category = searchParams.category ?? undefined;
   const currentQuery = {
@@ -71,20 +71,20 @@ export default async function BlogsPage({
       <FixedSidebar>
         {showNewPostButton && (
           <LinkButton href="/blogs/create">
-            <div className="flex gap-4 justify-center items-center">
+            <div className="flex items-center justify-center gap-4">
               <FontAwesomeIcon className="w-4" icon={faPlus} />
               <span>新增文章</span>
             </div>
           </LinkButton>
         )}
-        <div className="dark:bg-mirage-900 rounded-2xl p-4 flex bg-mirage-200 flex-col gap-4">
-          <h2 className="text-center font-bold text-2xl">分類</h2>
+        <div className="flex flex-col gap-4 rounded-2xl bg-mirage-200 p-4 dark:bg-mirage-900">
+          <h2 className="text-center text-2xl font-bold">分類</h2>
           <div className="flex flex-col">
             <Categories />
           </div>
         </div>
-        <div className="dark:bg-mirage-900 rounded-2xl p-4 bg-mirage-200 flex flex-col gap-4">
-          <h2 className="text-center font-bold text-2xl">標籤</h2>
+        <div className="flex flex-col gap-4 rounded-2xl bg-mirage-200 p-4 dark:bg-mirage-900">
+          <h2 className="text-center text-2xl font-bold">標籤</h2>
           <div className="flex flex-row flex-wrap gap-2">
             <Tags currentTags={tags} />
           </div>
@@ -92,7 +92,7 @@ export default async function BlogsPage({
       </FixedSidebar>
       <Container className="w-auto">
         <div className="flex gap-3 md:hidden">
-          <div className="flex gap-4 items-center overflow-x-scroll">
+          <div className="flex items-center gap-4 overflow-x-scroll">
             <Categories mobileMode={true} />
           </div>
         </div>
@@ -101,7 +101,7 @@ export default async function BlogsPage({
       <FloatingActionSection>
         <LinkButton href="/blogs/create" className="rounded-full">
           <div className="p-2">
-            <FontAwesomeIcon className="w-5 h-5 shadow-lg" icon={faPlus} />
+            <FontAwesomeIcon className="h-5 w-5 shadow-lg" icon={faPlus} />
           </div>
         </LinkButton>
       </FloatingActionSection>

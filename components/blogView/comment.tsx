@@ -21,7 +21,7 @@ export default function BlogComment({
 }>) {
   return (
     <div
-      className={`dark:bg-mirage-900 bg-mirage-200 rounded-xl p-6 flex flex-col gap-4 ${
+      className={`flex flex-col gap-4 rounded-xl bg-mirage-200 p-6 dark:bg-mirage-900 ${
         sending && "opacity-50"
       }`}
     >
@@ -36,16 +36,15 @@ export default function BlogComment({
               alt="avatar"
             />
             <p className="text-xl">{userName}</p>
-            <p className="dark:text-secondary text-secondary-light text-sm">
+            <p className="text-sm text-secondary-light dark:text-secondary">
               {formatDate(date)}
             </p>
           </div>
           <div>{children}</div>
         </div>
-        {sending && <FontAwesomeIcon
-            className="animate-spin size-6"
-            icon={faSpinner}
-          />}
+        {sending && (
+          <FontAwesomeIcon className="size-6 animate-spin" icon={faSpinner} />
+        )}
       </div>
     </div>
   );

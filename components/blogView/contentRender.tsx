@@ -5,8 +5,10 @@ import TagItem from "../global/tagItem";
 
 export default function ContentRender({ post }: Readonly<{ post: Post }>) {
   return (
-    <div className="dark:bg-mirage-900 bg-mirage-200 p-6 md:p-8 rounded-xl overflow-hidden">
-      <h1 className="text-5xl font-bold line-clamp-1 overflow-ellipsis">{post.title}</h1>
+    <div className="overflow-hidden rounded-xl bg-mirage-200 p-6 md:p-8 dark:bg-mirage-900">
+      <h1 className="line-clamp-1 overflow-ellipsis text-5xl font-bold">
+        {post.title}
+      </h1>
       <div className="flex flex-row items-end justify-between py-4">
         <div className="flex gap-2">
           {post.tags.map((tag: string) => (
@@ -14,12 +16,12 @@ export default function ContentRender({ post }: Readonly<{ post: Post }>) {
           ))}
         </div>
         {post && (
-          <p className="dark:text-secondary text-secondary-light text-sm text-nowrap">
+          <p className="text-nowrap text-sm text-secondary-light dark:text-secondary">
             {formatDate(new Date(post.date))}
           </p>
         )}
       </div>
-      <hr className="text-secondary-dark py-3" />
+      <hr className="py-3 text-secondary-dark" />
       <main className="prose dark:prose-invert">
         <MarkdownRender content={post.content} />
       </main>

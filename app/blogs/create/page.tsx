@@ -37,7 +37,7 @@ export default function CreatePage() {
         return (
           <div className="flex flex-col gap-5">
             <p className="text-xl">文章發布成功！</p>
-            <div className="flex gap-3 text-md justify-center">
+            <div className="text-md flex justify-center gap-3">
               <Button onClick={() => router.push(postUrl)}>查看文章</Button>
               <Button
                 onClick={() => {
@@ -52,8 +52,8 @@ export default function CreatePage() {
         );
       case "error":
         return (
-          <div className="flex gap-5 flex-col text-md justify-center">
-            <p className="text-md text-xl text-red-500">{errorMessages}</p>
+          <div className="text-md flex flex-col justify-center gap-5">
+            <p className="text-md text-red-500 text-xl">{errorMessages}</p>
             <Button
               onClick={() => {
                 setIsDialogOpen(false);

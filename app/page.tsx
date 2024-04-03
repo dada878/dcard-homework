@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div>
       <HeroBanner />
-      <div className="text-start flex flex-col items-stretch gap-12 md:px-32 lg:px-48 mb-10">
+      <div className="mb-10 flex flex-col items-stretch gap-12 text-start md:px-32 lg:px-48">
         <AboutSection title="關於">
           <p>
             嗨，我是一個熱衷於網頁前端開發的高中生，我喜歡不斷學習和成長，並追求在技術領域中不斷超越自我！
@@ -22,7 +22,7 @@ export default function Home() {
           </ul>
         </AboutSection>
         <AboutSection title="作品集">
-          <div className="grid grid-col-1 md:grid-cols-2 gap-7">
+          <div className="grid-col-1 grid gap-7 md:grid-cols-2">
             {projects.map((project, i) => {
               return (
                 <ProjectCard

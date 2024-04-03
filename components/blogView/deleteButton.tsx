@@ -27,11 +27,11 @@ export default function DeleteButton({
           setIsDialogOpen(true);
         }}
       >
-        <div className="flex gap-4 justify-center items-center">
+        <div className="flex items-center justify-center gap-4">
           {isMobile ? (
             <div className="p-2">
               <FontAwesomeIcon
-                className="w-5 h-5 shadow-lg"
+                className="h-5 w-5 shadow-lg"
                 icon={faTrashCan}
               />
             </div>

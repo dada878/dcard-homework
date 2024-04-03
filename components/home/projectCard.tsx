@@ -12,8 +12,8 @@ export default function ProjectCard({
 }>) {
   return (
     <Link className="flex justify-center" href={link} target="_blank">
-      <div className="dark:bg-mirage-900 bg-mirage-200 rounded-lg flex flex-col gpa-2 cursor-pointer transition hover:scale-105 max-w-md">
-        <div className="w-full h-full relative flex justify-center">
+      <div className="gpa-2 flex max-w-md cursor-pointer flex-col rounded-lg bg-mirage-200 transition hover:scale-105 dark:bg-mirage-900">
+        <div className="relative flex h-full w-full justify-center">
           <Image
             alt="Mountains"
             src={image}
@@ -22,7 +22,7 @@ export default function ProjectCard({
             height={100}
           />
         </div>
-        <div className="rounded-b-lg bg-mirage-200 dark:bg-mirage-900 text-center p-2">
+        <div className="rounded-b-lg bg-mirage-200 p-2 text-center dark:bg-mirage-900">
           <p>{name}</p>
         </div>
       </div>

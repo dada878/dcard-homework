@@ -3,7 +3,7 @@
 import { fetchGithubAPI } from "@/utils/fetchGithubAPI";
 
 export async function getCategoryList() {
-  const data : Array<Label> = await fetchGithubAPI("/labels");
+  const data: Array<Label> = await fetchGithubAPI("/labels");
   const categories = data
     .map((label: Label) => label.name)
     .filter((name: string) => name.startsWith("category:"))

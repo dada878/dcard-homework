@@ -24,9 +24,9 @@ function TabButton({
       }}
       className={`${
         isPreview === isToggleToPreview
-          ? "dark:bg-mirage-900 bg-mirage-200"
-          : "dark:bg-mirage-800 bg-mirage-300 cursor-pointer"
-      } px-6 pt-3 pb-2 rounded-t-xl`}
+          ? "bg-mirage-200 dark:bg-mirage-900"
+          : "cursor-pointer bg-mirage-300 dark:bg-mirage-800"
+      } rounded-t-xl px-6 pb-2 pt-3`}
     >
       {isToggleToPreview ? "預覽" : "撰寫"}
     </button>
@@ -58,7 +58,7 @@ export default function CommentEditor({
 
   return (
     <div className="flex flex-col rounded-xl">
-      <div className="dark:bg-mirage-800 bg-mirage-300 flex justify-start w-full rounded-t-xl">
+      <div className="flex w-full justify-start rounded-t-xl bg-mirage-300 dark:bg-mirage-800">
         <TabButton
           isPreview={isPreview}
           setIsPreview={setIsPreview}
@@ -71,7 +71,7 @@ export default function CommentEditor({
         />
       </div>
       <form
-        className="dark:bg-mirage-900 bg-mirage-200 w-full p-4 rounded-b-xl flex gap-4 flex-col"
+        className="flex w-full flex-col gap-4 rounded-b-xl bg-mirage-200 p-4 dark:bg-mirage-900"
         action={async (formData: FormData) => {
           startTransition(() => {
             setContent("");

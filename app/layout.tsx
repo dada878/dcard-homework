@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${inter.className} bg-mirage-100 text-black dark:text-white dark:bg-mirage-1000 transition`}
+        className={`${inter.className} bg-mirage-100 text-black transition dark:bg-mirage-1000 dark:text-white`}
       >
         <Navbar />
         <div className="z-30">

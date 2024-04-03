@@ -40,8 +40,8 @@ export default function MarkdownRender({
   return (
     <Markdown
       className={twMerge(
-        `prose dark:prose-invert overflow-y-hidden`,
-        className
+        `prose overflow-y-hidden dark:prose-invert`,
+        className,
       )}
       remarkPlugins={[remarkMath, remarkGfm]}
       rehypePlugins={[[rehypeKatex, { strict: false }]]}

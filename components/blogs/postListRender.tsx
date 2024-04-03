@@ -53,7 +53,7 @@ export function PostListRender({ query }: Readonly<{ query?: PostQuery }>) {
         {!noMorePosts ? (
           <FontAwesomeIcon
             ref={ref}
-            className="animate-spin size-6"
+            className="size-6 animate-spin"
             icon={faSpinner}
           />
         ) : (

@@ -6,7 +6,7 @@ import Switch from "react-switch";
 import useLocalStorageState from "use-local-storage-state";
 
 export default function DarkModeToggle() {
-  const [theme, setTheme] = useLocalStorageState("theme",{
+  const [theme, setTheme] = useLocalStorageState("theme", {
     defaultValue: "dark",
   });
 
@@ -33,12 +33,12 @@ export default function DarkModeToggle() {
         boxShadow="0px 0px 0px 0px #000000"
         activeBoxShadow="0px 0px 0px 0px #000000"
         checkedHandleIcon={
-          <div className="flex justify-center items-center h-full text-white">
+          <div className="flex h-full items-center justify-center text-white">
             <FontAwesomeIcon icon={faSun} />
           </div>
         }
         uncheckedHandleIcon={
-          <div className="flex justify-center items-center h-full">
+          <div className="flex h-full items-center justify-center">
             <FontAwesomeIcon icon={faMoon} />
           </div>
         }

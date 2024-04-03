@@ -20,7 +20,7 @@ export default function BlogPageSidebar({
       {showActionButtons && (
         <>
           <LinkButton href={`/blogs/${postID}/edit`}>
-            <div className="flex gap-4 justify-center items-center">
+            <div className="flex items-center justify-center gap-4">
               <FontAwesomeIcon className="w-4" icon={faEdit} />
               <span>編輯文章</span>
             </div>

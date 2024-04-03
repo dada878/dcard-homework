@@ -15,8 +15,8 @@ const SignInPage = (props: Props) => {
     });
   });
   return (
-    <div className="flex justify-center items-center h-screen-inner">
-      <div className="bg-mirage-800 p-8 rounded-lg flex justify-center flex-col gap-4">
+    <div className="flex h-screen-inner items-center justify-center">
+      <div className="flex flex-col justify-center gap-4 rounded-lg bg-mirage-800 p-8">
         Logging in...
       </div>
     </div>

@@ -17,9 +17,9 @@ export default function TagItem({
     <button
       onClick={onClick}
       className={twMerge(
-        `dark:bg-mirage-700 line-clamp-1 text-nowrap bg-mirage-400 py-1 px-2 text-secondary-light dark:text-secondary rounded-md cursor-pointer transition text-center`,
+        `line-clamp-1 cursor-pointer text-nowrap rounded-md bg-mirage-400 px-2 py-1 text-center text-secondary-light transition dark:bg-mirage-700 dark:text-secondary`,
         className,
-        selected && "outline outline-1 outline-mirage-500"
+        selected && "outline outline-1 outline-mirage-500",
       )}
     >
       {children}

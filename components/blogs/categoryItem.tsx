@@ -15,11 +15,11 @@ export default function CategoryItem({
 }>) {
   const { setCategory } = useQueryFilter();
   const newUrl = setCategory(name);
-  
+
   return (
     <Link href={newUrl}>
       <TagItem
-        className="cursor-pointer w-full hover:bg-mirage-500 dark:hover:bg-mirage-600 hover:text-black dark:hover:text-primary"
+        className="w-full cursor-pointer hover:bg-mirage-500 hover:text-black dark:hover:bg-mirage-600 dark:hover:text-primary"
         selected={selected}
       >
         {name}

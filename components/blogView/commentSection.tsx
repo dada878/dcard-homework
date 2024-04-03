@@ -23,7 +23,7 @@ export default function CommentSection({
     comments,
     (state, newComment: CommentData) => {
       return [...state, newComment];
-    }
+    },
   );
 
   const submitHandler = async (formData: FormData) => {

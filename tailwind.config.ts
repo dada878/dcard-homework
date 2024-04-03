@@ -18,12 +18,12 @@ const config: Config = {
         "screen-inner": "calc(100vh - 5rem)",
       },
       colors: {
-        "green": "#316A4F",
+        green: "#316A4F",
         "green-hover": "#467c64",
-        "red": "#5C2F2F",
+        red: "#5C2F2F",
         "red-hover": "#703d3d",
-        "gray": "#6C7693",
-        "mirage": {
+        gray: "#6C7693",
+        mirage: {
           "100": "#b6dcf9",
           "200": "#87C6FF",
           "300": "#72bbff",
@@ -37,23 +37,21 @@ const config: Config = {
         },
       },
       textColor: {
-        "primary": "#ffffff",
-        "secondary": "#BBBBBB",
+        primary: "#ffffff",
+        secondary: "#BBBBBB",
         "secondary-light": "#585858",
         "secondary-dark": "#6C7693",
-        "hover": "#3f3cbb",
+        hover: "#3f3cbb",
       },
     },
     borderColor: {
-      "primary": "#ffffff",
-      "secondary": "#BBBBBB",
-      "transparent": "transparent",
+      primary: "#ffffff",
+      secondary: "#BBBBBB",
+      transparent: "transparent",
       "secondary-light": "#585858",
-      "black": "#000000",
+      black: "#000000",
     },
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-  ],
+  plugins: [require("@tailwindcss/typography")],
 };
 export default config;

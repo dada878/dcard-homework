@@ -22,9 +22,9 @@ export default function MenuItem({
       onClick={() => scrollToElement(id)}
       className={`border-l-4 text-left ${
         active
-          ? "dark:border-primary border-black font-bold text-black dark:text-primary"
-          : "border-transparent dark:text-secondary text-secondary-light"
-      } dark:hover:border-primary hover:border-black transition-all pl-3 cursor-pointer hover:text-black dark:hover:text-primary hover:font-bold line-clamp-1`}
+          ? "border-black font-bold text-black dark:border-primary dark:text-primary"
+          : "border-transparent text-secondary-light dark:text-secondary"
+      } line-clamp-1 cursor-pointer pl-3 transition-all hover:border-black hover:font-bold hover:text-black dark:hover:border-primary dark:hover:text-primary`}
     >
       {children}
     </button>

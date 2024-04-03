@@ -1,14 +1,20 @@
 # Dcard Frontend Intern Homework
+
 [![CodeFactor](https://www.codefactor.io/repository/github/dada878/dcard-homework/badge)](https://www.codefactor.io/repository/github/dada878/dcard-homework)
 ![GitHub deployments](https://img.shields.io/github/deployments/dada878/dcard-homework/production?logo=vercel&label=vercel)
 ![GitHub](https://img.shields.io/github/license/dada878/dcard-homework)
 ![GitHub repo size](https://img.shields.io/github/repo-size/dada878/dcard-homework)
+
 ## Introduction
+
 Dada's Blog (Dcard Frontend Intern Homework) is a simple blog website that allows visitors to view posts, and owner to create, edit, and delete posts. All the posts are stored in a GitHub repository issues.
 
 ## Demo
+
 [Check it out](https://dcard-homework-tawny.vercel.app)
+
 ## Screenshots
+
 <table>
     <tr>
         <td>
@@ -41,41 +47,47 @@ Dada's Blog (Dcard Frontend Intern Homework) is a simple blog website that allow
 </table>
 
 ## Tech Stack
+
 - Tailwind CSS
 - React.js
 - Next.js
 - Typescript
 
 ## Design
+
 The design draft for this project can be found here: [Figma Draft Link](https://www.figma.com/file/LjOuX1wvS3NSzdnz3Gz0xH/Dcard-Homework?type=design&node-id=0%3A1&mode=design&t=0cq2g0vX29vO9zL7-1)
 
 <img width="920" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/f4a08c93-ce4e-429f-9fa9-e4184edf1ce4">
 
 ## Project Structure
+
 ### Home Page
+
 This page shown something about the blog me.
 
 <img width="1233" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/b699f783-d2ad-46e8-8d41-f95a839c30f7">
 
 - **\<Navbar/\>**
-    - Displays links to navigate to other pages
-    - It will be shown on every page
+
+  - Displays links to navigate to other pages
+  - It will be shown on every page
 
 - **\<DarkModeToggle/\>**
-    - Toggle dark mode
-    - Dark mode preference `saved in local storage`
+  - Toggle dark mode
+  - Dark mode preference `saved in local storage`
 
 <img width="1225" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/4113a2b0-4247-4315-a00d-be19596a79ec">
 
 - **\<AboutSection/\>**
-    - Show some information about me
-    - Cool animation when scrolling to this section
- 
-    ![Screen Recording Apr](https://github.com/dada878/dcard-homework/assets/37009584/af1998e2-7652-4620-b469-05ec0c9a336e)
+
+  - Show some information about me
+  - Cool animation when scrolling to this section
+
+  ![Screen Recording Apr](https://github.com/dada878/dcard-homework/assets/37009584/af1998e2-7652-4620-b469-05ec0c9a336e)
 
 - **\<ProjectCard/\>**
-    - Displays information about my side projects
-    - Project data stored in a JSON file `content/projects.json`
+  - Displays information about my side projects
+  - Project data stored in a JSON file `content/projects.json`
 
 ### Blog List Page
 
@@ -84,20 +96,21 @@ Show the list of posts with categories and tags.
 <img width="1058" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/7d5ca002-16b9-47a1-b9ba-24b1541aeadc">
 
 - **\<CategoryItem/\>**
-    - Component displaying a category name
-    - Clickable to filter posts by category
-    - Filter displayed in the URL
-    - Uses a **custom hook** `useQueryFilter` to handle query and URL updates easily
+  - Component displaying a category name
+  - Clickable to filter posts by category
+  - Filter displayed in the URL
+  - Uses a **custom hook** `useQueryFilter` to handle query and URL updates easily
 - **\<TogglableTagItem\>**
-    - Component displaying a tag name
-    - Clickable to toggle selected tags to filter posts
-    - Filter displayed in the URL
-    - Uses a **custom hook** `useQueryFilter` to handle query and URL updates easily
+  - Component displaying a tag name
+  - Clickable to toggle selected tags to filter posts
+  - Filter displayed in the URL
+  - Uses a **custom hook** `useQueryFilter` to handle query and URL updates easily
 - **\<PostListRender\>**
-    - Component to render the post list
-    - Implements **infinite scroll** feature to load more posts when scrolling to the bottom
 
-    ![Screen Recording Apr (1)](https://github.com/dada878/dcard-homework/assets/37009584/57b70e88-7321-4e2e-9812-5b8c6a966457)
+  - Component to render the post list
+  - Implements **infinite scroll** feature to load more posts when scrolling to the bottom
+
+  ![Screen Recording Apr (1)](https://github.com/dada878/dcard-homework/assets/37009584/57b70e88-7321-4e2e-9812-5b8c6a966457)
 
 ### Blog View page
 
@@ -106,29 +119,30 @@ Displays the post content and comments.
 <img width="1053" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/eb84bf03-caca-44eb-9637-1aa4396902bd">
 
 - **\<DeleteButton/\>**
-    - Button to delete the post
-    - Visible only to the post owner
-    - Shows a confirmation dialog when clicked
+  - Button to delete the post
+  - Visible only to the post owner
+  - Shows a confirmation dialog when clicked
 - **\<TableOfContent/\>**
-    - Component to show the table of contents
-    - Automatically generates based on the post content
+  - Component to show the table of contents
+  - Automatically generates based on the post content
 - **\<MenuItem/\>**
-    - Component to show the menu item
-    - Clickable to smooth scroll to the content
-    - Highlighted when scrolling to the content
+  - Component to show the menu item
+  - Clickable to smooth scroll to the content
+  - Highlighted when scrolling to the content
 
 <img width="1009" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/4a3ca811-2b29-42c4-a323-a04e39aaeafe">
 
 - **\<CommentSection/\>**
-    - Section to show comments
-    - Users can add comments when logged in
-    - You can add a comment when you are logged in
-    - Uses **optimistic updates** to show comments immediately
-  
+
+  - Section to show comments
+  - Users can add comments when logged in
+  - You can add a comment when you are logged in
+  - Uses **optimistic updates** to show comments immediately
+
   ![Screen Recording Apr (2)](https://github.com/dada878/dcard-homework/assets/37009584/c90dd0d1-06f6-476a-a9bb-76f6a1fa6e31)
 
 - **\<TabButton/\>**
-    - Button to switch between writing a comment and previewing the comment content
+  - Button to switch between writing a comment and previewing the comment content
 
 This page also features a link preview when sharing links on social media (other pages also have this feature).
 
@@ -141,10 +155,11 @@ A page to create or edit a post with markdown content.
 <img width="983" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/f5c354d4-933f-43a2-95fb-0d61eaa52aa8">
 
 - **\<MarkdownRender/\>**
-    - Component to render markdown content using `react-markdown`
-    - Uses **debounce** to render markdown content while the user types, improving performance
-  
-    ![Screen Recording Apr (3)](https://github.com/dada878/dcard-homework/assets/37009584/d851d16f-3800-4b6b-9e18-9db01e0948ad)
+
+  - Component to render markdown content using `react-markdown`
+  - Uses **debounce** to render markdown content while the user types, improving performance
+
+  ![Screen Recording Apr (3)](https://github.com/dada878/dcard-homework/assets/37009584/d851d16f-3800-4b6b-9e18-9db01e0948ad)
 
 The mobile UI/UX design of this page is particularly noteworthy.
 
@@ -202,6 +217,7 @@ FIREBASE_APP_ID=1:822235578246:web:0ca9f1ccfe88f16ad77607
 ```
 
 In the .env.local file:
+
 ```dotenv
 # Github OAuth service setup
 GITHUB_APP_CLIENT_ID=XXXXXXXXXXXXXXXXXXXXXXXXX
@@ -225,6 +241,7 @@ FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nxxx"
 ```
 
 ### Step 4. Run
+
 ```bash
 npm install
 npm run dev

@@ -33,19 +33,19 @@ export default function Navbar() {
   return (
     <nav
       ref={navbarRef}
-      className="z-20 p-1 dark:bg-white/10 bg-slate-600/10 py-4 md:py-2 fixed backdrop-blur-md left-0 right-0 top-0 border-b border-b-secondary-light/20 dark:border-b-[#ffffff3b]"
+      className="fixed left-0 right-0 top-0 z-20 border-b border-b-secondary-light/20 bg-slate-600/10 p-1 py-4 backdrop-blur-md md:py-2 dark:border-b-[#ffffff3b] dark:bg-white/10"
     >
       {/* Desktop navbar */}
-      <div className="mx-auto flex md:justify-between items-center md:pl-5 md:pr-4 pr-2">
-        <div className="gap-8 hidden md:flex">
+      <div className="mx-auto flex items-center pr-2 md:justify-between md:pl-5 md:pr-4">
+        <div className="hidden gap-8 md:flex">
           <NavbarItem name="首頁" url="/" />
           <NavbarItem name="文章" url="/blogs" />
           <NavbarItem name={user} url="/api/auth/signin" />
         </div>
-        <div className="flex gap-0 justify-between px-4 md:px-0 md:justify-around items-center flex-1 md:flex-grow-0 md:gap-4 flex-row-reverse md:flex-row">
+        <div className="flex flex-1 flex-row-reverse items-center justify-between gap-0 px-4 md:flex-grow-0 md:flex-row md:justify-around md:gap-4 md:px-0">
           <FontAwesomeIcon
             icon={faBars}
-            className={`text-2xl opacity-70 cursor-pointer transition md:!hidden ${
+            className={`cursor-pointer text-2xl opacity-70 transition md:!hidden ${
               isMenuOpen ? "rotate-90" : ""
             }`}
             onClick={() => {
@@ -57,7 +57,7 @@ export default function Navbar() {
       </div>
       {/* Mobile navbar */}
       <div
-        className={`flex flex-col gap-3 transition-all duration-200 items-center md:hidden overflow-hidden ${
+        className={`flex flex-col items-center gap-3 overflow-hidden transition-all duration-200 md:hidden ${
           isMenuOpen ? "max-h-40" : "max-h-0"
         }`}
       >

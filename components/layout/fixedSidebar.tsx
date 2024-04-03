@@ -8,7 +8,10 @@ export default function FixedSidebar({
 }: Readonly<{ children: ReactNode; className?: string }>) {
   return (
     <aside
-      className={twMerge(`hidden md:flex flex-col gap-5 w-60 fixed m-10`, className)}
+      className={twMerge(
+        `fixed m-10 hidden w-60 flex-col gap-5 md:flex`,
+        className,
+      )}
     >
       {children}
     </aside>

@@ -21,6 +21,6 @@ export default function useQueryFilter() {
       }
       searchParams.set("tags", tags.join(","));
       return `blogs?${searchParams.toString()}`;
-    }
+    },
   };
 }

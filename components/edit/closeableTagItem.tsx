@@ -12,7 +12,7 @@ export default function CloseableTagItem({
 }>) {
   return (
     <TagItem onClick={onClick}>
-      <div className="flex justify-center items-center gap-2">
+      <div className="flex items-center justify-center gap-2">
         <p>{name}</p>
         <FontAwesomeIcon icon={faXmark} />
       </div>

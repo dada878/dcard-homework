@@ -29,7 +29,7 @@ export async function createPost(post: Post) {
   const createdPost = await fetchGithubAPI(
     "/issues",
     postToIssue(post),
-    "POST"
+    "POST",
   );
   return createdPost.number;
 }
@@ -43,7 +43,7 @@ export async function updatePost(id: string, post: Post) {
   const result = await fetchGithubAPI(
     `/issues/${id}`,
     postToIssue(post),
-    "PATCH"
+    "PATCH",
   );
   return result.number;
 }
@@ -58,7 +58,7 @@ export async function deletePost(id: string) {
     {
       state: "closed",
     },
-    "PATCH"
+    "PATCH",
   );
   return result.number;
 }
@@ -83,7 +83,7 @@ export async function createComment(id: string, comment: string) {
     {
       body: comment,
     },
-    "POST"
+    "POST",
   );
   return result;
 }

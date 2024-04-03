@@ -1,8 +1,5 @@
 {
-  "extends": [
-    "next/core-web-vitals",
-    "plugin:import/errors"
-  ],
+  "extends": ["next/core-web-vitals", "plugin:import/errors"],
   "rules": {
     "semi": "warn",
     "import/order": [

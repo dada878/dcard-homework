@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 import { faPlus, faAnglesRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useDebounce } from 'use-debounce';
+import { useDebounce } from "use-debounce";
 
 import Textarea from "@/components/global/textarea";
 import useOutside from "@/hooks/useOutside";
@@ -52,7 +52,7 @@ export default function PostEditor({
     try {
       validatePost(post);
       callback(post);
-  } catch (error) {
+    } catch (error) {
       const message = error instanceof Error ? error.message : "發生未知的錯誤";
       setDialogMessage(message);
       setIsDialogOpen(true);
@@ -65,7 +65,7 @@ export default function PostEditor({
   const handelInputChange = (
     e:
       | React.ChangeEvent<HTMLInputElement>
-      | React.ChangeEvent<HTMLTextAreaElement>
+      | React.ChangeEvent<HTMLTextAreaElement>,
   ) => {
     setPost({ ...post, [e.target.name]: e.target.value });
   };
@@ -82,10 +82,10 @@ export default function PostEditor({
   };
 
   return (
-    <div className="md:p-10 p-4 flex gap-6 h-screen-inner">
+    <div className="flex h-screen-inner gap-6 p-4 md:p-10">
       {/* 編輯區塊 */}
       <div
-        className={`flex flex-col dark:bg-mirage-900 bg-mirage-200 rounded-xl p-5 transition md:p-6 gap-5 w-full ${
+        className={`flex w-full flex-col gap-5 rounded-xl bg-mirage-200 p-5 transition md:p-6 dark:bg-mirage-900 ${
           isPublishPanelOpen ? "opacity-20" : ""
         }`}
       >
@@ -110,19 +110,19 @@ export default function PostEditor({
             setIsPublishPanelOpen(true);
           }}
         >
-          <div className="flex gap-4 justify-center items-center">
+          <div className="flex items-center justify-center gap-4">
             <FontAwesomeIcon icon={faAnglesRight} />
             <span>下一步</span>
           </div>
         </Button>
       </div>
       {/* 預覽區塊 */}
-      <div className="dark:bg-mirage-900 overflow-y-scroll bg-mirage-200 rounded-xl p-6 w-full hidden md:block">
+      <div className="hidden w-full overflow-y-scroll rounded-xl bg-mirage-200 p-6 md:block dark:bg-mirage-900">
         <MarkdownRender content={debouncedContent} />
       </div>
       {/* 發布、標籤、類別設定區塊 */}
       <div
-        className={`dark:bg-mirage-900 bg-mirage-200 rounded-xl fixed bottom-0 md:flex-col left-0 right-0 md:relative md:opacity-100 opacity-0 p-6 flex-col-reverse gap-5 md:translate-y-0 min-w-64 transition-all md:flex ${
+        className={`fixed bottom-0 left-0 right-0 min-w-64 flex-col-reverse gap-5 rounded-xl bg-mirage-200 p-6 opacity-0 transition-all md:relative md:flex md:translate-y-0 md:flex-col md:opacity-100 dark:bg-mirage-900 ${
           isPublishPanelOpen
             ? "flex translate-y-0 opacity-100"
             : "translate-y-full"
@@ -130,12 +130,12 @@ export default function PostEditor({
         ref={publishPanelRef}
       >
         <Button onClick={handelCreateButtonClick}>
-          <div className="flex gap-4 justify-center items-center">
+          <div className="flex items-center justify-center gap-4">
             <FontAwesomeIcon icon={faPlus} />
             <span>{confirmButtonText}</span>
           </div>
         </Button>
-        <div className="flex flex-col gap-5 flex-1">
+        <div className="flex flex-1 flex-col gap-5">
           <p className="text-xl font-bold">標籤</p>
           <div className="flex flex-wrap gap-3 empty:hidden">
             {post.tags.map((tag) => (
@@ -160,7 +160,7 @@ export default function PostEditor({
               onEnterPress={() => handleAddTag()}
             />
             <Button onClick={() => handleAddTag()}>
-              <div className="flex gap-4 justify-center items-center">
+              <div className="flex items-center justify-center gap-4">
                 <FontAwesomeIcon icon={faPlus} />
               </div>
             </Button>
@@ -188,7 +188,7 @@ export default function PostEditor({
         setOpen={setIsDialogOpen}
         closeByClickOutside={true}
       >
-        <div className="flex flex-col items-center gap-4 justify-center">
+        <div className="flex flex-col items-center justify-center gap-4">
           <p className="text-xl">{dialogMessage}</p>
           <Button onClick={() => setIsDialogOpen(false)}>好啦==</Button>
         </div>

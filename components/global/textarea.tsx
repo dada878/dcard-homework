@@ -22,7 +22,7 @@ export default function Textarea({
       disabled={disabled}
       onChange={onChange}
       className={twMerge(
-        `resize-none dark:bg-mirage-700 bg-mirage-300 p-3 w-full rounded-lg outline-none placeholder:text-secondary-light dark:placeholder:text-white/40`,
+        `w-full resize-none rounded-lg bg-mirage-300 p-3 outline-none placeholder:text-secondary-light dark:bg-mirage-700 dark:placeholder:text-white/40`,
         className,
         disabled ? "cursor-not-allowed" : "cursor-text",
       )}

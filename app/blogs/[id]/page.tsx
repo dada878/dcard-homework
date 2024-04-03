@@ -13,7 +13,7 @@ export async function generateMetadata({
   params,
 }: Readonly<{ params: { id: string } }>) {
   const post = await getPost(params.id);
-  
+
   const defaultConfig = defaultSEO({
     title: post.title,
     description: post.description,

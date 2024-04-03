@@ -13,7 +13,7 @@ export default function Container({
     <main
       // NOTE: too complex
       className={twMerge(
-        `flex flex-col gap-5 ml-0 md:ml-64 lg:ml-80 p-6 md:p-10 max-w-screen lg:max-w-[min(calc(100vw_-_19rem),56rem)] md:max-w-[min(calc(100vw_-_16rem),56rem)] lg:w-4/6`,
+        `max-w-screen ml-0 flex flex-col gap-5 p-6 md:ml-64 md:max-w-[min(calc(100vw_-_16rem),56rem)] md:p-10 lg:ml-80 lg:w-4/6 lg:max-w-[min(calc(100vw_-_19rem),56rem)]`,
         className,
       )}
     >

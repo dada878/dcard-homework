@@ -23,7 +23,7 @@ export default function ConfirmDialog({
       closeByClickOutside={closeByClickOutside}
     >
       <h2 className="text-2xl">{title}</h2>
-      <div className="flex gap-4 justify-center">
+      <div className="flex justify-center gap-4">
         <Button
           onClick={() => {
             setOpen(false);

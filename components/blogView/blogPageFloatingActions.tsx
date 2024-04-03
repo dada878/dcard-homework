@@ -14,14 +14,16 @@ export default function BlogPageFloatingActions({
   showActionButtons: boolean;
   postID: string;
 }>) {
-  return showActionButtons && (
-    <FloatingActionSection>
-      <LinkButton href={`/blogs/${postID}/edit`} className="rounded-full">
-        <div className="p-2">
-          <FontAwesomeIcon className="w-5 h-5 shadow-lg" icon={faEdit} />
-        </div>
-      </LinkButton>
-      <DeleteButton id={postID} isMobile />
-    </FloatingActionSection>
+  return (
+    showActionButtons && (
+      <FloatingActionSection>
+        <LinkButton href={`/blogs/${postID}/edit`} className="rounded-full">
+          <div className="p-2">
+            <FontAwesomeIcon className="h-5 w-5 shadow-lg" icon={faEdit} />
+          </div>
+        </LinkButton>
+        <DeleteButton id={postID} isMobile />
+      </FloatingActionSection>
+    )
   );
 }

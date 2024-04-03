@@ -9,7 +9,9 @@ type Headings = {
   text: string;
 }[];
 
-export default function TableOfContent({ selector }: Readonly<{ selector: string }>) {
+export default function TableOfContent({
+  selector,
+}: Readonly<{ selector: string }>) {
   const [headings, setHeadings] = useState<Headings>([]);
   const [activeHeading, setActiveHeading] = useState<string>("heading-0");
   const { scrollY } = useScroll();
@@ -17,7 +19,7 @@ export default function TableOfContent({ selector }: Readonly<{ selector: string
   // get all headings and set their unique id
   useEffect(() => {
     const elements: Array<HTMLElement> = Array.from(
-      document.querySelectorAll(selector)
+      document.querySelectorAll(selector),
     );
     elements.forEach((elem, idx) => {
       elem.id = `heading-${idx}`;
@@ -28,8 +30,8 @@ export default function TableOfContent({ selector }: Readonly<{ selector: string
         elements.map((elem) => ({
           id: elem.id,
           text: elem.innerText,
-        }))
-      )
+        })),
+      ),
     );
   }, [selector]);
 
@@ -44,10 +46,10 @@ export default function TableOfContent({ selector }: Readonly<{ selector: string
       }
     }
   });
-  
+
   return (
-    <div className="dark:bg-mirage-900 bg-mirage-200 rounded-xl p-4">
-      <h3 className="font-bold text-2xl text-center mb-4">文章目錄</h3>
+    <div className="rounded-xl bg-mirage-200 p-4 dark:bg-mirage-900">
+      <h3 className="mb-4 text-center text-2xl font-bold">文章目錄</h3>
       <div className="flex flex-col gap-2">
         {headings.map((heading) => (
           <MenuItem
