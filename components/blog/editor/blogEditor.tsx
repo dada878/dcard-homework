@@ -9,6 +9,7 @@ import { useDebounce } from "use-debounce";
 import Textarea from "@/components/form/textarea";
 import Card from "@/components/utilities/card";
 import useOutside from "@/hooks/useOutside";
+import { cn } from "@/utils/cn";
 import validatePost from "@/utils/validatePost";
 
 import CloseableTagItem from "./closeableTagItem";
@@ -84,9 +85,9 @@ export default function PostEditor({
     <div className="flex h-screen-inner gap-6 p-4 md:p-10">
       {/* 編輯區塊 */}
       <Card
-        className={`flex w-full flex-col gap-5 transition ${
-          isPublishPanelOpen ? "opacity-20" : ""
-        }`}
+        className={cn(`flex w-full flex-col gap-5 md:p-6`, {
+          "opacity-20": isPublishPanelOpen,
+        })}
       >
         <Input
           value={post.title}
@@ -126,7 +127,7 @@ export default function PostEditor({
             ? "flex translate-y-0 opacity-100"
             : "translate-y-full"
         }`}
-        ref={publishPanelRef}
+        mRef={publishPanelRef}
       >
         <Button onClick={handelCreateButtonClick}>
           <div className="flex items-center justify-center gap-4">

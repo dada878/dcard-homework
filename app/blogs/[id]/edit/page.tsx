@@ -21,11 +21,10 @@ export default function EditPage({
   }, [params.id]);
 
   const createPostCallback = (post: Post) => {
-    updatePost(params.id, post)
-      .then(() => {
-        startTransition(() => router.push("/blogs"));
-        startTransition(() => router.refresh());
-      });
+    updatePost(params.id, post).then(() => {
+      startTransition(() => router.push("/blogs"));
+      startTransition(() => router.refresh());
+    });
   };
 
   return (
