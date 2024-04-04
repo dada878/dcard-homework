@@ -41,7 +41,7 @@ export default async function BlogPostPage({
     getPost(params.id),
     getPostComments(params.id),
     isOwner(),
-  ]).catch((error) => {
+  ]).catch(() => {
     notFound();
   });
 

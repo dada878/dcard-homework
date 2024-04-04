@@ -25,9 +25,6 @@ export default function EditPage({
       .then(() => {
         startTransition(() => router.push("/blogs"));
         startTransition(() => router.refresh());
-      })
-      .catch((e) => {
-        alert(e.message);
       });
   };
 
