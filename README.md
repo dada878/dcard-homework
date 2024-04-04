@@ -93,7 +93,7 @@ This page shown something about the blog me.
 
 Show the list of posts with categories and tags.
 
-<img width="1058" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/7d5ca002-16b9-47a1-b9ba-24b1541aeadc">
+<img width="1146" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/888fcc18-f7e7-4811-a614-5904ad4f7d93">
 
 - **\<CategoryItem/\>**
   - Component displaying a category name
@@ -117,6 +117,7 @@ Show the list of posts with categories and tags.
 Displays the post content and comments.
 
 <img width="1053" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/eb84bf03-caca-44eb-9637-1aa4396902bd">
+<img width="1208" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/39a4f730-ce01-4a4b-8bb2-1d5fdcde6998">
 
 - **\<DeletePostButton/\>**
   - Button to delete the post
