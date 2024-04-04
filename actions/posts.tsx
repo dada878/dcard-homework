@@ -14,7 +14,6 @@ export async function getPostList(page: string = "1", query?: PostQuery) {
   return posts;
 }
 
-// NOTE: here may can add a cache to reduce the request times
 export async function getPost(id: string) {
   const issue: Issue = await fetchGithubAPI(`/issues/${id}`);
   return issueToPost(issue);

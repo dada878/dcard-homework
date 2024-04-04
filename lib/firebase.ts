@@ -1,7 +1,5 @@
 import { initializeApp, getApps, getApp } from "firebase/app";
 
-// NOTE: maybe there is a better way configure firebase (like common config file instead of .env)
-
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_PUBLIC_API_KEY,
   authDomain: process.env.FIREBASE_AUTH_DOMAIN,

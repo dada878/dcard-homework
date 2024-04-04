@@ -9,7 +9,6 @@ export default function MenuItem({
   active?: boolean;
   id: string;
 }>) {
-  // NOTE: classes here maybe too complex
   function scrollToElement(id: string) {
     const element = document.getElementById(id);
     if (element) {

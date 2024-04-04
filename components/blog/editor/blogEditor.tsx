@@ -61,8 +61,6 @@ export default function PostEditor({
     }
   };
 
-  // NOTE: when only changing the description, the content will no need to be updated
-  // so may there is a better way to update this
   const handelInputChange = (
     e:
       | React.ChangeEvent<HTMLInputElement>

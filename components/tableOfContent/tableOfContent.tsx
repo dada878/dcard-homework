@@ -37,7 +37,6 @@ export default function TableOfContent({
     );
   }, [selector]);
 
-  // NOTE: maybe there is a better way to handle this
   useMotionValueEvent(scrollY, "change", () => {
     const scrollY = document.documentElement.scrollTop;
     for (const heading of headings.toReversed()) {

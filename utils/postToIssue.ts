@@ -1,7 +1,7 @@
 export function postToIssue(post: Post): Issue {
   return {
     title: post.title,
-    // NOTE: maybe there is a better way to update this
+    // avoid yaml parsing error
     body: `---\ndescription: ${post.description
       .replaceAll("\n", " ")
       .replaceAll(":", "：")}\n---\n${post.content}`,
