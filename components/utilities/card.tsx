@@ -7,12 +7,12 @@ function Card({
   enableHover = false,
   className = "",
   ref,
-}: {
+}: Readonly<{
   children: ReactNode;
   enableHover?: boolean;
   className?: string;
   ref?: React.RefObject<HTMLDivElement>;
-}) {
+}>) {
   return (
     <div
       className={cn(
