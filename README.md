@@ -78,7 +78,7 @@ This page shown something about the blog me.
 
 <img width="1225" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/4113a2b0-4247-4315-a00d-be19596a79ec">
 
-- **\<AboutSection/\>**
+- **\<AboutMe/\>**
 
   - Show some information about me
   - Cool animation when scrolling to this section
@@ -105,7 +105,7 @@ Show the list of posts with categories and tags.
   - Clickable to toggle selected tags to filter posts
   - Filter displayed in the URL
   - Uses a **custom hook** `useQueryFilter` to handle query and URL updates easily
-- **\<PostListRender\>**
+- **\<PostList\>**
 
   - Component to render the post list
   - Implements **infinite scroll** feature to load more posts when scrolling to the bottom
@@ -125,7 +125,7 @@ Displays the post content and comments.
 - **\<TableOfContent/\>**
   - Component to show the table of contents
   - Automatically generates based on the post content
-- **\<MenuItem/\>**
+- **\<TableOfContentItem/\>**
   - Component to show the menu item
   - Clickable to smooth scroll to the content
   - Highlighted when scrolling to the content
