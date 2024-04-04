@@ -6,14 +6,14 @@ interface CardProps {
   children: ReactNode;
   enableHover?: boolean;
   className?: string;
-  ref?: Ref<HTMLDivElement> | null;
+  mRef?: Ref<HTMLDivElement> | null;
 }
 
 export default function Card({
   children,
   enableHover = false,
   className,
-  ref,
+  mRef,
 }: CardProps) {
   return (
       <div
@@ -24,7 +24,7 @@ export default function Card({
             "hover:bg-mirage-300 dark:hover:bg-mirage-800": enableHover,
           },
         )}
-        ref={ref}
+        ref={mRef}
       >
         {children}
       </div>
