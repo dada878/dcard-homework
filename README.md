@@ -116,7 +116,6 @@ Show the list of posts with categories and tags.
 
 Displays the post content and comments.
 
-<img width="1053" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/eb84bf03-caca-44eb-9637-1aa4396902bd">
 <img width="1208" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/39a4f730-ce01-4a4b-8bb2-1d5fdcde6998">
 
 - **\<DeletePostButton/\>**
