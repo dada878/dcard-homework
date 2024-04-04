@@ -49,19 +49,21 @@ export default function TableOfContent({
   });
 
   return (
-    <Card>
-      <h3 className="mb-4 text-center text-2xl font-bold">文章目錄</h3>
-      <div className="flex flex-col gap-2">
-        {headings.map((heading) => (
-          <TableOfContentItem
-            key={heading.id}
-            id={heading.id}
-            active={activeHeading === heading.id}
-          >
-            {heading.text}
-          </TableOfContentItem>
-        ))}
-      </div>
-    </Card>
+    headings.length > 0 && (
+      <Card>
+        <h3 className="mb-4 text-center text-2xl font-bold">文章目錄</h3>
+        <div className="flex flex-col gap-2">
+          {headings.map((heading) => (
+            <TableOfContentItem
+              key={heading.id}
+              id={heading.id}
+              active={activeHeading === heading.id}
+            >
+              {heading.text}
+            </TableOfContentItem>
+          ))}
+        </div>
+      </Card>
+    )
   );
 }

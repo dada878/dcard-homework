@@ -9,14 +9,13 @@ interface CardProps {
   ref?: Ref<HTMLDivElement> | null;
 }
 
-export default function Card<T>({
+export default function Card({
   children,
   enableHover = false,
   className,
   ref,
 }: CardProps) {
   return (
-    <div>
       <div
         className={cn(
           "rounded-xl bg-mirage-200 p-4 transition dark:bg-mirage-900",
@@ -29,6 +28,5 @@ export default function Card<T>({
       >
         {children}
       </div>
-    </div>
   );
 }
