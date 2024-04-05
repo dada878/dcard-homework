@@ -9,6 +9,15 @@ const buttonThemes = {
     "dark:bg-mirage-800 bg-mirage-400 hover:bg-mirage-300 dark:hover:bg-mirage-700",
 };
 
+interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+  children: React.ReactNode;
+  onClick?: () => void;
+  type?: "button" | "submit" | "reset";
+  color?: "blue" | "red" | "green" | "dark-blue";
+  className?: string;
+  disabled?: boolean;
+}
+
 export default function Button({
   children,
   onClick,
@@ -16,14 +25,8 @@ export default function Button({
   color = "blue",
   className = "",
   disabled = false,
-}: Readonly<{
-  children: React.ReactNode;
-  onClick?: () => void;
-  type?: "button" | "submit" | "reset";
-  color?: "blue" | "red" | "green" | "dark-blue";
-  className?: string;
-  disabled?: boolean;
-}>) {
+  ...props
+}: Readonly<ButtonProps>) {
   return (
     <button
       type={type}
@@ -37,6 +40,7 @@ export default function Button({
           "cursor-not-allowed": disabled,
         },
       )}
+      {...props}
     >
       {children}
     </button>

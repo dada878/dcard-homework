@@ -114,7 +114,12 @@ export default async function BlogsPage({
       </Container>
 
       <FloatingActionSection>
-        <LinkButton href="/blogs/create" className="rounded-full">
+        <LinkButton
+          href="/blogs/create"
+          className="rounded-full"
+          linkAriaLabel="create post"
+          aria-label="create post"
+        >
           <div className="p-2">
             <FontAwesomeIcon className="h-5 w-5 shadow-lg" icon={faPlus} />
           </div>
