@@ -59,6 +59,73 @@ The design draft for this project can be found here: [Figma Draft Link](https://
 
 <img width="920" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/f4a08c93-ce4e-429f-9fa9-e4184edf1ce4">
 
+
+## Lighthouse Scores
+
+### Home Page
+
+<table>
+    <tr>
+        <td>
+            <a href="https://pagespeed.web.dev/analysis/https-dcard-homework-tawny-vercel-app/ckg9eelt5p?form_factor=desktop">desktop test result link</a>
+        </td>
+<td>
+            <a href="https://pagespeed.web.dev/analysis/https-dcard-homework-tawny-vercel-app/ckg9eelt5p?form_factor=mobile">mobile test result link</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <img width="1235" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/61dfb459-0885-497e-ab24-ef495171a18d">
+        </td>
+        <td>
+            <img width="1239" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/937bb4d8-a055-4d3c-8054-34505355c701">
+        </td>
+    </tr>
+</table>
+
+### Blog List Page
+
+<table>
+    <tr>
+        <td>
+            <a href="https://pagespeed.web.dev/analysis/https-dcard-homework-tawny-vercel-app-blogs/e1xav3mm1v?form_factor=desktop">desktop test result link</a>
+        </td>
+        <td>
+            <a href="https://pagespeed.web.dev/analysis/https-dcard-homework-tawny-vercel-app-blogs/e1xav3mm1v?form_factor=mobile">mobile test result link</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <img alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/d4cef68f-a0eb-4a01-a165-931762df50b9">
+        </td>
+        <td>
+            <img alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/b7aed9e1-9e9a-40ef-85e8-f630390c3363">
+        </td>
+    </tr>
+</table>
+
+
+### Blog View Page
+
+<table>
+    <tr>
+        <td>
+            <a href="https://pagespeed.web.dev/analysis/https-dcard-homework-tawny-vercel-app-blogs-1/15ztfvevz9?form_factor=desktop">desktop test result link</a>
+        </td>
+        <td>
+            <a href="https://pagespeed.web.dev/analysis/https-dcard-homework-tawny-vercel-app-blogs-1/15ztfvevz9?form_factor=mobile">mobile test result link</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <img alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/ec991246-d815-4276-a25d-b733ab85bb31">
+        </td>
+        <td>
+            <img alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/f249d872-7d47-41f7-97b4-6518ffa0d3e8">
+        </td>
+    </tr>
+</table>
+
 ## Project Structure
 
 ### Home Page
