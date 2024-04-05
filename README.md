@@ -11,7 +11,7 @@ Dada's Blog (Dcard Frontend Intern Homework) is a simple blog website that allow
 
 ## Demo
 
-[Check it out](https://dcard-homework-tawny.vercel.app)
+I deployed that on Vercel. [Check it out](https://dcard-homework-tawny.vercel.app)
 
 ## Screenshots
 
@@ -322,3 +322,6 @@ FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nxxx"
 npm install
 npm run dev
 ```
+
+# In Closing
+Thank you for taking the time to read :)))
