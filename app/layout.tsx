@@ -25,6 +25,7 @@ export default function RootLayout({
         className={`${inter.className} bg-mirage-100 text-black transition dark:bg-mirage-1000 dark:text-white`}
       >
         <Navbar />
+
         <div className="z-30">
           <NextTopLoader
             shadow={false}
@@ -33,6 +34,7 @@ export default function RootLayout({
             color="#0078be"
           />
         </div>
+        
         <div className="mt-14">{children}</div>
       </body>
     </html>

@@ -51,10 +51,12 @@ export default async function BlogPostPage({
         showActionButtons={showActionButtons}
         postID={params.id}
       />
+
       <Container className="w-full">
         {post && <BlogContent post={post} />}
         <CommentSection comments={comments} postId={params.id} />
       </Container>
+      
       <BlogPageFloatingActions
         showActionButtons={showActionButtons}
         postID={params.id}

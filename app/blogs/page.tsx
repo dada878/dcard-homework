@@ -103,6 +103,7 @@ export default async function BlogsPage({
           </div>
         </Card>
       </FixedSidebar>
+
       <Container className="w-auto">
         <div className="flex gap-3 md:hidden">
           <div className="flex items-center gap-4 overflow-x-scroll">
@@ -111,6 +112,7 @@ export default async function BlogsPage({
         </div>
         <PostListClient query={currentQuery} />
       </Container>
+      
       <FloatingActionSection>
         <LinkButton href="/blogs/create" className="rounded-full">
           <div className="p-2">

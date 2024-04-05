@@ -9,11 +9,13 @@ type Props = {
 };
 
 const SignInPage = (props: Props) => {
+  // auto login when user view this page
   useEffect(() => {
     signIn("github", {
       callbackUrl: props.searchParams?.callbackUrl,
     });
   });
+
   return (
     <div className="flex h-screen-inner items-center justify-center">
       <div className="flex flex-col justify-center gap-4 rounded-lg bg-mirage-800 p-8">
