@@ -12,7 +12,7 @@ const SignInPage = (props: Props) => {
   // auto login when user view this page
   useEffect(() => {
     signIn("github", {
-      callbackUrl: props.searchParams?.callbackUrl,
+      callbackUrl: "/",
     });
   });
 
