@@ -175,6 +175,14 @@ Firstly, you need to create a Firebase project following this link: [Firebase Co
 
 ![image](https://github.com/dada878/dcard-homework/assets/37009584/2502b5b5-64eb-47eb-b3a3-ff87e8d1e267)
 
+Click this button.
+
+<img width="843" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/8c30642b-b3f1-42b2-8bfe-cb47c579e241">
+
+Copy the information displayed (we will use it in the last step).
+
+<img width="706" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/755d7666-8981-49c8-8268-67fb2f4d9252">
+
 Then, you need to go to Firestore page (you can find it in the left sidebar) and create a database by clicking the "Create database" button.
 
 ![image](https://github.com/dada878/dcard-homework/assets/37009584/94fd33f9-622c-4ed2-82c6-2605bb5f9b74)
