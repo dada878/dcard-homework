@@ -49,11 +49,11 @@ export default function TableOfContent({
   });
 
   return (
-    headings.length > 0 && (
-      <Card>
-        <h3 className="mb-4 text-center text-2xl font-bold">文章目錄</h3>
-        <div className="flex flex-col gap-2">
-          {headings.map((heading) => (
+    <Card>
+      <h3 className="mb-4 text-center text-2xl font-bold">文章目錄</h3>
+      <div className="flex flex-col gap-2">
+        {headings.length > 0 ? (
+          headings.map((heading) => (
             <TableOfContentItem
               key={heading.id}
               id={heading.id}
@@ -61,9 +61,11 @@ export default function TableOfContent({
             >
               {heading.text}
             </TableOfContentItem>
-          ))}
-        </div>
-      </Card>
-    )
+          ))
+        ) : (
+          <p className="text-center opacity-50">(這篇文章沒有任何標題)</p>
+        )}
+      </div>
+    </Card>
   );
 }
