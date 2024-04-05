@@ -116,7 +116,7 @@ export default function PostEditor({
 
       {/* publish, tags, categories section */}
       <Card
-        className={`fixed bottom-0 left-0 right-0 min-w-64 flex-col-reverse gap-5 rounded-xl bg-mirage-200 p-6 opacity-0 transition-all md:relative md:flex md:translate-y-0 md:flex-col md:opacity-100 dark:bg-mirage-900 ${
+        className={`fixed bottom-0 left-0 right-0 min-w-64 flex-col-reverse gap-5 rounded-xl bg-mirage-200 p-6 opacity-0 transition-all dark:bg-mirage-900 md:relative md:flex md:translate-y-0 md:flex-col md:opacity-100 ${
           isPublishPanelOpen
             ? "flex translate-y-0 opacity-100"
             : "translate-y-full"

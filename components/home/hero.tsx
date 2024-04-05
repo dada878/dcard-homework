@@ -4,7 +4,7 @@ export default function Hero() {
       <h1 className="blur-in z-10 mb-5 text-5xl font-black md:text-7xl">
         Dada&apos;s Blog
       </h1>
-      <p className="text-md blur-in z-10 text-secondary-light md:text-xl dark:text-secondary">
+      <p className="text-md blur-in z-10 text-secondary-light dark:text-secondary md:text-xl">
         我會在這裡分享各種技術文章及生活中的的事物
       </p>
       {/* glow effect */}

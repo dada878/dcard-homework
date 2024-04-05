@@ -112,7 +112,7 @@ export default async function BlogsPage({
         </div>
         <PostListClient query={currentQuery} />
       </Container>
-      
+
       <FloatingActionSection>
         <LinkButton href="/blogs/create" className="rounded-full">
           <div className="p-2">

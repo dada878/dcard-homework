@@ -33,7 +33,7 @@ export default function Navbar() {
   return (
     <nav
       ref={navbarRef}
-      className="fixed left-0 right-0 top-0 z-20 border-b border-b-secondary-light/20 bg-slate-600/10 p-1 py-4 backdrop-blur-md md:py-2 dark:border-b-[#ffffff3b] dark:bg-white/10"
+      className="fixed left-0 right-0 top-0 z-20 border-b border-b-secondary-light/20 bg-slate-600/10 p-1 py-4 backdrop-blur-md dark:border-b-[#ffffff3b] dark:bg-white/10 md:py-2"
     >
       {/* Desktop navbar */}
       <div className="mx-auto flex items-center pr-2 md:justify-between md:pl-5 md:pr-4">

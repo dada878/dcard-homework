@@ -56,7 +56,7 @@ export default async function BlogPostPage({
         {post && <BlogContent post={post} />}
         <CommentSection comments={comments} postId={params.id} />
       </Container>
-      
+
       <BlogPageFloatingActions
         showActionButtons={showActionButtons}
         postID={params.id}

@@ -1,50 +1,37 @@
-import { useEffect } from "react";
+"use client";
 
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Switch from "react-switch";
-import useLocalStorageState from "use-local-storage-state";
+import { useTheme } from "next-themes";
+
+import { cn } from "@/utils/cn";
 
 export default function DarkModeToggle() {
-  const [theme, setTheme] = useLocalStorageState("theme", {
-    defaultValue: "dark",
-  });
-
-  useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [theme]);
+  const { theme, setTheme } = useTheme();
 
   return (
     <div className="hidden md:block">
-      <Switch
-        className="scale-125"
-        onChange={(checked) => {
-          setTheme(checked ? "light" : "dark");
+      <div
+        className="relative h-10 w-20 rounded-full bg-[#f4ce8c74] dark:bg-[#51586d5f]"
+        onClick={() => {
+          setTheme(theme === "light" ? "dark" : "light");
         }}
-        checked={theme === "light"}
-        offColor="#51586d"
-        onColor="#f4cd8c"
-        onHandleColor="#eea950"
-        offHandleColor="#6c7693"
-        boxShadow="0px 0px 0px 0px #000000"
-        activeBoxShadow="0px 0px 0px 0px #000000"
-        checkedHandleIcon={
-          <div className="flex h-full items-center justify-center text-white">
-            <FontAwesomeIcon icon={faSun} />
-          </div>
-        }
-        uncheckedHandleIcon={
-          <div className="flex h-full items-center justify-center">
-            <FontAwesomeIcon icon={faMoon} />
-          </div>
-        }
-        checkedIcon={<div></div>}
-        uncheckedIcon={<div></div>}
-      />
+      >
+        <span
+          className={cn(
+            "absolute bottom-1/2 left-0 size-10 translate-y-1/2 rounded-full bg-[#f4cd8c] transition-all dark:left-10 dark:bg-[#51586d]",
+          )}
+        >
+          <FontAwesomeIcon
+            icon={faSun}
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[#eea950] dark:hidden "
+          />
+          <FontAwesomeIcon
+            icon={faMoon}
+            className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 dark:block"
+          />
+        </span>
+      </div>
     </div>
   );
 }
