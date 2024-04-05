@@ -5,43 +5,43 @@ import { useRouter } from "next/navigation";
 import { getLoginUser } from "@/actions/auth";
 import Textarea from "@/components/form/textarea";
 import Button from "@/components/utilities/button";
+import { cn } from "@/utils/cn";
 
-import Card from "../utilities/card";
 import MarkdownRender from "../utilities/markdownRender";
 
 function TabButton({
-  isPreview,
-  setIsPreview,
-  isToggleToPreview,
+  currentTab,
+  setCurrentTab,
+  tabId,
+  tabName,
 }: Readonly<{
-  isPreview: boolean;
-  setIsPreview: (isPreview: boolean) => void;
-  isToggleToPreview: boolean;
+  currentTab: string;
+  setCurrentTab: (tabId: string) => void;
+  tabId: string;
+  tabName: string;
 }>) {
   return (
     <button
       onClick={() => {
-        setIsPreview(isToggleToPreview);
+        setCurrentTab(tabId);
       }}
       className={`${
-        isPreview === isToggleToPreview
+        currentTab === tabId
           ? "bg-mirage-200 dark:bg-mirage-900"
           : "cursor-pointer bg-mirage-300 dark:bg-mirage-800"
       } rounded-t-xl px-6 pb-2 pt-3`}
     >
-      {isToggleToPreview ? "預覽" : "撰寫"}
+      {tabName}
     </button>
   );
 }
 
 export default function CommentEditor({
-  postId,
   callback,
 }: Readonly<{
-  postId: string;
   callback: (formData: FormData) => Promise<void>;
 }>) {
-  const [isPreview, setIsPreview] = useState(false);
+  const [currentTab, setCurrentTab] = useState("edit");
   const [content, setContent] = useState("");
   const [disabled, setDisabled] = useState(false);
   const router = useRouter();
@@ -59,18 +59,22 @@ export default function CommentEditor({
 
   return (
     <div className="flex flex-col rounded-xl">
+      {/* header tabs */}
       <div className="flex w-full justify-start rounded-t-xl bg-mirage-300 dark:bg-mirage-800">
         <TabButton
-          isPreview={isPreview}
-          setIsPreview={setIsPreview}
-          isToggleToPreview={false}
+          currentTab={currentTab}
+          setCurrentTab={setCurrentTab}
+          tabId="edit"
+          tabName="編輯"
         />
         <TabButton
-          isPreview={isPreview}
-          setIsPreview={setIsPreview}
-          isToggleToPreview={true}
+          currentTab={currentTab}
+          setCurrentTab={setCurrentTab}
+          tabId="preview"
+          tabName="預覽"
         />
       </div>
+      {/* preview or editing section */}
       <form
         className="flex w-full flex-col gap-4 rounded-b-xl bg-mirage-200 p-4 dark:bg-mirage-900"
         action={async (formData: FormData) => {
@@ -82,22 +86,22 @@ export default function CommentEditor({
           });
         }}
       >
-        <Textarea
-          placeholder="在這裡輸入你想對這篇文章說的話..."
-          className={`min-h-32 ${isPreview && "hidden"} ${
-            disabled && "cursor-not-allowed"
-          }`}
-          value={content}
-          name="content"
-          disabled={disabled}
-          onChange={(e) => {
-            setContent(e.target.value);
-          }}
-        />
-        <MarkdownRender
-          content={content}
-          className={`min-h-32 ${!isPreview && "hidden"}`}
-        />
+        {currentTab == "preview" ? (
+          <MarkdownRender content={content} className="min-h-32" />
+        ) : (
+          <Textarea
+            placeholder="在這裡輸入你想對這篇文章說的話..."
+            className={cn("min-h-32", {
+              "cursor-not-allowed": disabled,
+            })}
+            value={content}
+            name="content"
+            disabled={disabled}
+            onChange={(e) => {
+              setContent(e.target.value);
+            }}
+          />
+        )}
         <Button
           className="w-full"
           type={disabled ? "button" : "submit"}

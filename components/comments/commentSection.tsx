@@ -53,7 +53,7 @@ export default function CommentSection({
           <MarkdownRender content={comment.content} />
         </BlogComment>
       ))}
-      <CommentEditor postId={postId} callback={submitHandler} />
+      <CommentEditor callback={submitHandler} />
     </>
   );
 }
