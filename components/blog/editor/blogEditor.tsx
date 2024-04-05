@@ -114,7 +114,7 @@ export default function PostEditor({
         <MarkdownRender content={debouncedContent} />
       </Card>
 
-      {/* publish tags, categories section */}
+      {/* publish, tags, categories section */}
       <Card
         className={`fixed bottom-0 left-0 right-0 min-w-64 flex-col-reverse gap-5 rounded-xl bg-mirage-200 p-6 opacity-0 transition-all md:relative md:flex md:translate-y-0 md:flex-col md:opacity-100 dark:bg-mirage-900 ${
           isPublishPanelOpen
@@ -149,6 +149,8 @@ export default function PostEditor({
           />
         </div>
       </Card>
+
+      {/* show error messages using dialog */}
       <Dialog
         open={isDialogOpen}
         setOpen={setIsDialogOpen}
