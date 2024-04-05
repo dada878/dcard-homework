@@ -12,7 +12,7 @@ import useOutside from "@/hooks/useOutside";
 import { cn } from "@/utils/cn";
 import validatePost from "@/utils/validatePost";
 
-import CloseableTagItem from "./closeableTagItem";
+import TagEditor from "./tagEditor";
 import Input from "../../form/input";
 import Dialog from "../../modals/dialog";
 import Button from "../../utilities/button";
@@ -29,9 +29,8 @@ export default function PostEditor({
 }>) {
   const [isPublishPanelOpen, setIsPublishPanelOpen] = useState(false);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [postTagsInput, setPostTagsInput] = useState("");
-  const publishPanelRef = useRef(null);
   const [dialogMessage, setDialogMessage] = useState("");
+  const publishPanelRef = useRef(null);
   const [post, setPost] = useState<Post>({
     title: "",
     content: "",
@@ -43,7 +42,7 @@ export default function PostEditor({
   });
   const [debouncedContent] = useDebounce(post.content, 300);
 
-  // set default post data if it exists
+  // set default post data if it exists (for editing post)
   useEffect(() => {
     if (defaultPost) {
       setPost(defaultPost);
@@ -70,20 +69,14 @@ export default function PostEditor({
     setPost({ ...post, [e.target.name]: e.target.value });
   };
 
+  // for mobile view, user can close publish panel when click outside
   useOutside(publishPanelRef, () => {
     setIsPublishPanelOpen(false);
   });
 
-  const handleAddTag = () => {
-    if (postTagsInput && !post.tags.includes(postTagsInput)) {
-      setPost({ ...post, tags: [...post.tags, postTagsInput] });
-      setPostTagsInput("");
-    }
-  };
-
   return (
     <div className="flex h-screen-inner gap-6 p-4 md:p-10">
-      {/* 編輯區塊 */}
+      {/* editor section */}
       <Card
         className={cn(`flex w-full flex-col gap-5 md:p-6`, {
           "opacity-20": isPublishPanelOpen,
@@ -93,7 +86,6 @@ export default function PostEditor({
           value={post.title}
           onChange={handelInputChange}
           name="title"
-          type="text"
           className="text-2xl"
           placeholder="輸入標題..."
         />
@@ -116,11 +108,13 @@ export default function PostEditor({
           </div>
         </Button>
       </Card>
-      {/* 預覽區塊 */}
+
+      {/* preview section */}
       <Card className="hidden w-full overflow-y-scroll p-5 md:block">
         <MarkdownRender content={debouncedContent} />
       </Card>
-      {/* 發布、標籤、類別設定區塊 */}
+
+      {/* publish tags, categories section */}
       <Card
         className={`fixed bottom-0 left-0 right-0 min-w-64 flex-col-reverse gap-5 rounded-xl bg-mirage-200 p-6 opacity-0 transition-all md:relative md:flex md:translate-y-0 md:flex-col md:opacity-100 dark:bg-mirage-900 ${
           isPublishPanelOpen
@@ -137,40 +131,12 @@ export default function PostEditor({
         </Button>
         <div className="flex flex-1 flex-col gap-5">
           <p className="text-xl font-bold">標籤</p>
-          <div className="flex flex-wrap gap-3 empty:hidden">
-            {post.tags.map((tag) => (
-              <CloseableTagItem
-                key={tag}
-                name={tag}
-                onClick={() => {
-                  setPost({
-                    ...post,
-                    tags: post.tags.filter((t) => t !== tag),
-                  });
-                }}
-              />
-            ))}
-          </div>
-          <div className="flex gap-2">
-            <Input
-              value={postTagsInput}
-              onChange={(e) => setPostTagsInput(e.target.value)}
-              type="text"
-              placeholder="添加標籤..."
-              onEnterPress={() => handleAddTag()}
-            />
-            <Button onClick={() => handleAddTag()}>
-              <div className="flex items-center justify-center gap-4">
-                <FontAwesomeIcon icon={faPlus} />
-              </div>
-            </Button>
-          </div>
+          <TagEditor post={post} setPost={setPost} />
           <p className="text-xl font-bold">分類</p>
           <Input
             value={post.category}
             onChange={handelInputChange}
             name="category"
-            type="text"
             placeholder="輸入類別..."
           />
           <p className="text-xl font-bold">文章簡介</p>

@@ -1,7 +1,7 @@
 import { cn } from "@/utils/cn";
 
 export default function Input({
-  type,
+  type = "text",
   value = "",
   onChange = () => {},
   placeholder = "",
@@ -9,7 +9,7 @@ export default function Input({
   name = "",
   onEnterPress,
 }: Readonly<{
-  type: string;
+  type?: string;
   placeholder?: string;
   className?: string;
   value?: string;
