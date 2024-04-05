@@ -240,7 +240,7 @@ The setup process is a bit complex due to the login feature.
 
 Firstly, you need to create a Firebase project following this link: [Firebase Console](https://console.firebase.google.com/u/0/)
 
-![image](https://github.com/dada878/dcard-homework/assets/37009584/2502b5b5-64eb-47eb-b3a3-ff87e8d1e267)
+<img width="1065" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/ec5ec638-1c6a-4de8-8cd8-7788f2bec82e">
 
 Click this button.
 
@@ -252,21 +252,22 @@ Copy the information displayed (we will use it in the last step).
 
 Then, you need to go to Firestore page (you can find it in the left sidebar) and create a database by clicking the "Create database" button.
 
-![image](https://github.com/dada878/dcard-homework/assets/37009584/94fd33f9-622c-4ed2-82c6-2605bb5f9b74)
+<img width="1050" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/691b20df-c053-40a1-bb87-cd898548e538">
 
 After that, you need to go to the project settings page and "Service accounts" tab to generate a private key by clicking the "Generate new private key" button. (you can find the button to go to the project settings page on the top of the sidebar).
 
-<img width="843" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/f27bb3d2-c080-4ce3-a01f-65c8596bd1ee">
+<img width="781" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/1eef7484-0165-4c1f-b7b4-f096aecc827a">
 
 ### Step 2. Create a GitHub OAuth App
 
 Firstly, you need to create a GitHub OAuth App following this link: [GitHub OAuth Apps](https://github.com/settings/applications/new)
 
-<img width="785" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/83153acd-2c4d-4485-9be3-00a82736d3db">
+<img width="708" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/ce3abe00-78e4-4c4b-a2b2-0ba88e17d96a">
+
 
 Then, you need to generate a client secret by clicking the "Generate a new client secret" button. (Copy the client ID and client secret to use in the next step)
 
-<img width="1003" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/f0f2f730-e37f-48fd-82a9-2a442d373775">
+<img width="895" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/f4a5a1a5-0422-4ddc-aef6-1fcfb2166f32">
 
 ### Step 3. Configuration
 
