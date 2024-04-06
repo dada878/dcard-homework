@@ -7,6 +7,13 @@ import { postToIssue } from "@/utils/postToIssue";
 import { queryToURL } from "@/utils/queryToString";
 import validatePost from "@/utils/validatePost";
 
+async function checkAccess() {
+  const haveAccess = await isOwner();
+  if (!haveAccess) {
+    throw new Error("噢不 你似乎沒有權限qwq");
+  }
+}
+
 export async function getPostList(page: string = "1", query?: PostQuery) {
   const queryString = query ? queryToURL(query, page) : "";
   const data = await fetchGithubAPI(`/issues?${queryString}`);
@@ -20,10 +27,7 @@ export async function getPost(id: string) {
 }
 
 export async function createPost(post: Post) {
-  const haveAccess = await isOwner();
-  if (!haveAccess) {
-    throw new Error("噢不 你似乎沒有權限qwq");
-  }
+  await checkAccess();
   validatePost(post);
   const createdPost = await fetchGithubAPI(
     "/issues",
@@ -34,10 +38,7 @@ export async function createPost(post: Post) {
 }
 
 export async function updatePost(id: string, post: Post) {
-  const haveAccess = await isOwner();
-  if (!haveAccess) {
-    throw new Error("噢不 你似乎沒有權限qwq");
-  }
+  await checkAccess();
   validatePost(post);
   const result = await fetchGithubAPI(
     `/issues/${id}`,
@@ -48,10 +49,7 @@ export async function updatePost(id: string, post: Post) {
 }
 
 export async function deletePost(id: string) {
-  const haveAccess = await isOwner();
-  if (!haveAccess) {
-    throw new Error("噢不 你似乎沒有權限qwq");
-  }
+  await checkAccess();
   const result = await fetchGithubAPI(
     `/issues/${id}`,
     {
