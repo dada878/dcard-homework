@@ -35,6 +35,6 @@ export async function fetchGithubAPI(
   }
 
   cache.set(url, data);
-  
+
   return data;
 }

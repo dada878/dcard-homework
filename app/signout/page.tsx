@@ -11,11 +11,9 @@ type Props = {
 const SignOut = (props: Props) => {
   // auto login when user view this page
   useEffect(() => {
-    signOut(
-      {
-        callbackUrl: "/",
-      }
-    );
+    signOut({
+      callbackUrl: "/",
+    });
   });
 
   return (

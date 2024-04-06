@@ -22,10 +22,11 @@ export default function BlogComment({
 }>) {
   return (
     <div
-      className={cn(`flex flex-col overflow-hidden gap-4 rounded-xl bg-mirage-200 p-6 dark:bg-mirage-900`,
+      className={cn(
+        `flex flex-col gap-4 overflow-hidden rounded-xl bg-mirage-200 p-6 dark:bg-mirage-900`,
         {
           "opacity-50": sending,
-        }
+        },
       )}
     >
       <div className="flex justify-between overflow-scroll">

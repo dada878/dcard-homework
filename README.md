@@ -59,7 +59,6 @@ The design draft for this project can be found here: [Figma Draft Link](https://
 
 <img width="920" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/f4a08c93-ce4e-429f-9fa9-e4184edf1ce4">
 
-
 ## Lighthouse Scores
 
 ### Home Page
@@ -103,7 +102,6 @@ The design draft for this project can be found here: [Figma Draft Link](https://
         </td>
     </tr>
 </table>
-
 
 ### Blog View Page
 
@@ -264,7 +262,6 @@ Firstly, you need to create a GitHub OAuth App following this link: [GitHub OAut
 
 <img width="708" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/ce3abe00-78e4-4c4b-a2b2-0ba88e17d96a">
 
-
 Then, you need to generate a client secret by clicking the "Generate a new client secret" button. (Copy the client ID and client secret to use in the next step)
 
 <img width="895" alt="image" src="https://github.com/dada878/dcard-homework/assets/37009584/f4a5a1a5-0422-4ddc-aef6-1fcfb2166f32">
@@ -324,4 +321,5 @@ npm run dev
 ```
 
 # In Closing
+
 Thank you for taking the time to read :)))
