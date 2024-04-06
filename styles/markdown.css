@@ -2,3 +2,8 @@
   background-color: transparent;
   padding: 0;
 }
+
+/* avoid latex overflow */
+.prose p {
+  overflow: scroll;
+}

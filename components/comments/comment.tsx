@@ -4,6 +4,7 @@ import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 
+import { cn } from "@/utils/cn";
 import { formatDate } from "@/utils/dateFormatter";
 
 export default function BlogComment({
@@ -21,11 +22,13 @@ export default function BlogComment({
 }>) {
   return (
     <div
-      className={`flex flex-col gap-4 rounded-xl bg-mirage-200 p-6 dark:bg-mirage-900 ${
-        sending && "opacity-50"
-      }`}
+      className={cn(`flex flex-col overflow-hidden gap-4 rounded-xl bg-mirage-200 p-6 dark:bg-mirage-900`,
+        {
+          "opacity-50": sending,
+        }
+      )}
     >
-      <div className="flex justify-between">
+      <div className="flex justify-between overflow-scroll">
         <div className="flex flex-col gap-3">
           <div className="flex items-center gap-3">
             <Image
