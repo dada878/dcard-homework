@@ -6,12 +6,15 @@ import { useRouter } from "next/navigation";
 
 import { getPost, updatePost } from "@/actions/posts";
 import PostEditor from "@/components/blog/editor/blogEditor";
+import useAdminOnly from "@/hooks/useAdminOnly";
 
 export default function EditPage({
   params,
 }: Readonly<{ params: { id: string } }>) {
   const router = useRouter();
   const [post, setPost] = useState<Post>();
+
+  useAdminOnly();
 
   // load post data you want to edit
   useEffect(() => {

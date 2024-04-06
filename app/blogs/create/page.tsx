@@ -8,6 +8,7 @@ import { createPost } from "@/actions/posts";
 import PostEditor from "@/components/blog/editor/blogEditor";
 import Dialog from "@/components/modals/dialog";
 import Button from "@/components/utilities/button";
+import useAdminOnly from "@/hooks/useAdminOnly";
 
 export default function CreatePage() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -15,6 +16,8 @@ export default function CreatePage() {
   const [postUrl, setPostUrl] = useState("");
   const [errorMessages, setErrorMessages] = useState<string>("");
   const router = useRouter();
+
+  useAdminOnly();
 
   const createPostCallback = async (post: Post) => {
     setIsDialogOpen(true);
