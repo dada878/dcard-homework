@@ -3,8 +3,9 @@ import { useEffect, useRef, useState } from "react";
 
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Image from "next/image";
 
-import { getLoginUser } from "@/actions/auth";
+import { getLoginUserAvatar } from "@/actions/auth";
 import useOutside from "@/hooks/useOutside";
 
 import DarkModeToggle from "./darkModeToggle";
@@ -12,7 +13,7 @@ import NavbarItem from "./navbarItem";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [user, setUser] = useState("登入");
+  const [avatar, setAvatar] = useState<string | undefined>();
   const navbarRef = useRef(null);
 
   useOutside(navbarRef, () => {
@@ -25,8 +26,8 @@ export default function Navbar() {
 
   // get login user name, if not login, show "登入"
   useEffect(() => {
-    getLoginUser().then((name?: string) => {
-      setUser(name ?? "登入");
+    getLoginUserAvatar().then((avatar?: string) => {
+      setAvatar(avatar);
     });
   });
 
@@ -40,19 +41,36 @@ export default function Navbar() {
         <div className="hidden gap-8 md:flex">
           <NavbarItem name="首頁" url="/" />
           <NavbarItem name="文章" url="/blogs" />
-          <NavbarItem name={user} url="/api/auth/signin" />
-        </div>
-        <div className="flex flex-1 flex-row-reverse items-center justify-between gap-0 px-4 md:flex-grow-0 md:flex-row md:justify-around md:gap-4 md:px-0">
-          <FontAwesomeIcon
-            icon={faBars}
-            className={`cursor-pointer text-2xl opacity-70 transition md:!hidden ${
-              isMenuOpen ? "rotate-90" : ""
-            }`}
-            onClick={() => {
-              setIsMenuOpen(!isMenuOpen);
-            }}
+          <NavbarItem
+            name={avatar === undefined ? "登入" : "登出"}
+            url={
+              avatar === undefined ? "/api/auth/signin" : "/api/auth/signout"
+            }
           />
-          <DarkModeToggle />
+        </div>
+        <div className="flex gap-3">
+          {avatar === undefined ? null : (
+            <Image
+              src={avatar}
+              className="rounded-full"
+              alt="logo"
+              width={40}
+              height={40}
+              layout="fixed"
+            />
+          )}
+          <div className="flex flex-1 flex-row-reverse items-center justify-between gap-0 px-4 md:flex-grow-0 md:flex-row md:justify-around md:gap-4 md:px-0">
+            <FontAwesomeIcon
+              icon={faBars}
+              className={`cursor-pointer text-2xl opacity-70 transition md:!hidden ${
+                isMenuOpen ? "rotate-90" : ""
+              }`}
+              onClick={() => {
+                setIsMenuOpen(!isMenuOpen);
+              }}
+            />
+            <DarkModeToggle />
+          </div>
         </div>
       </div>
       {/* Mobile navbar */}
@@ -77,7 +95,7 @@ export default function Navbar() {
         <NavbarItem
           isMobile
           onClick={handleNavbarItemClick}
-          name={user}
+          name={avatar === undefined ? "登入" : "登出"}
           url="/api/auth/signin"
         />
       </div>
