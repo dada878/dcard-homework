@@ -10,7 +10,7 @@ import { getPostList } from "@/actions/posts";
 
 import BlogPost from "./blogPost";
 
-export default function PostList({ query }: Readonly<{ query?: PostQuery }>) {
+export default function BlogList({ query }: Readonly<{ query?: PostQuery }>) {
   const [currentPage, setCurrentPage] = useState(1);
   const [posts, setPosts] = useState<Post[]>([]);
   const [noMorePosts, setNoMorePosts] = useState(false);

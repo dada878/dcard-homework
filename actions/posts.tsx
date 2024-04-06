@@ -1,6 +1,6 @@
 "use server";
 
-import { isOwner } from "@/actions/auth";
+import { isAdmin } from "@/actions/auth";
 import { fetchGithubAPI } from "@/utils/fetchGithubAPI";
 import { issueToPost } from "@/utils/issueToPost";
 import { postToIssue } from "@/utils/postToIssue";
@@ -8,7 +8,7 @@ import { queryToURL } from "@/utils/queryToString";
 import validatePost from "@/utils/validatePost";
 
 async function checkAccess() {
-  const haveAccess = await isOwner();
+  const haveAccess = await isAdmin();
   if (!haveAccess) {
     throw new Error("噢不 你似乎沒有權限qwq");
   }

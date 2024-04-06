@@ -14,7 +14,7 @@ export async function getLoginUserAvatar() {
   return session?.user.image ?? undefined;
 }
 
-export async function isOwner() {
+export async function isAdmin() {
   const session = await getServerSession(authOptions);
   return session?.user.role === "admin";
 }

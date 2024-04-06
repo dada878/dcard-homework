@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 
-import { isOwner } from "@/actions/auth";
+import { isAdmin } from "@/actions/auth";
 import { getPost, getPostComments } from "@/actions/posts";
 import BlogContent from "@/components/blog/blogContent";
 import BlogPageFloatingActions from "@/components/blog/blogPageFloatingActions";
@@ -40,7 +40,7 @@ export default async function BlogPostPage({
   const [post, comments, showActionButtons] = await Promise.all([
     getPost(params.id),
     getPostComments(params.id),
-    isOwner(),
+    isAdmin(),
   ]).catch(() => {
     notFound();
   });

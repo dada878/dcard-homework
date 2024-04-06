@@ -2,10 +2,10 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Metadata } from "next";
 
-import { isOwner } from "@/actions/auth";
+import { isAdmin } from "@/actions/auth";
 import { getCategoryList } from "@/actions/categories";
 import { getTagList } from "@/actions/tags";
-import PostListClient from "@/components/blog/postListClient";
+import BlogList from "@/components/blog/blogList";
 import CategoryFilter from "@/components/filters/categoryFilter";
 import TagFilter from "@/components/filters/tagFilter";
 import Container from "@/components/layout/container";
@@ -69,7 +69,7 @@ export default async function BlogsPage({
 }: Readonly<{
   searchParams: { tags?: string; category?: string };
 }>) {
-  const showNewPostButton = await isOwner();
+  const showNewPostButton = await isAdmin();
   const tags = (searchParams.tags?.split(",") ?? []).filter(
     (tag) => tag.length,
   );
@@ -110,7 +110,7 @@ export default async function BlogsPage({
             <Categories mobileMode={true} />
           </div>
         </div>
-        <PostListClient query={currentQuery} />
+        <BlogList query={currentQuery} />
       </Container>
 
       <FloatingActionSection>

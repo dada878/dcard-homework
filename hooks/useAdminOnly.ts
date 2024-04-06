@@ -2,13 +2,13 @@ import { useEffect } from "react";
 
 import { useRouter } from "next/navigation";
 
-import { isOwner } from "@/actions/auth";
+import { isAdmin } from "@/actions/auth";
 
 export default function useAdminOnly() {
   const router = useRouter();
   useEffect(() => {
     async function checkAccess() {
-      const access = await isOwner();
+      const access = await isAdmin();
       if (!access) {
         router.push("/");
       }
