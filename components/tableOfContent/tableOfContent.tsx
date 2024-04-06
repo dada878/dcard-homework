@@ -50,7 +50,7 @@ export default function TableOfContent({
 
   return (
     <Card>
-      <h3 className="mb-4 text-center text-2xl font-bold">文章目錄</h3>
+      <h3 className="mb-4 text-center text-2xl font-bold">文章目次</h3>
       <div className="flex flex-col gap-2">
         {headings.length > 0 ? (
           headings.map((heading) => (
