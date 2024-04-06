@@ -24,7 +24,7 @@ export default function Dialog({
           />
           <div className="flex h-full items-center justify-center">
             <motion.div
-              className="z-20 flex flex-col gap-5 rounded-lg bg-mirage-800 p-7"
+              className="z-20 flex flex-col gap-5 rounded-lg bg-mirage-200 p-7 dark:bg-mirage-800"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}

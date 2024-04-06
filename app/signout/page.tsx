@@ -18,7 +18,7 @@ const SignOut = (props: Props) => {
 
   return (
     <div className="flex h-screen-inner items-center justify-center">
-      <div className="flex flex-col justify-center gap-4 rounded-lg bg-mirage-800 p-8">
+      <div className="flex flex-col justify-center gap-4 rounded-lg bg-mirage-200 dark:bg-mirage-800 p-8">
         Logging out...
       </div>
     </div>
