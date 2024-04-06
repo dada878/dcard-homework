@@ -48,18 +48,28 @@ export default function Navbar() {
             }
           />
         </div>
-        <div className="flex gap-3">
+        <div className="flex w-full gap-3 md:w-auto">
           {avatar === undefined ? null : (
             <Image
               src={avatar}
-              className="rounded-full"
+              className="hidden rounded-full md:block"
               alt="logo"
               width={40}
               height={40}
               layout="fixed"
             />
           )}
-          <div className="flex flex-1 flex-row-reverse items-center justify-between gap-0 px-4 md:flex-grow-0 md:flex-row md:justify-around md:gap-4 md:px-0">
+          <div className="flex flex-1 flex-row-reverse items-center justify-between gap-0 pl-4 pr-1 md:flex-grow-0 md:flex-row md:justify-around md:gap-4 md:px-0 md:pr-4">
+            {avatar === undefined ? null : (
+              <Image
+                src={avatar}
+                className="rounded-full md:hidden"
+                alt="logo"
+                width={40}
+                height={40}
+                layout="fixed"
+              />
+            )}
             <FontAwesomeIcon
               icon={faBars}
               className={`cursor-pointer text-2xl opacity-70 transition md:!hidden ${
