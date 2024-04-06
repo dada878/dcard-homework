@@ -34,7 +34,7 @@ export default function Navbar() {
   return (
     <nav
       ref={navbarRef}
-      className="fixed left-0 right-0 top-0 z-20 border-b border-b-secondary-light/20 bg-slate-600/10 p-1 py-4 backdrop-blur-md dark:border-b-[#ffffff3b] dark:bg-white/10 md:py-2"
+      className="fixed left-0 right-0 top-0 z-20 border-b border-b-secondary-light/20 bg-slate-600/10 p-1 py-2 backdrop-blur-md dark:border-b-[#ffffff3b] dark:bg-white/10 md:py-2"
     >
       {/* Desktop navbar */}
       <div className="mx-auto flex items-center pr-2 md:justify-between md:pl-5 md:pr-4">
@@ -72,7 +72,7 @@ export default function Navbar() {
             )}
             <FontAwesomeIcon
               icon={faBars}
-              className={`cursor-pointer text-2xl opacity-70 transition md:!hidden ${
+              className={`my-2 cursor-pointer text-2xl opacity-70 transition md:!hidden ${
                 isMenuOpen ? "rotate-90" : ""
               }`}
               onClick={() => {
@@ -106,7 +106,7 @@ export default function Navbar() {
           isMobile
           onClick={handleNavbarItemClick}
           name={avatar === undefined ? "登入" : "登出"}
-          url="/api/auth/signin"
+          url={avatar === undefined ? "/api/auth/signin" : "/api/auth/signout"}
         />
       </div>
     </nav>
