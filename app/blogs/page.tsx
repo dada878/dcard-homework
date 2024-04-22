@@ -110,7 +110,7 @@ export default async function BlogsPage({
             <Categories mobileMode={true} />
           </div>
         </div>
-        <BlogList query={currentQuery} />
+        <BlogList query={currentQuery} key={JSON.stringify(currentQuery)} />
       </Container>
 
       <FloatingActionSection>

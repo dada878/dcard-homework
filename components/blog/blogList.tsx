@@ -16,13 +16,6 @@ export default function BlogList({ query }: Readonly<{ query?: PostQuery }>) {
   const [noMorePosts, setNoMorePosts] = useState(false);
   const { ref, inView } = useInView();
 
-  // reset posts when query changes
-  useEffect(() => {
-    setPosts([]);
-    setCurrentPage(1);
-    setNoMorePosts(false);
-  }, [query]);
-
   // fetch posts when scroll to the end (when spinner is in view)
   useEffect(() => {
     let didCancel = false;
