@@ -29,7 +29,7 @@ export default function BlogComment({
         },
       )}
     >
-      <div className="flex justify-between overflow-scroll">
+      <div className="flex justify-between overflow-auto">
         <div className="flex flex-col gap-3">
           <div className="flex items-center gap-3">
             <Image

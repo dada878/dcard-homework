@@ -5,5 +5,5 @@
 
 /* avoid latex overflow */
 .prose p {
-  overflow: scroll;
+  overflow: auto;
 }
