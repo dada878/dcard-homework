@@ -1,7 +1,5 @@
 "use client";
 
-import React, { useEffect } from "react";
-
 import { signOut } from "next-auth/react";
 
 type Props = {
@@ -10,15 +8,15 @@ type Props = {
 
 const SignOut = (props: Props) => {
   // auto login when user view this page
-  useEffect(() => {
+  if (typeof window !== 'undefined') {
     signOut({
       callbackUrl: "/",
     });
-  });
+  }
 
   return (
     <div className="flex h-screen-inner items-center justify-center">
-      <div className="flex flex-col justify-center gap-4 rounded-lg bg-mirage-200 dark:bg-mirage-800 p-8">
+      <div className="flex flex-col justify-center gap-4 rounded-lg bg-mirage-200 p-8 dark:bg-mirage-800">
         Logging out...
       </div>
     </div>
