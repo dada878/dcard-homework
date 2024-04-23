@@ -13,6 +13,7 @@ import Container from "@/components/layout/container";
 import Card from "@/components/utilities/card";
 import { defaultSEO } from "@/utils/seo";
 import "react-loading-skeleton/dist/skeleton.css";
+import FixedSidebar from "@/components/layout/fixedSidebar";
 
 export async function generateMetadata({
   params,
@@ -42,17 +43,35 @@ async function MainContentSkeleton() {
   const highlightColor = "#778db6";
   const colorProps = { baseColor, highlightColor };
   return (
-    <Container className="w-full">
-      <Card className="flex flex-col gap-3 p-8">
-        <Skeleton count={1} height={50} {...colorProps} className="mb-2" />
-        <div className="flex gap-2">
-          <Skeleton count={1} width={100} height={30} {...colorProps} />
-          <Skeleton count={1} width={100} height={30} {...colorProps} />
-        </div>
-        <Skeleton count={7} enableAnimation={true} {...colorProps} />
-        <Skeleton count={5} enableAnimation={true} {...colorProps} />
-      </Card>
-    </Container>
+    <>
+      <FixedSidebar>
+        <Card className="flex flex-col p-4">
+          <h3 className="mb-4 text-center text-2xl font-bold">文章目次</h3>
+          <div className="flex flex-col gap-1">
+            {Array.from({ length: 4 }).map((_, index) => (
+              <Skeleton
+                key={index}
+                count={1}
+                height={20}
+                width={Math.random() * 100 + 80}
+                {...colorProps}
+              />
+            ))}
+          </div>
+        </Card>
+      </FixedSidebar>
+      <Container className="w-full">
+        <Card className="flex flex-col gap-3 p-8">
+          <Skeleton count={1} height={50} {...colorProps} className="mb-2" />
+          <div className="flex gap-2">
+            <Skeleton count={1} width={100} height={30} {...colorProps} />
+            <Skeleton count={1} width={100} height={30} {...colorProps} />
+          </div>
+          <Skeleton count={7} enableAnimation={true} {...colorProps} />
+          <Skeleton count={5} enableAnimation={true} {...colorProps} />
+        </Card>
+      </Container>
+    </>
   );
 }
 
@@ -81,12 +100,11 @@ export default async function BlogPostPage({
 
   return (
     <div className="flex">
-      <BlogPageSidebar
-        showActionButtons={showActionButtons}
-        postID={params.id}
-      />
-
       <Suspense fallback={<MainContentSkeleton />}>
+        <BlogPageSidebar
+          showActionButtons={showActionButtons}
+          postID={params.id}
+        />
         <MainContent id={params.id} />
       </Suspense>
 
