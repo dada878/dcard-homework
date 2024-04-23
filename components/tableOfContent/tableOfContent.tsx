@@ -1,8 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, ReactNode } from "react";
 
 import { useMotionValueEvent, useScroll } from "framer-motion";
-
-import TableOfContentItem from "@/components/tableOfContent/TableOfContentItem";
 
 import Card from "../utilities/card";
 
@@ -67,5 +65,35 @@ export default function TableOfContent({
         )}
       </div>
     </Card>
+  );
+}
+
+function TableOfContentItem({
+  children,
+  active,
+  id,
+}: Readonly<{
+  children: ReactNode;
+  active?: boolean;
+  id: string;
+}>) {
+  function scrollToElement(id: string) {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+
+  return (
+    <button
+      onClick={() => scrollToElement(id)}
+      className={`border-l-4 text-left ${
+        active
+          ? "border-black font-bold text-black dark:border-primary dark:text-primary"
+          : "border-transparent text-secondary-light dark:text-secondary"
+      } line-clamp-1 cursor-pointer pl-3 transition-all hover:border-black hover:font-bold hover:text-black dark:hover:border-primary dark:hover:text-primary`}
+    >
+      {children}
+    </button>
   );
 }
