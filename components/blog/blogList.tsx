@@ -25,8 +25,8 @@ export default function BlogList({ query }: Readonly<{ query?: PostQuery }>) {
         setNoMorePosts(true);
       }
       if (!didCancel && newPosts.length > 0) {
-        setPosts([...posts, ...newPosts]);
-        setCurrentPage(currentPage + 1);
+        setPosts(prevPosts => [...prevPosts, ...newPosts]);
+        setCurrentPage(prevPage => prevPage + 1);
       }
     }
     if (inView) {
@@ -35,7 +35,7 @@ export default function BlogList({ query }: Readonly<{ query?: PostQuery }>) {
     return () => {
       didCancel = true;
     };
-  }, [inView, posts, query, currentPage]);
+  }, [inView, query, currentPage]);
 
   return (
     <>
