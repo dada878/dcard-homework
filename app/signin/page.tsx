@@ -8,7 +8,7 @@ type Props = {
 
 const SignInPage = (props: Props) => {
   // auto login when user view this page
-  if (typeof window !== 'undefined') {
+  if (typeof window !== "undefined") {
     signIn("github", {
       callbackUrl: "/",
     });

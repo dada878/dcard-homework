@@ -25,8 +25,8 @@ export default function BlogList({ query }: Readonly<{ query?: PostQuery }>) {
         setNoMorePosts(true);
       }
       if (!didCancel && newPosts.length > 0) {
-        setPosts(prevPosts => [...prevPosts, ...newPosts]);
-        setCurrentPage(prevPage => prevPage + 1);
+        setPosts((prevPosts) => [...prevPosts, ...newPosts]);
+        setCurrentPage((prevPage) => prevPage + 1);
       }
     }
     if (inView) {
