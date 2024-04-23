@@ -9,33 +9,6 @@ import { cn } from "@/utils/cn";
 
 import MarkdownRender from "../utilities/markdownRender";
 
-function TabButton({
-  currentTab,
-  setCurrentTab,
-  tabId,
-  tabName,
-}: Readonly<{
-  currentTab: string;
-  setCurrentTab: (tabId: string) => void;
-  tabId: string;
-  tabName: string;
-}>) {
-  return (
-    <button
-      onClick={() => {
-        setCurrentTab(tabId);
-      }}
-      className={`${
-        currentTab === tabId
-          ? "bg-mirage-200 dark:bg-mirage-900"
-          : "cursor-pointer bg-mirage-300 dark:bg-mirage-800"
-      } rounded-t-xl px-6 pb-2 pt-3`}
-    >
-      {tabName}
-    </button>
-  );
-}
-
 export default function CommentEditor({
   callback,
 }: Readonly<{
@@ -113,5 +86,32 @@ export default function CommentEditor({
         </Button>
       </form>
     </div>
+  );
+}
+
+function TabButton({
+  currentTab,
+  setCurrentTab,
+  tabId,
+  tabName,
+}: Readonly<{
+  currentTab: string;
+  setCurrentTab: (tabId: string) => void;
+  tabId: string;
+  tabName: string;
+}>) {
+  return (
+    <button
+      onClick={() => {
+        setCurrentTab(tabId);
+      }}
+      className={`${
+        currentTab === tabId
+          ? "bg-mirage-200 dark:bg-mirage-900"
+          : "cursor-pointer bg-mirage-300 dark:bg-mirage-800"
+      } rounded-t-xl px-6 pb-2 pt-3`}
+    >
+      {tabName}
+    </button>
   );
 }

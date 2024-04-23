@@ -15,55 +15,6 @@ import Card from "@/components/utilities/card";
 import LinkButton from "@/components/utilities/linkButton";
 import { defaultSEO } from "@/utils/seo";
 
-export const metadata: Metadata = defaultSEO({
-  title: "文章列表",
-  url: "/blogs",
-  description: "在這裡查看我超酷的文章們！",
-});
-
-async function Categories({ mobileMode }: Readonly<{ mobileMode?: boolean }>) {
-  try {
-    const categories = await getCategoryList();
-    return (
-      <div
-        className={`flex ${
-          mobileMode ? "items-center gap-4 overflow-x-scroll" : "flex-col gap-3"
-        }`}
-      >
-        <CategoryFilter name="全部" />
-        {categories.map((category: string) => (
-          <CategoryFilter key={category} name={category} />
-        ))}
-      </div>
-    );
-  } catch (error) {
-    const errorMessage =
-      error instanceof Error ? error.message : "An error occurred";
-    return <p>Error: {errorMessage}</p>;
-  }
-}
-
-async function Tags({ currentTags }: Readonly<{ currentTags?: string[] }>) {
-  try {
-    const tags = await getTagList();
-    return (
-      <>
-        {tags.map((tag: string) => (
-          <TagFilter
-            key={tag}
-            selected={currentTags?.includes(tag)}
-            name={tag}
-          />
-        ))}
-      </>
-    );
-  } catch (error) {
-    const errorMessage =
-      error instanceof Error ? error.message : "An error occurred";
-    return <p>Error: {errorMessage}</p>;
-  }
-}
-
 export default async function BlogsPage({
   searchParams,
 }: Readonly<{
@@ -127,4 +78,53 @@ export default async function BlogsPage({
       </FloatingActionSection>
     </div>
   );
+}
+
+export const metadata: Metadata = defaultSEO({
+  title: "文章列表",
+  url: "/blogs",
+  description: "在這裡查看我超酷的文章們！",
+});
+
+async function Categories({ mobileMode }: Readonly<{ mobileMode?: boolean }>) {
+  try {
+    const categories = await getCategoryList();
+    return (
+      <div
+        className={`flex ${
+          mobileMode ? "items-center gap-4 overflow-x-scroll" : "flex-col gap-3"
+        }`}
+      >
+        <CategoryFilter name="全部" />
+        {categories.map((category: string) => (
+          <CategoryFilter key={category} name={category} />
+        ))}
+      </div>
+    );
+  } catch (error) {
+    const errorMessage =
+      error instanceof Error ? error.message : "An error occurred";
+    return <p>Error: {errorMessage}</p>;
+  }
+}
+
+async function Tags({ currentTags }: Readonly<{ currentTags?: string[] }>) {
+  try {
+    const tags = await getTagList();
+    return (
+      <>
+        {tags.map((tag: string) => (
+          <TagFilter
+            key={tag}
+            selected={currentTags?.includes(tag)}
+            name={tag}
+          />
+        ))}
+      </>
+    );
+  } catch (error) {
+    const errorMessage =
+      error instanceof Error ? error.message : "An error occurred";
+    return <p>Error: {errorMessage}</p>;
+  }
 }

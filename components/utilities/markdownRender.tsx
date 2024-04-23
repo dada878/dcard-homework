@@ -17,20 +17,6 @@ SyntaxHighlighter.registerLanguage("js", js);
 SyntaxHighlighter.registerLanguage("ts", ts);
 SyntaxHighlighter.registerLanguage("py", py);
 
-function Code(props: any) {
-  const { children, className, node, ...rest } = props;
-  const match = /language-(\w+)/.exec(className ?? "");
-  return match ? (
-    <SyntaxHighlighter language={match[1]} style={dracula}>
-      {String(children).replace(/\n$/, "")}
-    </SyntaxHighlighter>
-  ) : (
-    <code {...rest} className={className}>
-      {children}
-    </code>
-  );
-}
-
 export default function MarkdownRender({
   content,
   className,
@@ -49,5 +35,19 @@ export default function MarkdownRender({
     >
       {content}
     </Markdown>
+  );
+}
+
+function Code(props: any) {
+  const { children, className, node, ...rest } = props;
+  const match = /language-(\w+)/.exec(className ?? "");
+  return match ? (
+    <SyntaxHighlighter language={match[1]} style={dracula}>
+      {String(children).replace(/\n$/, "")}
+    </SyntaxHighlighter>
+  ) : (
+    <code {...rest} className={className}>
+      {children}
+    </code>
   );
 }

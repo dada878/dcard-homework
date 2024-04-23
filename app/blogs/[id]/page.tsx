@@ -10,10 +10,35 @@ import BlogPageFloatingActions from "@/components/blog/blogPageFloatingActions";
 import BlogPageSidebar from "@/components/blog/blogPageSidebar";
 import CommentSection from "@/components/comments/commentSection";
 import Container from "@/components/layout/container";
+import FixedSidebar from "@/components/layout/fixedSidebar";
 import Card from "@/components/utilities/card";
 import { defaultSEO } from "@/utils/seo";
 import "react-loading-skeleton/dist/skeleton.css";
-import FixedSidebar from "@/components/layout/fixedSidebar";
+
+export default async function BlogPostPage({
+  params,
+}: Readonly<{
+  params: { id: string };
+}>) {
+  const showActionButtons = await isAdmin();
+
+  return (
+    <div className="flex">
+      <Suspense fallback={<MainContentSkeleton />}>
+        <BlogPageSidebar
+          showActionButtons={showActionButtons}
+          postID={params.id}
+        />
+        <MainContent id={params.id} />
+      </Suspense>
+
+      <BlogPageFloatingActions
+        showActionButtons={showActionButtons}
+        postID={params.id}
+      />
+    </div>
+  );
+}
 
 export async function generateMetadata({
   params,
@@ -88,30 +113,5 @@ async function MainContent({ id }: Readonly<{ id: string }>) {
       {post && <BlogContent post={post} />}
       <CommentSection comments={comments} postId={id} />
     </Container>
-  );
-}
-
-export default async function BlogPostPage({
-  params,
-}: Readonly<{
-  params: { id: string };
-}>) {
-  const showActionButtons = await isAdmin();
-
-  return (
-    <div className="flex">
-      <Suspense fallback={<MainContentSkeleton />}>
-        <BlogPageSidebar
-          showActionButtons={showActionButtons}
-          postID={params.id}
-        />
-        <MainContent id={params.id} />
-      </Suspense>
-
-      <BlogPageFloatingActions
-        showActionButtons={showActionButtons}
-        postID={params.id}
-      />
-    </div>
   );
 }
