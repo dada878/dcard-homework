@@ -25,8 +25,7 @@ export default function EditPage({
 
   const createPostCallback = (post: Post) => {
     updatePost(params.id, post).then(() => {
-      startTransition(() => router.push("/blogs"));
-      startTransition(() => router.refresh());
+      router.push("/blogs");
     });
   };
 

@@ -50,13 +50,9 @@ export default function CommentEditor({
       {/* preview or editing section */}
       <form
         className="flex w-full flex-col gap-4 rounded-b-xl bg-mirage-200 p-4 dark:bg-mirage-900"
-        action={async (formData: FormData) => {
-          startTransition(() => {
-            setContent("");
-          });
-          startTransition(() => {
-            callback(formData);
-          });
+        action={(formData: FormData) => {
+          setContent("");
+          callback(formData);
         }}
       >
         {currentTab == "preview" ? (

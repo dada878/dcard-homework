@@ -44,8 +44,7 @@ export default function CreatePage() {
               <Button onClick={() => router.push(postUrl)}>查看文章</Button>
               <Button
                 onClick={() => {
-                  startTransition(() => router.push("/blogs"));
-                  startTransition(() => router.refresh());
+                  router.push("/blogs");
                 }}
               >
                 返回部落格頁面

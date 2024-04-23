@@ -48,8 +48,7 @@ export default function DeleteButton({
         setOpen={setIsDialogOpen}
         onConfirm={() => {
           deletePost(id).then(() => {
-            startTransition(() => router.push("/blogs"));
-            startTransition(() => router.refresh());
+            router.push("/blogs");
           });
         }}
         title="確定要刪除文章嗎？"
