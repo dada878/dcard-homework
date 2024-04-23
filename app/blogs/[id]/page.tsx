@@ -1,12 +1,16 @@
+import { Suspense } from "react";
+
 import Skeleton from "react-loading-skeleton";
 
 import { isAdmin } from "@/actions/auth";
 import { getPost } from "@/actions/posts";
 import BlogPageFloatingActions from "@/components/blog/blogPageFloatingActions";
 import BlogPageSidebar from "@/components/blog/blogPageSidebar";
+import { MainContent } from "@/components/blog/mainContent";
 import Container from "@/components/layout/container";
 import Card from "@/components/utilities/card";
 import { defaultSEO } from "@/utils/seo";
+
 import "react-loading-skeleton/dist/skeleton.css";
 
 export async function generateMetadata({
@@ -65,7 +69,9 @@ export default async function BlogPostPage({
         postID={params.id}
       />
 
-      <MainContentSkeleton />
+      <Suspense fallback={<MainContentSkeleton />}>
+        <MainContent id={params.id} />
+      </Suspense>
 
       <BlogPageFloatingActions
         showActionButtons={showActionButtons}
