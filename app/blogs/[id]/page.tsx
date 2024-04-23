@@ -1,14 +1,9 @@
-import { Suspense } from "react";
-
-import { notFound } from "next/navigation";
 import Skeleton from "react-loading-skeleton";
 
 import { isAdmin } from "@/actions/auth";
-import { getPost, getPostComments } from "@/actions/posts";
-import BlogContent from "@/components/blog/blogContent";
+import { getPost } from "@/actions/posts";
 import BlogPageFloatingActions from "@/components/blog/blogPageFloatingActions";
 import BlogPageSidebar from "@/components/blog/blogPageSidebar";
-import CommentSection from "@/components/comments/commentSection";
 import Container from "@/components/layout/container";
 import Card from "@/components/utilities/card";
 import { defaultSEO } from "@/utils/seo";
@@ -56,22 +51,6 @@ async function MainContentSkeleton() {
   );
 }
 
-async function MainContent({ id }: Readonly<{ id: string }>) {
-  const [post, comments] = await Promise.all([
-    getPost(id),
-    getPostComments(id),
-  ]).catch(() => {
-    notFound();
-  });
-
-  return (
-    <Container className="w-full">
-      {post && <BlogContent post={post} />}
-      <CommentSection comments={comments} postId={id} />
-    </Container>
-  );
-}
-
 export default async function BlogPostPage({
   params,
 }: Readonly<{
@@ -86,9 +65,7 @@ export default async function BlogPostPage({
         postID={params.id}
       />
 
-      <Suspense fallback={<MainContentSkeleton />}>
-        <MainContent id={params.id} />
-      </Suspense>
+      <MainContentSkeleton />
 
       <BlogPageFloatingActions
         showActionButtons={showActionButtons}
