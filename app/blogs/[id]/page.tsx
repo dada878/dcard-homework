@@ -4,11 +4,10 @@ import { notFound } from "next/navigation";
 import Skeleton from "react-loading-skeleton";
 
 import { isAdmin } from "@/actions/auth";
-import { getPost, getPostComments } from "@/actions/posts";
-import BlogContent from "@/components/blog/blogContent";
+import { getPost } from "@/actions/posts";
 import BlogPageFloatingActions from "@/components/blog/blogPageFloatingActions";
 import BlogPageSidebar from "@/components/blog/blogPageSidebar";
-import CommentSection from "@/components/comments/commentSection";
+import { MainContent } from "@/components/blog/mainContent";
 import Container from "@/components/layout/container";
 import Card from "@/components/utilities/card";
 import { defaultSEO } from "@/utils/seo";
@@ -52,22 +51,6 @@ async function MainContentSkeleton() {
         <Skeleton count={7} enableAnimation={true} {...colorProps} />
         <Skeleton count={5} enableAnimation={true} {...colorProps} />
       </Card>
-    </Container>
-  );
-}
-
-async function MainContent({ id }: Readonly<{ id: string }>) {
-  const [post, comments] = await Promise.all([
-    getPost(id),
-    getPostComments(id),
-  ]).catch(() => {
-    notFound();
-  });
-
-  return (
-    <Container className="w-full">
-      {post && <BlogContent post={post} />}
-      <CommentSection comments={comments} postId={id} />
     </Container>
   );
 }
